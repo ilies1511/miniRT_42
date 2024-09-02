@@ -24,7 +24,7 @@ endif
 
 SRC_DIR = srcs/
 SOURCE_FILES= \
-	main.c 
+	main.c
 SOURCES = $(addprefix $(SRC_DIR), $(SOURCE_FILES))
 
 OBJ_DIR = o_files/
@@ -91,7 +91,7 @@ $(LIBFT): $(LIBFT_DIR)
 	@cd libft && make CFLAGS=$(CLFAGS)
 
 $(LIBFT_DIR):
-	@if [ "$(USER)" = "frapp" ] || [ "$(USER)" = "fabi" ] ; then \
+	@if [ "$(USER)" = "frapp" ] || [ "$(USER)" = "fabi" ] || [ "$(USER)" = "iziane" ]; then \
 		echo "$(GREEN) User $(USER) recognized, cloning via SSH$(CLEAR)"; \
 		git clone git@github.com:FabianRapp/libft.git $(LIBFT_DIR);\
 	else \
