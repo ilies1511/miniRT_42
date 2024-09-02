@@ -4,7 +4,7 @@ FLAGS_SPEED = -Wall -Wextra -Ofast -march=native -flto -NDBUG=1
 #-Werror
 #-O3
 # -Werror
-NAME=cub3D
+NAME=miniRT
 LIBFT_DIR = libft/
 LIBFT 	=	$(LIBFT_DIR)libft.a
 INCLUDES=-I./includes -I./MLX42/include/MLX42 -I./MLX42/include -I./libft
@@ -39,7 +39,7 @@ CLEAR	=	\033[0m
 .PHONY: clone_mlx42 all clean fclean ffclean
 
 all: mlx $(LIBFT) $(OBJECTS)
-	$(CC) $(CFLAGS) $(INCLUDES) $(OBJECTS) $(LIBFT) -o $(NAME) $(MLX_FLAGS)
+	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJECTS) $(LIBFT) -o $(NAME) $(MLX_FLAGS)
 	@echo "$(GREEN)$(NAME) compiled!$(CLEAR)"
 
 clean:
@@ -91,7 +91,12 @@ $(LIBFT): $(LIBFT_DIR)
 	@cd libft && make CFLAGS=$(CLFAGS)
 
 $(LIBFT_DIR):
-	git clone https://github.com/FabianRapp/libft.git $(LIBFT_DIR)
+	@if [ "$(USER)" = "frapp" ] || [ "$(USER)" = "fabi" ] ; then \
+		echo "$(GREEN) User $(USER) recognized, cloning via SSH$(CLEAR)"; \
+		git clone git@github.com:FabianRapp/libft.git $(LIBFT_DIR);\
+	else \
+		git clone https://github.com/FabianRapp/libft.git $(LIBFT_DIR);\
+	fi
 
 $(OBJ_DIR):
 	@mkdir $(OBJ_DIR)
