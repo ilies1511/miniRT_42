@@ -58,3 +58,6 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+#Executable
+miniRT

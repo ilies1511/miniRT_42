@@ -1,10 +1,10 @@
+NAME=miniRT
 CC= cc
 CFLAGS= -Wall -Wextra -fsanitize=address -g
 FLAGS_SPEED = -Wall -Wextra -Ofast -march=native -flto -NDBUG=1
 #-Werror
 #-O3
 # -Werror
-NAME=miniRT
 LIBFT_DIR = libft/
 LIBFT 	=	$(LIBFT_DIR)libft.a
 INCLUDES=-I./includes -I./MLX42/include/MLX42 -I./MLX42/include -I./libft
@@ -45,7 +45,7 @@ all: mlx $(LIBFT) $(OBJECTS)
 clean:
 	@rm -f $(OBJECTS)
 	@if [ -d $(OBJ_DIR) ]; then rmdir $(OBJ_DIR); fi
-	@cd libft && make clean
+	@if [ -d $(LIBFT_DIR) ]; then cd libft && make clean; fi
 	@echo "$(CYAN)object files cleaned$(CLEAR)"
 
 fclean: clean
@@ -55,6 +55,7 @@ fclean: clean
 
 ffclean: fclean
 	@rm -rf MLX42
+	@rm -rf $(LIBFT_DIR)
 	@echo "$(CYAN)cub3D ffclean$(CLEAR)"
 
 re: fclean
@@ -91,7 +92,7 @@ $(LIBFT): $(LIBFT_DIR)
 	@cd libft && make CFLAGS=$(CLFAGS)
 
 $(LIBFT_DIR):
-	@if [ "$(USER)" = "frapp" ] || [ "$(USER)" = "fabi" ] || [ "$(USER)" = "iziane" ]; then \
+	@if [ "$(USER)" = "frapp" ] || [ "$(USER)" = "fabi" ] ; then \
 		echo "$(GREEN) User $(USER) recognized, cloning via SSH$(CLEAR)"; \
 		git clone git@github.com:FabianRapp/libft.git $(LIBFT_DIR);\
 	else \
