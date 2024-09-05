@@ -24,12 +24,19 @@ endif
 
 SRC_DIR = srcs/
 SOURCE_FILES= \
-	main.c
+	main.c \
+	engine/utils/reset.c \
+	init_exit/init.c \
+	init_exit/at_exit.c \
+	mlx_interface/hooks.c
+
 SOURCES = $(addprefix $(SRC_DIR), $(SOURCE_FILES))
 
 OBJ_DIR = o_files/
-TMP=$(notdir $(SOURCES))
-OBJECTS=$(TMP:%.c=$(OBJ_DIR)%.o)
+OBJECTS=$(SOURCE_FILES:%.c=$(OBJ_DIR)%.o)
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c  $(OBJ_DIR) mlx
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 GREEN	=	\033[0;32m
 YELLOW	=	\033[33m
@@ -44,13 +51,13 @@ all: mlx $(LIBFT) $(OBJECTS)
 
 clean:
 	@rm -f $(OBJECTS)
-	@if [ -d $(OBJ_DIR) ]; then rmdir $(OBJ_DIR); fi
+#@if [ -d $(OBJ_DIR) ]; then rmdir $(OBJ_DIR); fi
 	@if [ -d $(LIBFT_DIR) ]; then cd libft && make clean; fi
 	@echo "$(CYAN)object files cleaned$(CLEAR)"
 
 fclean: clean
 	@rm -f $(NAME)
-	@cd libft && make fclean
+	@if [ -d $(LIBFT_DIR) ]; then cd libft && make fclean; fi
 	@echo "$(CYAN)cub3D fclean$(CLEAR)"
 
 ffclean: fclean
