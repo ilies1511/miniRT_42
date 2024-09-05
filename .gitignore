@@ -5,7 +5,7 @@ c
 d
 e
 MLX42
-o_files
+
 # Prerequisites
 *.d
 
@@ -63,3 +63,5 @@ dkms.conf
 miniRT
 #libft
 libft/
+
+
