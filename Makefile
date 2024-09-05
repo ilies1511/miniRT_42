@@ -1,7 +1,7 @@
-NAME=miniRT
-CC= cc
-CFLAGS= -Wall -Wextra -fsanitize=address -g
-FLAGS_SPEED = -Wall -Wextra -Ofast -march=native -flto -NDBUG=1
+NAME := miniRT
+CC := cc
+CFLAGS := -Wall -Wextra -fsanitize=address -g
+FLAGS_SPEED := -Wall -Wextra -Ofast -march=native -flto -NDBUG=1
 #-Werror
 #-O3
 # -Werror
@@ -21,10 +21,10 @@ else
 	MLX_FLAGS = $(MLX_FLAGS_LINUX)
 endif
 
-
 SRC_DIR = srcs/
-SOURCE_FILES= \
-	main.c \
+SRC_MAIN = main.c
+SRC_TEST_MAIN := main_tests.c
+SOURCE_FILES := $(SRC_MAIN)\
 	engine/utils/reset.c \
 	init_exit/init.c \
 	init_exit/at_exit.c \
@@ -46,8 +46,14 @@ CLEAR	=	\033[0m
 .PHONY: clone_mlx42 all clean fclean ffclean
 
 all: mlx $(LIBFT) $(OBJECTS)
-	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJECTS) $(LIBFT) -o $(NAME) $(MLX_FLAGS)
+	$(CC) $(CFLAGS) $(INCLUDES) $(OBJECTS) $(LIBFT) -o $(NAME) $(MLX_FLAGS)
 	@echo "$(GREEN)$(NAME) compiled!$(CLEAR)"
+
+test:
+	make SRC_MAIN="$(SRC_TEST_MAIN)" NAME=tests.out
+
+test_no_assert:
+	@make SRC_MAIN=$(SRC_TEST_MAIN) CFLAGS="-DNO_ASSERT=1 $(CFLAGS)" NAME=tests.out
 
 clean:
 	@rm -f $(OBJECTS)
@@ -81,7 +87,7 @@ prof: fclean
 
 ###utils
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c  $(OBJ_DIR) mlx
+$(OBJ_DIR)%.o: mlx $(LIBFT) $(SRC_DIR)%.c  $(OBJ_DIR) 
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 mlx: clone_mlx

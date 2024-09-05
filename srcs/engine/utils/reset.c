@@ -2,9 +2,10 @@
 
 void	reset_img(t_main *m_data)
 {
-	uint32_t	*pixels;
-	int			x;
-	int			y;
+	uint32_t		*pixels;
+	int				x;
+	int				y;
+	const int32_t	color = 0xFF0000FF;
 
 	pixels = (uint32_t *)(m_data->img->pixels);
 	y = 0;
@@ -13,7 +14,7 @@ void	reset_img(t_main *m_data)
 		x = 0;
 		while (x < WIDTH)
 		{
-			pixels[y * WIDTH + x] = BLACK;
+			pixels[y * WIDTH + x] = color;
 			x++;
 		}
 		y++;

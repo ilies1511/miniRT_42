@@ -15,7 +15,15 @@
 # include <MLX42.h>
 # include <libft.h>
 
+// our headers
+//# include <ft_tuple.h>
+
 // for development but not allowed functions
+
+
+# ifndef EPSILON //precision to compare 2 floats
+#  define EPSILON ((float)0.00001)
+# endif
 
 # ifndef WIDTH
 #  define WIDTH 2000
@@ -69,6 +77,23 @@
 # ifndef DARK_GREY
 #  define DARK_GREY 0xFFA9A9A9
 # endif
+
+typedef struct s_argb
+{
+		uint8_t	a;
+		uint8_t	b;
+		uint8_t	g;
+		uint8_t	r;
+}	__attribute__((packed))t_argb;
+
+typedef union u_color
+{
+	uint8_t		bytes[4];
+	uint32_t	full;
+	t_argb		argb;
+}	__attribute__((packed))t_color;
+t_color col;
+
 
 typedef struct s_main
 {

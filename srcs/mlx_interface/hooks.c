@@ -1,5 +1,10 @@
 #include <main.h>
 
+int	add(int a, int b)
+{
+	return (a + b);
+}
+
 void	close_handler(void *main_data)
 {
 	t_main	*m_data;
