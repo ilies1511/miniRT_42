@@ -61,3 +61,5 @@ dkms.conf
 
 #Executable
 miniRT
+#libft
+libft/
