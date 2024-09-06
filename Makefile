@@ -7,7 +7,7 @@ FLAGS_SPEED := -Wall -Wextra -Ofast -march=native -flto -NDBUG=1
 # -Werror
 LIBFT_DIR = libft/
 LIBFT 	=	$(LIBFT_DIR)libft.a
-INCLUDES=-I./includes -I./MLX42/include/MLX42 -I./MLX42/include -I./libft
+INCLUDES= -I./includes -I./MLX42/include/MLX42 -I./MLX42/include -I./libft -I./includes/ft_math
 MLX=MLX42/build/libmlx42.a
 #MLX_FLAGS_LINUX=-Iinclude -ldl -lglfw -pthread -lm
 MLX_FLAGS_MAC= -framework Cocoa $(MLX) -framework OpenGL -framework IOKit -Iinclude -lglfw
@@ -35,9 +35,6 @@ SOURCES = $(addprefix $(SRC_DIR), $(SOURCE_FILES))
 OBJ_DIR = o_files/
 OBJECTS=$(SOURCE_FILES:%.c=$(OBJ_DIR)%.o)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c  $(OBJ_DIR) mlx
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
 GREEN	=	\033[0;32m
 YELLOW	=	\033[33m
 CYAN	=	\033[0;36m
@@ -46,7 +43,7 @@ CLEAR	=	\033[0m
 .PHONY: clone_mlx42 all clean fclean ffclean
 
 all: mlx $(LIBFT) $(OBJECTS)
-	$(CC) $(CFLAGS) $(INCLUDES) $(OBJECTS) $(LIBFT) -o $(NAME) $(MLX_FLAGS)
+	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJECTS) $(LIBFT) -o $(NAME) $(MLX_FLAGS)
 	@echo "$(GREEN)$(NAME) compiled!$(CLEAR)"
 
 test:
@@ -64,12 +61,12 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@if [ -d $(LIBFT_DIR) ]; then cd libft && make fclean; fi
-	@echo "$(CYAN)cub3D fclean$(CLEAR)"
+	@echo "$(CYAN)miniRT fclean$(CLEAR)"
 
 ffclean: fclean
 	@rm -rf MLX42
 	@rm -rf $(LIBFT_DIR)
-	@echo "$(CYAN)cub3D ffclean$(CLEAR)"
+	@echo "$(CYAN)miniRT ffclean$(CLEAR)"
 
 re: fclean
 	@make all
@@ -86,8 +83,7 @@ prof: fclean
 	@make CFLAGS="-march=native -Ofast -mavx2 -DNDEBUG=1 -g -pg" CC=gcc
 
 ###utils
-
-$(OBJ_DIR)%.o: mlx $(LIBFT) $(SRC_DIR)%.c  $(OBJ_DIR) 
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 mlx: clone_mlx
