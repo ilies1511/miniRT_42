@@ -21,6 +21,7 @@
 # include <ft_colors.h>
 # include <ft_math.h>
 # include <ft_engine.h>
+# include <mlx_interface.h>
 
 // for development but not allowed functions
 // # include <....h>
@@ -55,8 +56,5 @@ void	main_cleanup(t_main *m_data, uint8_t exit_stat);
 void	ft_error(t_main *m_data, char *msg, char *file,
 			  int line, uint8_t exit_stat);
 
-// hooks.c
-void	close_handler(void *main_data);
-void	main_key_hooks(mlx_key_data_t keydata, void *main_data);
 
 #endif
