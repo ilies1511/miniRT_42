@@ -19,9 +19,10 @@
 # include <ft_tuple.h>
 # include <ft_floats.h>
 # include <ft_colors.h>
-
+# include <ft_math.h>
 
 // for development but not allowed functions
+// # include <....h>
 
 # ifndef WIDTH
 #  define WIDTH 2000
@@ -35,6 +36,10 @@ typedef struct s_main
 	mlx_t		*mlx;
 	mlx_image_t	*img;
 }	t_main;
+
+// experiments
+
+void	draw_projectile(void *main_data);
 
 // main.c
 

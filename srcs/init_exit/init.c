@@ -1,9 +1,19 @@
 #include <main.h>
 
+void	main_loop(void *main_data)
+{
+	t_main	*m_data;
+
+	m_data = (t_main *)main_data;
+	reset_img(m_data);
+	draw_projectile(m_data);
+}
+
 void	init_hooks(t_main *m_data)
 {
 	mlx_close_hook(m_data->mlx, close_handler, m_data);
 	mlx_key_hook(m_data->mlx, main_key_hooks, m_data);
+	mlx_loop_hook(m_data->mlx, main_loop, m_data);
 }
 
 void	main_init(t_main *m_data)

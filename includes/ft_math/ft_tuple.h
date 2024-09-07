@@ -40,7 +40,7 @@ t_vec	div_v(t_vec v, float scalar);
 float	len_v(t_vec v);
 
 //creates uint vector (len == 1)
-t_tuple	norm(t_vec v);
+t_vec	norm(t_vec v);
 
 float	dot_prod(t_vec a, t_vec b);
 t_vec	cross_prod(t_vec a, t_vec b);

@@ -2,8 +2,7 @@
 # define FT_COLORS_H
 
 # include <stdint.h>
-
-
+//color defines for the full field of the t_color union on little endian systems
 # ifndef BLACK
 #  define BLACK 0xFF000000
 # endif
@@ -50,18 +49,17 @@
 #  define DARK_GREY 0xFFA9A9A9
 # endif
 
-
 typedef union u_color
 {
 	uint8_t		bytes[4];
 	uint32_t	full;
 	struct
 	{
-			uint8_t	a;
-			uint8_t	b;
-			uint8_t	g;
 			uint8_t	r;
-	}	__attribute__((packed))color;
+			uint8_t	g;
+			uint8_t	b;
+			uint8_t	a;
+	}	__attribute__((packed))argb;
 }	__attribute__((packed))t_color;
 
 

@@ -30,6 +30,7 @@ SOURCE_FILES := $(SRC_MAIN)\
 	init_exit/at_exit.c \
 	mlx_interface/hooks.c \
 	ft_math/general/ft_floats.c \
+	ft_math/general/max_min_i.c \
 	ft_math/tuple/tuple1.c \
 	ft_math/tuple/tuple2.c \
 	ft_math/tuple/tuple3.c \
@@ -37,6 +38,7 @@ SOURCE_FILES := $(SRC_MAIN)\
 	ft_math/tuple/tuple_tests1.c \
 	ft_math/tuple/tuple_tests2.c \
 	ft_math/tuple/tuple_tests3.c \
+	playgrounds/1/projectile.c
 
 
 SOURCES = $(addprefix $(SRC_DIR), $(SOURCE_FILES))

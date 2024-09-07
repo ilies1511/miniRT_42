@@ -10,7 +10,7 @@ float	len_v(t_vec v)
 	return (sqrtf(v.x * v.x + v.y * v.y + v.z * v.z + v.w * v.w));
 }
 
-t_tuple	norm(t_vec v)
+t_vec	norm(t_vec v)
 {
 	float	len;
 
@@ -21,7 +21,6 @@ t_tuple	norm(t_vec v)
 	v.x /= len;
 	v.y /= len;
 	v.z /= len;
-	v.w /= len;
 	return (v);
 }
 
