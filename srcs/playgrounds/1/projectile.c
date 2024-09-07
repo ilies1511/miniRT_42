@@ -18,9 +18,9 @@ t_env	new_env(void)
 {
 	t_env	env;
 
-	env.wind = new_vec(-0.1, 0, 0);
+	env.wind = new_vec(-0.5, 0, 0);
 	//env.wind = norm(env.wind);
-	env.grav = new_vec(0, 1, 0);
+	env.grav = new_vec(0, 3, 0);
 	return (env);
 }
 
@@ -39,8 +39,8 @@ void	draw_projectile(void *main_data)
 	const t_env env = new_env();
 	static t_projectile	projectile = {.pos.x = -1.0};
 	double	d_time;
+	static double counter = 0;
 	t_vec	movement;
-
 	const t_uint_color color = {.full = RED};
 
 	if (projectile.pos.x == -1.0)
@@ -48,6 +48,7 @@ void	draw_projectile(void *main_data)
 	else
 	{
 		d_time = m_data->mlx->delta_time;
+		counter += d_time;
 		//ignoring accurate speed calc
 		projectile.speed =  add_t(projectile.speed, mult_v(env.grav, d_time));
 		projectile.speed =  add_t(projectile.speed, mult_v(env.wind, d_time));
@@ -75,6 +76,11 @@ void	draw_projectile(void *main_data)
 			pixels[y * WIDTH + x] = color.full;
 		}
 		y++;
+	}
+	if (counter > 3)
+	{
+		store_as_plain_ppm(m_data, "test.ppm");
+		counter = -40;
 	}
 	if (projectile.pos.x < 0)
 		projectile.pos.x = WIDTH - 1;

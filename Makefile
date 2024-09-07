@@ -8,7 +8,7 @@ FLAGS_SPEED := -Wall -Wextra -Ofast -march=native -flto -NDBUG=1
 LIBFT_DIR = libft/
 LIBFT 	=	$(LIBFT_DIR)libft.a
 INCLUDES= -I./includes -I./MLX42/include/MLX42 -I./MLX42/include -I./libft \
-		  -I./includes/ft_math -I./includes/ft_engine -I/.includes/parsing
+		  -I./includes/ft_math -I./includes/ft_engine -I./includes/parsing
 
 MLX=MLX42/build/libmlx42.a
 #MLX_FLAGS_LINUX=-Iinclude -ldl -lglfw -pthread -lm
@@ -51,6 +51,7 @@ SOURCE_FILES := \
 	$(SRC_MAIN)\
 	$(SRC_FILES_ENGINE) \
 	$(SRC_FILES_MATH) \
+	$(SRC_FILES_PARSER) \
 	init_exit/init.c \
 	init_exit/at_exit.c \
 	playgrounds/1/projectile.c

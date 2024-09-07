@@ -22,7 +22,8 @@
 # include <ft_math.h>
 # include <ft_engine.h>
 # include <mlx_interface.h>
-
+# include <ppm_parser.h>
+# include <parser_42.h>
 // for development but not allowed functions
 // # include <....h>
 
