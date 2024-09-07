@@ -41,7 +41,7 @@ void	draw_projectile(void *main_data)
 	double	d_time;
 	t_vec	movement;
 
-	const t_color color = {.full = RED};
+	const t_uint_color color = {.full = RED};
 
 	if (projectile.pos.x == -1.0)
 		projectile = init_projectile();

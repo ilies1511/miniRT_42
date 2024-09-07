@@ -49,7 +49,7 @@
 #  define DARK_GREY 0xFFA9A9A9
 # endif
 
-typedef union u_color
+typedef union u_uint_color
 {
 	uint8_t		bytes[4];
 	uint32_t	full;
@@ -60,7 +60,31 @@ typedef union u_color
 			uint8_t	b;
 			uint8_t	a;
 	}	__attribute__((packed))argb;
-}	__attribute__((packed))t_color;
+}	__attribute__((packed))t_uint_color;
 
+//t_f_color can be cast to t_vec / t_tuple with this layout
+//(x->r, y->g, z->b, w->a)
+typedef struct s_f_color
+{
+	float	r;
+	float	g;
+	float	b;
+	float	a;	//not used in the book as far as I saw
+				//to enable casting to t_vec should be left as 0.0
+				//when converting to t_uint_color should be treated as 1.0
+}	t_f_color;
+// ___t_f_color specific implementation needed________
+//Hadamard product (or Schur product)
+t_f_color		fcol_fcol_mult(t_f_color a, t_f_color b);
+t_uint_color	fcolor_to_uintcolor(t_f_color fcolor);
+
+/*______________________________________________________
+ These should not be needed since the tuple/vec operations can be applyied
+ for performace or debugging we could implement these to cut down operations
+ or make type specific asserts
+*/
+t_f_color		fcol_add(t_f_color a, t_f_color b);
+t_f_color		fcol_sub(t_f_color a, t_f_color b);
+t_f_color		fcol_mult(t_f_color color, float scalar);
 
 #endif //FT_COLORS_H

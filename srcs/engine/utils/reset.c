@@ -5,7 +5,7 @@ void	reset_img(t_main *m_data)
 	uint32_t		*pixels;
 	int				x;
 	int				y;
-	const t_color color = {
+	const t_uint_color color = {
 		.argb.a = 0xFF,
 		.argb.r = 0x00,
 		.argb.g = 0xFF,
