@@ -8,7 +8,8 @@ FLAGS_SPEED := -Wall -Wextra -Ofast -march=native -flto -NDBUG=1
 LIBFT_DIR = libft/
 LIBFT 	=	$(LIBFT_DIR)libft.a
 INCLUDES= -I./includes -I./MLX42/include/MLX42 -I./MLX42/include -I./libft \
-		  -I./includes/ft_math -I./includes/ft_engine
+		  -I./includes/ft_math -I./includes/ft_engine -I/.includes/parsing
+
 MLX=MLX42/build/libmlx42.a
 #MLX_FLAGS_LINUX=-Iinclude -ldl -lglfw -pthread -lm
 MLX_FLAGS_MAC= -framework Cocoa $(MLX) -framework OpenGL -framework IOKit -Iinclude -lglfw
@@ -42,6 +43,9 @@ SRC_FILES_MATH := \
 	ft_math/tuple/tuple_tests3.c \
 	ft_math/general/ft_floats.c \
 	ft_math/general/max_min_i.c 
+
+SRC_FILES_PARSER := \
+	parsing/ppm_parser/store_as_ppm.c
 
 SOURCE_FILES := \
 	$(SRC_MAIN)\

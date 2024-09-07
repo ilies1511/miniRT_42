@@ -14,6 +14,7 @@ typedef struct s_tuple
 typedef t_tuple	t_vec;
 typedef t_tuple	t_point;
 
+
 // for vecs w == 0
 bool	is_vec(t_tuple tuple);
 // for points w == 1

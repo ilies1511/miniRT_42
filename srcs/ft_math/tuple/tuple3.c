@@ -18,6 +18,17 @@ t_vec	norm(t_vec v)
 #ifndef NDBUG
 	ft_assert(!eq_f(len, 0.0), __FILE__, __LINE__, "normalizing a vec with len 0");
 #endif
+	return (div_v(v, len));
+}
+
+t_vec	norm(t_vec v)
+{
+	float	len;
+
+	len = len_v(v);
+#ifndef NDBUG
+	ft_assert(!eq_f(len, 0.0), __FILE__, __LINE__, "normalizing a vec with len 0");
+#endif
 	v.x /= len;
 	v.y /= len;
 	v.z /= len;

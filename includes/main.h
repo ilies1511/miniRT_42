@@ -33,6 +33,8 @@
 #  define HEIGHT 1500
 # endif
 
+typedef int t_fd;
+
 typedef struct s_main
 {
 	mlx_t		*mlx;
