@@ -33,6 +33,7 @@ SOURCE_FILES := $(SRC_MAIN)\
 	ft_math/tuple/tuple1.c \
 	ft_math/tuple/tuple2.c \
 	ft_math/tuple/tuple3.c \
+	ft_math/tuple/tuple4.c \
 	ft_math/tuple/tuple_tests1.c \
 	ft_math/tuple/tuple_tests2.c \
 	ft_math/tuple/tuple_tests3.c \

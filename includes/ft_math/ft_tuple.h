@@ -30,17 +30,17 @@ t_tuple	add_t(t_tuple a, t_tuple b);
 t_tuple	sub_t(t_tuple a, t_tuple b);
 // tests to verify add_t adn sub_t with special focus on w
 
-t_vec	negate_v(t_vec t);
+t_vec	negate_v(t_vec v);
 //negate_t test
 
-t_vec	mult_v(t_vec t, float scalar);
-t_vec	div_v(t_vec t, float scalar);
+t_vec	mult_v(t_vec v, float scalar);
+t_vec	div_v(t_vec v, float scalar);
 
 //len/magnitude
-float	len_v(t_vec t);
+float	len_v(t_vec v);
 
 //creates uint vector (len == 1)
-t_tuple	norm(t_vec t);
+t_tuple	norm(t_vec v);
 
 float	dot_prod(t_vec a, t_vec b);
 t_vec	cross_prod(t_vec a, t_vec b);

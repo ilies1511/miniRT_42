@@ -11,5 +11,7 @@
 //equal float
 //(a == b) ?
 bool	eq_f(float a, float b);
+bool	less_eq_f(float a, float b);
+bool	greater_eq_f(float a, float b);
 
 #endif //FT_FLOATS_H

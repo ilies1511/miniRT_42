@@ -15,8 +15,34 @@ bool	is_point(t_tuple t)
 	return (false);
 }
 
-t_point	new_point(float x, float y, float z);
-t_vec	new_vec(float x, float y, float z);
-bool	eq_t(t_tuple a, t_tuple b);
+t_point	new_point(float x, float y, float z)
+{
+	t_point	new;
 
+	new.x = x;
+	new.y = y;
+	new.z = z;
+	new.w = 1.0;
+	return (new);
+}
+
+t_vec	new_vec(float x, float y, float z)
+{
+	t_point	new;
+
+	new.x = x;
+	new.y = y;
+	new.z = z;
+	new.w = 0.0;
+	return (new);
+}
+
+bool	eq_t(t_tuple a, t_tuple b)
+{
+	return (eq_f(a.x, b.x)
+		&& eq_f(a.y, b.y)
+		&& eq_f(a.z, b.z)
+		&& eq_f(a.w, b.w)
+	);
+}
 

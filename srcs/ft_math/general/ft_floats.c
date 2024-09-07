@@ -7,3 +7,17 @@ bool	eq_f(float a, float b)
 	return (false);
 }
 
+bool	less_eq_f(float a, float b)
+{
+	if (a < b || eq_f(a, b))
+		return (true);
+	return (false);
+}
+
+bool	greater_eq_f(float a, float b)
+{
+	if (a > b || eq_f(a, b))
+		return (true);
+	return (false);
+}
+
