@@ -66,6 +66,18 @@ bool	example_test(void)
 	return (all_tests_passed);
 }
 
+void	tuple_tests(int *total_tests, int *passed_tests)
+{
+
+	if (is_point_test())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (is_vec_test())
+		*passed_tests += 1;
+	*total_tests += 1;
+}
+
+
 int	main(void)
 {
 #ifdef NO_ASSERT
@@ -76,6 +88,7 @@ int	main(void)
 	if (example_test())
 		passed++;
 	total++;
+	tuple_tests(&total, &passed);
 	if (total == passed)
 		printf("all tests passed!\n");
 	else

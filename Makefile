@@ -28,7 +28,15 @@ SOURCE_FILES := $(SRC_MAIN)\
 	engine/utils/reset.c \
 	init_exit/init.c \
 	init_exit/at_exit.c \
-	mlx_interface/hooks.c
+	mlx_interface/hooks.c \
+	ft_math/general/ft_floats.c \
+	ft_math/tuple/tuple1.c \
+	ft_math/tuple/tuple2.c \
+	ft_math/tuple/tuple3.c \
+	ft_math/tuple/tuple_tests1.c \
+	ft_math/tuple/tuple_tests2.c \
+	ft_math/tuple/tuple_tests3.c \
+
 
 SOURCES = $(addprefix $(SRC_DIR), $(SOURCE_FILES))
 

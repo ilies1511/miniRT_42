@@ -2,6 +2,7 @@
 # define FT_FLOATS_H
 
 # include <stdbool.h>
+# include <math.h>
 
 # ifndef EPSILON //precision to compare 2 floats
 #  define EPSILON ((float)0.00001)

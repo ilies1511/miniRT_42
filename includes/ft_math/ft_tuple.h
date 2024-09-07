@@ -15,9 +15,9 @@ typedef t_tuple	t_vec;
 typedef t_tuple	t_point;
 
 // for vecs w == 0
-bool	is_vec(t_tuple v3);
+bool	is_vec(t_tuple tuple);
 // for points w == 1
-bool	is_point(t_tuple v3);
+bool	is_point(t_tuple tuple);
 
 t_point	new_point(float x, float y, float z);
 t_vec	new_vec(float x, float y, float z);
@@ -47,6 +47,9 @@ t_vec	cross_prod(t_vec a, t_vec b);
 
 //******tests**********
 
-//tests here
+void	print_tuple(int fd, t_tuple t);
+
+bool	is_point_test(void);
+bool	is_vec_test(void);
 
 #endif
