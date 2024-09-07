@@ -1,0 +1,289 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ns/call  ns/call  name    
+ 49.45      0.45     0.45                             reset_img (reset.c:20 @ 2965)
+ 35.16      0.77     0.32                             reset_img (reset.c:22 @ 2958)
+  2.20      0.79     0.02                             ft_fprintf (ft_printf.c:84 @ 4368)
+  1.10      0.80     0.01 18000004     0.56     0.56  ft_strlen (ft_strlen.c:16 @ 5040)
+  1.10      0.81     0.01  9000002     1.11     1.11  ft_printf_handle_di (ft_printf_handle_di.c:40 @ 4640)
+  1.10      0.82     0.01                             _init
+  1.10      0.83     0.01                             ft_fprintf (ft_printf.c:68 @ 42c0)
+  1.10      0.84     0.01                             ft_fprintf (ft_printf.c:70 @ 42e4)
+  1.10      0.85     0.01                             ft_fprintf (ft_printf.c:78 @ 4321)
+  1.10      0.86     0.01                             ft_fprintf (ft_printf.c:80 @ 4344)
+  1.10      0.87     0.01                             loop (ft_printf_handle_di.c:31 @ 4759)
+  1.10      0.88     0.01                             loop (ft_printf_handle_di.c:34 @ 4764)
+  1.10      0.89     0.01                             reset_img (reset.c:17 @ 296a)
+  0.55      0.90     0.01                             ft_printf_handle_di (ft_printf_handle_di.c:52 @ 4690)
+  0.55      0.90     0.01                             ft_printf_handle_di (ft_printf_handle_di.c:53 @ 4692)
+  0.55      0.91     0.01                             ft_printf_handle_di (ft_printf_handle_di.c:61 @ 46c4)
+  0.55      0.91     0.01                             ft_printf_handle_di (ft_printf_handle_di.c:62 @ 46c6)
+  0.00      0.91     0.00  9000918     0.00     0.00  logic_part (ft_printf.c:32 @ 40a0)
+  0.00      0.91     0.00  3375230     0.00     0.00  ft_fprintf (ft_printf.c:58 @ 41e0)
+  0.00      0.91     0.00     6412     0.00     0.00  ft_putnbr_fd (ft_putnbr_fd.c:50 @ 5170)
+  0.00      0.91     0.00     2061     0.00     0.00  ft_assert (ft_assert.c:7 @ 4f30)
+  0.00      0.91     0.00      916     0.00     0.00  ft_put_float (ft_put_float.c:4 @ 4f70)
+  0.00      0.91     0.00      687     0.00     0.00  add_t (tuple2.c:6 @ 2b50)
+  0.00      0.91     0.00      687     0.00     0.00  eq_f (ft_floats.c:4 @ 34d0)
+  0.00      0.91     0.00      687     0.00     0.00  is_vec (tuple1.c:5 @ 2a00)
+  0.00      0.91     0.00      687     0.00     0.00  less_eq_f (ft_floats.c:11 @ 3500)
+  0.00      0.91     0.00      687     0.00     0.00  mult_v (tuple2.c:65 @ 2d30)
+  0.00      0.91     0.00      461     0.00     0.00  new_vec (tuple1.c:30 @ 2a90)
+  0.00      0.91     0.00      460     0.00     0.00  max_i (max_min_i.c:4 @ 3580)
+  0.00      0.91     0.00      460     0.00     0.00  min_i (max_min_i.c:11 @ 35a0)
+  0.00      0.91     0.00      231     0.00     0.00  reset_img (reset.c:4 @ 2900)
+  0.00      0.91     0.00      230     0.00     0.00  draw_projectile (projectile.c:37 @ 3b80)
+  0.00      0.91     0.00      230     0.00     0.00  main_loop (init.c:4 @ 38b0)
+  0.00      0.91     0.00      229     0.00     0.00  ft_printf (ft_printf.c:87 @ 43c0)
+  0.00      0.91     0.00      229     0.00     0.00  print_tuple (tuple4.c:6 @ 3110)
+  0.00      0.91     0.00        1     0.00     0.00  ft_bzero (ft_bzero.c:16 @ 4000)
+  0.00      0.91     0.00        1     0.00     0.00  main_cleanup (at_exit.c:4 @ 3a20)
+  0.00      0.91     0.00        1     0.00     0.00  main_init (init.c:20 @ 3940)
+  0.00      0.91     0.00        1     0.00     0.00  main_key_hooks (hooks.c:12 @ 29b0)
+  0.00      0.91     0.00        1     0.00     0.00  new_point (tuple1.c:19 @ 2a60)
+  0.00      0.91     0.00        1     0.00     0.00  store_as_plain_ppm (store_as_ppm.c:56 @ 3600)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2024 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 1.10% of 0.91 seconds
+
+index % time    self  children    called     name
+                0.01    0.00 9000002/18000004     ft_printf_handle_di (ft_printf_handle_di.c:58 @ 469a) [16]
+                0.01    0.00 9000002/18000004     ft_printf_handle_di (ft_printf_handle_di.c:60 @ 46ba) [17]
+[5]      1.1    0.01    0.00 18000004         ft_strlen (ft_strlen.c:16 @ 5040) [5]
+-----------------------------------------------
+                0.01    0.00 9000002/9000002     ft_fprintf (ft_printf.c:78 @ 4321) [3]
+[6]      1.1    0.01    0.00 9000002         ft_printf_handle_di (ft_printf_handle_di.c:40 @ 4640) [6]
+-----------------------------------------------
+                                                 <spontaneous>
+[13]     1.1    0.01    0.00                 _init [13]
+-----------------------------------------------
+                0.00    0.00 9000918/9000918     ft_fprintf (ft_printf.c:78 @ 4321) [3]
+[20]     0.0    0.00    0.00 9000918         logic_part (ft_printf.c:32 @ 40a0) [20]
+-----------------------------------------------
+                0.00    0.00       1/3375230     init_store_ppm (store_as_ppm.c:17 @ 364f) [702]
+                0.00    0.00     229/3375230     draw_projectile (projectile.c:60 @ 3f83) [168]
+                0.00    0.00  375000/3375230     write_row (store_as_ppm.c:49 @ 3729) [2803]
+                0.00    0.00 3000000/3375230     write_row (store_as_ppm.c:41 @ 36d8) [2796]
+[21]     0.0    0.00    0.00 3375230         ft_fprintf (ft_printf.c:58 @ 41e0) [21]
+-----------------------------------------------
+                0.00    0.00     916/6412        ft_put_float (ft_put_float.c:4 @ 4f90) [499]
+                0.00    0.00    5496/6412        ft_put_float (ft_put_float.c:20 @ 5012) [511]
+[22]     0.0    0.00    0.00    6412         ft_putnbr_fd (ft_putnbr_fd.c:50 @ 5170) [22]
+-----------------------------------------------
+                0.00    0.00     687/2061        add_t (tuple2.c:16 @ 2b8d) [48]
+                0.00    0.00     687/2061        mult_v (tuple2.c:67 @ 2d5e) [2637]
+                0.00    0.00     687/2061        mult_v (tuple2.c:76 @ 2d9d) [2641]
+[23]     0.0    0.00    0.00    2061         ft_assert (ft_assert.c:7 @ 4f30) [23]
+-----------------------------------------------
+                0.00    0.00     916/916         ft_printf_float_wraper (ft_printf.c:21 @ 412a) [332]
+[24]     0.0    0.00    0.00     916         ft_put_float (ft_put_float.c:4 @ 4f70) [24]
+-----------------------------------------------
+                0.00    0.00     229/687         draw_projectile (projectile.c:53 @ 3ec5) [155]
+                0.00    0.00     229/687         draw_projectile (projectile.c:54 @ 3f08) [160]
+                0.00    0.00     229/687         draw_projectile (projectile.c:56 @ 3f4c) [164]
+[25]     0.0    0.00    0.00     687         add_t (tuple2.c:6 @ 2b50) [25]
+-----------------------------------------------
+                0.00    0.00     687/687         mult_v (tuple2.c:67 @ 2d5e) [2637]
+[26]     0.0    0.00    0.00     687         eq_f (ft_floats.c:4 @ 34d0) [26]
+-----------------------------------------------
+                0.00    0.00     687/687         mult_v (tuple2.c:67 @ 2d5e) [2637]
+[27]     0.0    0.00    0.00     687         is_vec (tuple1.c:5 @ 2a00) [27]
+-----------------------------------------------
+                0.00    0.00     687/687         add_t (tuple2.c:16 @ 2b8d) [48]
+[28]     0.0    0.00    0.00     687         less_eq_f (ft_floats.c:11 @ 3500) [28]
+-----------------------------------------------
+                0.00    0.00     229/687         draw_projectile (projectile.c:53 @ 3ec5) [155]
+                0.00    0.00     229/687         draw_projectile (projectile.c:54 @ 3f08) [160]
+                0.00    0.00     229/687         draw_projectile (projectile.c:54 @ 3f33) [162]
+[29]     0.0    0.00    0.00     687         mult_v (tuple2.c:65 @ 2d30) [29]
+-----------------------------------------------
+                0.00    0.00       1/461         init_projectile (projectile.c:32 @ 3c3a) [696]
+                0.00    0.00     230/461         new_env (projectile.c:21 @ 3bbe) [2672]
+                0.00    0.00     230/461         new_env (projectile.c:23 @ 3bd9) [2677]
+[30]     0.0    0.00    0.00     461         new_vec (tuple1.c:30 @ 2a90) [30]
+-----------------------------------------------
+                0.00    0.00     230/460         draw_projectile (projectile.c:65 @ 3c70) [107]
+                0.00    0.00     230/460         draw_projectile (projectile.c:68 @ 3c90) [113]
+[31]     0.0    0.00    0.00     460         max_i (max_min_i.c:4 @ 3580) [31]
+-----------------------------------------------
+                0.00    0.00     230/460         draw_projectile (projectile.c:65 @ 3c80) [110]
+                0.00    0.00     230/460         draw_projectile (projectile.c:69 @ 3caf) [120]
+[32]     0.0    0.00    0.00     460         min_i (max_min_i.c:11 @ 35a0) [32]
+-----------------------------------------------
+                0.00    0.00       1/231         main_init (init.c:27 @ 39b1) [1973]
+                0.00    0.00     230/231         main_loop (init.c:4 @ 38b0) [35]
+[33]     0.0    0.00    0.00     231         reset_img (reset.c:4 @ 2900) [33]
+-----------------------------------------------
+                0.00    0.00     230/230         mlx_exec_loop_hooks (mlx_loop.c:25 @ 7257) [2144]
+[34]     0.0    0.00    0.00     230         draw_projectile (projectile.c:37 @ 3b80) [34]
+-----------------------------------------------
+                0.00    0.00     230/230         mlx_exec_loop_hooks (mlx_loop.c:25 @ 7257) [2144]
+[35]     0.0    0.00    0.00     230         main_loop (init.c:4 @ 38b0) [35]
+                0.00    0.00     230/231         reset_img (reset.c:4 @ 2900) [33]
+-----------------------------------------------
+                0.00    0.00     229/229         draw_projectile (projectile.c:59 @ 3f7e) [167]
+[36]     0.0    0.00    0.00     229         ft_printf (ft_printf.c:87 @ 43c0) [36]
+-----------------------------------------------
+                0.00    0.00     229/229         draw_projectile (projectile.c:60 @ 3f83) [168]
+[37]     0.0    0.00    0.00     229         print_tuple (tuple4.c:6 @ 3110) [37]
+-----------------------------------------------
+                0.00    0.00       1/1           main_init (init.c:22 @ 3960) [1965]
+[38]     0.0    0.00    0.00       1         ft_bzero (ft_bzero.c:16 @ 4000) [38]
+-----------------------------------------------
+                0.00    0.00       1/1           mlx_key_callback (mlx_keys.c:28 @ 70f2) [2344]
+[39]     0.0    0.00    0.00       1         main_cleanup (at_exit.c:4 @ 3a20) [39]
+-----------------------------------------------
+                0.00    0.00       1/1           main (main.c:4 @ 2750) [1956]
+[40]     0.0    0.00    0.00       1         main_init (init.c:20 @ 3940) [40]
+-----------------------------------------------
+                0.00    0.00       1/1           mlx_key_callback (mlx_keys.c:28 @ 70f2) [2344]
+[41]     0.0    0.00    0.00       1         main_key_hooks (hooks.c:12 @ 29b0) [41]
+-----------------------------------------------
+                0.00    0.00       1/1           init_projectile (projectile.c:31 @ 3c0c) [691]
+[42]     0.0    0.00    0.00       1         new_point (tuple1.c:19 @ 2a60) [42]
+-----------------------------------------------
+                0.00    0.00       1/1           draw_projectile (projectile.c:83 @ 3fe0) [174]
+[43]     0.0    0.00    0.00       1         store_as_plain_ppm (store_as_ppm.c:56 @ 3600) [43]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2024 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [13] _init                  [14] ft_printf_handle_di (ft_printf_handle_di.c:52 @ 4690) [41] main_key_hooks (hooks.c:12 @ 29b0)
+  [25] add_t (tuple2.c:6 @ 2b50) [15] ft_printf_handle_di (ft_printf_handle_di.c:53 @ 4692) [35] main_loop (init.c:4 @ 38b0)
+  [34] draw_projectile (projectile.c:37 @ 3b80) [18] ft_printf_handle_di (ft_printf_handle_di.c:61 @ 46c4) [31] max_i (max_min_i.c:4 @ 3580)
+  [26] eq_f (ft_floats.c:4 @ 34d0) [19] ft_printf_handle_di (ft_printf_handle_di.c:62 @ 46c6) [32] min_i (max_min_i.c:11 @ 35a0)
+  [23] ft_assert (ft_assert.c:7 @ 4f30) [24] ft_put_float (ft_put_float.c:4 @ 4f70) [29] mult_v (tuple2.c:65 @ 2d30)
+  [38] ft_bzero (ft_bzero.c:16 @ 4000) [22] ft_putnbr_fd (ft_putnbr_fd.c:50 @ 5170) [42] new_point (tuple1.c:19 @ 2a60)
+  [21] ft_fprintf (ft_printf.c:58 @ 41e0) [5] ft_strlen (ft_strlen.c:16 @ 5040) [30] new_vec (tuple1.c:30 @ 2a90)
+   [7] ft_fprintf (ft_printf.c:68 @ 42c0) [27] is_vec (tuple1.c:5 @ 2a00) [37] print_tuple (tuple4.c:6 @ 3110)
+   [8] ft_fprintf (ft_printf.c:70 @ 42e4) [28] less_eq_f (ft_floats.c:11 @ 3500) [33] reset_img (reset.c:4 @ 2900)
+   [3] ft_fprintf (ft_printf.c:78 @ 4321) [20] logic_part (ft_printf.c:32 @ 40a0) [2] reset_img (reset.c:22 @ 2958)
+   [9] ft_fprintf (ft_printf.c:80 @ 4344) [10] loop (ft_printf_handle_di.c:31 @ 4759) [1] reset_img (reset.c:20 @ 2965)
+   [4] ft_fprintf (ft_printf.c:84 @ 4368) [11] loop (ft_printf_handle_di.c:34 @ 4764) [12] reset_img (reset.c:17 @ 296a)
+  [36] ft_printf (ft_printf.c:87 @ 43c0) [39] main_cleanup (at_exit.c:4 @ 3a20) [43] store_as_plain_ppm (store_as_ppm.c:56 @ 3600)
+   [6] ft_printf_handle_di (ft_printf_handle_di.c:40 @ 4640) [40] main_init (init.c:20 @ 3940)

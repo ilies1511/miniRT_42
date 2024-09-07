@@ -125,7 +125,7 @@ clone_mlx:
 	fi
 
 $(LIBFT): $(LIBFT_DIR)
-	@cd libft && make CFLAGS=$(CLFAGS)
+	@cd libft && make CFLAGS="$(CFLAGS)"
 
 $(LIBFT_DIR):
 	@if [ "$(USER)" = "frapp" ] || [ "$(USER)" = "fabi" ] ; then \
