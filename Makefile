@@ -7,7 +7,8 @@ FLAGS_SPEED := -Wall -Wextra -Ofast -march=native -flto -NDBUG=1
 # -Werror
 LIBFT_DIR = libft/
 LIBFT 	=	$(LIBFT_DIR)libft.a
-INCLUDES= -I./includes -I./MLX42/include/MLX42 -I./MLX42/include -I./libft -I./includes/ft_math
+INCLUDES= -I./includes -I./MLX42/include/MLX42 -I./MLX42/include -I./libft \
+		  -I./includes/ft_math -I./includes/ft_engine
 MLX=MLX42/build/libmlx42.a
 #MLX_FLAGS_LINUX=-Iinclude -ldl -lglfw -pthread -lm
 MLX_FLAGS_MAC= -framework Cocoa $(MLX) -framework OpenGL -framework IOKit -Iinclude -lglfw
@@ -22,15 +23,16 @@ else
 endif
 
 SRC_DIR = srcs/
+
 SRC_MAIN = main.c
 SRC_TEST_MAIN := main_tests.c
-SOURCE_FILES := $(SRC_MAIN)\
-	engine/utils/reset.c \
-	init_exit/init.c \
-	init_exit/at_exit.c \
-	mlx_interface/hooks.c \
-	ft_math/general/ft_floats.c \
-	ft_math/general/max_min_i.c \
+
+SRC_FILES_ENGINE := \
+	ft_engine/utils/reset.c \
+	ft_engine/mlx_interface/hooks.c \
+	ft_engine/mlx_interface/helper1.c 
+
+SRC_FILES_MATH := \
 	ft_math/tuple/tuple1.c \
 	ft_math/tuple/tuple2.c \
 	ft_math/tuple/tuple3.c \
@@ -38,6 +40,15 @@ SOURCE_FILES := $(SRC_MAIN)\
 	ft_math/tuple/tuple_tests1.c \
 	ft_math/tuple/tuple_tests2.c \
 	ft_math/tuple/tuple_tests3.c \
+	ft_math/general/ft_floats.c \
+	ft_math/general/max_min_i.c 
+
+SOURCE_FILES := \
+	$(SRC_MAIN)\
+	$(SRC_FILES_ENGINE) \
+	$(SRC_FILES_MATH) \
+	init_exit/init.c \
+	init_exit/at_exit.c \
 	playgrounds/1/projectile.c
 
 

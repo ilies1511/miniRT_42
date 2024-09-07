@@ -20,6 +20,7 @@
 # include <ft_floats.h>
 # include <ft_colors.h>
 # include <ft_math.h>
+# include <ft_engine.h>
 
 // for development but not allowed functions
 // # include <....h>
@@ -44,8 +45,6 @@ void	draw_projectile(void *main_data);
 // main.c
 
 //******engine/******
-// engine/reset.c
-void	reset_img(t_main *m_data);
 
 // init_exit/init.c
 void	init_hooks(t_main *m_data);
