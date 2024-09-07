@@ -7,7 +7,6 @@
 typedef struct s_main		t_main;
 typedef union u_uint_color	t_uint_color;
 
-// should not be used in final project
-void	put_pixel(size_t x, size_t y, t_uint_color color);
+void	put_pixel(size_t x, size_t y, t_uint_color color, uint32_t *pixels);
 
 #endif //MLX_INTERFACE_H
