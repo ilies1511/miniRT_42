@@ -20,6 +20,7 @@
 # include <ft_floats.h>
 # include <ft_colors.h>
 # include <ft_math.h>
+# include <ft_matrix.h>
 # include <ft_engine.h>
 # include <mlx_interface.h>
 # include <ppm_parser.h>

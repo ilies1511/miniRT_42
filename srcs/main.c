@@ -2,7 +2,8 @@
 
 int	main(void)
 {
-	t_main	m_data;
+	t_main			m_data;
+
 	main_init(&m_data);
 	// this should never be reached sicne the mlx loop called in main_init()
 	// goes until main_cleanup() is called();

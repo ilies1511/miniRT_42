@@ -54,8 +54,8 @@ SOURCE_FILES := \
 	$(SRC_FILES_PARSER) \
 	init_exit/init.c \
 	init_exit/at_exit.c \
-	playgrounds/1/projectile.c
-
+	playgrounds/1/projectile.c \
+	playgrounds/matrix/1.c
 
 SOURCES = $(addprefix $(SRC_DIR), $(SOURCE_FILES))
 
@@ -74,10 +74,10 @@ all: mlx $(LIBFT) $(OBJECTS)
 	@echo "$(GREEN)$(NAME) compiled!$(CLEAR)"
 
 test:
-	make SRC_MAIN="$(SRC_TEST_MAIN)" NAME=tests.out
+	make && make SRC_MAIN="$(SRC_TEST_MAIN)" NAME=tests.out
 
-test_no_assert:
-	@make SRC_MAIN=$(SRC_TEST_MAIN) CFLAGS="-DNO_ASSERT=1 $(CFLAGS)" NAME=tests.out
+#test_no_assert:
+#	@make SRC_MAIN=$(SRC_TEST_MAIN) CFLAGS="-DNO_ASSERT=1 $(CFLAGS)" NAME=tests.out
 
 clean:
 	@rm -f $(OBJECTS)
