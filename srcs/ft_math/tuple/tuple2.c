@@ -2,6 +2,9 @@
 #include <ft_tuple.h>
 #include <libft.h>
 
+/*
+	Addition of two tuples
+*/
 t_tuple	add_t(t_tuple a, t_tuple b)
 {
 	t_tuple	sum;
@@ -22,6 +25,9 @@ t_tuple	add_t(t_tuple a, t_tuple b)
 	return (sum);
 }
 
+/*
+	Subtraction of two tuples
+*/
 t_tuple	sub_t(t_tuple a, t_tuple b)
 {
 	t_tuple	dif;
@@ -42,6 +48,9 @@ t_tuple	sub_t(t_tuple a, t_tuple b)
 	return (dif);
 }
 
+/*
+	Negating Tuples (Vorzeichenwechsel)
+*/
 t_vec	negate_v(t_vec v)
 {
 #ifndef NDBUG//can be removed later
@@ -61,6 +70,9 @@ t_vec	negate_v(t_vec v)
 	return (neg);
 }
 
+/*
+	Scenario: tuple * scalar
+*/
 t_vec	mult_v(t_vec v, float scalar)
 {
 #ifndef NDBUG//can be removed later
@@ -78,6 +90,9 @@ t_vec	mult_v(t_vec v, float scalar)
 	return (prod);
 }
 
+/*
+	Dividing a tuple by a scalar
+*/
 t_vec	div_v(t_vec v, float scalar)
 {
 #ifndef NDBUG
