@@ -75,6 +75,11 @@ typedef struct s_f_color
 }	t_f_color;
 // ___t_f_color specific implementation needed________
 //Hadamard product (or Schur product)
+
+/*
+	Multiplacation of two colors;
+*/
+t_f_color		hadamard_product(t_f_color a, t_f_color b);
 t_f_color		fcol_fcol_mult(t_f_color a, t_f_color b);
 t_uint_color	fcolor_to_uintcolor(t_f_color fcolor);
 

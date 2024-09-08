@@ -43,6 +43,12 @@ typedef struct s_main
 	mlx_image_t	*img;
 }	t_main;
 
+typedef enum
+{
+	COLOR,
+	VECTOR,
+	POINT
+}	t_tuple_type;
 // experiments
 
 void	draw_projectile(void *main_data);
