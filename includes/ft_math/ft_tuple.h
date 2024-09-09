@@ -3,17 +3,21 @@
 
 # include <stdbool.h>
 
-typedef struct s_tuple
+//keep x,y,z as the first elements to allow casting t_tuple* to float*
+typedef union u_tuple
 {
-	float	x;
-	float	y;
-	float	z;
-	float	w;
-}	t_tuple;
+	struct
+	{
+		float	x;
+		float	y;
+		float	z;
+		float	w;
+	};
+	float		arr[4];
+}__attribute__((packed))	t_tuple;
 
 typedef t_tuple	t_vec;
 typedef t_tuple	t_point;
-
 
 // for vecs w == 0
 bool	is_vec(t_tuple tuple);
@@ -48,8 +52,9 @@ t_vec	cross_prod(t_vec a, t_vec b);
 
 //******tests**********
 
-void	print_tuple(int fd, t_tuple t);
+void	print_t(int fd, t_tuple t);
 
+t_tuple	get_rdm_tuple(void);
 bool	is_point_test(void);
 bool	is_vec_test(void);
 

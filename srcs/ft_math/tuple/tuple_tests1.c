@@ -17,7 +17,7 @@ bool	testloop_bool_tuple(bool (*fn)(t_tuple), const bool expected[],
 		{
 			return_val = false;
 			ft_fprintf(2, "got bool: %d for:\n", !expected[i]);
-			print_tuple(2, tests[i]);
+			print_t(2, tests[i]);
 		}
 		i++;
 	}
@@ -29,10 +29,10 @@ bool	is_vec_test(void)
 	const bool			expected[] = {
 		false, true, true, true, };
 	const t_tuple	tests[] = {
-		{1.0, 1.0, 1.0, 3.1},
-		{0.0, 1.0, 1.0, 0.0},
-		{0.0, 1.0, 1.0, 0.0 - EPSILON * 0.99},
-		{0.0, 1.0, 1.0, 0.0 + EPSILON * 0.99},
+		{.x = 1.0, .y=1.0, .z=1.0, .w=3.1},
+		{.x = 0.0, .y=1.0, .z=1.0, .w=0.0},
+		{.x = 0.0, .y=1.0, .z=1.0, .w=0.0 - EPSILON * 0.99},
+		{.x = 0.0, .y=1.0, .z=1.0, .w=0.0 + EPSILON * 0.99},
 	};
 	const size_t	test_count = sizeof expected / sizeof expected[0];
 
@@ -52,12 +52,12 @@ bool	is_point_test(void)
 	const bool			expected[] = {
 		false, false, false, false, true, true,};
 	const t_tuple	tests[] = {
-		{1.0, 1.0, 1.0, 3.1},
-		{0.0, 1.0, 1.0, 0.0},
-		{0.0, 1.0, 1.0, 0.0 - EPSILON * 0.99},
-		{0.0, 1.0, 1.0, 0.0 + EPSILON * 0.99},
-		{0.0, 1.0, 1.0, 1.0 - EPSILON * 0.99},
-		{0.0, 1.0, 1.0, 1.0 + EPSILON * 0.99},
+		{.x = 1.0, .y = 1.0, .z = 1.0, .w = 3.1},
+		{.x = 0.0, .y = 1.0, .z = 1.0, .w = 0.0},
+		{.x = 0.0, .y = 1.0, .z = 1.0, .w = 0.0 - EPSILON * 0.99},
+		{.x = 0.0, .y = 1.0, .z = 1.0, .w = 0.0 + EPSILON * 0.99},
+		{.x = 0.0, .y = 1.0, .z = 1.0, .w = 1.0 - EPSILON * 0.99},
+		{.x = 0.0, .y = 1.0, .z = 1.0, .w = 1.0 + EPSILON * 0.99},
 	};
 	const size_t	test_count = sizeof expected / sizeof expected[0];
 

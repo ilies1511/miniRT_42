@@ -77,6 +77,15 @@ void	tuple_tests(int *total_tests, int *passed_tests)
 	*total_tests += 1;
 }
 
+void	test_matrixes(int *total_tests, int *passed_tests)
+{
+		if (test_eq_m())
+			*passed_tests += 1;
+		*total_tests += 1;
+	if (test_mult_mt())
+		*passed_tests += 1;
+	*total_tests += 1;
+}
 
 int	main(void)
 {
@@ -85,12 +94,14 @@ int	main(void)
 #endif
 	int	passed = 0;
 	int	total = 0;
+	srand(time(NULL));
 	if (example_test())
 		passed++;
 	total++;
 	tuple_tests(&total, &passed);
+	test_matrixes(&total, &passed);
 	if (total == passed)
-		printf("all tests passed!\n");
+		printf("all tests passed(%d/%d)!\n", passed, total);
 	else
 		printf("%d of %d test passed\n", passed, total);
 	return (0);

@@ -27,7 +27,7 @@
 # include <parser_42.h>
 // for development but not allowed functions
 // # include <....h>
-
+# include <time.h>//used for tests to init rand()
 # ifndef WIDTH
 #  define WIDTH 2000
 # endif

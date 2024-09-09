@@ -57,7 +57,7 @@ void	draw_projectile(void *main_data)
 		//ft_printf("movement: \n");
 		//print_tuple(1, movement);
 		ft_printf("pos:\n");
-		print_tuple(1, projectile.pos);
+		print_t(1, projectile.pos);
 
 	}
 	int y = (int)projectile.pos.y - 20;
