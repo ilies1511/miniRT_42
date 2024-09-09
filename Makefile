@@ -1,7 +1,7 @@
 NAME := miniRT
 CC := cc
 CFLAGS := -Wall -Wextra -fsanitize=address -g
-FLAGS_SPEED := -Wall -Wextra -Ofast -march=native -flto -NDBUG=1
+FLAGS_SPEED := -Wall -Wextra -O3 -march=native -flto -NDBUG=1
 #-Werror
 #-O3
 # -Werror

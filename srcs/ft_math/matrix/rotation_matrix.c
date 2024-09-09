@@ -9,7 +9,7 @@
 // rotation on x-axis
 // theta == 2 * M_PI ->full rotation
 // default pitch: theta == 0
-// theta == M_M_PI -> upsite down
+// theta == M_M_PI -> upside down
 // 2_M_PI (M_PI / 2) -> the y axis is the orginal z axis,
 //	the z axis is the inverse of the old y axis)
 t_matrix	pitch_matrix(double theta)
@@ -17,10 +17,10 @@ t_matrix	pitch_matrix(double theta)
 	t_matrix	mat;
 
 	mat = new_ident_m(MAT4X4);
-	mat.base_vecs[1].y = cos(theta);
-	mat.base_vecs[1].z = sin(theta);
-	mat.base_vecs[2].y = -sin(theta);
-	mat.base_vecs[2].z = cos(theta);
+	mat.m[1][1] = cos(theta);
+	mat.m[2][1] = sin(theta);
+	mat.m[1][2] = -sin(theta);
+	mat.m[2][2] = cos(theta);
 	return (mat);
 }
 
@@ -32,10 +32,10 @@ t_matrix	roll_matrix(double theta)
 	t_matrix	mat;
 
 	mat = new_ident_m(MAT4X4);
-	mat.base_vecs[0].x = cos(theta);
-	mat.base_vecs[0].y = sin(theta);
-	mat.base_vecs[1].x = -sin(theta);
-	mat.base_vecs[1].y = cos(theta);
+	mat.m[0][0] = cos(theta);
+	mat.m[1][0] = sin(theta);
+	mat.m[0][1] = -sin(theta);
+	mat.m[1][1] = cos(theta);
 	return (mat);
 }
 
@@ -48,9 +48,9 @@ t_matrix	yaw_matrix(double theta)
 	t_matrix	mat;
 
 	mat = new_ident_m(MAT4X4);
-	mat.base_vecs[0].x = cos(theta);
-	mat.base_vecs[0].z = -sin(theta);
-	mat.base_vecs[2].x = sin(theta);
-	mat.base_vecs[2].z = cos(theta);
+	mat.m[0][0] = cos(theta);
+	mat.m[2][0] = -sin(theta);
+	mat.m[0][2] = sin(theta);
+	mat.m[2][2] = cos(theta);
 	return (mat);
 }

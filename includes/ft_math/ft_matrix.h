@@ -21,22 +21,18 @@ typedef enum e_matrix_type
 	MAT4X4 = 4
 }	t_matrix_type;
 
-typedef union u_matrix
+typedef struct s_matrix
 {
-	struct
-	{
-		float			m[4][4];//mat[row][col] indexed no matter the type
-		t_matrix_type	type;
-	};
-	t_vec				base_vecs[4];
-}	__attribute__((packed))t_matrix;
+	float			m[4][4];//mat[row][col] indexed no matter the type
+	t_matrix_type	type;
+}	t_matrix;
 
 bool		eq_m(t_matrix ma, t_matrix mb);
 t_matrix	new_ident_m(t_matrix_type type);
 t_tuple		mult_mt(t_matrix m, t_tuple tup);
 t_matrix	mult_mm(t_matrix ma, t_matrix mb);
 // tests
-t_matrix	get_random_matrix(void);
+t_matrix	get_rad_m(void);
 void	print_m(t_fd fd, t_matrix m);
 bool	test_eq_m(void);
 bool	test_mult_mt(void);
