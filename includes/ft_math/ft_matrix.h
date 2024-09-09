@@ -41,4 +41,8 @@ void	print_m(t_fd fd, t_matrix m);
 bool	test_eq_m(void);
 bool	test_mult_mt(void);
 
+// rotation_matrix.c
+t_matrix	pitch_matrix(double theta);
+t_matrix	yaw_matrix(double theta);
+t_matrix	roll_matrix(double theta);
 #endif // MATRIX_H

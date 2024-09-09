@@ -43,7 +43,9 @@ SRC_FILES_MATH := \
 	ft_math/tuple/tuple_tests3.c \
 	ft_math/general/ft_floats.c \
 	ft_math/general/max_min_i.c \
-	ft_math/matrix/matrix1.c
+	ft_math/matrix/matrix1.c \
+	ft_math/matrix/rotation_matrix.c
+
 
 SRC_FILES_PARSER := \
 	parsing/ppm_parser/store_as_ppm.c
