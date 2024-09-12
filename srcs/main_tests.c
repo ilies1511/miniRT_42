@@ -66,106 +66,75 @@ void	tuple_tests(int *total_tests, int *passed_tests)
 	*total_tests += 1;
 }
 
-void	test_print_4x4(void)
-{
-	t_mat4x4	*mtx4;
-	int			i;
-	int			k;
-	int			dimension;
+//void	test_print_4x4(void)
+//{
+//	t_mat4x4	*mtx4;
+//	int			i;
+//	int			k;
+//	int			dimension;
+//
+//	mtx4 = malloc(sizeof(t_mat4x4) * 1);
+//	if (!mtx4)
+//		return ;
+//	dimension = mtx_get_matrix_dimension(MAT4X4);
+//	i = 0;
+//	while (i < dimension)
+//	{
+//		k = 0;
+//		while (k < dimension)
+//		{
+//			(*mtx4)[i][k] = 4.0;
+//			k++;
+//		}
+//		i++;
+//	}
+//	(*mtx4)[0][0] = 17.11;
+//	(*mtx4)[2][3] = 19.01;
+//	mtx_print_matrix(mtx4, MAT4X4);
+//	free (mtx4);
+//}
+//
+//void	test_print_3x3(void)
+//{
+//	t_mat3x3	*mtx3;
+//	int			i;
+//	int			k;
+//	int			dimension;
+//
+//	mtx3 = malloc(sizeof(t_mat3x3) * 1);
+//	if (!mtx3)
+//		return ;
+//	dimension = mtx_get_matrix_dimension(MAT3X3);
+//	i = 0;
+//	while (i < dimension)
+//	{
+//		k = 0;
+//		while (k < dimension)
+//		{
+//			(*mtx3)[i][k] = 3.0;
+//			k++;
+//		}
+//		i++;
+//	}
+//	mtx_print_matrix(mtx3, MAT3X3);
+//	free (mtx3);
+//}
+//
+//void	matrix_test(void)
+//{
+//	test_print_matrix();
+//	//TODO: Multiplication of Matrices
+//}
 
-	mtx4 = malloc(sizeof(t_mat4x4) * 1);
-	if (!mtx4)
-		return ;
-	dimension = mtx_get_matrix_dimension(MAT4X4);
-	i = 0;
-	while (i < dimension)
-	{
-		k = 0;
-		while (k < dimension)
-		{
-			(*mtx4)[i][k] = 4.0;
-			k++;
-		}
-		i++;
-	}
-	(*mtx4)[0][0] = 17.11;
-	(*mtx4)[2][3] = 19.01;
-	mtx_print_matrix(mtx4, MAT4X4);
-	free (mtx4);
-}
-
-void	test_print_3x3(void)
-{
-	t_mat3x3	*mtx3;
-	int			i;
-	int			k;
-	int			dimension;
-
-	mtx3 = malloc(sizeof(t_mat3x3) * 1);
-	if (!mtx3)
-		return ;
-	dimension = mtx_get_matrix_dimension(MAT3X3);
-	i = 0;
-	while (i < dimension)
-	{
-		k = 0;
-		while (k < dimension)
-		{
-			(*mtx3)[i][k] = 3.0;
-			k++;
-		}
-		i++;
-	}
-	mtx_print_matrix(mtx3, MAT3X3);
-	free (mtx3);
-}
-void	test_print_2x2(void)
-{
-	t_mat2x2	*mtx2x2;
-	int			i;
-	int			k;
-	int			dimension;
-
-	mtx2x2 = malloc(sizeof(t_mat2x2) * 1);
-	if (!mtx2x2)
-		return ;
-	dimension = mtx_get_matrix_dimension(MAT2X2);
-	i = 0;
-	while (i < dimension)
-	{
-		k = 0;
-		while (k < dimension)
-		{
-			(*mtx2x2)[i][k] = 0.0;
-			k++;
-		}
-		i++;
-	}
-	mtx_print_matrix(mtx2x2, MAT2X2);
-	free (mtx2x2);
-}
-
-void	test_print_matrix(void)
-{
-	test_print_2x2();
-	printf("\n");
-	test_print_3x3();
-	printf("\n");
-	test_print_4x4();
-	printf("\n");
-}
-
-void	matrix_test(void)
-{
-	test_print_matrix();
-	//TODO: Multiplication of Matrices
-}
 void	test_matrixes(int *total_tests, int *passed_tests)
 {
 		if (test_mtx_eq())
 			*passed_tests += 1;
 		*total_tests += 1;
-	if (test_mult_mt())
+	if (test_mtx_mult_mt())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_mtx_mult_mm())
 		*passed_tests += 1;
 	*total_tests += 1;
 }
@@ -175,35 +144,19 @@ int	main(void)
 #ifdef NO_ASSERT
 	deactivate_assert_interrupt();
 #endif
-	// int	passed = 0;
-	// int	total = 0;
-	// srand(time(NULL));
-	// if (example_test())
-	// 	passed++;
-	// total++;
-	// tuple_tests(&total, &passed);
-	// test_matrixes(&total, &passed);
-	// if (total == passed)
-	// 	printf("all tests passed(%d/%d)!\n", passed, total);
-	// else
-	// 	printf("%d of %d test passed\n", passed, total);
-	matrix_test();
+	 int	passed = 0;
+	 int	total = 0;
+	 srand(time(NULL));
+	 if (example_test())
+	 	passed++;
+	 total++;
+	 tuple_tests(&total, &passed);
+	 test_matrixes(&total, &passed);
+	 if (total == passed)
+	 	printf("all tests passed(%d/%d)!\n", passed, total);
+	 else
+	 	printf("%d of %d test passed\n", passed, total);
+	//matrix_test();
 	return (0);
 }
-// int	main(void)
-// {
-// #ifdef NO_ASSERT
-// 	deactivate_assert_interrupt();
-// #endif
-// 	int	passed = 0;
-// 	int	total = 0;
-// 	if (example_test())
-// 		passed++;
-// 	total++;
-// 	tuple_tests(&total, &passed);
-// 	if (total == passed)
-// 		printf("all tests passed!\n");
-// 	else
-// 		printf("%d of %d test passed\n", passed, total);
-// 	return (0);
-// }
+

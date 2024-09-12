@@ -27,7 +27,7 @@ bool	test_mtx_mult_mt(void)
 			ret = false;
 		}
 	}
-	m = get_rdm_m(MAT4X4);
+	m = mtx_get_rdm_m(MAT4X4);
 	// TODO: enter more tests here for specific inputs
 	return (ret);
 }
