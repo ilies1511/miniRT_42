@@ -2,7 +2,6 @@
 #include <libft.h>
 #include <ft_floats.h>
 
-// super inefficient but who cares
 t_matrix	mtx_sub_matrix(t_matrix m, int remove_row, int remove_col)
 {
 	t_matrix	sub;
@@ -35,3 +34,23 @@ t_matrix	mtx_sub_matrix(t_matrix m, int remove_row, int remove_col)
 	}
 	return (sub);
 }
+
+float	mtx_minor(t_matrix m, int row, int col)
+{
+}
+
+//determinant
+float	mtx_det(t_matrix m)
+{
+	float		result;
+	t_matrix	sub;
+
+	result = 0;
+	if (m.type > MAT2X2)
+	{
+		return (result);
+	}
+	else
+		return (m.m[0][0] * m.m[1][1] - m.m[0][1] * m.m[1][0]);
+}
+
