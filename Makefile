@@ -31,7 +31,7 @@ SRC_TEST_MAIN := main_tests.c
 SRC_FILES_ENGINE := \
 	ft_engine/utils/reset.c \
 	ft_engine/mlx_interface/hooks.c \
-	ft_engine/mlx_interface/helper1.c 
+	ft_engine/mlx_interface/helper1.c
 
 SRC_FILES_MATH := \
 	ft_math/tuple/tuple1.c \
@@ -44,8 +44,8 @@ SRC_FILES_MATH := \
 	ft_math/general/ft_floats.c \
 	ft_math/general/max_min_i.c \
 	ft_math/matrix/matrix1.c \
-	ft_math/matrix/rotation_matrix.c
-
+	ft_math/matrix/rotation_matrix.c \
+	ft_math/matrix/matrix.c
 
 SRC_FILES_PARSER := \
 	parsing/ppm_parser/store_as_ppm.c

@@ -12,5 +12,6 @@ void	main_key_hooks(mlx_key_data_t keydata, void *main_data);
 
 // ft_engine/reset.c
 void	reset_img(t_main *m_data);
+void	smoth_vanish(t_main *m_data);
 
 #endif //FT_ENGINE_H

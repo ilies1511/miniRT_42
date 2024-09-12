@@ -18,9 +18,9 @@ t_env	new_env(void)
 {
 	t_env	env;
 
-	env.wind = new_vec(-0.5, 0, 0);
+	env.wind = new_vec(0, 0, 0);
 	//env.wind = norm(env.wind);
-	env.grav = new_vec(0, 3, 0);
+	env.grav = new_vec(0, 123, 0);
 	return (env);
 }
 
@@ -29,18 +29,19 @@ t_projectile	init_projectile(void)
 	t_projectile	projectile;
 
 	projectile.pos = new_point(0, HEIGHT - 1, 0);
-	projectile.speed = new_vec(400, 0, 0);
+	projectile.speed = new_vec(100, 500, 0);
 	return (projectile);
 }
 
 void	draw_projectile(void *main_data)
 {
+	double	d_time;
+	t_vec	movement;
+
 	t_main	*m_data = (t_main *)main_data;
 	const t_env env = new_env();
 	static t_projectile	projectile = {.pos.x = -1.0};
-	double	d_time;
 	static double counter = 0;
-	t_vec	movement;
 	const t_uint_color color = {.full = RED};
 
 	if (projectile.pos.x == -1.0)
@@ -79,22 +80,40 @@ void	draw_projectile(void *main_data)
 	}
 	if (counter > 3)
 	{
-		store_as_plain_ppm(m_data, "test.ppm");
+		// store_as_plain_ppm(m_data, "test.ppm");
 		counter = -40;
 	}
 	if (projectile.pos.x < 0)
-		projectile.pos.x = WIDTH - 1;
-	else if (projectile.pos.x > WIDTH - 1)
+	{
 		projectile.pos.x = 0;
+		if (projectile.speed.x < 0)
+			projectile.speed.x *= -1;
+	}
+	else if (projectile.pos.x > WIDTH - 1)
+	{
+		projectile.pos.x = WIDTH - 1;
+		if (projectile.speed.x > 0)
+			projectile.speed.x *= -1;
+	}
 	if (projectile.pos.y < 0)
 	{
-		projectile.pos.y = HEIGHT -1;
-		projectile.speed.y = 0;
+		projectile.pos.y = 0;
+		if (fabs(projectile.speed.y) > HEIGHT / d_time / 4)
+			projectile.speed.y = HEIGHT / d_time / 4;
+		if (projectile.speed.y < 0)
+			projectile.speed.y *= -1;
+		//projectile.speed.y = 0;
 	}
 	else if (projectile.pos.y > HEIGHT - 1)
 	{
-		projectile.pos.y = 0;
-		projectile.speed.y = 0;
+		projectile.pos.y = HEIGHT - 1;
+		if (projectile.speed.y > 0 )
+		{
+			if (fabs(projectile.speed.y) > HEIGHT / d_time / 4)
+				projectile.speed.y = -HEIGHT / d_time / 4;
+			projectile.speed.y *= -1;
+		}
+		//projectile.speed.y = 0;
 	}
 }
 

@@ -65,4 +65,4 @@ dkms.conf
 miniRT
 #libft
 libft/
-
+.vscode/

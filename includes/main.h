@@ -29,10 +29,10 @@
 // # include <....h>
 # include <time.h>//used for tests to init rand()
 # ifndef WIDTH
-#  define WIDTH 2000
+#  define WIDTH 1920
 # endif
 # ifndef HEIGHT
-#  define HEIGHT 1500
+#  define HEIGHT 1080
 # endif
 
 typedef int t_fd;
@@ -43,6 +43,12 @@ typedef struct s_main
 	mlx_image_t	*img;
 }	t_main;
 
+typedef enum
+{
+	COLOR,
+	VECTOR,
+	POINT
+}	t_tuple_type;
 // experiments
 
 void	draw_projectile(void *main_data);
