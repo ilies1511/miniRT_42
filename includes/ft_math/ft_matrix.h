@@ -32,6 +32,12 @@ t_matrix	mtx_mult_mm(t_matrix ma, t_matrix mb);
 bool		test_mtx_mult_mt(void);
 bool		test_mtx_mult_mm(void);
 
+// matrix_determinant.c
+t_matrix	mtx_sub_matrix(t_matrix m, int remove_row, int remove_col);
+
+// matrix_determinant_tests.c
+bool		test_mtx_sub_matrix(void);
+
 // matrix_debug.c
 void		mtx_print(t_fd fd, t_matrix m);
 bool		mtx_eq(t_matrix ma, t_matrix mb);
@@ -40,8 +46,8 @@ bool		mtx_eq(t_matrix ma, t_matrix mb);
 bool		test_mtx_eq(void);
 
 //Helper
-int		mtx_get_matrix_dimension(t_matrix_type type);
-void	mtx_print_matrix(void *matrix, t_matrix_type type);
+int			mtx_get_matrix_dimension(t_matrix_type type);
+void		mtx_print_matrix(void *matrix, t_matrix_type type);
 
 //End Helper
 

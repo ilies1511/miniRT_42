@@ -47,6 +47,8 @@ SRC_FILES_MATH := \
 	ft_math/matrix/matrix_helpers.c \
 	ft_math/matrix/matrix_init.c \
 	ft_math/matrix/matrix_mult.c \
+	ft_math/matrix/matrix_determinant.c \
+	ft_math/matrix/matrix_determinant_tests.c \
 	ft_math/matrix/matrix_mult_tests.c \
 	ft_math/matrix/matrix_other_tests.c \
 	ft_math/matrix/matrix_debug.c \
