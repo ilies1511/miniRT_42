@@ -5,7 +5,8 @@ void	main_loop(void *main_data)
 	t_main	*m_data;
 
 	m_data = (t_main *)main_data;
-	reset_img(m_data);
+	// reset_img(m_data);
+	smoth_vanish(m_data);
 	draw_projectile(m_data);
 }
 

@@ -1,18 +1,22 @@
 #include <main.h>
 #include "ft_matrix.h"
 
+int	mtx_equal_check(void *matrix_a, void *matrix_b, t_matrix_type type)
+{
+	;
+}
+
 int	mtx_get_matrix_dimension(t_matrix_type type)
 {
-	// Da MAT2X2, MAT3x3, MAT4x4 fortlaufend sind, können wir einfach 2 addieren
 	return (type + 2);
 }
 
-// Funktion zum Drucken der Matrix
 void	mtx_print_matrix(void *matrix, t_matrix_type type)
 {
 	int		dim;
 	int		i;
 	int		j;
+	float	*mat;
 
 	dim = mtx_get_matrix_dimension(type);
 	if (dim <= 0 || matrix == NULL)
@@ -20,7 +24,7 @@ void	mtx_print_matrix(void *matrix, t_matrix_type type)
 		printf("Invalid matrix or type.\n");
 		return ;
 	}
-	float(*mat)[dim] = matrix;
+	mat = (float *)matrix;
 	i = 0;
 	while (i < dim)
 	{
@@ -28,7 +32,7 @@ void	mtx_print_matrix(void *matrix, t_matrix_type type)
 		j = 0;
 		while (j < dim)
 		{
-			printf("%f", mat[i][j]);
+			printf("%f", mat[i * dim + j]);
 			if (j < dim - 1)
 				printf(" ");
 			j++;
@@ -37,6 +41,7 @@ void	mtx_print_matrix(void *matrix, t_matrix_type type)
 		i++;
 	}
 }
+
 // void	mtx_print_matrix(t_mat2x2 *matrix, t_matrix_type type)
 // {
 // 	int	dim;

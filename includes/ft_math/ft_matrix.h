@@ -46,7 +46,6 @@ int		mtx_get_matrix_dimension(t_matrix_type type);
 // void	mtx_print_matrix(float ***matrix, t_matrix_type type);
 void	mtx_print_matrix(void *matrix, t_matrix_type type);
 
-
 //End Helper
 
 void		print_mat(float *mat , t_matrix_type type);

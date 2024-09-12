@@ -22,16 +22,6 @@ void	deactivate_assert_interrupt(void)
 }
 #endif //NO_ASSERT
 
-
-
-
-
-
-
-
-
-
-
 int	example_add(int a, int b)
 {
 	return (a + b);
@@ -68,7 +58,6 @@ bool	example_test(void)
 
 void	tuple_tests(int *total_tests, int *passed_tests)
 {
-
 	if (is_point_test())
 		*passed_tests += 1;
 	*total_tests += 1;
@@ -99,6 +88,8 @@ void	test_print_4x4(void)
 		}
 		i++;
 	}
+	(*mtx4)[0][0] = 17.11;
+	(*mtx4)[2][3] = 19.01;
 	mtx_print_matrix(mtx4, MAT4x4);
 	free (mtx4);
 }
@@ -161,11 +152,13 @@ void	test_print_matrix(void)
 	test_print_3x3();
 	printf("\n");
 	test_print_4x4();
+	printf("\n");
 }
 
 void	matrix_test(void)
 {
 	test_print_matrix();
+	//TODO: Multiplication of Matrices
 }
 
 int	main(void)
