@@ -82,8 +82,36 @@ bool	test_mtx_mult_mm(void)
 		},
 		.type = MAT4X4,
 	};
+	t_matrix m2a = {
+		.m = {
+	{1, 2, 3, 4},
+	{5, 6 , 7, 8},
+	{9, 8, 7, 6},
+	{5, 4, 3, 2}
+		},
+		.type = MAT4X4,
+	};
+	t_matrix m2b = {
+		.m = {
+	{-2, 1, 2, 3},
+	{3, 2, 1, -1},
+	{4, 3, 6, 5},
+	{1, 2, 7, 8}
+		},
+		.type = MAT4X4,
+	};
+	t_matrix	expected2_m = {
+		.m = {
+			{20, 22, 50, 48},
+			{44, 54, 114, 108},
+			{40, 58, 110, 102},
+			{16, 26, 46, 42},
+		},
+		.type = MAT4X4,
+	};
 	t_matrix actual_m = mtx_mult_mm(ma, mb);
-	if (!mtx_eq(actual_m, expected_m))
+	t_matrix actual2_m = mtx_mult_mm(m2a, m2b);
+	if (!mtx_eq(actual2_m, expected2_m))
 	{
 		ft_fprintf(2, "Error: mult_mm(): multipling the matrix:\n");
 		mtx_print(2, ma);
