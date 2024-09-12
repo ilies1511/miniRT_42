@@ -16,7 +16,7 @@ t_matrix	pitch_matrix(double theta)
 {
 	t_matrix	mat;
 
-	mat = new_ident_m(MAT4X4);
+	mat = mtx_new_ident(MAT4X4);
 	mat.m[1][1] = cos(theta);
 	mat.m[2][1] = sin(theta);
 	mat.m[1][2] = -sin(theta);
@@ -31,7 +31,7 @@ t_matrix	roll_matrix(double theta)
 {
 	t_matrix	mat;
 
-	mat = new_ident_m(MAT4X4);
+	mat = mtx_new_ident(MAT4X4);
 	mat.m[0][0] = cos(theta);
 	mat.m[1][0] = sin(theta);
 	mat.m[0][1] = -sin(theta);
@@ -47,7 +47,7 @@ t_matrix	yaw_matrix(double theta)
 {
 	t_matrix	mat;
 
-	mat = new_ident_m(MAT4X4);
+	mat = mtx_new_ident(MAT4X4);
 	mat.m[0][0] = cos(theta);
 	mat.m[2][0] = -sin(theta);
 	mat.m[0][2] = sin(theta);

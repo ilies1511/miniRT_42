@@ -1,11 +1,6 @@
 #include <main.h>
 #include "ft_matrix.h"
 
-int	mtx_equal_check(void *matrix_a, void *matrix_b, t_matrix_type type)
-{
-	;
-}
-
 int	mtx_get_matrix_dimension(t_matrix_type type)
 {
 	return (type);
