@@ -76,7 +76,7 @@ void	test_print_4x4(void)
 	mtx4 = malloc(sizeof(t_mat4x4) * 1);
 	if (!mtx4)
 		return ;
-	dimension = mtx_get_matrix_dimension(MAT4x4);
+	dimension = mtx_get_matrix_dimension(MAT4X4);
 	i = 0;
 	while (i < dimension)
 	{
@@ -90,7 +90,7 @@ void	test_print_4x4(void)
 	}
 	(*mtx4)[0][0] = 17.11;
 	(*mtx4)[2][3] = 19.01;
-	mtx_print_matrix(mtx4, MAT4x4);
+	mtx_print_matrix(mtx4, MAT4X4);
 	free (mtx4);
 }
 
@@ -104,7 +104,7 @@ void	test_print_3x3(void)
 	mtx3 = malloc(sizeof(t_mat3x3) * 1);
 	if (!mtx3)
 		return ;
-	dimension = mtx_get_matrix_dimension(MAT3x3);
+	dimension = mtx_get_matrix_dimension(MAT3X3);
 	i = 0;
 	while (i < dimension)
 	{
@@ -116,7 +116,7 @@ void	test_print_3x3(void)
 		}
 		i++;
 	}
-	mtx_print_matrix(mtx3, MAT3x3);
+	mtx_print_matrix(mtx3, MAT3X3);
 	free (mtx3);
 }
 void	test_print_2x2(void)
@@ -175,18 +175,19 @@ int	main(void)
 #ifdef NO_ASSERT
 	deactivate_assert_interrupt();
 #endif
-	int	passed = 0;
-	int	total = 0;
-	srand(time(NULL));
-	if (example_test())
-		passed++;
-	total++;
-	tuple_tests(&total, &passed);
-	test_matrixes(&total, &passed);
-	if (total == passed)
-		printf("all tests passed(%d/%d)!\n", passed, total);
-	else
-		printf("%d of %d test passed\n", passed, total);
+	// int	passed = 0;
+	// int	total = 0;
+	// srand(time(NULL));
+	// if (example_test())
+	// 	passed++;
+	// total++;
+	// tuple_tests(&total, &passed);
+	// test_matrixes(&total, &passed);
+	// if (total == passed)
+	// 	printf("all tests passed(%d/%d)!\n", passed, total);
+	// else
+	// 	printf("%d of %d test passed\n", passed, total);
+	matrix_test();
 	return (0);
 }
 // int	main(void)

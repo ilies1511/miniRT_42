@@ -8,7 +8,7 @@ int	mtx_equal_check(void *matrix_a, void *matrix_b, t_matrix_type type)
 
 int	mtx_get_matrix_dimension(t_matrix_type type)
 {
-	return (type + 2);
+	return (type);
 }
 
 void	mtx_print_matrix(void *matrix, t_matrix_type type)
