@@ -128,9 +128,9 @@ void	tuple_tests(int *total_tests, int *passed_tests)
 
 void	test_matrixes(int *total_tests, int *passed_tests)
 {
-		if (test_mtx_eq())
-			*passed_tests += 1;
-		*total_tests += 1;
+	if (test_mtx_eq())
+		*passed_tests += 1;
+	*total_tests += 1;
 	if (test_mtx_mult_mt())
 		*passed_tests += 1;
 	*total_tests += 1;

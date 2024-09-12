@@ -28,7 +28,25 @@ bool	test_mtx_mult_mt(void)
 		}
 	}
 	m = mtx_get_rdm_m(MAT4X4);
-	// TODO: enter more tests here for specific inputs
+	const t_matrix	test_m1 = {.m = {
+		{1, 2, 3, 4},{5, 6, 7, 8},{9, 10, 11, 12},{13, 14, 15, 16},
+	}, .type = MAT4X4,};
+	const t_tuple	test_t1 = {.x = 1, .y = 2, .z = 3, .w = 4};
+	actual = mtx_mult_mt(test_m1, test_t1);
+	expect.x = 30;
+	expect.y = 70;
+	expect.z = 110;
+	expect.w = 150;
+	if (!eq_t(expect, actual))
+	{
+		ft_fprintf(2, "Error: mult_mt(): multipling the tuple:\n");
+		print_t(2, test_t1);
+		ft_fprintf(2, "with the matrix:\n");
+		mtx_print(2, test_m1);
+		ft_fprintf(2, "resulted in:\n");
+		print_t(2, actual);
+		ret = false;
+	}
 	return (ret);
 }
 
