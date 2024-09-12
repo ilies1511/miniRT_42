@@ -29,10 +29,10 @@
 // # include <....h>
 
 # ifndef WIDTH
-#  define WIDTH 2000
+#  define WIDTH 1920
 # endif
 # ifndef HEIGHT
-#  define HEIGHT 1500
+#  define HEIGHT 1080
 # endif
 
 typedef int t_fd;

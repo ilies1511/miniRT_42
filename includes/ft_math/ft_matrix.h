@@ -8,6 +8,7 @@
 typedef float	t_mat2x2[2][2];//mat[row][col]
 typedef float	t_mat3x3[3][3];//mat[row][col]
 typedef float	t_mat4x4[4][4];//mat[row][col]
+typedef double	t_double_mat4x4[4][4];//mat[row][col]
 
 // to avoid duplication: when possibe fucntions should take a t_matrix_type
 // to determine the specific operation. If duplication would be simpler
@@ -37,6 +38,16 @@ typedef struct s_potential_better_matrix_defintion_maybe
 // and a pointer to pass data as a return val...
 // IDK both suck in their way
 // for now these defitions assume the first matrix type
+
+//Helper
+int		mtx_get_matrix_dimension(t_matrix_type type);
+// void	mtx_print_matrix(float **matrix, t_matrix_type type);
+// void	mtx_print_matrix(t_mat2x2 *matrix, t_matrix_type type);
+// void	mtx_print_matrix(float ***matrix, t_matrix_type type);
+void	mtx_print_matrix(void *matrix, t_matrix_type type);
+
+
+//End Helper
 
 void		print_mat(float *mat , t_matrix_type type);
 bool		eq_m(float *ma, float *mb, t_matrix_type type);
