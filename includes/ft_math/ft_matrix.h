@@ -34,9 +34,11 @@ bool		test_mtx_mult_mm(void);
 
 // matrix_determinant.c
 t_matrix	mtx_sub_matrix(t_matrix m, int remove_row, int remove_col);
+float		mtx_cofactor(t_matrix m, int row, int col);
 
 // matrix_determinant_tests.c
 bool		test_mtx_sub_matrix(void);
+bool		test_mtx_cofactor(void);
 
 // matrix_debug.c
 void		mtx_print(t_fd fd, t_matrix m);

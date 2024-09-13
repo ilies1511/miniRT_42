@@ -65,3 +65,25 @@ bool	test_mtx_sub_matrix(void)
 	}
 	return (ret);
 }
+
+bool	test_mtx_cofactor(void)
+{
+	bool		ret = true;
+	t_matrix	m = {.m = {
+		{3, 5, 0},
+		{2, -1, -7},
+		{6, -1, 5},
+	},
+	.type = MAT3X3
+	};
+	float actual = mtx_cofactor(m, 0, 0);
+	float expected = -12;
+	if (!eq_f(actual, expected))
+	{
+		ft_fprintf(2, "test failed: mtx_cofactor\ninput:");
+		mtx_print(2, m);
+		ft_fprintf(2, "expected_output: %f\nactual output: %f\n", expected, actual);
+		ret = false;
+	}
+	return (ret);
+}
