@@ -60,13 +60,18 @@ float	mtx_cofactor(t_matrix m, int row, int col)
 float	mtx_det(t_matrix m)
 {
 	float		result;
+	int			i;
 
 	result = 0;
-	if (m.type > MAT2X2)
+	i = -1;
+	if (m.type == MAT2X2)
+		return (m.m[0][0] * m.m[1][1] - m.m[0][1] * m.m[1][0]);
+	else
 	{
-		// result += mtx_det(mtx_sub_matrix(m, ...));
+		ft_assert(m.type == MAT4X4 || m.type == MAT3X3, __FILE__, __LINE__,
+			"error: mtx_det: invalid matrix type");
+		while (++i < (int)m.type)
+			result += m.m[0][i] * mtx_cofactor(m, 0, i);
 		return (result);
 	}
-	else
-		return (m.m[0][0] * m.m[1][1] - m.m[0][1] * m.m[1][0]);
 }

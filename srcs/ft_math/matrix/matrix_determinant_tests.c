@@ -104,7 +104,7 @@ bool	test_mtx_det(void)
 	};
 	if (!eq_f(mtx_cofactor(test1, 0, 0), 56)
 			|| !eq_f(mtx_cofactor(test1, 0, 1), 12)
-			|| !eq_f(mtx_cofactor(test1, 0, 2), -42))
+			|| !eq_f(mtx_cofactor(test1, 0, 2), -46))
 	{
 		ret = false;
 		ft_fprintf(2, "test failed: mtx_cofactor: %s line %d\n", __FILE__, __LINE__);
