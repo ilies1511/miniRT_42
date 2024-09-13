@@ -40,6 +40,7 @@ float		mtx_cofactor(t_matrix m, int row, int col);
 // matrix_determinant_tests.c
 bool		test_mtx_sub_matrix(void);
 bool		test_mtx_cofactor(void);
+bool		test_mtx_det(void);
 
 // Matrix minor
 float		mtx_minor(t_matrix m, int row, int col);

@@ -88,3 +88,62 @@ bool	test_mtx_cofactor(void)
 	}
 	return (ret);
 }
+
+bool	test_mtx_det(void)
+{
+	bool	ret = true;
+	float	actual;
+	float	expected;
+
+	t_matrix	test1 = {.m = {
+			{1, 2, 6},
+			{-5, 8, -4},
+			{2, 6, 4},
+		},
+		.type = MAT3X3
+	};
+	if (!eq_f(mtx_cofactor(test1, 0, 0), 56)
+			|| !eq_f(mtx_cofactor(test1, 0, 1), 12)
+			|| !eq_f(mtx_cofactor(test1, 0, 2), -42))
+	{
+		ret = false;
+		ft_fprintf(2, "test failed: mtx_cofactor: %s line %d\n", __FILE__, __LINE__);
+	}
+	expected = -196;
+	actual = mtx_det(test1);
+	if (!eq_f(actual, expected))
+	{
+		ret = false;
+		ft_fprintf(2, "test failed: mtx_det: %s line %d\n", __FILE__, __LINE__);
+		ft_fprintf(2, "input: ");
+		mtx_print(2, test1);
+		ft_fprintf(2, "expected: %f; actual: %f\n", expected, actual);
+	}
+	t_matrix	test2 = {.m = {
+			{-2, -8, 3, 5},
+			{-3, 1, 7, 3},
+			{1, 2, -9, 6},
+			{-6, 7, 7, -9},
+		},
+		.type = MAT4X4
+	};
+	if (!eq_f(mtx_cofactor(test2, 0, 0), 690)
+			|| !eq_f(mtx_cofactor(test2, 0, 1), 447)
+			|| !eq_f(mtx_cofactor(test2, 0, 2), 210)
+			|| !eq_f(mtx_cofactor(test2, 0, 3), 51))
+	{
+		ret = false;
+		ft_fprintf(2, "test failed: mtx_cofactor 4x4: %s line %d\n", __FILE__, __LINE__);
+	}
+	expected = -4071;
+	actual = mtx_det(test2);
+	if (!eq_f(actual, expected))
+	{
+		ret = false;
+		ft_fprintf(2, "test failed: mtx_det 4x4: %s line %d\n", __FILE__, __LINE__);
+		ft_fprintf(2, "input: ");
+		mtx_print(2, test2);
+		ft_fprintf(2, "expected: %f; actual: %f\n", expected, actual);
+	}
+	return (ret);
+}
