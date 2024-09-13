@@ -53,7 +53,8 @@ SRC_FILES_MATH := \
 	ft_math/matrix/matrix_other_tests.c \
 	ft_math/matrix/matrix_debug.c \
 	ft_math/matrix/matrix_transpose.c \
-	ft_math/matrix/test_mtx_transpose.c
+	ft_math/matrix/test_mtx_transpose.c \
+	ft_math/matrix/test_mtx_minor.c
 
 
 SRC_FILES_PARSER := \

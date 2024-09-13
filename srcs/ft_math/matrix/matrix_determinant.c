@@ -37,17 +37,23 @@ t_matrix	mtx_sub_matrix(t_matrix m, int remove_row, int remove_col)
 
 float	mtx_minor(t_matrix m, int row, int col)
 {
+	float		minor;
+	t_matrix	sub_m;
+
+	sub_m = mtx_sub_matrix(m, row, col);
+	minor = mtx_det(sub_m);
+	return (minor);
 }
 
 //determinant
 float	mtx_det(t_matrix m)
 {
 	float		result;
-	t_matrix	sub;
 
 	result = 0;
 	if (m.type > MAT2X2)
 	{
+		// result += mtx_det(mtx_sub_matrix(m, ...));
 		return (result);
 	}
 	else
