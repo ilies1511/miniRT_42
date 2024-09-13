@@ -149,10 +149,14 @@ void	test_matrixes(int *total_tests, int *passed_tests)
 	if (test_mtx_sub_matrix())
 		*passed_tests += 1;
 	*total_tests += 1;
+<<<<<<< HEAD
 	if (test_mtx_transpose())
 		*passed_tests += 1;
 	*total_tests += 1;
 	if (test_mtx_minor())
+=======
+	if (test_mtx_cofactor())
+>>>>>>> fabian
 		*passed_tests += 1;
 	*total_tests += 1;
 }

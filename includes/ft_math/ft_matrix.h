@@ -35,10 +35,15 @@ bool		test_mtx_mult_mm(void);
 // matrix_determinant.c
 t_matrix	mtx_sub_matrix(t_matrix m, int remove_row, int remove_col);
 float		mtx_det(t_matrix m);
-
+float		mtx_cofactor(t_matrix m, int row, int col);
 
 // matrix_determinant_tests.c
 bool		test_mtx_sub_matrix(void);
+bool		test_mtx_cofactor(void);
+
+// Matrix minor
+float		mtx_minor(t_matrix m, int row, int col);
+int			test_mtx_minor(void);
 
 // matrix_debug.c
 void		mtx_print(t_fd fd, t_matrix m);
@@ -50,10 +55,6 @@ bool		test_mtx_eq(void);
 // Matrix Transpose
 t_matrix	mtx_transpose(t_matrix m);
 int			test_mtx_transpose(void);
-
-// Matrix minor
-float		mtx_minor(t_matrix m, int row, int col);
-int			test_mtx_minor(void);
 
 //Helper
 int			mtx_get_matrix_dimension(t_matrix_type type);
