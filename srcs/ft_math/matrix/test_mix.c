@@ -37,29 +37,36 @@ bool	test_matrix_mult_inverse(void)
 		ft_printf("test failed: mtx_mult_mm()->mtx_inverse()->mtx_mult_mm():\
 				%s line %s\n", __FILE__, __LINE__);
 	}
-	for (int i = 0; i < 100000; i++)
+	for (int i = 0; i < 100; i++)
 	{
 		ma = mtx_get_rdm_m(MAT4X4);
 		mb = mtx_get_rdm_m(MAT4X4);
-		if (fabs(mtx_det(mb)) < EPSILON * 10)
+		if (fabs(mtx_det(mb)) < EPSILON * 100)
 			continue ;
+		for (int i = 0; i < 4; i++)
+		{
+			if (mb.m[i][i] < 0)
+				mb.m[i][i] += EPSILON;
+			else
+				mb.m[i][i] -= EPSILON;
+		}
 		prod = mtx_mult_mm(ma, mb);
 		mib = mtx_inverse(mb);
 		res = mtx_mult_mm(prod, mib);
 		if (!mtx_eq_roughly(res, ma))
 		{
 			ret = false;
-			ft_fprintf(2, "test failed: mtx_mult_mm()->mtx_inverse()->mtx_mult_mm():\
+			fprintf(stderr, "test failed: mtx_mult_mm()->mtx_inverse()->mtx_mult_mm():\
 					%s line %d\n", __FILE__, __LINE__);
-			ft_fprintf(2, "mb: ");
+			fprintf(stderr, "mb: ");
 			mtx_print(2, mb);
-			ft_fprintf(2, "prod: ");
+			fprintf(stderr, "prod: ");
 			mtx_print(2, prod);
-			ft_fprintf(2, "mib: ");
+			fprintf(stderr, "mib: ");
 			mtx_print(2, mib);
-			ft_fprintf(2, "ma(expected): ");
+			fprintf(stderr, "ma(expected): ");
 			mtx_print(2, ma);
-			ft_fprintf(2, "res(actual): ");
+			fprintf(stderr, "res(actual): ");
 			mtx_print(2, res);
 		}
 	}

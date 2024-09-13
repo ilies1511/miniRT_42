@@ -1,6 +1,7 @@
 #ifndef FT_FLOATS_H
 # define FT_FLOATS_H
 
+# include <float.h>
 # include <stdbool.h>
 # include <math.h>
 
