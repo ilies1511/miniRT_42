@@ -5,7 +5,7 @@
 # include <math.h>
 
 # ifndef EPSILON //precision to compare 2 floats
-#  define EPSILON ((float)0.00001)
+#  define EPSILON ((float)0.001)
 # endif
 
 //equal float

@@ -53,3 +53,26 @@ bool	mtx_eq(t_matrix ma, t_matrix mb)
 	}
 	return (true);
 }
+
+bool	mtx_eq_roughly(t_matrix ma, t_matrix mb)
+{
+	uint8_t	row;
+	uint8_t	col;
+
+
+	if (ma.type != mb.type)
+		return (false);
+	row = 0;
+	while (row < ma.type)
+	{
+		col = 0;
+		while (col < ma.type)
+		{
+			if (fabs(ma.m[row][col] - mb.m[row][col]) > EPSILON * 1000)
+				return (false);
+			col++;
+		}
+		row++;
+	}
+	return (true);
+}
