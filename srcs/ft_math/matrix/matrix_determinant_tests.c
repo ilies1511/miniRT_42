@@ -2,6 +2,7 @@
 #include <libft.h>
 #include <ft_floats.h>
 
+
 bool	test_mtx_sub_matrix(void)
 {
 	bool			ret = true;
@@ -23,7 +24,7 @@ bool	test_mtx_sub_matrix(void)
 	expect.m[0][1] = 2;
 	expect.m[1][0] = 0;
 	expect.m[1][1] = 6;
-	
+
 	actual = mtx_sub_matrix(test, 0, 2);
 	if (!mtx_eq(actual, expect))
 	{

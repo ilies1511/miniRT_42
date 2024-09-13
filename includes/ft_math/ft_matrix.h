@@ -45,6 +45,10 @@ bool		mtx_eq(t_matrix ma, t_matrix mb);
 // matrix_other_tests.c
 bool		test_mtx_eq(void);
 
+// Matrix Transpose
+t_matrix	mtx_transpose(t_matrix m);
+int			test_mtx_transpose(void);
+
 //Helper
 int			mtx_get_matrix_dimension(t_matrix_type type);
 void		mtx_print_matrix(void *matrix, t_matrix_type type);

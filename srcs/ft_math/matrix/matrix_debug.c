@@ -12,13 +12,18 @@ void	mtx_print(t_fd fd, t_matrix m)
 	while (row < (int)m.type)
 	{
 		col = 0;
-		ft_fprintf(fd, "|");
+		// ft_fprintf(fd, "[ ");
+		fprintf(stderr, "[ ");
 		while (col < (int)m.type)
 		{
-			ft_fprintf(fd, "%f|", m.m[row][col]);
+			// ft_fprintf(fd, "%f\t", m.m[row][col]);
+			fprintf(stderr, "%10f", m.m[row][col]);
 			col++;
+			if (col < (int)m.type)
+				fprintf(stderr, "\t");
 		}
-		ft_fprintf(fd, "\n");
+		// ft_fprintf(fd, "]\n");
+		fprintf(stderr, "]\n");
 		row++;
 	}
 }

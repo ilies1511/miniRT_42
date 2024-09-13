@@ -90,7 +90,7 @@ void	tuple_tests(int *total_tests, int *passed_tests)
 //	}
 //	(*mtx4)[0][0] = 17.11;
 //	(*mtx4)[2][3] = 19.01;
-//	mtx_print_matrix(mtx4, MAT4X4);
+	// mtx_print_matrix(mtx4, MAT4X4);
 //	free (mtx4);
 //}
 //
@@ -120,11 +120,20 @@ void	tuple_tests(int *total_tests, int *passed_tests)
 //	free (mtx3);
 //}
 //
-//void	matrix_test(void)
-//{
-//	test_print_matrix();
-//	//TODO: Multiplication of Matrices
-//}
+
+// void	matrix_test(void)
+// {
+// 	t_matrix	m2b = {
+// 		.m = {
+// 	{-2, 1, 2, 3},
+// 	{3, 2, 1, -1},
+// 	{4, 3, 6, 5},
+// 	{1, 2, 7, 8}
+// 		}, .type = MAT4X4 };
+// 	mtx_print_matrix();
+// 	// test_print_matrix();
+// 	//TODO: Multiplication of Matrices
+// }
 
 void	test_matrixes(int *total_tests, int *passed_tests)
 {
@@ -138,6 +147,9 @@ void	test_matrixes(int *total_tests, int *passed_tests)
 		*passed_tests += 1;
 	*total_tests += 1;
 	if (test_mtx_sub_matrix())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_mtx_transpose())
 		*passed_tests += 1;
 	*total_tests += 1;
 }
@@ -159,7 +171,6 @@ int	main(void)
 	 	printf("all tests passed(%d/%d)!\n", passed, total);
 	 else
 	 	printf("%d of %d test passed\n", passed, total);
-	//matrix_test();
 	return (0);
 }
 

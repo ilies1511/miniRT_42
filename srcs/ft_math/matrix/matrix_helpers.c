@@ -13,6 +13,7 @@ void	mtx_print_matrix(void *matrix, t_matrix_type type)
 	int		j;
 	float	*mat;
 
+
 	dim = mtx_get_matrix_dimension(type);
 	if (dim <= 0 || matrix == NULL)
 	{
