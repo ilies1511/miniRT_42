@@ -47,6 +47,17 @@ float	mtx_minor(t_matrix m, int row, int col)
 	return (minor);
 }
 
+float	mtx_cofactor(t_matrix m, int row, int col)
+{
+	int		sign;
+
+	sign = 1;
+	if ((row + col) % 2)
+		sign = -1;
+	return (sign * mtx_minor(m, row, col));
+}
+
+
 //determinant
 float	mtx_det(t_matrix m)
 {
@@ -61,4 +72,3 @@ float	mtx_det(t_matrix m)
 	else
 		return (m.m[0][0] * m.m[1][1] - m.m[0][1] * m.m[1][0]);
 }
-
