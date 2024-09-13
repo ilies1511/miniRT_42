@@ -161,6 +161,9 @@ void	test_matrixes(int *total_tests, int *passed_tests)
 	if (test_mtx_det())
 		*passed_tests += 1;
 	*total_tests += 1;
+	if (test_mtx_inverse())
+		*passed_tests += 1;
+	*total_tests += 1;
 }
 
 int	main(void)

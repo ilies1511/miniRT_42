@@ -45,6 +45,10 @@ bool		test_mtx_det(void);
 // Matrix minor
 float		mtx_minor(t_matrix m, int row, int col);
 int			test_mtx_minor(void);
+// matrix_inverse.c
+t_matrix	mtx_inverse(t_matrix m);
+// test_mtx_inverse.c
+bool		test_mtx_inverse(void);
 
 // matrix_debug.c
 void		mtx_print(t_fd fd, t_matrix m);
@@ -62,7 +66,5 @@ int			mtx_get_matrix_dimension(t_matrix_type type);
 void		mtx_print_matrix(void *matrix, t_matrix_type type);
 
 //End Helper
-
-
 #endif // MATRIX_H
 

@@ -145,5 +145,43 @@ bool	test_mtx_det(void)
 		mtx_print(2, test2);
 		ft_fprintf(2, "expected: %f; actual: %f\n", expected, actual);
 	}
+	t_matrix	test3 = {
+		.m = {
+			{6, 4, 4, 4},
+			{5, 5, 7, 6},
+			{4, -9, 3, -7},
+			{9, 1, 7, -6},
+		},
+		.type = MAT4X4,
+	};
+	expected = -2120;
+	actual = mtx_det(test3);
+	if (!eq_f(actual, expected))
+	{
+		ret = false;
+		ft_fprintf(2, "test failed: mtx_det 4x4: %s line %d\n", __FILE__, __LINE__);
+		ft_fprintf(2, "input: ");
+		mtx_print(2, test2);
+		ft_fprintf(2, "expected: %f; actual: %f\n", expected, actual);
+	}
+	t_matrix	test4 = {
+		.m = {
+			{-4, 2, -2, -3},
+			{9, 6, 2, 6},
+			{0, -5, 1, -5},
+			{0, 0, 0, 0},
+		},
+		.type = MAT4X4,
+	};
+	expected = 0;
+	actual = mtx_det(test4);
+	if (!eq_f(actual, expected))
+	{
+		ret = false;
+		ft_fprintf(2, "test failed: mtx_det 4x4: %s line %d\n", __FILE__, __LINE__);
+		ft_fprintf(2, "input: ");
+		mtx_print(2, test2);
+		ft_fprintf(2, "expected: %f; actual: %f\n", expected, actual);
+	}
 	return (ret);
 }

@@ -55,7 +55,6 @@ float	mtx_cofactor(t_matrix m, int row, int col)
 	return (sign * mtx_minor(m, row, col));
 }
 
-
 //determinant
 float	mtx_det(t_matrix m)
 {
