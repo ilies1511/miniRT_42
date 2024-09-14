@@ -13,3 +13,12 @@ t_ray	eng_new_ray(t_point origin, t_vec direct)
 	ray.direct = direct;
 	return (ray);
 }
+
+t_sphere	eng_new_sphere(void)
+{
+	t_sphere	sph;
+
+	sph.rad = 1;
+	sph.origin = new_point(0, 0, 0);
+	return (sph);
+}
