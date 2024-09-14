@@ -169,6 +169,13 @@ void	test_matrixes(int *total_tests, int *passed_tests)
 	*total_tests += 1;
 }
 
+void	test_rays(int *total_tests, int *passed_tests)
+{
+	if (test_eng_ray_pos())
+		*passed_tests += 1;
+	*total_tests += 1;
+}
+
 int	main(void)
 {
 #ifdef NO_ASSERT
@@ -182,6 +189,7 @@ int	main(void)
 	 total++;
 	 tuple_tests(&total, &passed);
 	 test_matrixes(&total, &passed);
+	 test_rays(&total, &passed);
 	 if (total == passed)
 	 	printf("all tests passed(%d/%d)!\n", passed, total);
 	 else

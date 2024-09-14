@@ -24,4 +24,9 @@ void	smoth_vanish(t_main *m_data);
 // ft_engine/rays/init.c
 t_ray	eng_new_ray(t_point origin, t_vec direct);
 
+// ft_engine/rays/intersect.c
+t_point	eng_ray_pos(t_ray ray, float time);
+
+// ft_engine/rays/test.c
+bool	test_eng_ray_pos(void);
 #endif //FT_ENGINE_H
