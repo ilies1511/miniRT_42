@@ -45,13 +45,27 @@ bool		test_mtx_det(void);
 // Matrix minor
 double		mtx_minor(t_matrix m, int row, int col);
 int			test_mtx_minor(void);
+
 // matrix_inverse.c
 t_matrix	mtx_inverse(t_matrix m);
 // test_mtx_inverse.c
 bool		test_mtx_inverse(void);
 
+// matrix_translation_scaling.c
+t_matrix	mtx_translation(float x, float y, float z);
+//TODO:
+t_matrix	mtx_scale(float x, float y, float z);
+t_matrix	mtx_skew(float xy, float xz, float yx, float yz, float zx, float zy);
+// end TODO
+
+// matrix_rotation.c
+t_matrix	mtx_pitch(double theta);
+t_matrix	mtx_roll(double theta);
+t_matrix	mtx_yaw(double theta);
+
 // test_mix.c
 bool		test_matrix_mult_inverse(void);
+
 // matrix_debug.c
 void		mtx_print(t_fd fd, t_matrix m);
 bool		mtx_eq(t_matrix ma, t_matrix mb);

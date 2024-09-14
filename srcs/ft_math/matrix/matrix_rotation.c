@@ -12,7 +12,7 @@
 // theta == M_M_PI -> upside down
 // 2_M_PI (M_PI / 2) -> the y axis is the orginal z axis,
 //	the z axis is the inverse of the old y axis)
-t_matrix	pitch_matrix(double theta)
+t_matrix	mtx_pitch(double theta)
 {
 	t_matrix	mat;
 
@@ -27,7 +27,7 @@ t_matrix	pitch_matrix(double theta)
 // rotation on z-axis
 // theta == 0 ->default
 // clock wise roll
-t_matrix	roll_matrix(double theta)
+t_matrix	mtx_roll(double theta)
 {
 	t_matrix	mat;
 
@@ -43,7 +43,7 @@ t_matrix	roll_matrix(double theta)
 // theta == 0 ->default
 // front rotation right to left
 // back rotation left to right
-t_matrix	yaw_matrix(double theta)
+t_matrix	mtx_yaw(double theta)
 {
 	t_matrix	mat;
 
