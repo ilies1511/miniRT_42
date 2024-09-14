@@ -34,20 +34,28 @@ bool		test_mtx_mult_mm(void);
 
 // matrix_determinant.c
 t_matrix	mtx_sub_matrix(t_matrix m, int remove_row, int remove_col);
-float		mtx_det(t_matrix m);
-float		mtx_cofactor(t_matrix m, int row, int col);
+double		mtx_det(t_matrix m);
+double		mtx_cofactor(t_matrix m, int row, int col);
 
 // matrix_determinant_tests.c
 bool		test_mtx_sub_matrix(void);
 bool		test_mtx_cofactor(void);
+bool		test_mtx_det(void);
 
 // Matrix minor
-float		mtx_minor(t_matrix m, int row, int col);
+double		mtx_minor(t_matrix m, int row, int col);
 int			test_mtx_minor(void);
+// matrix_inverse.c
+t_matrix	mtx_inverse(t_matrix m);
+// test_mtx_inverse.c
+bool		test_mtx_inverse(void);
 
+// test_mix.c
+bool		test_matrix_mult_inverse(void);
 // matrix_debug.c
 void		mtx_print(t_fd fd, t_matrix m);
 bool		mtx_eq(t_matrix ma, t_matrix mb);
+bool		mtx_eq_roughly(t_matrix ma, t_matrix mb);
 
 // matrix_other_tests.c
 bool		test_mtx_eq(void);
@@ -61,7 +69,5 @@ int			mtx_get_matrix_dimension(t_matrix_type type);
 void		mtx_print_matrix(void *matrix, t_matrix_type type);
 
 //End Helper
-
-
 #endif // MATRIX_H
 

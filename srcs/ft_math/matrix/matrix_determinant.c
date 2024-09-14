@@ -37,9 +37,9 @@ t_matrix	mtx_sub_matrix(t_matrix m, int remove_row, int remove_col)
 /*
 	“determinant of the submatrix"
 */
-float	mtx_minor(t_matrix m, int row, int col)
+double	mtx_minor(t_matrix m, int row, int col)
 {
-	float		minor;
+	double	minor;
 	t_matrix	sub_m;
 
 	sub_m = mtx_sub_matrix(m, row, col);
@@ -47,7 +47,7 @@ float	mtx_minor(t_matrix m, int row, int col)
 	return (minor);
 }
 
-float	mtx_cofactor(t_matrix m, int row, int col)
+double	mtx_cofactor(t_matrix m, int row, int col)
 {
 	int		sign;
 
@@ -57,18 +57,23 @@ float	mtx_cofactor(t_matrix m, int row, int col)
 	return (sign * mtx_minor(m, row, col));
 }
 
-
 //determinant
-float	mtx_det(t_matrix m)
+double	mtx_det(t_matrix m)
 {
-	float		result;
+	double	result;
+	int			i;
 
 	result = 0;
-	if (m.type > MAT2X2)
+	i = -1;
+	if (m.type == MAT2X2)
+		return ((double)m.m[0][0] * (double)m.m[1][1] - (double)m.m[0][1]
+				* (double)m.m[1][0]);
+	else
 	{
-		// result += mtx_det(mtx_sub_matrix(m, ...));
+		ft_assert(m.type == MAT4X4 || m.type == MAT3X3, __FILE__, __LINE__,
+			"error: mtx_det: invalid matrix type");
+		while (++i < (int)m.type)
+			result += m.m[0][i] * mtx_cofactor(m, 0, i);
 		return (result);
 	}
-	else
-		return (m.m[0][0] * m.m[1][1] - m.m[0][1] * m.m[1][0]);
 }

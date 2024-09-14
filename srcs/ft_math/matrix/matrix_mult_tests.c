@@ -83,6 +83,19 @@ bool	test_mtx_mult_mm(void)
 		},
 		.type = MAT4X4,
 	};
+	t_matrix actual_m = mtx_mult_mm(ma, mb);
+	if (!mtx_eq(actual_m, expected_m))
+	{
+		ft_fprintf(2, "Error: mult_mm(): multipling the matrix:\n");
+		mtx_print(2, ma);
+		ft_fprintf(2, "with the matrix:\n");
+		mtx_print(2, mb);
+		ft_fprintf(2, "resulted in matrix:\n");
+		mtx_print(2, actual_m);
+		ft_fprintf(2, "expected matrix:\n");
+		mtx_print(2, expected_m);
+		ret = false;
+	}
 	t_matrix m2a = {
 		.m = {
 	{1, 2, 3, 4},
@@ -110,7 +123,6 @@ bool	test_mtx_mult_mm(void)
 		},
 		.type = MAT4X4,
 	};
-	t_matrix actual_m = mtx_mult_mm(ma, mb);
 	t_matrix actual2_m = mtx_mult_mm(m2a, m2b);
 	if (!mtx_eq(actual2_m, expected2_m))
 	{

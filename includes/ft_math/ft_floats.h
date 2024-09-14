@@ -1,11 +1,12 @@
 #ifndef FT_FLOATS_H
 # define FT_FLOATS_H
 
+# include <float.h>
 # include <stdbool.h>
 # include <math.h>
 
 # ifndef EPSILON //precision to compare 2 floats
-#  define EPSILON ((float)0.00001)
+#  define EPSILON ((float)0.001)
 # endif
 
 //equal float
