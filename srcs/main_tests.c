@@ -194,9 +194,9 @@ int	main(void)
 	 test_matrixes(&total, &passed);
 	 test_rays(&total, &passed);
 	 if (total == passed)
-	 	printf("all tests passed(%d/%d)!\n", passed, total);
+	 	printf("%s all tests passed(%d/%d)!%s\n", FT_ANSI_GREEN_BOLD, passed, total, FT_ANSI_RESET);
 	 else
-	 	printf("%d of %d test passed\n", passed, total);
+	 	printf("%s%d of %d test passed%s\n", FT_ANSI_RED_BOLD, passed, total, FT_ANSI_RESET);
 	return (0);
 }
 
