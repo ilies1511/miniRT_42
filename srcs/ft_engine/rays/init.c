@@ -12,13 +12,13 @@ t_ray	eng_new_ray(t_point origin, t_vec direct)
 			direct is not a vec");
 	ray.origin = origin;
 	ray.direct = direct;
-	ray.intersects = dyn_arr_init(sizeof(t_intersection), 0);
-	if (ray.intersects)
-		ray.intersec_count = 0;
+	ray.interscs = dyn_arr_init(sizeof(t_intersc), 0);
+	if (ray.interscs)
+		ray.interscs_count = 0;
 	else
 	{
 		fprintf(stderr, "malloc err %s line %d\n", __FILE__, __LINE__);
-		ray.intersec_count = -1;
+		ray.interscs_count = -1;
 	}
 	return (ray);
 }

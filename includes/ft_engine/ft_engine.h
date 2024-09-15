@@ -16,19 +16,19 @@ typedef enum e_obj_type
 	OB_COUNT,
 }	t_obj_type;
 
-typedef struct s_intersction
+typedef struct s_intersc
 {
 	float		t;
 	t_obj_type	type;
 	void		*obj;
-}	t_intersection;
+}	t_intersc;
 
 typedef struct s_ray
 {
 	t_point			origin;
 	t_vec			direct;
-	t_intersection	*intersects;
-	int				intersec_count;
+	t_intersc		*interscs;
+	int				interscs_count;
 }	t_ray;
 
 typedef struct s_main	t_main;
@@ -47,9 +47,10 @@ t_sphere	eng_new_sphere(void);
 
 // ft_engine/rays/intersect.c
 t_point		eng_ray_pos(t_ray ray, float time);
-int			eng_intersects_ray_sphere(t_ray *ray, t_sphere *sph);
+int			eng_interscs_ray_sphere(t_ray *ray, t_sphere *sph);
+void		eng_sort_interscs(t_ray *ray);
 
 // ft_engine/rays/test.c
 bool		test_eng_ray_pos(void);
-bool		test_eng_intersects_ray_sphere(void);
+bool		test_eng_interscs_ray_sphere(void);
 #endif //FT_ENGINE_H

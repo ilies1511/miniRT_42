@@ -12,9 +12,15 @@ t_point	eng_ray_pos(t_ray ray, float time)
 	return (pos);
 }
 
-bool	swap_intersects(void *a, void *b)
+
+static bool	swap_interscs(void *a, void *b)
 {
-	return (((t_intersection *)a)->t > ((t_intersection *)b)->t);
+	return (((t_intersc *)a)->t > ((t_intersc *)b)->t);
+}
+
+void	eng_sort_interscs(t_ray *ray)
+{
+	ft_sort(ray->interscs, sizeof(t_intersc), ray->interscs_count, swap_interscs);
 }
 
 // returns -1 on malloc error
@@ -22,7 +28,7 @@ bool	swap_intersects(void *a, void *b)
 // is in the orgin, or has a radius of 1
 // this function should always fork for spheres so I think we can simplyfy
 // later when we can make some assumptions we can simplify
-int	eng_intersects_ray_sphere(t_ray *ray, t_sphere *sph)
+int	eng_interscs_ray_sphere(t_ray *ray, t_sphere *sph)
 {
 	/*
 	//Wikipedia line sphere intersection step by step:
@@ -78,24 +84,23 @@ int	eng_intersects_ray_sphere(t_ray *ray, t_sphere *sph)
 	float	sqrt_discriminant = sqrt(discriminant);
 	float	t1 = (-b + sqrt_discriminant) / (2 * a);
 	float	t2 = (-b - sqrt_discriminant) / (2 * a);
-	t_intersection	intersect;
+	t_intersc	intersect;
 	intersect.obj = sph;
 	intersect.type = OB_SPHERE;
 	intersect.t = t1;
-	dyn_arr_add_save((void **)(&(ray->intersects)), &intersect, (ray->intersec_count)++);
-	if (!ray->intersects)
+	dyn_arr_add_save((void **)(&(ray->interscs)), &intersect, (ray->interscs_count)++);
+	if (!ray->interscs)
 	{
 		fprintf(stderr, "malloc err\n");
 		return (-1);
 	}
 	intersect.t = t2;
-	dyn_arr_add_save((void **)(&(ray->intersects)), &intersect, (ray->intersec_count)++);
-	if (!ray->intersects)
+	dyn_arr_add_save((void **)(&(ray->interscs)), &intersect, (ray->interscs_count)++);
+	if (!ray->interscs)
 	{
 		fprintf(stderr, "malloc err\n");
 		return (-1);
 	}
-	ft_sort(ray->intersects, sizeof ray->intersects[0], ray->intersec_count, swap_intersects);
 	return (1);
 }
 
