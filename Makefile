@@ -82,19 +82,23 @@ SOURCES = $(addprefix $(SRC_DIR), $(SOURCE_FILES))
 OBJ_DIR = o_files/
 OBJECTS=$(SOURCE_FILES:%.c=$(OBJ_DIR)%.o)
 
+NAME_TEST=tests.out
+
 GREEN	=	\033[0;32m
 YELLOW	=	\033[33m
 CYAN	=	\033[0;36m
 CLEAR	=	\033[0m
 
-.PHONY: clone_mlx42 all clean fclean ffclean
+.PHONY: clone_mlx42 all clean fclean ffclean test
 
-all: mlx $(LIBFT) $(OBJECTS)
+all: $(NAME) test
+
+$(NAME): mlx $(LIBFT) $(OBJECTS)
 	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJECTS) $(LIBFT) -o $(NAME) $(MLX_FLAGS)
 	@echo "$(GREEN)$(NAME) compiled!$(CLEAR)"
 
-test:
-	make && make SRC_MAIN="$(SRC_TEST_MAIN)" NAME=tests.out
+test: mlx $(LIBFT) $(OBJECTS)
+	make $(NAME_TEST) SRC_MAIN="$(SRC_TEST_MAIN)" NAME=$(NAME_TEST)
 
 #test_no_assert:
 #	@make SRC_MAIN=$(SRC_TEST_MAIN) CFLAGS="-DNO_ASSERT=1 $(CFLAGS)" NAME=tests.out
