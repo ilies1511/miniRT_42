@@ -167,6 +167,9 @@ void	test_matrixes(int *total_tests, int *passed_tests)
 	if (test_matrix_mult_inverse())
 		*passed_tests += 1;
 	*total_tests += 1;
+	if (test_eng_ray_hit())
+		*passed_tests += 1;
+	*total_tests += 1;
 }
 
 void	test_rays(int *total_tests, int *passed_tests)

@@ -44,13 +44,18 @@ void		smoth_vanish(t_main *m_data);
 // ft_engine/rays/init.c
 t_ray		eng_new_ray(t_point origin, t_vec direct);
 t_sphere	eng_new_sphere(void);
+t_intersc	eng_new_intersc(float t, t_obj_type type, void *obj);
 
 // ft_engine/rays/intersect.c
 t_point		eng_ray_pos(t_ray ray, float time);
 int			eng_interscs_ray_sphere(t_ray *ray, t_sphere *sph);
 void		eng_sort_interscs(t_ray *ray);
 
+//ft_engine/rays/ray_hit.c
+int		eng_ray_hit(t_ray *ray);
+
 // ft_engine/rays/test.c
 bool		test_eng_ray_pos(void);
 bool		test_eng_interscs_ray_sphere(void);
+bool		test_eng_ray_hit(void);
 #endif //FT_ENGINE_H

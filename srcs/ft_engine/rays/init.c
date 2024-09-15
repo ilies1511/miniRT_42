@@ -31,3 +31,13 @@ t_sphere	eng_new_sphere(void)
 	sph.origin = new_point(0, 0, 0);
 	return (sph);
 }
+
+t_intersc	eng_new_intersc(float t, t_obj_type type, void *obj)
+{
+	t_intersc	intersc;
+
+	intersc.t = t;
+	intersc.type = type;
+	intersc.obj = obj;
+	return (intersc);
+}

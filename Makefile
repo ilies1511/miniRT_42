@@ -33,7 +33,9 @@ SRC_FILES_ENGINE := \
 	ft_engine/mlx_interface/hooks.c \
 	ft_engine/mlx_interface/helper1.c \
 	ft_engine/rays/init.c \
+	ft_engine/rays/cleanup.c \
 	ft_engine/rays/intersect.c \
+	ft_engine/rays/ray_hit.c \
 	ft_engine/rays/tests.c
 
 SRC_FILES_MATH := \

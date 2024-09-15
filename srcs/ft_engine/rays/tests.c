@@ -215,3 +215,14 @@ bool	test_eng_interscs_ray_sphere(void)
 	dyn_arr_free((void **)(&ray.interscs));
 	return (ret);
 }
+
+bool	test_eng_ray_hit(void)
+{
+	bool	ret = true;
+	t_sphere	sph = eng_new_sphere();
+
+
+	return (ret);
+}
+
+

@@ -84,23 +84,14 @@ int	eng_interscs_ray_sphere(t_ray *ray, t_sphere *sph)
 	float	sqrt_discriminant = sqrt(discriminant);
 	float	t1 = (-b + sqrt_discriminant) / (2 * a);
 	float	t2 = (-b - sqrt_discriminant) / (2 * a);
-	t_intersc	intersect;
-	intersect.obj = sph;
-	intersect.type = OB_SPHERE;
-	intersect.t = t1;
+	t_intersc	intersect = eng_new_intersc(t1, OB_SPHERE, sph);
 	dyn_arr_add_save((void **)(&(ray->interscs)), &intersect, (ray->interscs_count)++);
 	if (!ray->interscs)
-	{
-		fprintf(stderr, "malloc err\n");
-		return (-1);
-	}
-	intersect.t = t2;
+		return (fprintf(stderr, "malloc err\n"), -1);
+	intersect = eng_new_intersc(t2, OB_SPHERE, sph);
 	dyn_arr_add_save((void **)(&(ray->interscs)), &intersect, (ray->interscs_count)++);
 	if (!ray->interscs)
-	{
-		fprintf(stderr, "malloc err\n");
-		return (-1);
-	}
+		return (fprintf(stderr, "malloc err\n"), -1);
 	return (1);
 }
 
