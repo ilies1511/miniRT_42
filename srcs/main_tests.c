@@ -169,6 +169,13 @@ void	test_matrixes(int *total_tests, int *passed_tests)
 	*total_tests += 1;
 }
 
+void	test_gc(int *total_tests, int *passed_tests)
+{
+	if (test_gc_init())
+		*passed_tests += 1;
+	*total_tests += 1;
+}
+
 int	main(void)
 {
 #ifdef NO_ASSERT
@@ -182,10 +189,12 @@ int	main(void)
 	total++;
 	tuple_tests(&total, &passed);
 	test_matrixes(&total, &passed);
+	test_gc(&total, &passed);
 	if (total == passed)
 		printf("all tests passed(%d/%d)!\n", passed, total);
 	else
 		printf("%d of %d test passed\n", passed, total);
+	system("leaks tests.out");
 	return (0);
 }
 

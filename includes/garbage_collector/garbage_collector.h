@@ -25,6 +25,10 @@ t_gc_node			*gc_create_node(void *pointer2mem);
 void				gc_add_begin(t_garbage_collector *gc, void *pointer);
 t_garbage_collector	*gc_init_garbage_collector(void);
 void				gc_print_linked_list(t_garbage_collector *gc);
+void				gc_free_all(t_garbage_collector *gc);
 //END: FNC-Prototyps
 
+//BEGIN: FNC-Prototyps TEST
+int					test_gc_init(void);
+//END: FNC-Prototyps TEST
 #endif

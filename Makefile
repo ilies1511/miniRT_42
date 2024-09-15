@@ -1,6 +1,8 @@
 NAME := miniRT
 CC := cc
-CFLAGS := -Wall -Wextra -fsanitize=address -g
+# CFLAGS := -Wall -Wextra -DFSAN -fsanitize=address -g
+CFLAGS := -Wall -Wextra -DFSAN -g
+# CFLAGS_NO_FSAN := -Wall -Wextra -g
 FLAGS_SPEED := -Wall -Wextra -O3 -march=native -flto -NDBUG=1
 #-Werror
 #-O3
@@ -61,7 +63,8 @@ SRC_FILES_MATH := \
 	ft_math/matrix/test_mix.c
 
 SRC_FILES_GB_COLLECT := \
-	garbage_collector/gb_garbage_collector.c
+	garbage_collector/gb_garbage_collector.c \
+	garbage_collector/test_gc.c
 
 SRC_FILES_PARSER := \
 	parsing/ppm_parser/store_as_ppm.c
@@ -87,11 +90,14 @@ YELLOW	=	\033[33m
 CYAN	=	\033[0;36m
 CLEAR	=	\033[0m
 
-.PHONY: clone_mlx42 all clean fclean ffclean
+.PHONY: clone_mlx42 all clean fclean ffclean nfsan test
 
 all: mlx $(LIBFT) $(OBJECTS)
 	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJECTS) $(LIBFT) -o $(NAME) $(MLX_FLAGS)
 	@echo "$(GREEN)$(NAME) compiled!$(CLEAR)"
+
+nfsan:
+	make CFLAGS="$(CFLAGS_NO_FSAN)" && make SRC_MAIN="$(SRC_TEST_MAIN)" NAME=tests.out
 
 test:
 	make && make SRC_MAIN="$(SRC_TEST_MAIN)" NAME=tests.out
