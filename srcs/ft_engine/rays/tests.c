@@ -54,34 +54,32 @@ bool	test_eng_intersects_ray_sphere(void)
 	bool		ret = true;
 	t_ray		ray = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
 	t_sphere	sph = eng_new_sphere();
-	float		*intersects = NULL;
-	int			intersect_count;
 
-	intersect_count = eng_intersects_ray_sphere(ray, sph, &intersects);
-	if (intersect_count != 2)
+	eng_intersects_ray_sphere(&ray, &sph);
+	if (ray.intersec_count != 2)
 	{
 		ret = false;
 		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 count: %d; actual: %d: %s line %d\n", 2, intersect_count,
+			 count: %d; actual: %d: %s line %d\n", 2, ray.intersec_count,
 			__FILE__, __LINE__);
 	}
-	if (intersect_count >= 1 && !eq_f(4.0, intersects[0]))
+	if (ray.intersec_count >= 1 && !eq_f(4.0, ray.intersects[0].t))
 	{
 		ret = false;
 		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 intersect: %f; actual: %f: %s line %d\n", 4.0, intersects[0],
+			 intersect: %f; actual: %f: %s line %d\n", 4.0, ray.intersects[0].t,
 			__FILE__, __LINE__);
 	}
-	if (intersect_count >= 2 && !eq_f(6.0, intersects[1]))
+	if (ray.intersec_count >= 2 && !eq_f(6.0, ray.intersects[1].t))
 	{
 		ret = false;
 		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 intersect: %f; actual: %f: %s line %d\n", 6.0, intersects[1],
+			 intersect: %f; actual: %f: %s line %d\n", 6.0, ray.intersects[1].t,
 			__FILE__, __LINE__);
 	}
-	for (int i = 0; i < intersect_count - 1; i++)
+	for (int i = 0; i < ray.intersec_count - 1; i++)
 	{
-		if (intersects[i] > intersects[i + 1])
+		if (ray.intersects[i].t > ray.intersects[i + 1].t)
 		{
 			ret = false;
 			fprintf(stderr, "test failed: eng_interscts_ray_spered: \
@@ -89,35 +87,35 @@ bool	test_eng_intersects_ray_sphere(void)
 				__FILE__, __LINE__);
 		}
 	}
-	dyn_arr_free((void **)(&intersects));
+	dyn_arr_free((void **)(&ray.intersects));
 
 	ray = eng_new_ray(new_point(0, 1, -5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
-	intersect_count = eng_intersects_ray_sphere(ray, sph, &intersects);
-	if (intersect_count != 2)
+	eng_intersects_ray_sphere(&ray, &sph);
+	if (ray.intersec_count != 2)
 	{
 		ret = false;
 		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 count: %d; actual: %d: %s line %d\n", 2, intersect_count,
+			 count: %d; actual: %d: %s line %d\n", 2, ray.intersec_count,
 			__FILE__, __LINE__);
 	}
-	if (intersect_count >= 1 && !eq_f(5.0, intersects[0]))
+	if (ray.intersec_count >= 1 && !eq_f(5.0, ray.intersects[0].t))
 	{
 		ret = false;
 		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 intersect: %f; actual: %f: %s line %d\n", 5.0, intersects[0],
+			 intersect: %f; actual: %f: %s line %d\n", 5.0, ray.intersects[0].t,
 			__FILE__, __LINE__);
 	}
-	if (intersect_count >= 2 && !eq_f(5.0, intersects[1]))
+	if (ray.intersec_count >= 2 && !eq_f(5.0, ray.intersects[1].t))
 	{
 		ret = false;
 		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 intersect: %f; actual: %f: %s line %d\n", 5.0, intersects[1],
+			 intersect: %f; actual: %f: %s line %d\n", 5.0, ray.intersects[1].t,
 			__FILE__, __LINE__);
 	}
-	for (int i = 0; i < intersect_count - 1; i++)
+	for (int i = 0; i < ray.intersec_count - 1; i++)
 	{
-		if (intersects[i] > intersects[i + 1])
+		if (ray.intersects[i].t > ray.intersects[i + 1].t)
 		{
 			ret = false;
 			fprintf(stderr, "test failed: eng_interscts_ray_spered: \
@@ -125,47 +123,47 @@ bool	test_eng_intersects_ray_sphere(void)
 				__FILE__, __LINE__);
 		}
 	}
-	dyn_arr_free((void **)(&intersects));
+	dyn_arr_free((void **)(&ray.intersects));
 
 	ray = eng_new_ray(new_point(0, 2, -5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
-	intersect_count = eng_intersects_ray_sphere(ray, sph, &intersects);
-	if (intersect_count != 0)
+	eng_intersects_ray_sphere(&ray, &sph);
+	if (ray.intersec_count != 0)
 	{
 		ret = false;
 		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 count: %d; actual: %d: %s line %d\n", 0, intersect_count,
+			 count: %d; actual: %d: %s line %d\n", 0, ray.intersec_count,
 			__FILE__, __LINE__);
 	}
-	dyn_arr_free((void **)(&intersects));
+	dyn_arr_free((void **)(&ray.intersects));
 
 	ray = eng_new_ray(new_point(0, 0, 0), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
-	intersect_count = eng_intersects_ray_sphere(ray, sph, &intersects);
-	if (intersect_count != 2)
+	eng_intersects_ray_sphere(&ray, &sph);
+	if (ray.intersec_count != 2)
 	{
 		ret = false;
 		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 count: %d; actual: %d: %s line %d\n", 2, intersect_count,
+			 count: %d; actual: %d: %s line %d\n", 2, ray.intersec_count,
 			__FILE__, __LINE__);
 	}
-	if (intersect_count >= 1 && !eq_f(-1.0, intersects[0]))
+	if (ray.intersec_count >= 1 && !eq_f(-1.0, ray.intersects[0].t))
 	{
 		ret = false;
 		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 intersect: %f; actual: %f: %s line %d\n", -1.0, intersects[0],
+			 intersect: %f; actual: %f: %s line %d\n", -1.0, ray.intersects[0].t,
 			__FILE__, __LINE__);
 	}
-	if (intersect_count >= 2 && !eq_f(1.0, intersects[1]))
+	if (ray.intersec_count >= 2 && !eq_f(1.0, ray.intersects[1].t))
 	{
 		ret = false;
 		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 intersect: %f; actual: %f: %s line %d\n", 1.0, intersects[1],
+			 intersect: %f; actual: %f: %s line %d\n", 1.0, ray.intersects[1].t,
 			__FILE__, __LINE__);
 	}
-	for (int i = 0; i < intersect_count - 1; i++)
+	for (int i = 0; i < ray.intersec_count - 1; i++)
 	{
-		if (intersects[i] > intersects[i + 1])
+		if (ray.intersects[i].t > ray.intersects[i + 1].t)
 		{
 			ret = false;
 			fprintf(stderr, "test failed: eng_interscts_ray_spered: \
@@ -173,35 +171,35 @@ bool	test_eng_intersects_ray_sphere(void)
 				__FILE__, __LINE__);
 		}
 	}
-	dyn_arr_free((void **)(&intersects));
+	dyn_arr_free((void **)(&ray.intersects));
 
 	ray = eng_new_ray(new_point(0, 0, 5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
-	intersect_count = eng_intersects_ray_sphere(ray, sph, &intersects);
-	if (intersect_count != 2)
+	eng_intersects_ray_sphere(&ray, &sph);
+	if (ray.intersec_count != 2)
 	{
 		ret = false;
 		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 count: %d; actual: %d: %s line %d\n", 2, intersect_count,
+			 count: %d; actual: %d: %s line %d\n", 2, ray.intersec_count,
 			__FILE__, __LINE__);
 	}
-	if (intersect_count >= 1 && !eq_f(-6.0, intersects[0]))
+	if (ray.intersec_count >= 1 && !eq_f(-6.0, ray.intersects[0].t))
 	{
 		ret = false;
 		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 intersect: %f; actual: %f: %s line %d\n", -6.0, intersects[0],
+			 intersect: %f; actual: %f: %s line %d\n", -6.0, ray.intersects[0].t,
 			__FILE__, __LINE__);
 	}
-	if (intersect_count >= 2 && !eq_f(-4.0, intersects[1]))
+	if (ray.intersec_count >= 2 && !eq_f(-4.0, ray.intersects[1].t))
 	{
 		ret = false;
 		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 intersect: %f; actual: %f: %s line %d\n", -4.0, intersects[1],
+			 intersect: %f; actual: %f: %s line %d\n", -4.0, ray.intersects[1].t,
 			__FILE__, __LINE__);
 	}
-	for (int i = 0; i < intersect_count - 1; i++)
+	for (int i = 0; i < ray.intersec_count - 1; i++)
 	{
-		if (intersects[i] > intersects[i + 1])
+		if (ray.intersects[i].t > ray.intersects[i + 1].t)
 		{
 			ret = false;
 			fprintf(stderr, "test failed: eng_interscts_ray_spered: \
@@ -209,6 +207,6 @@ bool	test_eng_intersects_ray_sphere(void)
 				__FILE__, __LINE__);
 		}
 	}
-	dyn_arr_free((void **)(&intersects));
+	dyn_arr_free((void **)(&ray.intersects));
 	return (ret);
 }

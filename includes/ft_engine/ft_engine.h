@@ -1,21 +1,35 @@
 #ifndef FT_ENGINE_H
 # define FT_ENGINE_H
 
-
 # include <MLX42.h>
 # include <ft_tuple.h>
-
-typedef struct s_ray
-{
-	t_point	origin;
-	t_vec	direct;
-}	t_ray;
 
 typedef struct s_sphere
 {
 	t_point	origin;
 	float	rad;
 }	t_sphere;
+
+typedef enum e_obj_type
+{
+	OB_SPHERE = 1,
+	OB_COUNT,
+}	t_obj_type;
+
+typedef struct s_intersction
+{
+	float		t;
+	t_obj_type	type;
+	void		*obj;
+}	t_intersection;
+
+typedef struct s_ray
+{
+	t_point			origin;
+	t_vec			direct;
+	t_intersection	*intersects;
+	int				intersec_count;
+}	t_ray;
 
 typedef struct s_main	t_main;
 
@@ -33,8 +47,8 @@ t_sphere	eng_new_sphere(void);
 
 // ft_engine/rays/intersect.c
 t_point		eng_ray_pos(t_ray ray, float time);
-int			eng_intersects_ray_sphere(t_ray ray, t_sphere sph,
-				float **ret_intersects);
+int			eng_intersects_ray_sphere(t_ray *ray, t_sphere *sph);
+
 // ft_engine/rays/test.c
 bool		test_eng_ray_pos(void);
 bool		test_eng_intersects_ray_sphere(void);

@@ -1,6 +1,7 @@
 #include <ft_engine.h>
 #include <libft.h>
 
+// if ray.intersec_coint == -1 -> malloc err
 t_ray	eng_new_ray(t_point origin, t_vec direct)
 {
 	t_ray	ray;
@@ -11,6 +12,14 @@ t_ray	eng_new_ray(t_point origin, t_vec direct)
 			direct is not a vec");
 	ray.origin = origin;
 	ray.direct = direct;
+	ray.intersects = dyn_arr_init(sizeof(t_intersection), 0);
+	if (ray.intersects)
+		ray.intersec_count = 0;
+	else
+	{
+		fprintf(stderr, "malloc err %s line %d\n", __FILE__, __LINE__);
+		ray.intersec_count = -1;
+	}
 	return (ray);
 }
 
