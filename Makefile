@@ -64,7 +64,8 @@ SRC_FILES_MATH := \
 
 SRC_FILES_GB_COLLECT := \
 	garbage_collector/gb_garbage_collector.c \
-	garbage_collector/test_gc.c
+	garbage_collector/test_gc.c \
+	garbage_collector/gb_utils.c
 
 SRC_FILES_PARSER := \
 	parsing/ppm_parser/store_as_ppm.c

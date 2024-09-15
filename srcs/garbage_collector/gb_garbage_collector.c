@@ -1,16 +1,5 @@
 #include <garbage_collector.h>
 
-void	gc_print_linked_list(t_garbage_collector *gc)
-{
-	// int			i;
-	// t_gc_node	*current;
-
-	if (!gc)
-		return ;
-	printf("Len of Linked List: %zu\n", gc->size);
-	return ;
-}
-
 void	gc_free_all(t_garbage_collector *gc)
 {
 	int			len;
@@ -27,12 +16,11 @@ void	gc_free_all(t_garbage_collector *gc)
 	{
 		temp = current->next;
 		free(current->pointer);
+		current->pointer = NULL;
 		free(current);
+		current = NULL;
 		current = temp;
 	}
-	// #ifndef FSAN
-	// #endif
-	free(gc);
 	gc = NULL;
 }
 
@@ -60,7 +48,6 @@ void	gc_add_begin(t_garbage_collector *gc, void *pointer)
 	if (!new_node)
 	{
 		gc_free_all(gc); //TODO: Clean EXIT ?
-
 	}
 	if (gc->head == NULL)
 	{
@@ -73,28 +60,34 @@ void	gc_add_begin(t_garbage_collector *gc, void *pointer)
 		new_node->next = (gc->head);
 		gc->head = new_node;
 	}
+	// printf("end gc_add_begin: %p\n", gc->head);
 	gc->size++;
 }
 
 //TODO:
-// void	*ft_malloc(size_t size)
-// {
-// 	void				*ptr;
-// 	t_garbage_collector	*gc;
+void	*ft_malloc(size_t len)
+{
+	void				*ptr;
+	t_garbage_collector	*gc;
 
-// 	ptr = malloc(size);
-// 	gc = get_gc(); //TODO: (16.09.24) get_data, that will give us data thanks to static gc (struct)
-// 	gc_add_begin(gc, ptr);
-// 	return (ptr);
-// }
+	gc = get_gc(); //TODO: (16.09.24) get_data, that will give us data thanks to static gc (struct)
+	ptr = malloc(len);
+	if (!ptr)
+		return (NULL);
+	// printf("in ft_mall: %p\n", gc);
+	gc_add_begin(gc, ptr);
+	// printf("end ft_mall: %p\n", gc->head);
+	return (ptr);
+}
 
 t_garbage_collector	*gc_init_garbage_collector(void)
 {
 	t_garbage_collector	*gc;
 
-	gc = (t_garbage_collector *)malloc(sizeof(t_garbage_collector) * 1);
-	if (!gc)
-		return (NULL);
+	gc = get_gc();
+	// gc = (t_garbage_collector *)malloc(sizeof(t_garbage_collector) * 1);
+	// if (!gc)
+	// 	return (NULL);
 	gc->head = NULL;
 	gc->tail = NULL;
 	gc->size = 0;

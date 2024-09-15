@@ -26,6 +26,9 @@ void				gc_add_begin(t_garbage_collector *gc, void *pointer);
 t_garbage_collector	*gc_init_garbage_collector(void);
 void				gc_print_linked_list(t_garbage_collector *gc);
 void				gc_free_all(t_garbage_collector *gc);
+t_garbage_collector	*get_gc(void);
+// void				*ft_malloc(size_t size);
+void				*ft_malloc(size_t len);
 //END: FNC-Prototyps
 
 //BEGIN: FNC-Prototyps TEST
