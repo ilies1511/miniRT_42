@@ -8,7 +8,8 @@ FLAGS_SPEED := -Wall -Wextra -O3 -march=native -flto -NDBUG=1
 LIBFT_DIR = libft/
 LIBFT 	=	$(LIBFT_DIR)libft.a
 INCLUDES= -I./includes -I./MLX42/include/MLX42 -I./MLX42/include -I./libft \
-		  -I./includes/ft_math -I./includes/ft_engine -I./includes/parsing
+		  -I./includes/ft_math -I./includes/ft_engine -I./includes/parsing \
+		  -I./includes/garbage_collector
 
 MLX=MLX42/build/libmlx42.a
 #MLX_FLAGS_LINUX=-Iinclude -ldl -lglfw -pthread -lm
@@ -59,6 +60,8 @@ SRC_FILES_MATH := \
 	ft_math/matrix/test_mtx_inverse.c \
 	ft_math/matrix/test_mix.c
 
+SRC_FILES_GB_COLLECT := \
+	garbage_collector/gb_garbage_collector.c
 
 SRC_FILES_PARSER := \
 	parsing/ppm_parser/store_as_ppm.c
@@ -67,6 +70,7 @@ SOURCE_FILES := \
 	$(SRC_MAIN)\
 	$(SRC_FILES_ENGINE) \
 	$(SRC_FILES_MATH) \
+	$(SRC_FILES_GB_COLLECT) \
 	$(SRC_FILES_PARSER) \
 	init_exit/init.c \
 	init_exit/at_exit.c \

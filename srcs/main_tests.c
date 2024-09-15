@@ -174,18 +174,18 @@ int	main(void)
 #ifdef NO_ASSERT
 	deactivate_assert_interrupt();
 #endif
-	 int	passed = 0;
-	 int	total = 0;
-	 srand(time(NULL));
-	 if (example_test())
-	 	passed++;
-	 total++;
-	 tuple_tests(&total, &passed);
-	 test_matrixes(&total, &passed);
-	 if (total == passed)
-	 	printf("all tests passed(%d/%d)!\n", passed, total);
-	 else
-	 	printf("%d of %d test passed\n", passed, total);
+	int	passed = 0;
+	int	total = 0;
+	srand(time(NULL));
+	if (example_test())
+		passed++;
+	total++;
+	tuple_tests(&total, &passed);
+	test_matrixes(&total, &passed);
+	if (total == passed)
+		printf("all tests passed(%d/%d)!\n", passed, total);
+	else
+		printf("%d of %d test passed\n", passed, total);
 	return (0);
 }
 
