@@ -60,10 +60,12 @@ void	draw_projectile(void *main_data);
 // init_exit/init.c
 void	init_hooks(t_main *m_data);
 void	main_init(t_main *m_data);
+t_main	*get_m_data(t_main *data);
+
 
 // init_exit/at_exit.c
 void	main_cleanup(t_main *m_data, uint8_t exit_stat);
-void	ft_error(t_main *m_data, char *msg, char *file,
+void	ft_error(char *msg, char *file,
 			  int line, uint8_t exit_stat);
 
 

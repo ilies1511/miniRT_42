@@ -167,9 +167,6 @@ void	test_matrixes(int *total_tests, int *passed_tests)
 	if (test_matrix_mult_inverse())
 		*passed_tests += 1;
 	*total_tests += 1;
-	if (test_eng_ray_hit())
-		*passed_tests += 1;
-	*total_tests += 1;
 }
 
 void	test_rays(int *total_tests, int *passed_tests)
@@ -177,9 +174,13 @@ void	test_rays(int *total_tests, int *passed_tests)
 	if (test_eng_ray_pos())
 		*passed_tests += 1;
 	*total_tests += 1;
-	if (test_eng_interscs_ray_sphere())
+	if (test_eng_intersc_ray_sphere())
 		*passed_tests += 1;
 	*total_tests += 1;
+	if (test_eng_ray_hit())
+		*passed_tests += 1;
+	*total_tests += 1;
+
 }
 
 int	main(void)
@@ -200,6 +201,7 @@ int	main(void)
 	 	printf("%s all tests passed(%d/%d)!%s\n", FT_ANSI_GREEN_BOLD, passed, total, FT_ANSI_RESET);
 	 else
 	 	printf("%s%d of %d test passed%s\n", FT_ANSI_RED_BOLD, passed, total, FT_ANSI_RESET);
+	//system("leaks tests.out");
 	return (0);
 }
 

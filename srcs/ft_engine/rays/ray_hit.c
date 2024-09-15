@@ -4,14 +4,15 @@
 // returns -1 if there was no hit
 int	eng_ray_hit(t_ray *ray)
 {
-	int	i;
-	int	count;
+	//size_t		i;
+	//size_t		count;
+	//t_intersc	intersc;
 
-	count = ray->interscs_count;
-	i = 0;
-	while (ray->interscs[i].t < 0 && i < count)
-		i++;
-	if (i < count)
-		return (i);
+
+	//i = 0;
+	//while (i < count && intersc.t < 0)
+	//	i++;
+	//if (i < count)
+	//	return (i);
 	return (-1);
 }

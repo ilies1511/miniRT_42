@@ -1,4 +1,3 @@
 #include <ft_engine.h>
-// for stuff that needs to be cleaned on runtime
+#include <libft.h>
 
-//void	eng_cleanup_ray

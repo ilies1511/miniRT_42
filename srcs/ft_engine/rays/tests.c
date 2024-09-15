@@ -22,6 +22,8 @@ bool	test_eng_ray_pos(void)
 		ret = false;
 		ft_fprintf(2, "Test fail: eng_ray_pos (%s line %d\n", __FILE__, __LINE__);
 	}
+	eng_free_intersc();
+
 	ray = eng_new_ray(origin, direct);
 	expect = new_point(3, 3, 4);
 	actual = eng_ray_pos(ray, 1);
@@ -30,6 +32,8 @@ bool	test_eng_ray_pos(void)
 		ret = false;
 		ft_fprintf(2, "Test fail: eng_ray_pos (%s line %d\n", __FILE__, __LINE__);
 	}
+
+	eng_free_intersc();
 	ray = eng_new_ray(origin, direct);
 	expect = new_point(1, 3, 4);
 	actual = eng_ray_pos(ray, -1);
@@ -38,6 +42,8 @@ bool	test_eng_ray_pos(void)
 		ret = false;
 		ft_fprintf(2, "Test fail: eng_ray_pos (%s line %d\n", __FILE__, __LINE__);
 	}
+	
+	eng_free_intersc();
 	ray = eng_new_ray(origin, direct);
 	expect = new_point(4.5, 3, 4);
 	actual = eng_ray_pos(ray, 2.5);
@@ -46,173 +52,174 @@ bool	test_eng_ray_pos(void)
 		ret = false;
 		ft_fprintf(2, "Test fail: eng_ray_pos (%s line %d\n", __FILE__, __LINE__);
 	}
+	eng_free_intersc();
 	return (ret);
 }
 
-bool	test_eng_interscs_ray_sphere(void)
+bool	test_eng_intersc_ray_sphere(void)
 {
 	bool		ret = true;
 	t_ray		ray = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
 	t_sphere	sph = eng_new_sphere();
 
-	eng_interscs_ray_sphere(&ray, &sph);
-	eng_sort_interscs(&ray);
-	if (ray.interscs_count != 2)
+	eng_intersc_ray_sphere(&ray, &sph);
+	eng_sort_intersc();
+	if (eng_count_intersc() != 2)
 	{
 		ret = false;
-		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 count: %d; actual: %d: %s line %d\n", 2, ray.interscs_count,
+		fprintf(stderr, "test failed: eng_interscts_ray_sphere: expected\
+			 count: %d; actual: %d: %s line %d\n", 2, (int)eng_count_intersc(),
 			__FILE__, __LINE__);
 	}
-	if (ray.interscs_count >= 1 && !eq_f(4.0, ray.interscs[0].t))
+	if (eng_count_intersc() >= 1 && !eq_f(4.0, eng_get_intersc(0).t))
 	{
 		ret = false;
-		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 intersect: %f; actual: %f: %s line %d\n", 4.0, ray.interscs[0].t,
+		fprintf(stderr, "test failed: eng_interscts_ray_sphere: expected\
+			 intersct: %f; actual: %f: %s line %d\n", 4.0, eng_get_intersc(0).t,
 			__FILE__, __LINE__);
 	}
-	if (ray.interscs_count >= 2 && !eq_f(6.0, ray.interscs[1].t))
+	if (eng_count_intersc() >= 2 && !eq_f(6.0, eng_get_intersc(1).t))
 	{
 		ret = false;
-		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 intersect: %f; actual: %f: %s line %d\n", 6.0, ray.interscs[1].t,
+		fprintf(stderr, "test failed: eng_interscts_ray_sphere: expected\
+			 intersct: %f; actual: %f: %s line %d\n", 6.0, eng_get_intersc(1).t,
 			__FILE__, __LINE__);
 	}
-	for (int i = 0; i < ray.interscs_count - 1; i++)
+	for (size_t i = 0; i < eng_count_intersc() - 1; i++)
 	{
-		if (ray.interscs[i].t > ray.interscs[i + 1].t)
+		if (eng_get_intersc(i).t > eng_get_intersc(i + 1).t)
 		{
 			ret = false;
-			fprintf(stderr, "test failed: eng_interscts_ray_spered: \
-				 intersect array is not sorted: %s line %d\n",
+			fprintf(stderr, "test failed: eng_interscts_ray_sphere: \
+				 intersct array is not sorted: %s line %d\n",
 				__FILE__, __LINE__);
 		}
 	}
-	dyn_arr_free((void **)(&ray.interscs));
+	eng_free_intersc();
 
 	ray = eng_new_ray(new_point(0, 1, -5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
-	eng_interscs_ray_sphere(&ray, &sph);
-	eng_sort_interscs(&ray);
-	if (ray.interscs_count != 2)
+	eng_intersc_ray_sphere(&ray, &sph);
+	eng_sort_intersc();
+	if (eng_count_intersc() != 2)
 	{
 		ret = false;
-		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 count: %d; actual: %d: %s line %d\n", 2, ray.interscs_count,
+		fprintf(stderr, "test failed: eng_interscts_ray_sphere: expected\
+			 count: %d; actual: %d: %s line %d\n", 2, (int)eng_count_intersc(),
 			__FILE__, __LINE__);
 	}
-	if (ray.interscs_count >= 1 && !eq_f(5.0, ray.interscs[0].t))
+	if (eng_count_intersc() >= 1 && !eq_f(5.0, eng_get_intersc(0).t))
 	{
 		ret = false;
-		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 intersect: %f; actual: %f: %s line %d\n", 5.0, ray.interscs[0].t,
+		fprintf(stderr, "test failed: eng_interscts_ray_sphere: expected\
+			 intersct: %f; actual: %f: %s line %d\n", 5.0, eng_get_intersc(0).t,
 			__FILE__, __LINE__);
 	}
-	if (ray.interscs_count >= 2 && !eq_f(5.0, ray.interscs[1].t))
+	if (eng_count_intersc() >= 2 && !eq_f(5.0, eng_get_intersc(1).t))
 	{
 		ret = false;
-		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 intersect: %f; actual: %f: %s line %d\n", 5.0, ray.interscs[1].t,
+		fprintf(stderr, "test failed: eng_interscts_ray_sphere: expected\
+			 intersct: %f; actual: %f: %s line %d\n", 5.0, eng_get_intersc(1).t,
 			__FILE__, __LINE__);
 	}
-	for (int i = 0; i < ray.interscs_count - 1; i++)
+	for (size_t i = 0; i < eng_count_intersc() - 1; i++)
 	{
-		if (ray.interscs[i].t > ray.interscs[i + 1].t)
+		if (eng_get_intersc(i).t > eng_get_intersc(i + 1).t)
 		{
 			ret = false;
-			fprintf(stderr, "test failed: eng_interscts_ray_spered: \
-				 intersect array is not sorted: %s line %d\n",
+			fprintf(stderr, "test failed: eng_interscts_ray_sphere: \
+				 intersct array is not sorted: %s line %d\n",
 				__FILE__, __LINE__);
 		}
 	}
-	dyn_arr_free((void **)(&ray.interscs));
+	eng_free_intersc();
 
 	ray = eng_new_ray(new_point(0, 2, -5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
-	eng_interscs_ray_sphere(&ray, &sph);
-	eng_sort_interscs(&ray);
-	if (ray.interscs_count != 0)
+	eng_intersc_ray_sphere(&ray, &sph);
+	eng_sort_intersc();
+	if (eng_count_intersc() != 0)
 	{
 		ret = false;
-		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 count: %d; actual: %d: %s line %d\n", 0, ray.interscs_count,
+		fprintf(stderr, "test failed: eng_interscts_ray_sphere: expected\
+			 count: %d; actual: %d: %s line %d\n", 0, (int)eng_count_intersc(),
 			__FILE__, __LINE__);
 	}
-	dyn_arr_free((void **)(&ray.interscs));
+	eng_free_intersc();
 
 	ray = eng_new_ray(new_point(0, 0, 0), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
-	eng_interscs_ray_sphere(&ray, &sph);
-	eng_sort_interscs(&ray);
-	if (ray.interscs_count != 2)
+	eng_intersc_ray_sphere(&ray, &sph);
+	eng_sort_intersc();
+	if (eng_count_intersc() != 2)
 	{
 		ret = false;
-		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 count: %d; actual: %d: %s line %d\n", 2, ray.interscs_count,
+		fprintf(stderr, "test failed: eng_interscts_ray_sphere: expected\
+			 count: %d; actual: %d: %s line %d\n", 2, (int)eng_count_intersc(),
 			__FILE__, __LINE__);
 	}
-	if (ray.interscs_count >= 1 && !eq_f(-1.0, ray.interscs[0].t))
+	if (eng_count_intersc() >= 1 && !eq_f(-1.0, eng_get_intersc(0).t))
 	{
 		ret = false;
-		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 intersect: %f; actual: %f: %s line %d\n", -1.0, ray.interscs[0].t,
+		fprintf(stderr, "test failed: eng_interscts_ray_sphere: expected\
+			 intersct: %f; actual: %f: %s line %d\n", -1.0, eng_get_intersc(0).t,
 			__FILE__, __LINE__);
 	}
-	if (ray.interscs_count >= 2 && !eq_f(1.0, ray.interscs[1].t))
+	if (eng_count_intersc() >= 2 && !eq_f(1.0, eng_get_intersc(1).t))
 	{
 		ret = false;
-		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 intersect: %f; actual: %f: %s line %d\n", 1.0, ray.interscs[1].t,
+		fprintf(stderr, "test failed: eng_interscts_ray_sphere: expected\
+			 intersct: %f; actual: %f: %s line %d\n", 1.0, eng_get_intersc(1).t,
 			__FILE__, __LINE__);
 	}
-	for (int i = 0; i < ray.interscs_count - 1; i++)
+	for (size_t i = 0; i < eng_count_intersc() - 1; i++)
 	{
-		if (ray.interscs[i].t > ray.interscs[i + 1].t)
+		if (eng_get_intersc(i).t > eng_get_intersc(i + 1).t)
 		{
 			ret = false;
-			fprintf(stderr, "test failed: eng_interscts_ray_spered: \
-				 intersect array is not sorted: %s line %d\n",
+			fprintf(stderr, "test failed: eng_interscts_ray_sphere: \
+				 intersct array is not sorted: %s line %d\n",
 				__FILE__, __LINE__);
 		}
 	}
-	dyn_arr_free((void **)(&ray.interscs));
+	eng_free_intersc();
 
 	ray = eng_new_ray(new_point(0, 0, 5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
-	eng_interscs_ray_sphere(&ray, &sph);
-	eng_sort_interscs(&ray);
-	if (ray.interscs_count != 2)
+	eng_intersc_ray_sphere(&ray, &sph);
+	eng_sort_intersc();
+	if (eng_count_intersc() != 2)
 	{
 		ret = false;
-		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 count: %d; actual: %d: %s line %d\n", 2, ray.interscs_count,
+		fprintf(stderr, "test failed: eng_interscts_ray_sphere: expected\
+			 count: %d; actual: %d: %s line %d\n", 2, (int)eng_count_intersc(),
 			__FILE__, __LINE__);
 	}
-	if (ray.interscs_count >= 1 && !eq_f(-6.0, ray.interscs[0].t))
+	if (eng_count_intersc() >= 1 && !eq_f(-6.0, eng_get_intersc(0).t))
 	{
 		ret = false;
-		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 intersect: %f; actual: %f: %s line %d\n", -6.0, ray.interscs[0].t,
+		fprintf(stderr, "test failed: eng_interscts_ray_sphere: expected\
+			 intersct: %f; actual: %f: %s line %d\n", -6.0, eng_get_intersc(0).t,
 			__FILE__, __LINE__);
 	}
-	if (ray.interscs_count >= 2 && !eq_f(-4.0, ray.interscs[1].t))
+	if (eng_count_intersc() >= 2 && !eq_f(-4.0, eng_get_intersc(1).t))
 	{
 		ret = false;
-		fprintf(stderr, "test failed: eng_interscts_ray_spered: expected\
-			 intersect: %f; actual: %f: %s line %d\n", -4.0, ray.interscs[1].t,
+		fprintf(stderr, "test failed: eng_interscts_ray_sphere: expected\
+			 intersct: %f; actual: %f: %s line %d\n", -4.0, eng_get_intersc(1).t,
 			__FILE__, __LINE__);
 	}
-	for (int i = 0; i < ray.interscs_count - 1; i++)
+	for (size_t i = 0; i < eng_count_intersc() - 1; i++)
 	{
-		if (ray.interscs[i].t > ray.interscs[i + 1].t)
+		if (eng_get_intersc(i).t > eng_get_intersc(i + 1).t)
 		{
 			ret = false;
-			fprintf(stderr, "test failed: eng_interscts_ray_spered: \
-				 intersect array is not sorted: %s line %d\n",
+			fprintf(stderr, "test failed: eng_interscts_ray_sphere: \
+				 intersct array is not sorted: %s line %d\n",
 				__FILE__, __LINE__);
 		}
 	}
-	dyn_arr_free((void **)(&ray.interscs));
+	eng_free_intersc();
 	return (ret);
 }
 
@@ -220,7 +227,6 @@ bool	test_eng_ray_hit(void)
 {
 	bool	ret = true;
 	t_sphere	sph = eng_new_sphere();
-
 
 	return (ret);
 }
