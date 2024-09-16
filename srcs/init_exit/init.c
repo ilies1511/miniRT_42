@@ -3,18 +3,11 @@
 // has to be called exactly onece with a pointer that is != NULL at the
 // program entry
 // after that this will return that pointer
-t_main	*get_m_data(t_main *data)
+t_main	*get_m_data()
 {
-	t_main	*m_data = NULL;
+	static t_main	m_data = {0};
 
-	if (!m_data)
-	{
-		if (!data)
-			ft_assert(0, __FILE__, __LINE__, "get_m_data() call without\
-				it beeing init");
-		m_data = data;
-	}
-	return (m_data);
+	return (&m_data);
 }
 
 void	main_loop(void *main_data)
@@ -36,7 +29,6 @@ void	init_hooks(t_main *m_data)
 
 void	main_init(t_main *m_data)
 {
-	get_m_data(m_data);
 	ft_bzero(m_data, sizeof *m_data);
 	m_data->mlx = mlx_init(WIDTH, HEIGHT, "miniRT", true);
 	m_data->img = mlx_new_image(m_data->mlx, WIDTH, HEIGHT);
