@@ -221,7 +221,7 @@ int	main(void)
 	// printf("Strin im gc: %s\n", (gc->head->pointer));
 	// printf("Strin im gc: %s\n", (gc->head->next->pointer));
 	gc_free_all(gc);
-	system("leaks tests.out");
+	//system("leaks tests.out");
 	return (0);
 }
 

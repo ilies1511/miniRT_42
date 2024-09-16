@@ -1,7 +1,7 @@
 NAME := miniRT
 CC := cc
-# CFLAGS := -Wall -Wextra -DFSAN -fsanitize=address -g
-CFLAGS := -Wall -Wextra -DFSAN -g
+CFLAGS := -Wall -Wextra -DFSAN -fsanitize=address -g
+# CFLAGS := -Wall -Wextra -DFSAN -g
 # CFLAGS_NO_FSAN := -Wall -Wextra -g
 FLAGS_SPEED := -Wall -Wextra -O3 -march=native -flto -NDBUG=1
 #-Werror

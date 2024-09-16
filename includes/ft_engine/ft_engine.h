@@ -30,14 +30,11 @@ typedef struct s_intersc
 	t_obj		*obj;
 }	t_intersc;
 
-typedef enum e_intersc_op
+typedef struct s_intersc_arr
 {
-	INTERSC_GET,//returns the indexed value
-	INTERSC_PUSH,//pushes the given intersec to the end
-	INTERSC_SORT, //sorts the intersects for t
-	INTERSC_COUNT,// returns the interc count
-	INTERSC_FREE, // frees the intersects arr
-}	t_intersc_op;
+	size_t		count;
+	t_intersc	*arr;
+}	t_intersc_arr;
 
 typedef struct s_ray
 {
@@ -63,11 +60,11 @@ t_sphere	eng_new_sphere(void);
 t_point		eng_ray_pos(t_ray ray, float time);
 int			eng_intersc_ray_sphere(t_ray *ray, t_sphere *sph);
 
-void		eng_free_intersc(void);
-t_intersc	eng_get_intersc(size_t i);
-void		eng_sort_intersc(void);
-size_t		eng_count_intersc(void);
-void		eng_new_intersc(t_obj *obj, float t);
+t_intersc_arr	*eng_get_intersc(void);
+void			eng_free_intersc(void);
+void			eng_sort_intersc(void);
+void			eng_new_intersc(t_obj *obj, float t);
+
 //ft_engine/rays/ray_hit.c
 int		eng_ray_hit(t_ray *ray);
 

@@ -2,7 +2,7 @@
 # include <main.h>
 
 //opens the file, hanles open erros and write the header to the file
-static t_fd	init_store_ppm(t_main *m_data, char *file_name)
+static t_fd	init_store_ppm(char *file_name)
 {
 	t_fd	fd;
 	errno  = 0;
@@ -57,7 +57,7 @@ void	store_as_plain_ppm(t_main *m_data, char *file_name)
 	t_fd			fd;
 	size_t			y;
 
-	fd = init_store_ppm(m_data, file_name);
+	fd = init_store_ppm(file_name);
 	y = 0;
 	while (y < HEIGHT)
 	{
