@@ -2,17 +2,17 @@
 
 // returns the index of the hit intersection
 // returns -1 if there was no hit
-int	eng_ray_hit(t_ray *ray)
+t_intersc	*eng_ray_hit(void)
 {
-	//size_t		i;
-	//size_t		count;
-	//t_intersc	intersc;
+	size_t			i;
+	t_intersc_arr	*interscs;
 
+	interscs = eng_get_intersc();
 
-	//i = 0;
-	//while (i < count && intersc.t < 0)
-	//	i++;
-	//if (i < count)
-	//	return (i);
-	return (-1);
+	i = 0;
+	while (i < interscs->count && interscs->arr[i].t < 0)
+		i++;
+	if (i < interscs->count)
+		return (interscs->arr + i);
+	return (NULL);
 }

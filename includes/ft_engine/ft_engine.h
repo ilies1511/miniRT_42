@@ -66,7 +66,7 @@ void			eng_sort_intersc(void);
 void			eng_new_intersc(t_obj *obj, float t);
 
 //ft_engine/rays/ray_hit.c
-int		eng_ray_hit(t_ray *ray);
+t_intersc		*eng_ray_hit(void);
 
 // ft_engine/rays/test.c
 bool		test_eng_ray_pos(void);
