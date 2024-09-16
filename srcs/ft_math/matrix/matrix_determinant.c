@@ -34,7 +34,9 @@ t_matrix	mtx_sub_matrix(t_matrix m, int remove_row, int remove_col)
 	}
 	return (sub);
 }
-
+/*
+	“determinant of the submatrix"
+*/
 double	mtx_minor(t_matrix m, int row, int col)
 {
 	double	minor;

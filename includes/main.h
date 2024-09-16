@@ -25,6 +25,7 @@
 # include <mlx_interface.h>
 # include <ppm_parser.h>
 # include <parser_42.h>
+# include <garbage_collector.h>
 // for development but not allowed functions
 // # include <....h>
 # include <time.h>//used for tests to init rand()
@@ -35,7 +36,7 @@
 #  define HEIGHT 1080
 # endif
 
-typedef int t_fd;
+typedef int	t_fd;
 
 typedef struct s_main
 {
@@ -43,14 +44,14 @@ typedef struct s_main
 	mlx_image_t	*img;
 }	t_main;
 
-typedef enum
+typedef enum s_tuple_type
 {
 	COLOR,
 	VECTOR,
 	POINT
 }	t_tuple_type;
-// experiments
 
+// experiments
 void	draw_projectile(void *main_data);
 
 // main.c
