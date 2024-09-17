@@ -81,6 +81,10 @@ bool		test_mtx_eq(void);
 t_matrix	mtx_transpose(t_matrix m);
 int			test_mtx_transpose(void);
 
+// Matrix Scaling
+t_matrix	mtx_scale_izi(t_tuple tuple);
+int			test_mtx_scaling(void);
+
 //Helper
 int			mtx_get_matrix_dimension(t_matrix_type type);
 void		mtx_print_matrix(void *matrix, t_matrix_type type);

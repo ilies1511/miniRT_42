@@ -27,18 +27,6 @@ t_matrix	mtx_translation(float x, float y, float z)
 }
 
 // TODO:
-t_matrix	mtx_scale(float x, float y, float z)
-{
-	t_matrix	ret;
-
-	(void)x;
-	(void)y;
-	(void)z;
-	ret = mtx_new_ident(MAT4X4);
-	return (ret);
-}
-
-// TODO:
 // also needs some kind of struct for arguement to pass norm
 t_matrix	mtx_skew(float xy, float xz, float yx, float yz, float zx, float zy)
 {
