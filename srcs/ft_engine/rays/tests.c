@@ -93,7 +93,7 @@ bool	test_eng_intersc_ray_sphere(void)
 				__FILE__, __LINE__);
 		}
 	}
-	eng_free_intersc(&interscs);
+	eng_free_intersc_arr(&interscs);
 
 	ray = eng_new_ray(new_point(0, 1, -5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
@@ -130,7 +130,7 @@ bool	test_eng_intersc_ray_sphere(void)
 				__FILE__, __LINE__);
 		}
 	}
-	eng_free_intersc(&interscs);
+	eng_free_intersc_arr(&interscs);
 
 	ray = eng_new_ray(new_point(0, 2, -5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
@@ -143,7 +143,7 @@ bool	test_eng_intersc_ray_sphere(void)
 			 count: %d; actual: %d: %s line %d\n", 0, (int)interscs.count,
 			__FILE__, __LINE__);
 	}
-	eng_free_intersc(&interscs);
+	eng_free_intersc_arr(&interscs);
 
 	ray = eng_new_ray(new_point(0, 0, 0), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
@@ -180,7 +180,7 @@ bool	test_eng_intersc_ray_sphere(void)
 				__FILE__, __LINE__);
 		}
 	}
-	eng_free_intersc(&interscs);
+	eng_free_intersc_arr(&interscs);
 
 	ray = eng_new_ray(new_point(0, 0, 5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
@@ -217,15 +217,65 @@ bool	test_eng_intersc_ray_sphere(void)
 				__FILE__, __LINE__);
 		}
 	}
-	eng_free_intersc(&interscs);
+	eng_free_intersc_arr(&interscs);
 	return (ret);
 }
 
 bool	test_eng_ray_hit(void)
 {
-	bool	ret = true;
-	t_sphere	sph = eng_new_sphere();
+	bool			ret = true;
+	t_sphere		sph = eng_new_sphere();
+	t_intersc_arr	interscs;
+	t_intersc		*actual_hit;
+	t_intersc		expected_hit;
 
+	interscs = eng_new_intersc_arr();
+	expected_hit = eng_add_intersc(&interscs, (t_obj *)&sph, 1);
+	eng_add_intersc(&interscs, (t_obj *)&sph, 2);
+	eng_sort_intersc(&interscs);
+	actual_hit = eng_ray_hit(&interscs);
+	if (ft_memcmp(actual_hit, &expected_hit, sizeof expected_hit))
+	{
+		ret = false;
+		fprintf(stderr, "Test failed: eng_ray_hit: %s line %d\n", __FILE__, __LINE__);
+	}
+	eng_free_intersc_arr(&interscs);
 
+	interscs = eng_new_intersc_arr();
+	eng_add_intersc(&interscs, (t_obj *)&sph, -1);
+	expected_hit = eng_add_intersc(&interscs, (t_obj *)&sph, 1);
+	eng_sort_intersc(&interscs);
+	actual_hit = eng_ray_hit(&interscs);
+	if (ft_memcmp(actual_hit, &expected_hit, sizeof expected_hit))
+	{
+		ret = false;
+		fprintf(stderr, "Test failed: eng_ray_hit: %s line %d\n", __FILE__, __LINE__);
+	}
+	eng_free_intersc_arr(&interscs);
+
+	interscs = eng_new_intersc_arr();
+	eng_add_intersc(&interscs, (t_obj *)&sph, -2);
+	eng_add_intersc(&interscs, (t_obj *)&sph, -1);
+	eng_sort_intersc(&interscs);
+	actual_hit = eng_ray_hit(&interscs);
+	if (actual_hit)
+	{
+		ret = false;
+		fprintf(stderr, "Test failed: eng_ray_hit: %s line %d\n", __FILE__, __LINE__);
+	}
+	eng_free_intersc_arr(&interscs);
+	interscs = eng_new_intersc_arr();
+	eng_add_intersc(&interscs, (t_obj *)&sph, 5);
+	eng_add_intersc(&interscs, (t_obj *)&sph, 7);
+	eng_add_intersc(&interscs, (t_obj *)&sph, -3);
+	expected_hit = eng_add_intersc(&interscs, (t_obj *)&sph, 2);
+	eng_sort_intersc(&interscs);
+	actual_hit = eng_ray_hit(&interscs);
+	if (ft_memcmp(actual_hit, &expected_hit, sizeof expected_hit))
+	{
+		ret = false;
+		fprintf(stderr, "Test failed: eng_ray_hit: %s line %d\n", __FILE__, __LINE__);
+	}
+	eng_free_intersc_arr(&interscs);
 	return (ret);
 }

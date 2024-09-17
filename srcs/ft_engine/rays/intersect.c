@@ -12,14 +12,17 @@ void	eng_sort_intersc(t_intersc_arr *interscs)
 	ft_sort(interscs->arr, sizeof(t_intersc), interscs->count, swap_intersc);
 }
 
-void	eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, float t)
+t_intersc	eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, float t)
 {
 	t_intersc		intersc;
 
 	intersc.t = t;
 	intersc.type = obj->type;
 	intersc.obj = obj;
+	if (!interscs->arr)
+		*interscs = eng_new_intersc_arr();
 	dyn_arr_add_save((void **)(&interscs->arr), &intersc, interscs->count++);
+	return (intersc);
 }
 
 t_intersc_arr	eng_new_intersc_arr(void)
@@ -32,7 +35,6 @@ t_intersc_arr	eng_new_intersc_arr(void)
 	arr.count = 0;
 	return (arr);
 }
-
 
 
 /*
@@ -81,8 +83,6 @@ float t: scalar for ray->direct to reach the intersection point and
 // later when we can make some assumptions we can simplify
 static void	eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray *ray, t_sphere *sph)
 {
-	if (!interscs->arr)
-		*interscs = eng_new_intersc_arr();
 	t_vec	ori_diff = sub_t(ray->origin, sph->origin);
 	float	dot_direct = dot_prod(ray->direct, ray->direct);
 	float	dot_diff_direct = dot_prod(ori_diff, ray->direct);
