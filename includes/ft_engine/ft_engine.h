@@ -6,8 +6,8 @@
 
 typedef enum e_obj_type
 {
-	OB_SPHERE = 1,
-	OB_COUNT,
+	OBJ_SPHERE = 1,
+	OBJ_COUNT,
 }	t_obj_type;
 
 typedef struct s_obj
@@ -19,6 +19,7 @@ typedef struct s_obj
 typedef struct s_sphere
 {
 	t_obj_type	type; // always first so this can be cast to t_ob
+	float		t;
 	t_point		origin;
 	float		rad;
 }	t_sphere;
@@ -57,8 +58,7 @@ t_ray		eng_new_ray(t_point origin, t_vec direct);
 t_sphere	eng_new_sphere(void);
 
 // ft_engine/rays/intersect.c
-void			eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray *ray,
-			 t_sphere *sph);
+void			eng_intersc_ray(t_intersc_arr *interscs, t_ray *ray, t_obj	*obj);
 void			eng_sort_intersc(t_intersc_arr *interscs);
 void			eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, float t);
 t_intersc_arr	eng_new_intersc_arr(void);

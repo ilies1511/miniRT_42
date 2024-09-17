@@ -33,6 +33,8 @@ t_intersc_arr	eng_new_intersc_arr(void)
 	return (arr);
 }
 
+
+
 /*
 //Wikipedia line sphere intersection step by step:
 point px: intersection point
@@ -77,7 +79,7 @@ float t: scalar for ray->direct to reach the intersection point and
 // is in the orgin, or has a radius of 1
 // this function should always fork for spheres so I think we can simplyfy
 // later when we can make some assumptions we can simplify
-void	eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray *ray, t_sphere *sph)
+static void	eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray *ray, t_sphere *sph)
 {
 	if (!interscs->arr)
 		*interscs = eng_new_intersc_arr();
@@ -97,4 +99,12 @@ void	eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray *ray, t_sphere *sph)
 	float	t2 = (-b - sqrt_discriminant) / (2 * a);
 	eng_add_intersc(interscs, (t_obj *)sph, t1);
 	eng_add_intersc(interscs, (t_obj *)sph, t2);
+}
+
+void	eng_intersc_ray(t_intersc_arr *interscs, t_ray *ray, t_obj *obj)
+{
+	if (obj->type == OBJ_SPHERE)
+		eng_intersc_ray_sphere(interscs, ray, (t_sphere *)obj);
+	else
+		ft_assert(0, __FILE__, __LINE__, "eng_intersc_ray: invalid obj type");
 }
