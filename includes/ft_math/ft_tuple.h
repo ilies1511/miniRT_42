@@ -58,4 +58,11 @@ t_tuple	get_rdm_tuple(void);
 bool	is_point_test(void);
 bool	is_vec_test(void);
 
+//Comapare Points
+int		p_compareifequal(t_point a, t_point b);
+
+//Comapare Tubles including the w
+int		t_check_ifequal(t_tuple a, t_tuple b);
+
+
 #endif

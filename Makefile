@@ -53,7 +53,7 @@ SRC_FILES_MATH := \
 	ft_math/general/ft_floats.c \
 	ft_math/general/max_min_i.c \
 	ft_math/matrix/matrix_rotation.c \
-	ft_math/matrix/matrix_translation_scaling.c \
+	ft_math/matrix/matrix_translation.c \
 	ft_math/matrix/matrix_helpers.c \
 	ft_math/matrix/matrix_init.c \
 	ft_math/matrix/matrix_mult.c \
@@ -67,7 +67,11 @@ SRC_FILES_MATH := \
 	ft_math/matrix/test_mtx_minor.c \
 	ft_math/matrix/matrix_inverse.c \
 	ft_math/matrix/test_mtx_inverse.c \
-	ft_math/matrix/test_mix.c
+	ft_math/matrix/test_mix.c \
+	ft_math/matrix/test_matrix_translation.c \
+	ft_math/matrix/matrix_scaling.c \
+	ft_math/matrix/test_mtx_scaling.c \
+	ft_math/matrix/matrix_shearing.c
 
 SRC_FILES_GB_COLLECT := \
 	garbage_collector/gb_garbage_collector.c \

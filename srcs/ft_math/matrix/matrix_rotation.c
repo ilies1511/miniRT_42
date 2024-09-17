@@ -12,7 +12,8 @@
 // theta == M_M_PI -> upside down
 // 2_M_PI (M_PI / 2) -> the y axis is the orginal z axis,
 //	the z axis is the inverse of the old y axis)
-t_matrix	mtx_pitch(double theta)
+// aka pitch
+t_matrix	mtx_rotation_x(double theta)
 {
 	t_matrix	mat;
 
@@ -24,26 +25,12 @@ t_matrix	mtx_pitch(double theta)
 	return (mat);
 }
 
-// rotation on z-axis
-// theta == 0 ->default
-// clock wise roll
-t_matrix	mtx_roll(double theta)
-{
-	t_matrix	mat;
-
-	mat = mtx_new_ident(MAT4X4);
-	mat.m[0][0] = cos(theta);
-	mat.m[1][0] = sin(theta);
-	mat.m[0][1] = -sin(theta);
-	mat.m[1][1] = cos(theta);
-	return (mat);
-}
-
 // rotation on y-axis
 // theta == 0 ->default
 // front rotation right to left
 // back rotation left to right
-t_matrix	mtx_yaw(double theta)
+// aka yaw
+t_matrix	mtx_rotation_y(double theta)
 {
 	t_matrix	mat;
 
@@ -52,5 +39,21 @@ t_matrix	mtx_yaw(double theta)
 	mat.m[2][0] = -sin(theta);
 	mat.m[0][2] = sin(theta);
 	mat.m[2][2] = cos(theta);
+	return (mat);
+}
+
+// rotation on z-axis
+// theta == 0 ->default
+// clock wise roll
+// aka roll
+t_matrix	mtx_rotation_z(double theta)
+{
+	t_matrix	mat;
+
+	mat = mtx_new_ident(MAT4X4);
+	mat.m[0][0] = cos(theta);
+	mat.m[0][1] = -sin(theta);
+	mat.m[1][0] = sin(theta);
+	mat.m[1][1] = cos(theta);
 	return (mat);
 }

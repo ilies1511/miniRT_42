@@ -53,15 +53,22 @@ bool		test_mtx_inverse(void);
 
 // matrix_translation_scaling.c
 t_matrix	mtx_translation(float x, float y, float z);
-//TODO:
+t_matrix	mtx_translation_izi(t_tuple tuple);
+int			test_matrix_translation(void);
+
 t_matrix	mtx_scale(float x, float y, float z);
+
+// Matrix Skew aka Shearing
 t_matrix	mtx_skew(float xy, float xz, float yx, float yz, float zx, float zy);
 // end TODO
 
 // matrix_rotation.c
-t_matrix	mtx_pitch(double theta);
-t_matrix	mtx_roll(double theta);
-t_matrix	mtx_yaw(double theta);
+// t_matrix	mtx_pitch(double theta);
+// t_matrix	mtx_roll(double theta);
+// t_matrix	mtx_yaw(double theta);
+t_matrix	mtx_rotation_x(double theta);
+t_matrix	mtx_rotation_y(double theta);
+t_matrix	mtx_rotation_z(double theta);
 
 // test_mix.c
 bool		test_matrix_mult_inverse(void);
@@ -77,6 +84,10 @@ bool		test_mtx_eq(void);
 // Matrix Transpose
 t_matrix	mtx_transpose(t_matrix m);
 int			test_mtx_transpose(void);
+
+// Matrix Scaling
+t_matrix	mtx_scale_izi(t_tuple tuple);
+int			test_mtx_scaling(void);
 
 //Helper
 int			mtx_get_matrix_dimension(t_matrix_type type);
