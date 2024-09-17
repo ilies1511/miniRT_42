@@ -53,6 +53,9 @@ bool		test_mtx_inverse(void);
 
 // matrix_translation_scaling.c
 t_matrix	mtx_translation(float x, float y, float z);
+t_matrix	mtx_translation_izi(t_tuple tuple);
+int			test_matrix_translation(void);
+
 //TODO:
 t_matrix	mtx_scale(float x, float y, float z);
 t_matrix	mtx_skew(float xy, float xz, float yx, float yz, float zx, float zy);

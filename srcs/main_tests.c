@@ -167,6 +167,10 @@ void	test_matrixes(int *total_tests, int *passed_tests)
 	if (test_matrix_mult_inverse())
 		*passed_tests += 1;
 	*total_tests += 1;
+	if (test_matrix_translation())
+		*passed_tests += 1;
+	*total_tests += 1;
+
 }
 
 void	test_rays(int *total_tests, int *passed_tests)
@@ -180,7 +184,6 @@ void	test_rays(int *total_tests, int *passed_tests)
 	if (test_eng_ray_hit())
 		*passed_tests += 1;
 	*total_tests += 1;
-
 }
 
 void	test_gc(int *total_tests, int *passed_tests)
@@ -221,7 +224,7 @@ int	main(void)
 	// printf("Strin im gc: %s\n", (gc->head->pointer));
 	// printf("Strin im gc: %s\n", (gc->head->next->pointer));
 	gc_free_all(gc);
-	system("leaks tests.out");
+	// system("leaks tests.out");
 	return (0);
 }
 

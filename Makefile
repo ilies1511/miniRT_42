@@ -67,7 +67,8 @@ SRC_FILES_MATH := \
 	ft_math/matrix/test_mtx_minor.c \
 	ft_math/matrix/matrix_inverse.c \
 	ft_math/matrix/test_mtx_inverse.c \
-	ft_math/matrix/test_mix.c
+	ft_math/matrix/test_mix.c \
+	ft_math/matrix/test_matrix_translation.c
 
 SRC_FILES_GB_COLLECT := \
 	garbage_collector/gb_garbage_collector.c \
