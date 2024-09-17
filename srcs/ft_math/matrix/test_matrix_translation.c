@@ -42,13 +42,13 @@ int	test_matrix_translation(void)
 	m_transformed = mtx_translation_izi(params);
 	// m_transformed = mtx_translation(5, -3, 2);
 	transformed_point = mtx_mult_mt(m_transformed, p_ist);
-	printf("x: %f\ty: %f\tz: %f\tw: %f\n", transformed_point.x, \
-	transformed_point.y, transformed_point.z, \
-	transformed_point.w);
+	//printf("x: %f\ty: %f\tz: %f\tw: %f\n", transformed_point.x, \
+	//transformed_point.y, transformed_point.z, \
+	//transformed_point.w);
 	v_trans = mtx_mult_mt(m_transformed, v_ist);
-	printf("x: %f\ty: %f\tz: %f\tw: %f\n", v_trans.x, \
-	v_trans.y, v_trans.z, \
-	v_trans.w);
+	//printf("x: %f\ty: %f\tz: %f\tw: %f\n", v_trans.x, \
+	//v_trans.y, v_trans.z, \
+	//v_trans.w);
 	if (p_compareifequal(transformed_point, p_soll) \
 		&& t_check_ifequal(v_trans, v_soll))
 		return (1);

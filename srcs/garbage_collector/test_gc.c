@@ -25,7 +25,7 @@ int	test_gc_init(void)
 	while (++i < len)
 		str[i] = 'a' + i;
 	str[i] = '\0';
-	printf("Allocated string: %s\n", str);
+	//printf("Allocated string: %s\n", str);
 	gc = gc_init_garbage_collector();
 	if (!gc)
 		return (0);
