@@ -124,7 +124,7 @@ clean:
 	@echo "$(CYAN)object files cleaned$(CLEAR)"
 
 fclean: clean
-	@rm -f $(NAME)
+	@rm -f $(NAME) $(NAME_TEST)
 	@if [ -d $(LIBFT_DIR) ]; then cd libft && make fclean; fi
 	@echo "$(CYAN)miniRT fclean$(CLEAR)"
 
