@@ -39,7 +39,6 @@ SRC_FILES_ENGINE := \
 	ft_engine/rays/cleanup.c \
 	ft_engine/rays/intersect.c \
 	ft_engine/rays/ray_hit.c \
-	ft_engine/rays/intersc_data.c \
 	ft_engine/rays/tests.c
 
 SRC_FILES_MATH := \
