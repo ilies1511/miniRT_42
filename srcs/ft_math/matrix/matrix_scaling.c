@@ -16,7 +16,6 @@ t_matrix	mtx_scale(float x, float y, float z)
 t_matrix	mtx_scale_izi(t_tuple tuple)
 {
 	t_matrix	ret;
-	int			i;
 
 	ret = mtx_new_ident(MAT4X4);
 	ret.m[0][0] = tuple.x;
