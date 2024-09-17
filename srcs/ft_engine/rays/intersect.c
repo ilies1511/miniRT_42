@@ -12,6 +12,37 @@ t_point	eng_ray_pos(t_ray ray, float time)
 	return (pos);
 }
 
+static bool	swap_intersc(void *a, void *b)
+{
+	return (((t_intersc *)a)->t > ((t_intersc *)b)->t);
+}
+
+void	eng_sort_intersc(t_intersc_arr *interscs)
+{
+	ft_sort(interscs->arr, sizeof(t_intersc), interscs->count, swap_intersc);
+}
+
+void	eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, float t)
+{
+	t_intersc		intersc;
+
+	intersc.t = t;
+	intersc.type = obj->type;
+	intersc.obj = obj;
+	dyn_arr_add_save((void **)(&interscs->arr), &intersc, interscs->count++);
+}
+
+t_intersc_arr	eng_new_intersc_arr(void)
+{
+	t_intersc_arr	arr;
+
+	arr.arr = dyn_arr_init(sizeof(t_intersc), 0);
+	if (!arr.arr)
+		ft_error("malloc fail", __FILE__, __LINE__, 1);
+	arr.count = 0;
+	return (arr);
+}
+
 /*
 //Wikipedia line sphere intersection step by step:
 point px: intersection point
@@ -56,8 +87,10 @@ float t: scalar for ray->direct to reach the intersection point and
 // is in the orgin, or has a radius of 1
 // this function should always fork for spheres so I think we can simplyfy
 // later when we can make some assumptions we can simplify
-int	eng_intersc_ray_sphere(t_ray *ray, t_sphere *sph)
+void	eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray *ray, t_sphere *sph)
 {
+	if (!interscs->arr)
+		*interscs = eng_new_intersc_arr();
 	t_vec	ori_diff = sub_t(ray->origin, sph->origin);
 	float	dot_direct = dot_prod(ray->direct, ray->direct);
 	float	dot_diff_direct = dot_prod(ori_diff, ray->direct);
@@ -68,12 +101,10 @@ int	eng_intersc_ray_sphere(t_ray *ray, t_sphere *sph)
 	float	c = dot_diff - rad_sqr;
 	float	discriminant = b * b - 4 * a * c;
 	if (discriminant < 0)
-		return (1);
+		return ;
 	float	sqrt_discriminant = sqrt(discriminant);
 	float	t1 = (-b + sqrt_discriminant) / (2 * a);
 	float	t2 = (-b - sqrt_discriminant) / (2 * a);
-	eng_new_intersc((t_obj *)sph, t1);
-	eng_new_intersc((t_obj *)sph, t2);
-	return (1);
+	eng_add_intersc(interscs, (t_obj *)sph, t1);
+	eng_add_intersc(interscs, (t_obj *)sph, t2);
 }
-

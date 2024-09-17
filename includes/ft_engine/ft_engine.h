@@ -57,16 +57,18 @@ t_ray		eng_new_ray(t_point origin, t_vec direct);
 t_sphere	eng_new_sphere(void);
 
 // ft_engine/rays/intersect.c
-t_point		eng_ray_pos(t_ray ray, float time);
-int			eng_intersc_ray_sphere(t_ray *ray, t_sphere *sph);
+void			eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray *ray,
+			 t_sphere *sph);
+void			eng_sort_intersc(t_intersc_arr *interscs);
+void			eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, float t);
+t_intersc_arr	eng_new_intersc_arr(void);
 
-t_intersc_arr	*eng_get_intersc(void);
-void			eng_free_intersc(void);
-void			eng_sort_intersc(void);
-void			eng_new_intersc(t_obj *obj, float t);
+//cleanup
+void			eng_free_intersc(t_intersc_arr *interscs);
 
 //ft_engine/rays/ray_hit.c
-int		eng_ray_hit(t_ray *ray);
+t_intersc		*eng_ray_hit(t_intersc_arr *interscs);
+t_point			eng_ray_pos(t_ray ray, float time);
 
 // ft_engine/rays/test.c
 bool		test_eng_ray_pos(void);
