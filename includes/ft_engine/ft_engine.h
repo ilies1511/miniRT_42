@@ -3,22 +3,25 @@
 
 # include <MLX42.h>
 # include <ft_tuple.h>
+# include <ft_matrix.h>
 
 typedef enum e_obj_type
 {
+	OBJ_DEFAULT = 0,
 	OBJ_SPHERE = 1,
 	OBJ_COUNT,
 }	t_obj_type;
 
 typedef struct s_obj
 {
+	t_matrix	transform;
+	t_matrix	inverse;
 	t_obj_type	type;
-	uint8_t		typed_data[];
 }	t_obj;
 
 typedef struct s_sphere
 {
-	t_obj_type	type; // always first so this can be cast to t_ob
+	t_obj		base_obj;
 	float		t;
 	t_point		origin;
 	float		rad;
@@ -55,20 +58,24 @@ void		smoth_vanish(t_main *m_data);
 
 // ft_engine/rays/init.c
 t_ray		eng_new_ray(t_point origin, t_vec direct);
+t_obj		eng_new_obj(void);
 t_sphere	eng_new_sphere(void);
 
 // ft_engine/rays/intersect.c
 void			eng_intersc_ray(t_intersc_arr *interscs, t_ray *ray, t_obj	*obj);
 void			eng_sort_intersc(t_intersc_arr *interscs);
-void			eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, float t);
+t_intersc		eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, float t);
 t_intersc_arr	eng_new_intersc_arr(void);
 
 //cleanup
-void			eng_free_intersc(t_intersc_arr *interscs);
+void			eng_free_intersc_arr(t_intersc_arr *interscs);
 
 //ft_engine/rays/ray_hit.c
 t_intersc		*eng_ray_hit(t_intersc_arr *interscs);
 t_point			eng_ray_pos(t_ray ray, float time);
+
+//ft_engine/rays/ray_trasform.c
+t_ray	eng_transform_ray(t_ray ray, t_matrix transform);
 
 // ft_engine/rays/test.c
 bool		test_eng_ray_pos(void);

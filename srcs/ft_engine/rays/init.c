@@ -16,11 +16,22 @@ t_ray	eng_new_ray(t_point origin, t_vec direct)
 	return (ray);
 }
 
+t_obj	eng_new_obj(void)
+{
+	t_obj	obj;
+
+	obj.transform = mtx_new_ident(MAT4X4);
+	obj.inverse = mtx_new_ident(MAT4X4);
+	obj.type = OBJ_DEFAULT;
+	return (obj);
+}
+
 t_sphere	eng_new_sphere(void)
 {
 	t_sphere	sph;
-
-	sph.type = OBJ_SPHERE;
+	
+	sph.base_obj = eng_new_obj();
+	sph.base_obj.type = OBJ_SPHERE;
 	sph.rad = 1;
 	sph.origin = new_point(0, 0, 0);
 	return (sph);

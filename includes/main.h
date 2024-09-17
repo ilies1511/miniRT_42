@@ -53,6 +53,7 @@ typedef enum s_tuple_type
 
 // experiments
 void	draw_projectile(void *main_data);
+void	sphere_test(void *main_data);
 
 // main.c
 

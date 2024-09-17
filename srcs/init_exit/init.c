@@ -16,8 +16,9 @@ void	main_loop(void *main_data)
 
 	m_data = (t_main *)main_data;
 	// reset_img(m_data);
-	smoth_vanish(m_data);
-	draw_projectile(m_data);
+	//smoth_vanish(m_data);
+	//draw_projectile(m_data);
+	sphere_test(m_data);
 }
 
 void	init_hooks(t_main *m_data)
