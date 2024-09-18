@@ -39,7 +39,12 @@ SRC_FILES_ENGINE := \
 	ft_engine/rays/cleanup.c \
 	ft_engine/rays/intersect.c \
 	ft_engine/rays/ray_hit.c \
-	ft_engine/rays/tests.c
+	ft_engine/rays/utils.c \
+	ft_engine/rays/tests.c \
+	ft_engine/objs/transform.c \
+	ft_engine/objs/set_transform.c \
+	ft_engine/objs/test.c \
+
 
 SRC_FILES_MATH := \
 	ft_math/tuple/tuple1.c \

@@ -51,10 +51,10 @@ t_matrix	mtx_inverse(t_matrix m);
 // test_mtx_inverse.c
 bool		test_mtx_inverse(void);
 
-// matrix_translation_scaling.c
-t_matrix	mtx_translation(float x, float y, float z);
-t_matrix	mtx_translation_izi(t_tuple tuple);
-int			test_matrix_translation(void);
+// matrix_translate_scaling.c
+t_matrix	mtx_translate(float x, float y, float z);
+t_matrix	mtx_translate_izi(t_tuple tuple);
+int			test_matrix_translate(void);
 
 t_matrix	mtx_scale(float x, float y, float z);
 

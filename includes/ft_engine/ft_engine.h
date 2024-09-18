@@ -8,7 +8,8 @@
 typedef enum e_obj_type
 {
 	OBJ_DEFAULT = 0,
-	OBJ_SPHERE = 1,
+	OBJ_RAY,
+	OBJ_SPHERE,
 	OBJ_COUNT,
 }	t_obj_type;
 
@@ -42,6 +43,7 @@ typedef struct s_intersc_arr
 
 typedef struct s_ray
 {
+	t_obj			base_obj;
 	t_point			origin;
 	t_vec			direct;
 }	t_ray;
@@ -74,11 +76,23 @@ void			eng_free_intersc_arr(t_intersc_arr *interscs);
 t_intersc		*eng_ray_hit(t_intersc_arr *interscs);
 t_point			eng_ray_pos(t_ray ray, float time);
 
-//ft_engine/rays/ray_trasform.c
-t_ray	eng_transform_ray(t_ray ray, t_matrix transform);
+// ft_engine/rays/utils.c
+bool	eng_eq_ray(t_ray r1, t_ray r2);
 
 // ft_engine/rays/test.c
 bool		test_eng_ray_pos(void);
 bool		test_eng_intersc_ray_sphere(void);
 bool		test_eng_ray_hit(void);
+
+//ft_engine/objs/set_transform.c
+void		eng_set_transform(t_obj *obj, t_matrix transform);
+void		eng_ray_set_objs_inverse(t_ray *ray, t_obj *obj);
+
+//ft_engine/objs/transform.c
+void		eng_transform(t_obj *in, t_obj *ret);
+
+//ft_engine/objs/test.c
+bool		test_eng_trasform(void);
+bool		test_transformation_matrices(void);
+
 #endif //FT_ENGINE_H

@@ -1,6 +1,6 @@
 #include <ft_matrix.h>
 
-t_matrix	mtx_translation_izi(t_tuple tuple)
+t_matrix	mtx_translate_izi(t_tuple tuple)
 {
 	t_matrix	ret;
 
@@ -15,7 +15,7 @@ t_matrix	mtx_translation_izi(t_tuple tuple)
 	ret.m[0][3] += x;
 	Warum "+="
 */
-t_matrix	mtx_translation(float x, float y, float z)
+t_matrix	mtx_translate(float x, float y, float z)
 {
 	t_matrix	ret;
 

@@ -167,7 +167,7 @@ void	test_matrixes(int *total_tests, int *passed_tests)
 	if (test_matrix_mult_inverse())
 		*passed_tests += 1;
 	*total_tests += 1;
-	if (test_matrix_translation())
+	if (test_matrix_translate())
 		*passed_tests += 1;
 	*total_tests += 1;
 	if (test_mtx_scaling())
@@ -186,8 +186,17 @@ void	test_rays(int *total_tests, int *passed_tests)
 	if (test_eng_ray_hit())
 		*passed_tests += 1;
 	*total_tests += 1;
-}
 
+}
+void	test_objs(int *total_tests, int *passed_tests)
+{	
+	if (test_eng_trasform())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_transformation_matrices())
+		*passed_tests += 1;
+	*total_tests += 1;
+}
 void	test_gc(int *total_tests, int *passed_tests)
 {
 	t_garbage_collector	*gc;
@@ -216,6 +225,7 @@ int	main(void)
 	test_matrixes(&total, &passed);
 	test_rays(&total, &passed);
 	test_gc(&total, &passed);
+	test_objs(&total, &passed);
 	if (total == passed)
 		printf("%s all tests passed(%d/%d)!%s\n", FT_ANSI_GREEN_BOLD, passed, total, FT_ANSI_RESET);
 	else

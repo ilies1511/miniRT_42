@@ -23,7 +23,7 @@ int	p_compareifequal(t_point a, t_point b)
 
 	Translation affects Points, however they shoul affect vectors
 */
-int	test_matrix_translation(void)
+int	test_matrix_translate(void)
 {
 	t_tuple		p_ist;
 	t_tuple		transformed_point;
@@ -39,8 +39,8 @@ int	test_matrix_translation(void)
 	v_ist = new_vec(-3, 4, 5);
 	v_soll = new_vec(-3, 4, 5);
 	params = new_point(5, -3, 2);
-	m_transformed = mtx_translation_izi(params);
-	// m_transformed = mtx_translation(5, -3, 2);
+	m_transformed = mtx_translate_izi(params);
+	// m_transformed = mtx_translate(5, -3, 2);
 	transformed_point = mtx_mult_mt(m_transformed, p_ist);
 	//printf("x: %f\ty: %f\tz: %f\tw: %f\n", transformed_point.x, \
 	//transformed_point.y, transformed_point.z, \

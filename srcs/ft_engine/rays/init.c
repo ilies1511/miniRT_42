@@ -11,6 +11,8 @@ t_ray	eng_new_ray(t_point origin, t_vec direct)
 			origin is not a point");
 	ft_assert(is_vec(direct), __FILE__, __LINE__, "Error: eng_new_ray: \
 			direct is not a vec");
+	ray.base_obj = eng_new_obj();
+	ray.base_obj.type = OBJ_RAY;
 	ray.origin = origin;
 	ray.direct = direct;
 	return (ray);

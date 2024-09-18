@@ -81,11 +81,12 @@ float t: scalar for ray->direct to reach the intersection point and
 // is in the orgin, or has a radius of 1
 // this function should always fork for spheres so I think we can simplyfy
 // later when we can make some assumptions we can simplify
-static void	eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray *ray, t_sphere *sph)
+static void	eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray ray, t_sphere *sph)
 {
-	t_vec	ori_diff = sub_t(ray->origin, sph->origin);
-	float	dot_direct = dot_prod(ray->direct, ray->direct);
-	float	dot_diff_direct = dot_prod(ori_diff, ray->direct);
+
+	t_vec	ori_diff = sub_t(ray.origin, sph->origin);
+	float	dot_direct = dot_prod(ray.direct, ray.direct);
+	float	dot_diff_direct = dot_prod(ori_diff, ray.direct);
 	float	dot_diff = dot_prod(ori_diff, ori_diff);
 	float	rad_sqr = sph->rad * sph->rad;
 	float	a = dot_direct;
@@ -101,10 +102,16 @@ static void	eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray *ray, t_sphere
 	eng_add_intersc(interscs, (t_obj *)sph, t2);
 }
 
-void	eng_intersc_ray(t_intersc_arr *interscs, t_ray *ray, t_obj *obj)
+void	eng_intersc_ray(t_intersc_arr *interscs, t_ray *ray_in, t_obj *obj)
 {
+	t_ray		ray;
+	t_matrix	tmp = ray_in->base_obj.transform;
+
+	ray_in->base_obj.transform = obj->inverse;
+	eng_transform((t_obj *) ray_in, (t_obj *)&ray);
 	if (obj->type == OBJ_SPHERE)
 		eng_intersc_ray_sphere(interscs, ray, (t_sphere *)obj);
 	else
 		ft_assert(0, __FILE__, __LINE__, "eng_intersc_ray: invalid obj type");
+	ray_in->base_obj.transform = tmp;
 }
