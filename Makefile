@@ -3,7 +3,7 @@ CC := cc
 CFLAGS := -Wall -Wextra -DFSAN -fsanitize=address -g
 # CFLAGS := -Wall -Wextra -DFSAN -g
 # CFLAGS_NO_FSAN := -Wall -Wextra -g
-FLAGS_SPEED := -Wall -Wextra -O3 -march=native -flto -NDBUG=1
+FLAGS_SPEED := -Wall -Wextra -O3 -march=native -flto -DNDBUG=1
 #-Werror
 #-O3
 # -Werror
@@ -147,7 +147,7 @@ rre: ffclean
 
 #to optimize for speed without debugging info
 fast: fclean
-	@make CFLAGS=$(FLAGS_SPEED)
+	@make CFLAGS="$(FLAGS_SPEED)"
 
 #to create a performece profile on linux
 prof: fclean
