@@ -5,7 +5,16 @@ void	sphere_test(void *main_data)
 	t_main	*m_data = (t_main *)main_data;
 	t_uint_color	color;
 	t_uint_color	*pixels = (t_uint_color *)m_data->img->pixels;
-	t_sphere		sph = eng_new_sphere();
+	
+	static t_sphere		sph;
+	static bool			first = true;
+	if (first)
+	{
+		first = false;
+		sph = eng_new_sphere();
+	}
+	eng_set_transform((t_obj *)&sph, mtx_scale(1.1, 1, 1));
+	
 	t_intersc_arr	interscs = eng_new_intersc_arr();
 
 	static double	base_x_angle = 0;
@@ -15,6 +24,7 @@ void	sphere_test(void *main_data)
 
 	const double fov_x = (60.0 / 360) * 2 * M_PI;
 	const double fov_y = (60.0 / 360) * 2 * M_PI;
+
 
 	color.full = RED;
 	for (size_t y = 0; y < HEIGHT; y++)
@@ -48,9 +58,9 @@ void	sphere_test(void *main_data)
 		}
 		printf("y: %lu\n", y);
 	}
-	base_x_angle = fmod(base_x_angle, 2 * M_PI);
-	base_y_angle = fmod(base_x_angle, 2 * M_PI);
-	base_y_angle += M_PI_4 / 4;
-	base_x_angle += M_PI_4 / 3;
+	//base_x_angle = fmod(base_x_angle, 2 * M_PI);
+	//base_y_angle = fmod(base_x_angle, 2 * M_PI);
+	//base_y_angle += M_PI_4 / 4;
+	//base_x_angle += M_PI_4 / 3;
 }
 
