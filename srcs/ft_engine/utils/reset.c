@@ -8,7 +8,7 @@ void	reset_img(t_main *m_data)
 	const t_uint_color color = {
 		.argb.a = 0xFF,
 		.argb.r = 0x00,
-		.argb.g = 0xFF,
+		.argb.g = 0x00,
 		.argb.b = 0x00,
 	};
 
