@@ -4,12 +4,53 @@ void	sphere_test(void *main_data)
 {
 	t_main	*m_data = (t_main *)main_data;
 	t_uint_color	color;
+	t_uint_color	*pixels = (t_uint_color *)m_data->img->pixels;
+	t_sphere		sph = eng_new_sphere();
+	t_intersc_arr	interscs = eng_new_intersc_arr();
+
+	static double	base_x_angle = 0;
+	static double	base_y_angle = 0;
+
+	t_ray			ray_base = eng_new_ray(new_point(0, 0, -4), new_vec(0, 0, 1));
+
+	const double fov_x = (60.0 / 360) * 2 * M_PI;
+	const double fov_y = (60.0 / 360) * 2 * M_PI;
 
 	color.full = RED;
-	for (float y = 0.8; y <= 1; y += 0.01)
+	for (size_t y = 0; y < HEIGHT; y++)
 	{
-	for (float x = -1; x <= 1; x += 0.001)
-		put_pixel(x, y, color, (uint32_t *)(m_data->img->pixels));
+		for (size_t x = 0; x < WIDTH; x++)
+		{
+			t_ray	ray = ray_base;
+			double	cur_x_angle = base_x_angle - fov_x / 2 + (float)x / WIDTH * fov_x;
+			cur_x_angle = fmod(cur_x_angle, 2 * M_PI);
+			eng_set_transform((t_obj *)&ray, mtx_rotation_x(cur_x_angle));
+			double	cur_y_angle = base_y_angle - fov_y / 2 + (float)y / HEIGHT * fov_y;
+			cur_y_angle = fmod(cur_y_angle, 2 * M_PI);
+			eng_set_transform((t_obj *)&ray, mtx_rotation_y(cur_y_angle));
+			ray.direct = mtx_mult_mt(ray.base_obj.transform, ray.direct);
+			eng_intersc_ray(&interscs, &ray, (t_obj *) &sph);
+			t_intersc	*intersc = eng_ray_hit(&interscs);
+			if (intersc)
+			{
+				t_point	intersc_p = add_t(ray.origin, mult_v(ray.direct, intersc->t));
+				t_vec	rad_v = sub_t(sph.origin, intersc_p);
+				float	dot = dot_prod(norm(ray.direct), norm(rad_v));
+				dot = fabs(dot);
+				color.full = PINK;
+				color.argb.r *= dot;
+				color.argb.g *= dot;
+				color.argb.b *= dot;
+				pixels[y * WIDTH + x] = color;
+
+			}
+			eng_free_intersc_arr(&interscs);
+		}
+		printf("y: %lu\n", y);
 	}
+	base_x_angle = fmod(base_x_angle, 2 * M_PI);
+	base_y_angle = fmod(base_x_angle, 2 * M_PI);
+	base_y_angle += M_PI_4 / 4;
+	base_x_angle += M_PI_4 / 3;
 }
 

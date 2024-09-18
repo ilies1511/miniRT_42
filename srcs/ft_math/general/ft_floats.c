@@ -20,4 +20,3 @@ bool	greater_eq_f(float a, float b)
 		return (true);
 	return (false);
 }
-
