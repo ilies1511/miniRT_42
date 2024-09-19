@@ -28,7 +28,7 @@ t_matrix	mtx_mult_mm(t_matrix ma, t_matrix mb)
 	int			k;
 
 	ft_assert(ma.type == MAT4X4 && mb.type == MAT4X4, __FILE__, __LINE__,
-			"Error: matrix multiplication of wrong matrix type");
+			"Error: matrix multiplication_mm of wrong matrix type");
 	ft_bzero(&ret, sizeof ret);
 	ret.type = MAT4X4;
 	i = 0;

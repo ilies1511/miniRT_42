@@ -45,7 +45,8 @@ SRC_FILES_ENGINE := \
 	ft_engine/objs/transform.c \
 	ft_engine/objs/set_transform.c \
 	ft_engine/objs/test.c \
-	ft_engine/objs/normal_at.c
+	ft_engine/objs/normal_at.c \
+	ft_engine/objs/test_normal.c
 
 SRC_FILES_MATH := \
 	ft_math/tuple/tuple1.c \
