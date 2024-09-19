@@ -4,6 +4,18 @@
 # include <MLX42.h>
 # include <ft_tuple.h>
 # include <ft_matrix.h>
+# include <ft_colors.h>
+
+typedef struct s_material
+{
+	t_f_color	fcolor;
+	float		ambient;
+	float		diffuse;
+	float		specular;
+	float		shininess;
+}	t_material;
+
+t_material	eng_new_material(void);
 
 typedef enum e_obj_type
 {
@@ -11,6 +23,7 @@ typedef enum e_obj_type
 	OBJ_RAY,
 	OBJ_SPHERE,
 	OBJ_COUNT,
+	OBJ_LIGHT,
 }	t_obj_type;
 
 typedef struct s_obj
@@ -23,9 +36,9 @@ typedef struct s_obj
 typedef struct s_sphere
 {
 	t_obj		base_obj;
-	float		t;
 	t_point		origin;
 	float		rad;
+	t_material	material;
 }	t_sphere;
 
 typedef struct s_intersc
@@ -47,6 +60,15 @@ typedef struct s_ray
 	t_point			origin;
 	t_vec			direct;
 }	t_ray;
+
+typedef struct s_light
+{
+	t_obj			base_obj;
+	t_point			origin;
+	t_f_color		intensity;
+}	t_light;
+
+t_light	eng_new_light(t_f_color intensity, t_point origin);
 
 typedef struct s_main	t_main;
 

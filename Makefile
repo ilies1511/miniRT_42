@@ -45,9 +45,12 @@ SRC_FILES_ENGINE := \
 	ft_engine/objs/set_transform.c \
 	ft_engine/objs/test.c \
 	ft_engine/reflect.c \
+	ft_engine/light.c \
+	ft_engine/material.c \
 
 
 SRC_FILES_MATH := \
+	ft_math/colors/colors.c \
 	ft_math/tuple/tuple1.c \
 	ft_math/tuple/tuple2.c \
 	ft_math/tuple/tuple3.c \

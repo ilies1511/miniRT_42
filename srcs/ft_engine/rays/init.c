@@ -36,5 +36,6 @@ t_sphere	eng_new_sphere(void)
 	sph.base_obj.type = OBJ_SPHERE;
 	sph.rad = 1;
 	sph.origin = new_point(0, 0, 0);
+	sph.material = eng_new_material();
 	return (sph);
 }

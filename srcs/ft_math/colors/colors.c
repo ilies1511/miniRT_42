@@ -1,7 +1,7 @@
 #include <main.h>
 #include <ft_colors.h>
 
-t_f_color	create_fcolor(float r, float g, float b, float a)
+t_f_color	new_fcolor(float r, float g, float b, float a)
 {
 	t_f_color	color;
 

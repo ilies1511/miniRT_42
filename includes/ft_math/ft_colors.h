@@ -74,7 +74,7 @@ typedef struct s_f_color
 				//when converting to t_uint_color should be treated as 1.0
 }	t_f_color;
 
-t_f_color	create_fcolor(float r, float g, float b, float a);
+t_f_color	new_fcolor(float r, float g, float b, float a);
 //Hadamard product (or Schur product)
 
 /*
