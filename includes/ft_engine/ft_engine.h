@@ -22,8 +22,8 @@ typedef enum e_obj_type
 	OBJ_DEFAULT = 0,
 	OBJ_RAY,
 	OBJ_SPHERE,
-	OBJ_COUNT,
 	OBJ_LIGHT,
+	OBJ_COUNT,
 }	t_obj_type;
 
 typedef struct s_obj
