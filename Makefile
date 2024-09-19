@@ -33,6 +33,7 @@ SRC_MAIN = main.c
 SRC_TEST_MAIN := main_tests.c
 
 SRC_FILES_ENGINE := \
+	ft_engine/canvas/canvas.c \
 	ft_engine/utils/reset.c \
 	ft_engine/mlx_interface/hooks.c \
 	ft_engine/mlx_interface/helper1.c \

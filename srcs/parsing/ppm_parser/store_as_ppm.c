@@ -36,7 +36,7 @@ static void	write_row(t_main *m_data, t_fd fd, size_t y)
 		cur_char_in_line = 0;
 		while (PPM_VAL_BLOCK_LEN + cur_char_in_line < PPM_MAX_CHARS_PER_LINE && x < WIDTH)
 		{
-			color.full = ((uint32_t *)m_data->img->pixels)[y * WIDTH + x];
+			color.full = ((uint32_t *)m_data->canvas.img->pixels)[y * WIDTH + x];
 			printf_ret = 0;
 			printf_ret = ft_fprintf(fd, " %d %d %d",
 				color.argb.r, color.argb.g, color.argb.b);

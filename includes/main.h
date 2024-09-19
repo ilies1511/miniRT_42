@@ -48,8 +48,8 @@ typedef int	t_fd;
 typedef struct s_main
 {
 	mlx_t		*mlx;
-	mlx_image_t	*img;
-}	t_main;
+	t_canvas	canvas;
+}	t_mait;
 
 typedef enum s_tuple_type
 {

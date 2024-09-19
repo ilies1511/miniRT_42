@@ -6,6 +6,20 @@
 # include <ft_matrix.h>
 # include <ft_colors.h>
 
+typedef struct s_main	t_main;
+
+typedef struct s_canvas
+{
+	size_t		width;
+	size_t		height;
+	mlx_image_t	*img;
+}	t_canvas;
+
+//canvas.c
+t_canvas	eng_new_canvas(t_main *m_data, size_t width, size_t height);
+void		eng_free_canvas(mlx_t *mlx, t_canvas *canvas);
+void		reset_canvas(t_canvas *canvas);
+
 typedef struct s_material
 {
 	t_f_color	fcolor;
@@ -70,14 +84,14 @@ typedef struct s_light
 
 t_light	eng_new_light(t_f_color intensity, t_point origin);
 
-typedef struct s_main	t_main;
+
 
 // hooks.c
 void		close_handler(void *main_data);
 void		main_key_hooks(mlx_key_data_t keydata, void *main_data);
 
 // ft_engine/reset.c
-void		reset_img(t_main *m_data);
+void		reset_canvas(t_canvas *canvas);
 void		smoth_vanish(t_main *m_data);
 
 // ft_engine/rays/init.c

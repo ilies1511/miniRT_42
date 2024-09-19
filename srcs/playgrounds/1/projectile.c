@@ -69,7 +69,7 @@ void	draw_projectile(void *main_data)
 	start_x = max_i(start_x, 0);
 	int	end_x = (int)projectile.pos.x + 20;
 	end_x = min_i(end_x, WIDTH - 1);
-	uint32_t	*pixels = (uint32_t *)(m_data->img->pixels);
+	uint32_t	*pixels = (uint32_t *)(m_data->canvas.img->pixels);
 	while (y <= end_y)
 	{
 		for (int x = start_x; x <= end_x; x++)

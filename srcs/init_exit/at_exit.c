@@ -1,8 +1,9 @@
 #include <main.h>
 
+
 void	main_cleanup(t_main *m_data, uint8_t exit_stat)
 {
-	mlx_delete_image(m_data->mlx, m_data->img);
+	eng_free_canvas(m_data->mlx, &m_data->canvas);
 	mlx_close_window(m_data->mlx);
 	exit(exit_stat);
 }
