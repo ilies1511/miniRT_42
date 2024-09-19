@@ -186,8 +186,11 @@ void	test_rays(int *total_tests, int *passed_tests)
 	if (test_eng_ray_hit())
 		*passed_tests += 1;
 	*total_tests += 1;
-
+	if (test_eng_reflect())
+		*passed_tests += 1;
+	*total_tests += 1;
 }
+
 void	test_objs(int *total_tests, int *passed_tests)
 {	
 	if (test_eng_trasform())
@@ -197,6 +200,7 @@ void	test_objs(int *total_tests, int *passed_tests)
 		*passed_tests += 1;
 	*total_tests += 1;
 }
+
 void	test_gc(int *total_tests, int *passed_tests)
 {
 	t_garbage_collector	*gc;

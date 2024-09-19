@@ -95,4 +95,8 @@ void		eng_transform(t_obj *in, t_obj *ret);
 bool		test_eng_trasform(void);
 bool		test_transformation_matrices(void);
 
+//ft_engine/reflect.c
+t_vec	eng_reflect(t_vec vec, t_vec surface_normal);
+bool	test_eng_reflect(void);
+
 #endif //FT_ENGINE_H

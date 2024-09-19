@@ -44,6 +44,7 @@ SRC_FILES_ENGINE := \
 	ft_engine/objs/transform.c \
 	ft_engine/objs/set_transform.c \
 	ft_engine/objs/test.c \
+	ft_engine/reflect.c \
 
 
 SRC_FILES_MATH := \

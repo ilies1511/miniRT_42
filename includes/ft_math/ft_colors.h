@@ -73,7 +73,8 @@ typedef struct s_f_color
 				//to enable casting to t_vec should be left as 0.0
 				//when converting to t_uint_color should be treated as 1.0
 }	t_f_color;
-// ___t_f_color specific implementation needed________
+
+t_f_color	create_fcolor(float r, float g, float b, float a);
 //Hadamard product (or Schur product)
 
 /*
