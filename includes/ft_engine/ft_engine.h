@@ -101,6 +101,10 @@ t_point			eng_ray_pos(t_ray ray, float time);
 // ft_engine/rays/utils.c
 bool	eng_eq_ray(t_ray r1, t_ray r2);
 
+// Compute Normal
+t_vec		eng_normal_at(t_obj *object, t_point intersec_point);
+int			test_normal_at(void);
+
 // ft_engine/rays/test.c
 bool		test_eng_ray_pos(void);
 bool		test_eng_intersc_ray_sphere(void);

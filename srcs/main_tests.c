@@ -192,11 +192,14 @@ void	test_rays(int *total_tests, int *passed_tests)
 }
 
 void	test_objs(int *total_tests, int *passed_tests)
-{	
+{
 	if (test_eng_trasform())
 		*passed_tests += 1;
 	*total_tests += 1;
 	if (test_transformation_matrices())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_normal_at())
 		*passed_tests += 1;
 	*total_tests += 1;
 }

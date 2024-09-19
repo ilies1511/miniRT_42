@@ -3,7 +3,8 @@ CC := cc
 CFLAGS := -Wall -Wextra -DFSAN -fsanitize=address -g
 # CFLAGS := -Wall -Wextra -DFSAN -g
 # CFLAGS_NO_FSAN := -Wall -Wextra -g
-FLAGS_SPEED := -Wall -Wextra -O3 -march=native -flto -DNDBUG=1
+# FLAGS_SPEED := -Wall -Wextra -O3 -march=native-flto -DNDBUG=1
+FLAGS_SPEED := -Wall -Wextra -O3 -march=native -DNDBUG=1
 #-Werror
 #-O3
 # -Werror
@@ -47,7 +48,8 @@ SRC_FILES_ENGINE := \
 	ft_engine/reflect.c \
 	ft_engine/light.c \
 	ft_engine/material.c \
-
+	ft_engine/objs/normal_at.c \
+	ft_engine/objs/test_normal.c
 
 SRC_FILES_MATH := \
 	ft_math/colors/colors.c \
