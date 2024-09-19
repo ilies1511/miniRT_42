@@ -43,6 +43,11 @@
 #  define HEIGHT 500
 # endif
 
+# ifndef ASPECT_RATIO
+#  define ASPECT_RATIO (16.0 / 9.0)
+# endif
+
+
 typedef int	t_fd;
 
 typedef struct s_main

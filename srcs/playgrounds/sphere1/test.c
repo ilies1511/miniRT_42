@@ -1,6 +1,6 @@
 #include <main.h>
 
-void	sphere_test(void *main_data)
+void	sphere_test_old(void *main_data)
 {
 	t_main	*m_data = (t_main *)main_data;
 	t_uint_color	color;
@@ -19,13 +19,6 @@ void	sphere_test(void *main_data)
 	}
 	//eng_set_transform((t_obj *)&sph, mtx_scale(1.1, 1, 1));
 	ray_base = eng_new_ray(new_point(0, 0, -4), new_vec(0, 0, 1));
-	//t_ray tmp;
-	//static double	 rotation = 0;
-	//eng_set_transform((t_obj *)&ray_base, mtx_rotation_y(rotation));
-	//rotation += M_PI_4;
-	//rotation = fmod(rotation, 2 * M_PI);
-	//eng_transform((t_obj *)&ray_base, (t_obj *)&tmp);
-	//ray_base = tmp;
 	t_intersc_arr	interscs = eng_new_intersc_arr();
 
 
@@ -51,6 +44,7 @@ void	sphere_test(void *main_data)
 			t_intersc	*intersc = eng_ray_hit(&interscs);
 			if (intersc)
 			{
+				////uncomment to get shading
 				//t_point	intersc_p = add_t(ray.origin, mult_v(ray.direct, intersc->t));
 				//t_vec	rad_v = sub_t(sph.origin, intersc_p);
 				//float	dot = dot_prod(norm(rad_v), norm(ray.direct));
@@ -68,10 +62,5 @@ void	sphere_test(void *main_data)
 		printf("y: %lu\n", y);
 	}
 	//store_as_plain_ppm(m_data, "ENTER FILE NAME TO DOCUMENT PROGRESS.ppm");
-	
-	//base_x_angle = fmod(base_x_angle, 2 * M_PI);
-	//base_y_angle = fmod(base_x_angle, 2 * M_PI);
-	//base_y_angle += M_PI_4 / 4;
-	//base_x_angle += M_PI_4 / 3;
 }
 
