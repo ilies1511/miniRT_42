@@ -2,7 +2,10 @@
 #include <ft_engine.h>
 #include <libft.h>
 
-t_vec	compute_normal_sphere_post_trans(t_sphere *sphere, t_point world_point)
+/*
+	use case: formula to compute normal vector of transformed sphere
+*/
+t_vec	eng_compute_normal_sphere_post_trans(t_sphere *sphere, t_point world_point)
 {
 	t_point		object_point;
 	t_point		object_normal;
@@ -19,6 +22,9 @@ t_vec	compute_normal_sphere_post_trans(t_sphere *sphere, t_point world_point)
 	return (norm(world_normal));
 }
 
+/*
+	use case: unit circle sphere (sphere that was not tranformed yet)
+*/
 t_vec	compute_normal_sphere(t_sphere *sphere, t_point point)
 {
 	t_point	delta;
@@ -36,7 +42,8 @@ t_vec	eng_normal_at(t_obj *object, t_point intersec_point)
 	if (object->type == OBJ_SPHERE)
 	{
 		// normal = compute_normal_sphere((t_sphere *)object, intersec_point);
-		normal = compute_normal_sphere_post_trans((t_sphere *)object, intersec_point);
+		normal = eng_compute_normal_sphere_post_trans((t_sphere *)object, \
+			intersec_point);
 	}
 	//else if (andere Types)
 	else

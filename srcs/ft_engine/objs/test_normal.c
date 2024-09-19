@@ -16,7 +16,6 @@ int	test_normal_at(void)
 	int			flag;
 
 	flag = 1;
-
 	//Test 1
 	sphere = eng_new_sphere();
 	eng_set_transform((t_obj *)&sphere, mtx_translate(0, 1, 0));
