@@ -13,7 +13,7 @@ t_vec	compute_normal_sphere_post_trans(t_sphere *sphere, t_point world_point)
 	object_point = mtx_mult_mt(sphere->base_obj.inverse, \
 		world_point);
 	object_normal = sub_t(object_point, new_point(0, 0, 0));
-	world_normal = mtx_mult_mt(mtx_transpose(sphere->base_obj.transform), \
+	world_normal = mtx_mult_mt(mtx_transpose(sphere->base_obj.inverse), \
 		object_normal);
 	world_normal.w = 0;
 	return (norm(world_normal));
