@@ -28,8 +28,8 @@ void	eng_free_canvas(mlx_t *mlx, t_canvas *canvas)
 void	reset_canvas(t_canvas *canvas)
 {
 	t_uint_color		*pixels;
-	int				x;
-	int				y;
+	size_t				x;
+	size_t				y;
 	const t_uint_color color =
 	{
 		.argb.a = 0xFF,
@@ -43,9 +43,9 @@ void	reset_canvas(t_canvas *canvas)
 	while (y < HEIGHT)
 	{
 		x = 0;
-		while (x < WIDTH)
+		while (x < canvas->width)
 		{
-			pixels[y * WIDTH + x] = color;
+			pixels[y * canvas->width + x] = color;
 			x++;
 		}
 		y++;

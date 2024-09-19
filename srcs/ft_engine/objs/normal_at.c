@@ -42,6 +42,7 @@ t_vec	eng_normal_at(t_obj *object, t_point intersec_point)
 	else
 	{
 		ft_assert(0, __FILE__, __LINE__, "eng_normal_at: Wrong Input");
+		__builtin_unreachable();
 	}
 	return (norm(normal));
 }

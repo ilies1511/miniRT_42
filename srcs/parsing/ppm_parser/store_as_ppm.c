@@ -2,7 +2,7 @@
 # include <main.h>
 
 //opens the file, hanles open erros and write the header to the file
-static t_fd	init_store_ppm(char *file_name)
+static t_fd	init_store_ppm(t_canvas *canvas, char *file_name)
 {
 	t_fd	fd;
 	errno  = 0;
@@ -14,7 +14,7 @@ static t_fd	init_store_ppm(char *file_name)
 		ft_error("couldn't open ppm file to store data", __FILE__,
 				__LINE__, 1);
 	}
-	if (ft_fprintf(fd, "P3\n%d %d\n255\n", WIDTH, HEIGHT) == -1)
+	if (ft_fprintf(fd, "P3\n%d %d\n255\n", canvas->width, canvas->height) == -1)
 	{
 		ft_fprintf(2, "%s: %s\n", file_name, strerror(errno));
 		ft_error("writing header to ppm file failed",
@@ -31,12 +31,12 @@ static void	write_row(t_main *m_data, t_fd fd, size_t y)
 	t_uint_color	color;
 
 	x = 0;
-	while (x < WIDTH)
+	while (x < m_data->canvas.width)
 	{
 		cur_char_in_line = 0;
-		while (PPM_VAL_BLOCK_LEN + cur_char_in_line < PPM_MAX_CHARS_PER_LINE && x < WIDTH)
+		while (PPM_VAL_BLOCK_LEN + cur_char_in_line < PPM_MAX_CHARS_PER_LINE && x < m_data->canvas.width)
 		{
-			color.full = ((uint32_t *)m_data->canvas.img->pixels)[y * WIDTH + x];
+			color.full = ((uint32_t *)m_data->canvas.img->pixels)[y * m_data->canvas.width + x];
 			printf_ret = 0;
 			printf_ret = ft_fprintf(fd, " %d %d %d",
 				color.argb.r, color.argb.g, color.argb.b);
@@ -57,9 +57,9 @@ void	store_as_plain_ppm(t_main *m_data, char *file_name)
 	t_fd			fd;
 	size_t			y;
 
-	fd = init_store_ppm(file_name);
+	fd = init_store_ppm(&m_data->canvas, file_name);
 	y = 0;
-	while (y < HEIGHT)
+	while (y < m_data->canvas.height)
 	{
 		write_row(m_data, fd, y);
 		y++;

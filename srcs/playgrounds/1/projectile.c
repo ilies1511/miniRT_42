@@ -24,11 +24,11 @@ t_env	new_env(void)
 	return (env);
 }
 
-t_projectile	init_projectile(void)
+t_projectile	init_projectile(t_main *m_data)
 {
 	t_projectile	projectile;
 
-	projectile.pos = new_point(0, HEIGHT - 1, 0);
+	projectile.pos = new_point(0, m_data->canvas.height - 1, 0);
 	projectile.speed = new_vec(100, 500, 0);
 	return (projectile);
 }
@@ -45,7 +45,7 @@ void	draw_projectile(void *main_data)
 	const t_uint_color color = {.full = RED};
 
 	if (projectile.pos.x == -1.0)
-		projectile = init_projectile();
+		projectile = init_projectile(m_data);
 	else
 	{
 		d_time = m_data->mlx->delta_time;
@@ -64,17 +64,17 @@ void	draw_projectile(void *main_data)
 	int y = (int)projectile.pos.y - 20;
 	y = max_i(y, 0);
 	int	end_y = (int)projectile.pos.y + 20;
-	end_y = min_i(end_y, HEIGHT - 1);
+	end_y = min_i(end_y, m_data->canvas.height - 1);
 	int	start_x = (int)projectile.pos.x - 20;
 	start_x = max_i(start_x, 0);
 	int	end_x = (int)projectile.pos.x + 20;
-	end_x = min_i(end_x, WIDTH - 1);
+	end_x = min_i(end_x, m_data->canvas.width - 1);
 	uint32_t	*pixels = (uint32_t *)(m_data->canvas.img->pixels);
 	while (y <= end_y)
 	{
 		for (int x = start_x; x <= end_x; x++)
 		{
-			pixels[y * WIDTH + x] = color.full;
+			pixels[y * m_data->canvas.width + x] = color.full;
 		}
 		y++;
 	}
@@ -89,28 +89,28 @@ void	draw_projectile(void *main_data)
 		if (projectile.speed.x < 0)
 			projectile.speed.x *= -1;
 	}
-	else if (projectile.pos.x > WIDTH - 1)
+	else if (projectile.pos.x > m_data->canvas.width - 1)
 	{
-		projectile.pos.x = WIDTH - 1;
+		projectile.pos.x = m_data->canvas.width - 1;
 		if (projectile.speed.x > 0)
 			projectile.speed.x *= -1;
 	}
 	if (projectile.pos.y < 0)
 	{
 		projectile.pos.y = 0;
-		if (fabs(projectile.speed.y) > HEIGHT / d_time / 4)
-			projectile.speed.y = HEIGHT / d_time / 4;
+		if (fabs(projectile.speed.y) > m_data->canvas.height / d_time / 4)
+			projectile.speed.y = m_data->canvas.height / d_time / 4;
 		if (projectile.speed.y < 0)
 			projectile.speed.y *= -1;
 		//projectile.speed.y = 0;
 	}
-	else if (projectile.pos.y > HEIGHT - 1)
+	else if (projectile.pos.y > m_data->canvas.height - 1)
 	{
-		projectile.pos.y = HEIGHT - 1;
+		projectile.pos.y = m_data->canvas.height - 1;
 		if (projectile.speed.y > 0 )
 		{
-			if (fabs(projectile.speed.y) > HEIGHT / d_time / 4)
-				projectile.speed.y = -HEIGHT / d_time / 4;
+			if (fabs(projectile.speed.y) > m_data->canvas.height / d_time / 4)
+				projectile.speed.y = -m_data->canvas.height / d_time / 4;
 			projectile.speed.y *= -1;
 		}
 		//projectile.speed.y = 0;
