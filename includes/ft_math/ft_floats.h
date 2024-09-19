@@ -14,5 +14,6 @@
 bool	eq_f(float a, float b);
 bool	less_eq_f(float a, float b);
 bool	greater_eq_f(float a, float b);
+float	clamp_f(float nb, float min, float max);
 
 #endif //FT_FLOATS_H

@@ -51,15 +51,15 @@ void	sphere_test(void *main_data)
 			t_intersc	*intersc = eng_ray_hit(&interscs);
 			if (intersc)
 			{
-				t_point	intersc_p = add_t(ray.origin, mult_v(ray.direct, intersc->t));
-				t_vec	rad_v = sub_t(sph.origin, intersc_p);
-				float	dot = dot_prod(norm(rad_v), norm(ray.direct));
-				if (dot < 0)
+				//t_point	intersc_p = add_t(ray.origin, mult_v(ray.direct, intersc->t));
+				//t_vec	rad_v = sub_t(sph.origin, intersc_p);
+				//float	dot = dot_prod(norm(rad_v), norm(ray.direct));
+				//if (dot < 0)
 				{
-					color.full = WHITE;
-					color.argb.r *= -dot;
-					color.argb.g *= -dot;
-					color.argb.b *= -dot;
+					//color.full = WHITE;
+					//color.argb.r *= -dot;
+					//color.argb.g *= -dot;
+					//color.argb.b *= -dot;
 					pixels[y * WIDTH + x] = color;
 				}
 			}

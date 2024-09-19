@@ -20,3 +20,8 @@ bool	greater_eq_f(float a, float b)
 		return (true);
 	return (false);
 }
+
+float	clamp_f(float nb, float min, float max)
+{
+	return (fmax(min, fmin(nb, max)));
+}

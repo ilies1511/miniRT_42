@@ -74,23 +74,16 @@ typedef struct s_f_color
 				//when converting to t_uint_color should be treated as 1.0
 }	t_f_color;
 
-t_f_color	new_fcolor(float r, float g, float b, float a);
-//Hadamard product (or Schur product)
 
+t_f_color		fcol_new(float r, float g, float b, float a);
+t_uint_color	fcolor_to_uintcolor(t_f_color fcolor);
+t_f_color		f_col_add(t_f_color a, t_f_color b);
+t_f_color		f_col_sub(t_f_color a, t_f_color b);
+t_f_color		f_col_scale(t_f_color c, float scalar);
 /*
+	Hadamard product (or Schur product)
 	Multiplacation of two colors;
 */
-t_f_color		hadamard_product(t_f_color a, t_f_color b);
-t_f_color		fcol_fcol_mult(t_f_color a, t_f_color b);
-t_uint_color	fcolor_to_uintcolor(t_f_color fcolor);
-
-/*______________________________________________________
- These should not be needed since the tuple/vec operations can be applyied
- for performace or debugging we could implement these to cut down operations
- or make type specific asserts
-*/
-t_f_color		fcol_add(t_f_color a, t_f_color b);
-t_f_color		fcol_sub(t_f_color a, t_f_color b);
-t_f_color		fcol_mult(t_f_color color, float scalar);
+t_f_color		fcol_mult(t_f_color a, t_f_color b);
 
 #endif //FT_COLORS_H
