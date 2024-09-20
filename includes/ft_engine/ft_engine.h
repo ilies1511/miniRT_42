@@ -5,6 +5,8 @@
 # include <ft_tuple.h>
 # include <ft_matrix.h>
 # include <ft_colors.h>
+# include <stdio.h>
+# include <math.h>
 
 typedef struct s_main	t_main;
 
