@@ -23,14 +23,12 @@ void	eng_free_canvas(mlx_t *mlx, t_canvas *canvas)
 	canvas->img = NULL;
 }
 
-
-
 void	reset_canvas(t_canvas *canvas)
 {
-	t_uint_color		*pixels;
+	t_uintcolor		*pixels;
 	size_t				x;
 	size_t				y;
-	const t_uint_color color =
+	const t_uintcolor color =
 	{
 		.argb.a = 0xFF,
 		.argb.r = 0x00,
@@ -38,7 +36,7 @@ void	reset_canvas(t_canvas *canvas)
 		.argb.b = 0x00,
 	};
 
-	pixels = (t_uint_color *)(canvas->img->pixels);
+	pixels = (t_uintcolor *)(canvas->img->pixels);
 	y = 0;
 	while (y < HEIGHT)
 	{

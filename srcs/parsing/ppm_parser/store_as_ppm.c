@@ -28,7 +28,7 @@ static void	write_row(t_main *m_data, t_fd fd, size_t y)
 	int				printf_ret;
 	size_t			cur_char_in_line;
 	size_t			x;
-	t_uint_color	color;
+	t_uintcolor	color;
 
 	x = 0;
 	while (x < m_data->canvas.width)

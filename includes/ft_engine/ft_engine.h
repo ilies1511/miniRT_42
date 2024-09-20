@@ -20,11 +20,9 @@ t_canvas	eng_new_canvas(t_main *m_data, size_t width, size_t height);
 void		eng_free_canvas(mlx_t *mlx, t_canvas *canvas);
 void		reset_canvas(t_canvas *canvas);
 
-
-
 typedef struct s_material
 {
-	t_f_color	fcolor;
+	t_fcolor	fcolor;
 	float		ambient;
 	float		diffuse;
 	float		specular;
@@ -97,12 +95,10 @@ typedef struct s_light
 {
 	t_obj			base_obj;
 	t_point			origin;
-	t_f_color		intensity;
+	t_fcolor		intensity;
 }	t_light;
 
-t_light	eng_new_light(t_f_color intensity, t_point origin);
-
-
+t_light	eng_point_light(t_fcolor intensity, t_point position);
 
 // hooks.c
 void		close_handler(void *main_data);

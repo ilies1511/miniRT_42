@@ -49,7 +49,7 @@
 #  define DARK_GREY 0xFFA9A9A9
 # endif
 
-typedef union u_uint_color
+typedef union u_uintcolor
 {
 	uint8_t		bytes[4];
 	uint32_t	full;
@@ -60,32 +60,32 @@ typedef union u_uint_color
 			uint8_t	b;
 			uint8_t	a;
 	}	__attribute__((packed))argb;
-}	__attribute__((packed))t_uint_color;
+}	__attribute__((packed))t_uintcolor;
 
-//t_f_color can be cast to t_vec / t_tuple with this layout
+//t_fcolor can be cast to t_vec / t_tuple with this layout
 //(x->r, y->g, z->b, w->a)
-typedef struct s_f_color
+typedef struct s_fcolor
 {
 	float	r;
 	float	g;
 	float	b;
 	float	a;	//not used in the book as far as I saw
 				//to enable casting to t_vec should be left as 0.0
-				//when converting to t_uint_color should be treated as 1.0
-}	t_f_color;
+				//when converting to t_uintcolor should be treated as 1.0
+}	t_fcolor;
 
 /*TODO:
  * color types and function names need consitant names
 */
-t_f_color		fcol_new(float r, float g, float b, float a);
-t_uint_color	fcolor_to_uintcolor(t_f_color fcolor);
-t_f_color		f_col_add(t_f_color a, t_f_color b);
-t_f_color		f_col_sub(t_f_color a, t_f_color b);
-t_f_color		f_col_scale(t_f_color c, float scalar);
+t_fcolor		new_fcolor(float r, float g, float b, float a);
+t_uintcolor		fcolor_to_uintcolor(t_fcolor fcolor);
+t_fcolor		add_fcolor(t_fcolor a, t_fcolor b);
+t_fcolor		sub_fcolor(t_fcolor a, t_fcolor b);
+t_fcolor		scale_fcolor(t_fcolor c, float scalar);
 /*
 	Hadamard product (or Schur product)
 	Multiplacation of two colors;
 */
-t_f_color		fcol_mult(t_f_color a, t_f_color b);
+t_fcolor		mult_fcolor(t_fcolor a, t_fcolor b);
 
 #endif //FT_COLORS_H
