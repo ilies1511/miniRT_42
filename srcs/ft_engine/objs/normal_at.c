@@ -3,6 +3,15 @@
 #include <libft.h>
 
 /*
+	Converts world point to object_point (TLTR: undo transformation on an
+	already transformed point)
+*/
+t_point	eng_get_object_point(t_matrix transformed, t_point world_point)
+{
+	return (mtx_mult_mt(mtx_inverse(transformed), world_point));
+}
+
+/*
 	use case: formula to compute normal vector of transformed sphere
 */
 t_vec	eng_compute_normal_sphere_post_trans(t_sphere *sphere, t_point world_point)

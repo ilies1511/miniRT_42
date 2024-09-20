@@ -153,4 +153,7 @@ bool		test_transformation_matrices(void);
 t_vec	eng_reflect(t_vec vec, t_vec surface_normal);
 bool	test_eng_reflect(void);
 
+// Lighting
+t_fcolor	eng_lighting(t_material material, t_light light, t_point point, t_vec eyev, t_vec normalv);
+
 #endif //FT_ENGINE_H
