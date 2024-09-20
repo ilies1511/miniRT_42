@@ -2,6 +2,7 @@
 # define FT_COLORS_H
 
 # include <stdint.h>
+# include <stdbool.h>
 //color defines for the full field of the t_color union on little endian systems
 # ifndef BLACK
 #  define BLACK 0xFF000000
@@ -87,5 +88,7 @@ t_fcolor		scale_fcolor(t_fcolor c, float scalar);
 	Multiplacation of two colors;
 */
 t_fcolor		mult_fcolor(t_fcolor a, t_fcolor b);
+bool			eq_fcolor(t_fcolor a, t_fcolor b);
+void			print_fcolor(char *str, t_fcolor col);
 
 #endif //FT_COLORS_H
