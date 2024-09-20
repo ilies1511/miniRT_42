@@ -23,12 +23,12 @@
       "-v",
       "-c",
       "-o",
-      "CMakeFiles/cmTC_23d7a.dir/CMakeCCompilerABI.c.o",
+      "CMakeFiles/cmTC_658e8.dir/CMakeCCompilerABI.c.o",
       "/usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c"
     ],
-    "directory": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/CMakeScratch/TryCompile-HM13O5",
+    "directory": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/CMakeScratch/TryCompile-JV5Fiz",
     "file": "/usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c",
-    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/CMakeScratch/TryCompile-HM13O5/CMakeFiles/cmTC_23d7a.dir/CMakeCCompilerABI.c.o"
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/CMakeScratch/TryCompile-JV5Fiz/CMakeFiles/cmTC_658e8.dir/CMakeCCompilerABI.c.o"
   },
   {
     "arguments": [
@@ -36,96 +36,12 @@
       "-v",
       "-c",
       "-o",
-      "CMakeFiles/cmTC_06884.dir/CMakeCXXCompilerABI.cpp.o",
+      "CMakeFiles/cmTC_21327.dir/CMakeCXXCompilerABI.cpp.o",
       "/usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp"
     ],
-    "directory": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/CMakeScratch/TryCompile-GfP0TN",
+    "directory": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/CMakeScratch/TryCompile-7Jq2sW",
     "file": "/usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp",
-    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/CMakeScratch/TryCompile-GfP0TN/CMakeFiles/cmTC_06884.dir/CMakeCXXCompilerABI.cpp.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I/home/fabi/42/miniRT/MLX42/include",
-      "-std=c11",
-      "-fPIC",
-      "-D",
-      "LODEPNG_NO_COMPILE_ENCODER",
-      "-D",
-      "LODEPNG_NO_COMPILE_ANCILLARY_CHUNKS",
-      "-Wextra",
-      "-Wall",
-      "-Werror",
-      "-Wunreachable-code",
-      "-Wno-char-subscripts",
-      "-Wno-sign-compare",
-      "-Wno-unused-parameter",
-      "-Wno-missing-field-initializers",
-      "-g",
-      "-c",
-      "-o",
-      "CMakeFiles/mlx42.dir/src/mlx_images.c.o",
-      "/home/fabi/42/miniRT/MLX42/src/mlx_images.c"
-    ],
-    "directory": "/home/fabi/42/miniRT/MLX42/build",
-    "file": "/home/fabi/42/miniRT/MLX42/src/mlx_images.c",
-    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_images.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I/home/fabi/42/miniRT/MLX42/include",
-      "-std=c11",
-      "-fPIC",
-      "-D",
-      "LODEPNG_NO_COMPILE_ENCODER",
-      "-D",
-      "LODEPNG_NO_COMPILE_ANCILLARY_CHUNKS",
-      "-Wextra",
-      "-Wall",
-      "-Werror",
-      "-Wunreachable-code",
-      "-Wno-char-subscripts",
-      "-Wno-sign-compare",
-      "-Wno-unused-parameter",
-      "-Wno-missing-field-initializers",
-      "-g",
-      "-c",
-      "-o",
-      "CMakeFiles/mlx42.dir/src/mlx_cursor.c.o",
-      "/home/fabi/42/miniRT/MLX42/src/mlx_cursor.c"
-    ],
-    "directory": "/home/fabi/42/miniRT/MLX42/build",
-    "file": "/home/fabi/42/miniRT/MLX42/src/mlx_cursor.c",
-    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_cursor.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I/home/fabi/42/miniRT/MLX42/include",
-      "-std=c11",
-      "-fPIC",
-      "-D",
-      "LODEPNG_NO_COMPILE_ENCODER",
-      "-D",
-      "LODEPNG_NO_COMPILE_ANCILLARY_CHUNKS",
-      "-Wextra",
-      "-Wall",
-      "-Werror",
-      "-Wunreachable-code",
-      "-Wno-char-subscripts",
-      "-Wno-sign-compare",
-      "-Wno-unused-parameter",
-      "-Wno-missing-field-initializers",
-      "-g",
-      "-c",
-      "-o",
-      "CMakeFiles/mlx42.dir/src/mlx_init.c.o",
-      "/home/fabi/42/miniRT/MLX42/src/mlx_init.c"
-    ],
-    "directory": "/home/fabi/42/miniRT/MLX42/build",
-    "file": "/home/fabi/42/miniRT/MLX42/src/mlx_init.c",
-    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_init.c.o"
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/CMakeScratch/TryCompile-7Jq2sW/CMakeFiles/cmTC_21327.dir/CMakeCXXCompilerABI.cpp.o"
   },
   {
     "arguments": [
@@ -176,12 +92,68 @@
       "-g",
       "-c",
       "-o",
-      "CMakeFiles/mlx42.dir/src/mlx_loop.c.o",
-      "/home/fabi/42/miniRT/MLX42/src/mlx_loop.c"
+      "CMakeFiles/mlx42.dir/src/mlx_cursor.c.o",
+      "/home/fabi/42/miniRT/MLX42/src/mlx_cursor.c"
     ],
     "directory": "/home/fabi/42/miniRT/MLX42/build",
-    "file": "/home/fabi/42/miniRT/MLX42/src/mlx_loop.c",
-    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_loop.c.o"
+    "file": "/home/fabi/42/miniRT/MLX42/src/mlx_cursor.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_cursor.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I/home/fabi/42/miniRT/MLX42/include",
+      "-std=c11",
+      "-fPIC",
+      "-D",
+      "LODEPNG_NO_COMPILE_ENCODER",
+      "-D",
+      "LODEPNG_NO_COMPILE_ANCILLARY_CHUNKS",
+      "-Wextra",
+      "-Wall",
+      "-Werror",
+      "-Wunreachable-code",
+      "-Wno-char-subscripts",
+      "-Wno-sign-compare",
+      "-Wno-unused-parameter",
+      "-Wno-missing-field-initializers",
+      "-g",
+      "-c",
+      "-o",
+      "CMakeFiles/mlx42.dir/src/mlx_images.c.o",
+      "/home/fabi/42/miniRT/MLX42/src/mlx_images.c"
+    ],
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/mlx_images.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_images.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I/home/fabi/42/miniRT/MLX42/include",
+      "-std=c11",
+      "-fPIC",
+      "-D",
+      "LODEPNG_NO_COMPILE_ENCODER",
+      "-D",
+      "LODEPNG_NO_COMPILE_ANCILLARY_CHUNKS",
+      "-Wextra",
+      "-Wall",
+      "-Werror",
+      "-Wunreachable-code",
+      "-Wno-char-subscripts",
+      "-Wno-sign-compare",
+      "-Wno-unused-parameter",
+      "-Wno-missing-field-initializers",
+      "-g",
+      "-c",
+      "-o",
+      "CMakeFiles/mlx42.dir/src/mlx_init.c.o",
+      "/home/fabi/42/miniRT/MLX42/src/mlx_init.c"
+    ],
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/mlx_init.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_init.c.o"
   },
   {
     "arguments": [
@@ -210,6 +182,34 @@
     "directory": "/home/fabi/42/miniRT/MLX42/build",
     "file": "/home/fabi/42/miniRT/MLX42/src/mlx_keys.c",
     "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_keys.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I/home/fabi/42/miniRT/MLX42/include",
+      "-std=c11",
+      "-fPIC",
+      "-D",
+      "LODEPNG_NO_COMPILE_ENCODER",
+      "-D",
+      "LODEPNG_NO_COMPILE_ANCILLARY_CHUNKS",
+      "-Wextra",
+      "-Wall",
+      "-Werror",
+      "-Wunreachable-code",
+      "-Wno-char-subscripts",
+      "-Wno-sign-compare",
+      "-Wno-unused-parameter",
+      "-Wno-missing-field-initializers",
+      "-g",
+      "-c",
+      "-o",
+      "CMakeFiles/mlx42.dir/src/mlx_loop.c.o",
+      "/home/fabi/42/miniRT/MLX42/src/mlx_loop.c"
+    ],
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/mlx_loop.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_loop.c.o"
   },
   {
     "arguments": [
@@ -428,12 +428,12 @@
       "-g",
       "-c",
       "-o",
-      "CMakeFiles/mlx42.dir/src/utils/mlx_compare.c.o",
-      "/home/fabi/42/miniRT/MLX42/src/utils/mlx_compare.c"
+      "CMakeFiles/mlx42.dir/src/font/mlx_font.c.o",
+      "/home/fabi/42/miniRT/MLX42/src/font/mlx_font.c"
     ],
     "directory": "/home/fabi/42/miniRT/MLX42/build",
-    "file": "/home/fabi/42/miniRT/MLX42/src/utils/mlx_compare.c",
-    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/utils/mlx_compare.c.o"
+    "file": "/home/fabi/42/miniRT/MLX42/src/font/mlx_font.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/font/mlx_font.c.o"
   },
   {
     "arguments": [
@@ -456,12 +456,12 @@
       "-g",
       "-c",
       "-o",
-      "CMakeFiles/mlx42.dir/src/font/mlx_font.c.o",
-      "/home/fabi/42/miniRT/MLX42/src/font/mlx_font.c"
+      "CMakeFiles/mlx42.dir/src/utils/mlx_compare.c.o",
+      "/home/fabi/42/miniRT/MLX42/src/utils/mlx_compare.c"
     ],
     "directory": "/home/fabi/42/miniRT/MLX42/build",
-    "file": "/home/fabi/42/miniRT/MLX42/src/font/mlx_font.c",
-    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/font/mlx_font.c.o"
+    "file": "/home/fabi/42/miniRT/MLX42/src/utils/mlx_compare.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/utils/mlx_compare.c.o"
   },
   {
     "arguments": [
@@ -1824,6 +1824,31 @@
       "-I./includes/garbage_collector",
       "-c",
       "-o",
+      "o_files/ft_engine/canvas/canvas.o",
+      "srcs/ft_engine/canvas/canvas.c"
+    ],
+    "directory": "/home/fabi/42/miniRT",
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/canvas/canvas.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/canvas/canvas.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-DFSAN",
+      "-fsanitize=address",
+      "-g",
+      "-I./includes",
+      "-I./MLX42/include/MLX42",
+      "-I./MLX42/include",
+      "-I./libft",
+      "-I./includes/ft_math",
+      "-I./includes/ft_engine",
+      "-I./includes/parsing",
+      "-I./includes/garbage_collector",
+      "-c",
+      "-o",
       "o_files/ft_engine/utils/reset.o",
       "srcs/ft_engine/utils/reset.c"
     ],
@@ -2105,6 +2130,156 @@
     "directory": "/home/fabi/42/miniRT",
     "file": "/home/fabi/42/miniRT/srcs/ft_engine/objs/test.c",
     "output": "/home/fabi/42/miniRT/o_files/ft_engine/objs/test.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-DFSAN",
+      "-fsanitize=address",
+      "-g",
+      "-I./includes",
+      "-I./MLX42/include/MLX42",
+      "-I./MLX42/include",
+      "-I./libft",
+      "-I./includes/ft_math",
+      "-I./includes/ft_engine",
+      "-I./includes/parsing",
+      "-I./includes/garbage_collector",
+      "-c",
+      "-o",
+      "o_files/ft_engine/reflect.o",
+      "srcs/ft_engine/reflect.c"
+    ],
+    "directory": "/home/fabi/42/miniRT",
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/reflect.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/reflect.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-DFSAN",
+      "-fsanitize=address",
+      "-g",
+      "-I./includes",
+      "-I./MLX42/include/MLX42",
+      "-I./MLX42/include",
+      "-I./libft",
+      "-I./includes/ft_math",
+      "-I./includes/ft_engine",
+      "-I./includes/parsing",
+      "-I./includes/garbage_collector",
+      "-c",
+      "-o",
+      "o_files/ft_engine/light.o",
+      "srcs/ft_engine/light.c"
+    ],
+    "directory": "/home/fabi/42/miniRT",
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/light.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/light.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-DFSAN",
+      "-fsanitize=address",
+      "-g",
+      "-I./includes",
+      "-I./MLX42/include/MLX42",
+      "-I./MLX42/include",
+      "-I./libft",
+      "-I./includes/ft_math",
+      "-I./includes/ft_engine",
+      "-I./includes/parsing",
+      "-I./includes/garbage_collector",
+      "-c",
+      "-o",
+      "o_files/ft_engine/material.o",
+      "srcs/ft_engine/material.c"
+    ],
+    "directory": "/home/fabi/42/miniRT",
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/material.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/material.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-DFSAN",
+      "-fsanitize=address",
+      "-g",
+      "-I./includes",
+      "-I./MLX42/include/MLX42",
+      "-I./MLX42/include",
+      "-I./libft",
+      "-I./includes/ft_math",
+      "-I./includes/ft_engine",
+      "-I./includes/parsing",
+      "-I./includes/garbage_collector",
+      "-c",
+      "-o",
+      "o_files/ft_engine/objs/normal_at.o",
+      "srcs/ft_engine/objs/normal_at.c"
+    ],
+    "directory": "/home/fabi/42/miniRT",
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/objs/normal_at.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/objs/normal_at.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-DFSAN",
+      "-fsanitize=address",
+      "-g",
+      "-I./includes",
+      "-I./MLX42/include/MLX42",
+      "-I./MLX42/include",
+      "-I./libft",
+      "-I./includes/ft_math",
+      "-I./includes/ft_engine",
+      "-I./includes/parsing",
+      "-I./includes/garbage_collector",
+      "-c",
+      "-o",
+      "o_files/ft_engine/objs/test_normal.o",
+      "srcs/ft_engine/objs/test_normal.c"
+    ],
+    "directory": "/home/fabi/42/miniRT",
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/objs/test_normal.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/objs/test_normal.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-DFSAN",
+      "-fsanitize=address",
+      "-g",
+      "-I./includes",
+      "-I./MLX42/include/MLX42",
+      "-I./MLX42/include",
+      "-I./libft",
+      "-I./includes/ft_math",
+      "-I./includes/ft_engine",
+      "-I./includes/parsing",
+      "-I./includes/garbage_collector",
+      "-c",
+      "-o",
+      "o_files/ft_math/colors/colors.o",
+      "srcs/ft_math/colors/colors.c"
+    ],
+    "directory": "/home/fabi/42/miniRT",
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/colors/colors.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/colors/colors.o"
   },
   {
     "arguments": [
@@ -3055,6 +3230,31 @@
     "directory": "/home/fabi/42/miniRT",
     "file": "/home/fabi/42/miniRT/srcs/playgrounds/sphere1/test.c",
     "output": "/home/fabi/42/miniRT/o_files/playgrounds/sphere1/test.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-DFSAN",
+      "-fsanitize=address",
+      "-g",
+      "-I./includes",
+      "-I./MLX42/include/MLX42",
+      "-I./MLX42/include",
+      "-I./libft",
+      "-I./includes/ft_math",
+      "-I./includes/ft_engine",
+      "-I./includes/parsing",
+      "-I./includes/garbage_collector",
+      "-c",
+      "-o",
+      "o_files/playgrounds/sphere1/test2.o",
+      "srcs/playgrounds/sphere1/test2.c"
+    ],
+    "directory": "/home/fabi/42/miniRT",
+    "file": "/home/fabi/42/miniRT/srcs/playgrounds/sphere1/test2.c",
+    "output": "/home/fabi/42/miniRT/o_files/playgrounds/sphere1/test2.o"
   },
   {
     "arguments": [
