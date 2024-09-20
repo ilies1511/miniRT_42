@@ -189,6 +189,9 @@ void	test_rays(int *total_tests, int *passed_tests)
 	if (test_eng_reflect())
 		*passed_tests += 1;
 	*total_tests += 1;
+	if (test_eng_lighting())
+		*passed_tests += 1;
+	*total_tests += 1;
 }
 
 void	test_objs(int *total_tests, int *passed_tests)
