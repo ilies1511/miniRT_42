@@ -45,9 +45,9 @@ t_point	pixel_to_wall(t_camera *camera, size_t pixel_x, size_t pixel_y)
 	return (ret);
 }
 
-void	eng_put_pixel(t_canvas *canvas, size_t x, size_t y, t_f_color color)
+void	eng_put_pixel(t_canvas *canvas, size_t x, size_t y, t_fcolor color)
 {
-	((t_uint_color *)canvas->img->pixels)[y * WIDTH + x] = fcolor_to_uintcolor(color);
+	((t_uintcolor *)canvas->img->pixels)[y * WIDTH + x] = fcolor_to_uintcolor(color);
 }
 
 void	sphere_test(void *main_data)
@@ -67,7 +67,7 @@ void	sphere_test(void *main_data)
 		eng_set_transform((t_obj *)&sph, mtx_translate(-1, 0, 0));
 		eng_set_transform((t_obj *)&camera, mtx_rotation_y(M_PI_4 / 16));
 	}
-	t_f_color color = fcol_new(1, 0, 0, 1);
+	t_fcolor color = new_fcolor(1, 0, 0, 1);
 
 	t_intersc_arr	interscs = eng_new_intersc_arr();
 	
@@ -93,11 +93,11 @@ void	sphere_test(void *main_data)
 				t_point hit = eng_ray_pos(camera_ray, intersc->t);
 				t_vec surface_normal = eng_normal_at((t_obj *) &transformed, hit);
 				float	dot = dot_prod(surface_normal, camera_ray.direct);
-				color = f_col_scale(color, fabs(dot));
+				color = scale_fcolor(color, fabs(dot));
 				///*** end extra
 				eng_put_pixel(&canvas, x, y, color);
 				//*** extra: for shading
-				color = fcol_new(1, 0, 0, 1);
+				color = new_fcolor(1, 0, 0, 1);
 				///*** end extra
 			}
 			eng_free_intersc_arr(&interscs);

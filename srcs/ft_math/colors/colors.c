@@ -2,9 +2,9 @@
 #include <ft_floats.h>
 #include <ft_colors.h>
 
-t_f_color	fcol_new(float r, float g, float b, float a)
+t_fcolor	new_fcolor(float r, float g, float b, float a)
 {
-	t_f_color	color;
+	t_fcolor	color;
 
 	color.r = r;
 	color.g = g;
@@ -13,9 +13,9 @@ t_f_color	fcol_new(float r, float g, float b, float a)
 	return (color);
 }
 
-t_uint_color	fcolor_to_uintcolor(t_f_color fcolor)
+t_uintcolor	fcolor_to_uintcolor(t_fcolor fcolor)
 {
-	t_uint_color	ret;
+	t_uintcolor	ret;
 
 	ret.argb.a = (uint8_t)(0xFF * clamp_f(fcolor.a, 0, 1));
 	ret.argb.r = (uint8_t)(0xFF * clamp_f(fcolor.r, 0, 1));
@@ -24,19 +24,20 @@ t_uint_color	fcolor_to_uintcolor(t_f_color fcolor)
 	return (ret);
 }
 
-t_f_color	fcol_mult(t_f_color a, t_f_color b)
+t_fcolor	mult_fcolor(t_fcolor a, t_fcolor b)
 {
-	t_f_color	new_color;
+	t_fcolor	new_color;
 
 	new_color.r = a.r * b.r;
 	new_color.g = a.g * b.g;
 	new_color.b = a.b * b.b;
+	new_color.a = a.a * b.a;
 	return (new_color);
 }
 
-t_f_color	f_col_add(t_f_color a, t_f_color b)
+t_fcolor	add_fcolor(t_fcolor a, t_fcolor b)
 {
-	t_f_color	sum;
+	t_fcolor	sum;
 
 	sum.r = a.r + b.r;
 	sum.g = a.g + b.g;
@@ -48,9 +49,9 @@ t_f_color	f_col_add(t_f_color a, t_f_color b)
 /*
 	Subtraction of two tuples
 */
-t_f_color	f_col_sub(t_f_color a, t_f_color b)
+t_fcolor	sub_fcolor(t_fcolor a, t_fcolor b)
 {
-	t_f_color	dif;
+	t_fcolor	dif;
 
 	dif.r = a.r - b.r;
 	dif.g = a.g - b.g;
@@ -59,9 +60,9 @@ t_f_color	f_col_sub(t_f_color a, t_f_color b)
 	return (dif);
 }
 
-t_f_color	f_col_scale(t_f_color c, float scalar)
+t_fcolor	scale_fcolor(t_fcolor c, float scalar)
 {
-	t_f_color	res;
+	t_fcolor	res;
 
 	res.r = c.r * scalar;
 	res.g = c.g * scalar;

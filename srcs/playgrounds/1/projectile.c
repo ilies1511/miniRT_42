@@ -42,7 +42,7 @@ void	draw_projectile(void *main_data)
 	const t_env env = new_env();
 	static t_projectile	projectile = {.pos.x = -1.0};
 	static double counter = 0;
-	const t_uint_color color = {.full = RED};
+	const t_uintcolor color = {.full = RED};
 
 	if (projectile.pos.x == -1.0)
 		projectile = init_projectile(m_data);

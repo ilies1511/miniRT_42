@@ -3,8 +3,8 @@
 void	sphere_test_v1(void *main_data)
 {
 	t_main	*m_data = (t_main *)main_data;
-	t_uint_color	color;
-	t_uint_color	*pixels = (t_uint_color *)m_data->canvas.img->pixels;
+	t_uintcolor	color;
+	t_uintcolor	*pixels = (t_uintcolor *)m_data->canvas.img->pixels;
 	t_ray			ray_base;
 	static t_sphere		sph;
 	static bool			first = true;

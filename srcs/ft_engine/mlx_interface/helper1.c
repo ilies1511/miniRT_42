@@ -4,7 +4,7 @@
 #include <mlx_interface.h>
 
 // outdated, (does not use canvas with + height)
-void	put_pixel(float x, float y, t_uint_color color, uint32_t *pixels)
+void	put_pixel(float x, float y, t_uintcolor color, uint32_t *pixels)
 {
 	size_t	xi;
 	size_t	yi;

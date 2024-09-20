@@ -1,12 +1,11 @@
 #include <ft_engine.h>
 
-t_light	eng_new_light(t_f_color intensity, t_point origin)
+t_light	eng_point_light(t_fcolor intensity, t_point position)
 {
 	t_light	light;
 
-	light.intensity = fcol_new(1, 1, 1, 0);
 	light.base_obj = eng_new_obj();
 	light.intensity = intensity;
-	light.origin = origin;
+	light.origin = position;
 	return (light);
 }
