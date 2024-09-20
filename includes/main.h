@@ -33,19 +33,23 @@
 # ifndef FOV_X
 #  define FOV_X (60.0 / 360.0 * 2 * M_PI)
 # endif
+
 # ifndef FOV_Y
 #  define FOV_Y (60.0 / 360.0 * 2 * M_PI)
-# endif
-# ifndef WIDTH
-#  define WIDTH 500
-# endif
-# ifndef HEIGHT
-#  define HEIGHT 500
 # endif
 
 # ifndef ASPECT_RATIO
 #  define ASPECT_RATIO (16.0 / 9.0)
 # endif
+
+# ifndef WIDTH
+#  define WIDTH 1500
+# endif
+
+# ifndef HEIGHT
+#  define HEIGHT ((size_t)(WIDTH / ASPECT_RATIO))
+# endif
+
 
 
 typedef int	t_fd;

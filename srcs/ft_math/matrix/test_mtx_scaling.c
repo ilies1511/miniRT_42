@@ -21,13 +21,6 @@ int	test_mtx_scaling(void)
 	m_trans = mtx_scale(2, 3, 4);
 	p_trans = mtx_mult_mt(m_trans, p_ist);
 	v_trans = mtx_mult_mt(m_trans, v_ist);
-	//printf("SCALING\n");
-	//printf("TRANS VEC: x: %.3f\ty: %.3f\tz: %.3f\tw: %.3f\n", v_trans.x, \
-	//v_trans.y, v_trans.z, \
-	//v_trans.w);
-	//printf("TRANS POINT: x: %.3f\ty: %.3f\tz: %.3f\tw: %.3f\n", p_trans.x, \
-	//p_trans.y, p_trans.z, \
-	//p_trans.w);
 	if (t_check_ifequal(p_trans, p_soll) \
 		&& t_check_ifequal(v_trans, v_soll))
 		return (1);

@@ -1,6 +1,6 @@
 #include <main.h>
 
-void	sphere_test_old(void *main_data)
+void	sphere_test_v1(void *main_data)
 {
 	t_main	*m_data = (t_main *)main_data;
 	t_uint_color	color;

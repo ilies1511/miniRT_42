@@ -74,7 +74,9 @@ typedef struct s_f_color
 				//when converting to t_uint_color should be treated as 1.0
 }	t_f_color;
 
-
+/*TODO:
+ * color types and function names need consitant names
+*/
 t_f_color		fcol_new(float r, float g, float b, float a);
 t_uint_color	fcolor_to_uintcolor(t_f_color fcolor);
 t_f_color		f_col_add(t_f_color a, t_f_color b);

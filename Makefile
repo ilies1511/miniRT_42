@@ -102,7 +102,8 @@ SOURCE_FILES := \
 	init_exit/at_exit.c \
 	playgrounds/1/projectile.c \
 	playgrounds/matrix/1.c \
-	playgrounds/sphere1/test.c
+	playgrounds/sphere1/test.c \
+	playgrounds/sphere1/test2.c
 
 SOURCES = $(addprefix $(SRC_DIR), $(SOURCE_FILES))
 

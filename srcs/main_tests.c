@@ -206,9 +206,9 @@ void	test_objs(int *total_tests, int *passed_tests)
 
 void	test_gc(int *total_tests, int *passed_tests)
 {
-	t_garbage_collector	*gc;
+	//t_garbage_collector	*gc;
 
-	gc = get_gc();
+	//gc = get_gc();
 	if (test_gc_init())
 		*passed_tests += 1;
 	*total_tests += 1;

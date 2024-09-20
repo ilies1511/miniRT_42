@@ -20,6 +20,8 @@ t_canvas	eng_new_canvas(t_main *m_data, size_t width, size_t height);
 void		eng_free_canvas(mlx_t *mlx, t_canvas *canvas);
 void		reset_canvas(t_canvas *canvas);
 
+
+
 typedef struct s_material
 {
 	t_f_color	fcolor;
@@ -37,6 +39,7 @@ typedef enum e_obj_type
 	OBJ_RAY,
 	OBJ_SPHERE,
 	OBJ_LIGHT,
+	OBJ_CAMERA,
 	OBJ_COUNT,
 }	t_obj_type;
 
@@ -46,6 +49,21 @@ typedef struct s_obj
 	t_matrix	inverse;
 	t_obj_type	type;
 }	t_obj;
+
+//improvised camera
+typedef struct s_camera
+{
+	t_obj	base_obj;
+	t_point	p;
+	double	wall_dist;
+	double	wall_width;
+	double	wall_height;
+	double	fov_x;
+	double	fov_y;
+	double	aspect_ratio;
+	double	wall_pixel_width;
+	double	wall_pixel_height;
+}	t_camera;
 
 typedef struct s_sphere
 {

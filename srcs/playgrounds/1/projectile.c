@@ -35,7 +35,7 @@ t_projectile	init_projectile(t_main *m_data)
 
 void	draw_projectile(void *main_data)
 {
-	double	d_time;
+	double	d_time = 0;
 	t_vec	movement;
 
 	t_main	*m_data = (t_main *)main_data;
