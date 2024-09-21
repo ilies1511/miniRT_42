@@ -179,9 +179,17 @@ bool		test_eng_reflect(void);
 t_fcolor	eng_lighting(t_material material, t_light light, t_point point, t_vec eyev, t_vec normalv);
 bool		test_eng_lighting(void);
 
+
 // init_engine.c
 void		init_world(t_world *world);
 void		eng_init_engine(t_main *m_data);
 void		cleanup_engine(t_engine *engine);
+
+// Transformation view
+t_matrix	sc_transforme_view(t_point from, t_point to, t_vec up);
+bool		test_transformation_view_default(void);
+bool		test_transformation_view_z(void);
+bool		test_transformation_view_world(void);
+bool		test_transformation_view_mixed(void);
 
 #endif //FT_ENGINE_H

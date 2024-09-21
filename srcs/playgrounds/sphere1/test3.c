@@ -72,12 +72,12 @@ void	sphere_test(void *main_data)
 	if (first)
 	{
 		first = false;
-	
+
 		sph = eng_new_sphere();
 		eng_set_transform((t_obj *)&sph, mtx_translate(-5, 0, 0));
 		sph.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
 		eng_add_obj_to_world(world, (t_obj *)&sph);
-	
+
 		sph = eng_new_sphere();
 		eng_set_transform((t_obj *)&sph, mtx_translate(-1, 3, 2));
 		sph.base_obj.material.fcolor = new_fcolor(0, 0, 1, 1);
@@ -88,12 +88,12 @@ void	sphere_test(void *main_data)
 		eng_set_transform((t_obj *)&sph, mtx_translate(7, 0, 3));
 		sph.base_obj.material.fcolor = new_fcolor(0, 0, 1, 1);
 		eng_add_obj_to_world(world, (t_obj *)&sph);
-	
+
 		sph = eng_new_sphere();
 		eng_set_transform((t_obj *)&sph, mtx_translate(-1, -3, 7));
 		sph.base_obj.material.fcolor = new_fcolor(3, 2, 1, 1);
 		eng_add_obj_to_world(world, (t_obj *)&sph);
-	
+
 		sph = eng_new_sphere();
 		eng_set_transform((t_obj *)&sph, mtx_translate(3, -2, 5));
 		sph.base_obj.material.fcolor = new_fcolor(0, 2, 1, 1);
@@ -145,5 +145,5 @@ void	sphere_test(void *main_data)
 		}
 		printf("y: %lu\n", y);
 	}
-	//store_as_plain_ppm(m_data, "EXAMPE NAME.ppm");
+	// store_as_plain_ppm(m_data, "phong_lighting_onesource.ppm");
 }

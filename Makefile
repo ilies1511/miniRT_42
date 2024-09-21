@@ -52,7 +52,9 @@ SRC_FILES_ENGINE := \
 	ft_engine/light.c \
 	ft_engine/material.c \
 	ft_engine/objs/normal_at.c \
-	ft_engine/objs/test_normal.c
+	ft_engine/objs/test_normal.c \
+	ft_engine/scene/transformation_view.c \
+	ft_engine/scene/test_scene.c
 
 SRC_FILES_MATH := \
 	ft_math/colors/colors.c \
