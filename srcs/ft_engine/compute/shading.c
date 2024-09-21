@@ -17,6 +17,27 @@ t_fcolor	eng_shade_hit(t_world world, t_computation comp)
 	return (color);
 }
 
+t_fcolor	eng_color_at(t_world world, t_ray ray)
+{
+	t_intersc_arr	interscs;
+	t_intersc		*intersc;
+	t_fcolor		color;
+	t_computation	comp;
+
+	interscs = eng_new_intersc_arr();
+	eng_ray_intersc_world(ray, world, &interscs);
+	intersc = eng_ray_hit(&interscs);
+	if (intersc)
+	{
+		comp = eng_prepare_computation(*intersc, ray);
+		color = eng_shade_hit(world, comp);
+	}
+	else
+		color = new_fcolor(0, 0, 0, 1);
+	eng_free_intersc_arr(&interscs);
+	return (color);
+}
+
 bool test_shading_outside_intersection(void)
 {
 	bool	ret = true;

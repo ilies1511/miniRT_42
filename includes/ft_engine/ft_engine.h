@@ -129,6 +129,7 @@ bool			test_prepare_computation(void);
 //compute/shading.c
 t_fcolor	eng_shade_hit(t_world world, t_computation comp);
 bool		test_shading_outside_intersection(void);
+t_fcolor	eng_color_at(t_world world, t_ray ray);
 
 t_light		eng_point_light(t_fcolor intensity, t_point position);
 

@@ -93,6 +93,8 @@ static void add_objs(t_world *world)
 	eng_add_obj_to_world(world, (t_obj *)&light);
 }
 
+
+
 void	sphere_test(void *main_data)
 {
 	t_main			*m_data = (t_main *)main_data;
@@ -101,7 +103,7 @@ void	sphere_test(void *main_data)
 	t_camera		camera;
 	t_world			*world;
 	t_fcolor		color;
-	t_computation	comp;
+
 
 	static bool first = true;
 	world = &m_data->engine.world;
@@ -113,7 +115,6 @@ void	sphere_test(void *main_data)
 
 	camera = eng_new_camera(fov_x, new_point(0, 0, -100), 10);
 
-	t_intersc_arr	interscs = eng_new_intersc_arr();
 
 	for (size_t y = 0; y < canvas.height; y++)
 	{
@@ -122,17 +123,10 @@ void	sphere_test(void *main_data)
 			t_point	wall_hit = pixel_to_wall(&camera, x, y);
 			t_ray	camera_ray = eng_new_ray(camera.p, norm(sub_t(wall_hit, camera.p)));
 			camera_ray.direct = norm(camera_ray.direct);
-			eng_ray_intersc_world(camera_ray, *world, &interscs);
-			t_intersc	*intersc = eng_ray_hit(&interscs);
-			if (intersc)
-			{
-				comp = eng_prepare_computation(*intersc, camera_ray);
-				color = eng_shade_hit(*world, comp);
-				eng_put_pixel(&canvas, x, y, color);
-			}
-			eng_free_intersc_arr(&interscs);
+			color = eng_color_at(*world, camera_ray);
+			eng_put_pixel(&canvas, x, y, color);
 		}
 		printf("y: %lu\n", y);
 	}
-	// store_as_plain_ppm(m_data, "phong_lighting_onesource.ppm");
+	//store_as_plain_ppm(m_data, "EXAMPLE NAME.ppm");
 }
