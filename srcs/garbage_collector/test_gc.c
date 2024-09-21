@@ -50,7 +50,7 @@ int	test_gc_init(void)
 	// printf("Upper via gc: %s\n", (gc->head->pointer));
 	// printf("Upper direct: %s\n", upper);
 	// printf("POST ADD SIZE: %zu\n", gc->size);
-	// gc_free_all(gc);
+	//gc_free_all(gc);
 	return (1);
 	//TODO: ft_malloc test
 }

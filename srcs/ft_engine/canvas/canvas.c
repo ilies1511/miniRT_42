@@ -7,20 +7,9 @@ t_canvas	eng_new_canvas(t_main *m_data, size_t width, size_t height)
 
 	canv.width = width;
 	canv.height = height;
-	canv.img = mlx_new_image(m_data->mlx, width, height);
-	if (!canv.img || mlx_image_to_window(m_data->mlx, canv.img, 0, 0))
-	{
-		ft_error("eng_new_canvas: and mlx init fn failed",
-			__FILE__, __LINE__, 1);
-	}
+	canv.pixels = (t_uintcolor *)(m_data->cleanup_data.mlx_img->pixels);
 	reset_canvas(&canv);
 	return (canv);
-}
-
-void	eng_free_canvas(mlx_t *mlx, t_canvas *canvas)
-{
-	mlx_delete_image(mlx, canvas->img);
-	canvas->img = NULL;
 }
 
 void	reset_canvas(t_canvas *canvas)
@@ -36,7 +25,7 @@ void	reset_canvas(t_canvas *canvas)
 		.argb.b = 0x00,
 	};
 
-	pixels = (t_uintcolor *)(canvas->img->pixels);
+	pixels = canvas->pixels;
 	y = 0;
 	while (y < HEIGHT)
 	{

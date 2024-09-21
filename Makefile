@@ -1,8 +1,7 @@
 NAME := miniRT
 CC := cc
 CFLAGS := -Wall -Wextra -DFSAN -fsanitize=address -g
-# CFLAGS := -Wall -Wextra -DFSAN -g
-# CFLAGS_NO_FSAN := -Wall -Wextra -g
+#CFLAGS := -Wall -Wextra -g
 # FLAGS_SPEED := -Wall -Wextra -O3 -march=native-flto -DNDBUG=1
 FLAGS_SPEED := -Wall -Wextra -O3 -march=native -DNDBUG=1
 #-Werror
@@ -33,6 +32,9 @@ SRC_MAIN = main.c
 SRC_TEST_MAIN := main_tests.c
 
 SRC_FILES_ENGINE := \
+	ft_engine/init_engine.c \
+	ft_engine/world/add_objs_to_world.c \
+	ft_engine/world/cleanup_world.c \
 	ft_engine/canvas/canvas.c \
 	ft_engine/utils/reset.c \
 	ft_engine/mlx_interface/hooks.c \

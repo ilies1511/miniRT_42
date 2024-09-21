@@ -66,75 +66,6 @@ void	tuple_tests(int *total_tests, int *passed_tests)
 	*total_tests += 1;
 }
 
-//void	test_print_4x4(void)
-//{
-//	t_mat4x4	*mtx4;
-//	int			i;
-//	int			k;
-//	int			dimension;
-//
-//	mtx4 = malloc(sizeof(t_mat4x4) * 1);
-//	if (!mtx4)
-//		return ;
-//	dimension = mtx_get_matrix_dimension(MAT4X4);
-//	i = 0;
-//	while (i < dimension)
-//	{
-//		k = 0;
-//		while (k < dimension)
-//		{
-//			(*mtx4)[i][k] = 4.0;
-//			k++;
-//		}
-//		i++;
-//	}
-//	(*mtx4)[0][0] = 17.11;
-//	(*mtx4)[2][3] = 19.01;
-	// mtx_print_matrix(mtx4, MAT4X4);
-//	free (mtx4);
-//}
-//
-//void	test_print_3x3(void)
-//{
-//	t_mat3x3	*mtx3;
-//	int			i;
-//	int			k;
-//	int			dimension;
-//
-//	mtx3 = malloc(sizeof(t_mat3x3) * 1);
-//	if (!mtx3)
-//		return ;
-//	dimension = mtx_get_matrix_dimension(MAT3X3);
-//	i = 0;
-//	while (i < dimension)
-//	{
-//		k = 0;
-//		while (k < dimension)
-//		{
-//			(*mtx3)[i][k] = 3.0;
-//			k++;
-//		}
-//		i++;
-//	}
-//	mtx_print_matrix(mtx3, MAT3X3);
-//	free (mtx3);
-//}
-//
-
-// void	matrix_test(void)
-// {
-// 	t_matrix	m2b = {
-// 		.m = {
-// 	{-2, 1, 2, 3},
-// 	{3, 2, 1, -1},
-// 	{4, 3, 6, 5},
-// 	{1, 2, 7, 8}
-// 		}, .type = MAT4X4 };
-// 	mtx_print_matrix();
-// 	// test_print_matrix();
-// 	//TODO: Multiplication of Matrices
-// }
-
 void	test_matrixes(int *total_tests, int *passed_tests)
 {
 	if (test_mtx_eq())
@@ -246,7 +177,7 @@ int	main(void)
 	// printf("Strin im gc: %s\n", (gc->head->pointer));
 	// printf("Strin im gc: %s\n", (gc->head->next->pointer));
 	gc_free_all(gc);
-	// system("leaks tests.out");
+	//system("leaks tests.out");
 	return (0);
 }
 

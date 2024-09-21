@@ -14,12 +14,11 @@ typedef struct s_canvas
 {
 	size_t		width;
 	size_t		height;
-	mlx_image_t	*img;
+	t_uintcolor	*pixels;
 }	t_canvas;
 
 //canvas.c
 t_canvas	eng_new_canvas(t_main *m_data, size_t width, size_t height);
-void		eng_free_canvas(mlx_t *mlx, t_canvas *canvas);
 void		reset_canvas(t_canvas *canvas);
 
 typedef struct s_material
@@ -48,6 +47,7 @@ typedef struct s_obj
 	t_matrix	transform;
 	t_matrix	inverse;
 	t_obj_type	type;
+	t_material	material;
 }	t_obj;
 
 //improvised camera
@@ -70,7 +70,6 @@ typedef struct s_sphere
 	t_obj		base_obj;
 	t_point		origin;
 	float		rad;
-	t_material	material;
 }	t_sphere;
 
 typedef struct s_intersc
@@ -100,7 +99,22 @@ typedef struct s_light
 	t_fcolor		intensity;
 }	t_light;
 
-t_light	eng_point_light(t_fcolor intensity, t_point position);
+typedef struct s_world
+{
+	t_obj		**objs;
+	size_t		obj_count;
+	t_light		*lights;
+	size_t		light_count;
+}	t_world;
+
+typedef struct s_engine
+{
+	t_canvas	canvas;
+	t_camera	camera;
+	t_world		world;
+}	t_engine;
+
+t_light		eng_point_light(t_fcolor intensity, t_point position);
 
 // hooks.c
 void		close_handler(void *main_data);
@@ -129,7 +143,7 @@ t_intersc		*eng_ray_hit(t_intersc_arr *interscs);
 t_point			eng_ray_pos(t_ray ray, float time);
 
 // ft_engine/rays/utils.c
-bool	eng_eq_ray(t_ray r1, t_ray r2);
+bool		eng_eq_ray(t_ray r1, t_ray r2);
 
 // Compute Normal
 t_vec		eng_normal_at(t_obj *object, t_point intersec_point);
@@ -151,12 +165,23 @@ void		eng_transform(t_obj *in, t_obj *ret);
 bool		test_eng_trasform(void);
 bool		test_transformation_matrices(void);
 
+//ft_engine/world/add_obj_to_world.c
+void	eng_add_obj_to_world(t_world *world, t_obj *obj);
+
+// ft_engine/world/cleanup_world.c
+void	cleanup_world(t_world *world);
+
 //ft_engine/reflect.c
-t_vec	eng_reflect(t_vec vec, t_vec surface_normal);
-bool	test_eng_reflect(void);
+t_vec		eng_reflect(t_vec vec, t_vec surface_normal);
+bool		test_eng_reflect(void);
 
 // Lighting
 t_fcolor	eng_lighting(t_material material, t_light light, t_point point, t_vec eyev, t_vec normalv);
 bool		test_eng_lighting(void);
+
+// init_engine.c
+void		init_world(t_world *world);
+void		eng_init_engine(t_main *m_data);
+void		cleanup_engine(t_engine *engine);
 
 #endif //FT_ENGINE_H

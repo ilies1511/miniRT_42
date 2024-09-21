@@ -61,6 +61,7 @@ t_vec	negate_v(t_vec v)
 	neg.x = -v.x;
 	neg.y = -v.y;
 	neg.z = -v.z;
+	neg.w = v.w;
 #ifndef NDBUG//can be removed later
 	t_tuple	dif = add_t(v, neg);
 	ft_assert(eq_f(dif.x, 0.0) && eq_f(dif.y, 0.0) && eq_f(dif.z, 0.0),

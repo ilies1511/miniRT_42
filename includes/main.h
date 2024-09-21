@@ -43,7 +43,7 @@
 # endif
 
 # ifndef WIDTH
-#  define WIDTH 1500
+#  define WIDTH 700
 # endif
 
 # ifndef HEIGHT
@@ -54,10 +54,17 @@
 
 typedef int	t_fd;
 
+typedef struct s_cleanup
+{
+	mlx_image_t	*mlx_img;
+}	t_cleanup;
+
+
 typedef struct s_main
 {
 	mlx_t		*mlx;
-	t_canvas	canvas;
+	t_engine	engine;
+	t_cleanup	cleanup_data;
 }	t_mait;
 
 typedef enum s_tuple_type

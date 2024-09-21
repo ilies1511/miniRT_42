@@ -25,6 +25,7 @@ t_obj	eng_new_obj(void)
 	obj.transform = mtx_new_ident(MAT4X4);
 	obj.inverse = mtx_new_ident(MAT4X4);
 	obj.type = OBJ_DEFAULT;
+	obj.material = eng_new_material();
 	return (obj);
 }
 
@@ -36,6 +37,5 @@ t_sphere	eng_new_sphere(void)
 	sph.base_obj.type = OBJ_SPHERE;
 	sph.rad = 1;
 	sph.origin = new_point(0, 0, 0);
-	sph.material = eng_new_material();
 	return (sph);
 }

@@ -47,7 +47,7 @@
 
 // void	eng_put_pixel(t_canvas *canvas, size_t x, size_t y, t_fcolor color)
 // {
-// 	((t_uintcolor *)canvas->img->pixels)[y * WIDTH + x] = fcolor_to_uintcolor(color);
+// 	((t_uintcolor *)canvas->pixels)[y * WIDTH + x] = fcolor_to_uintcolor(color);
 // }
 
 // void	sphere_testv2(void *main_data)
@@ -56,7 +56,7 @@
 // 	static t_sphere	sph;
 // 	static bool	first = true;
 // 	double		fov_x = ((60.0 / 180) * M_PI);
-// 	t_canvas	canvas = m_data->canvas;
+// 	t_canvas	canvas = m_data->engine.canvas;
 // 	static t_camera	camera;
 
 // 	if (first)

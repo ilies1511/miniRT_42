@@ -84,8 +84,11 @@ t_light	eng_point_light(t_fcolor intensity, t_point position)
 	light.base_obj = eng_new_obj();
 	light.intensity = intensity;
 	light.origin = position;
+	light.base_obj.type = OBJ_LIGHT;
 	return (light);
 }
+
+
 
 bool	test_eng_lighting(void)
 {

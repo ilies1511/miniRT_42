@@ -31,12 +31,12 @@ static void	write_row(t_main *m_data, t_fd fd, size_t y)
 	t_uintcolor	color;
 
 	x = 0;
-	while (x < m_data->canvas.width)
+	while (x < m_data->engine.canvas.width)
 	{
 		cur_char_in_line = 0;
-		while (PPM_VAL_BLOCK_LEN + cur_char_in_line < PPM_MAX_CHARS_PER_LINE && x < m_data->canvas.width)
+		while (PPM_VAL_BLOCK_LEN + cur_char_in_line < PPM_MAX_CHARS_PER_LINE && x < m_data->engine.canvas.width)
 		{
-			color.full = ((uint32_t *)m_data->canvas.img->pixels)[y * m_data->canvas.width + x];
+			color.full = ((uint32_t *)m_data->engine.canvas.pixels)[y * m_data->engine.canvas.width + x];
 			printf_ret = 0;
 			printf_ret = ft_fprintf(fd, " %d %d %d",
 				color.argb.r, color.argb.g, color.argb.b);
@@ -57,9 +57,9 @@ void	store_as_plain_ppm(t_main *m_data, char *file_name)
 	t_fd			fd;
 	size_t			y;
 
-	fd = init_store_ppm(&m_data->canvas, file_name);
+	fd = init_store_ppm(&m_data->engine.canvas, file_name);
 	y = 0;
-	while (y < m_data->canvas.height)
+	while (y < m_data->engine.canvas.height)
 	{
 		write_row(m_data, fd, y);
 		y++;
