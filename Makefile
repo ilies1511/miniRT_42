@@ -35,6 +35,9 @@ SRC_FILES_ENGINE := \
 	ft_engine/init_engine.c \
 	ft_engine/world/add_objs_to_world.c \
 	ft_engine/world/cleanup_world.c \
+	ft_engine/world/default_world.c \
+	ft_engine/world/tests.c \
+	ft_engine/compute/prepare_computation.c \
 	ft_engine/canvas/canvas.c \
 	ft_engine/utils/reset.c \
 	ft_engine/mlx_interface/hooks.c \
@@ -138,6 +141,9 @@ test: mlx $(LIBFT) $(OBJECTS)
 
 clean:
 	@rm -f $(OBJECTS)
+	@rm -f $(SRC_TEST_MAIN:%c=$(OBJ_DIR)%o)
+	@rm -f $(SRC_MAIN:%c=$(OBJ_DIR)%o)
+
 #@if [ -d $(OBJ_DIR) ]; then rmdir $(OBJ_DIR); fi
 	@if [ -d $(LIBFT_DIR) ]; then cd libft && make clean; fi
 	@echo "$(CYAN)object files cleaned$(CLEAR)"

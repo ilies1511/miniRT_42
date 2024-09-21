@@ -17,7 +17,6 @@ t_intersc	eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, float t)
 	t_intersc		intersc;
 
 	intersc.t = t;
-	intersc.type = obj->type;
 	intersc.obj = obj;
 	if (!interscs->arr)
 		*interscs = eng_new_intersc_arr();
@@ -114,4 +113,18 @@ void	eng_intersc_ray(t_intersc_arr *interscs, t_ray *ray_in, t_obj *obj)
 	else
 		ft_assert(0, __FILE__, __LINE__, "eng_intersc_ray: invalid obj type");
 	ray_in->base_obj.transform = tmp;
+}
+
+void	eng_ray_intersc_world(t_ray ray, t_world world, t_intersc_arr *interscs)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < world.obj_count)
+	{
+ 		t_obj *obj = world.objs[i];
+ 		eng_intersc_ray(interscs, &ray, obj);
+		i++;
+ 	}
+	eng_sort_intersc(interscs);
 }

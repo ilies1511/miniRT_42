@@ -50,6 +50,8 @@ void	eng_put_pixel(t_canvas *canvas, size_t x, size_t y, t_fcolor color)
 	((t_uintcolor *)canvas->pixels)[y * WIDTH + x] = fcolor_to_uintcolor(color);
 }
 
+
+
 void	sphere_test(void *main_data)
 {
 	t_main		*m_data = (t_main *)main_data;
@@ -120,12 +122,7 @@ void	sphere_test(void *main_data)
 			t_point	wall_hit = pixel_to_wall(&camera, x, y);
 			t_ray	camera_ray = eng_new_ray(camera.p, norm(sub_t(wall_hit, camera.p)));
 			camera_ray.direct = norm(camera_ray.direct);
-			for (size_t i = 0; i < world->obj_count; i++)
-			{
-				t_obj *obj = world->objs[i];
-				eng_intersc_ray(&interscs, &camera_ray, obj);
-			}
-			eng_sort_intersc(&interscs);
+			eng_ray_intersc_world(camera_ray, *world, &interscs);
 			t_intersc	*intersc = eng_ray_hit(&interscs);
 			if (intersc)
 			{

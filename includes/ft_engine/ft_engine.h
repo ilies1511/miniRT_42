@@ -74,7 +74,6 @@ typedef struct s_sphere
 
 typedef struct s_intersc
 {
-	t_obj_type	type;
 	float		t;
 	t_obj		*obj;
 }	t_intersc;
@@ -114,6 +113,20 @@ typedef struct s_engine
 	t_world		world;
 }	t_engine;
 
+typedef struct s_computation
+{
+	float	t;
+	t_obj	*obj;
+	t_point	point;
+	t_vec	eye_v;
+	t_vec	normal_v;
+	bool	inside;
+}	t_computation;
+
+t_computation	eng_prepare_computation(t_intersc intersc, t_ray ray);
+bool			test_prepare_computation(void);
+
+
 t_light		eng_point_light(t_fcolor intensity, t_point position);
 
 // hooks.c
@@ -134,6 +147,7 @@ void			eng_intersc_ray(t_intersc_arr *interscs, t_ray *ray, t_obj	*obj);
 void			eng_sort_intersc(t_intersc_arr *interscs);
 t_intersc		eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, float t);
 t_intersc_arr	eng_new_intersc_arr(void);
+void			eng_ray_intersc_world(t_ray ray, t_world world, t_intersc_arr *interscs);
 
 //cleanup
 void			eng_free_intersc_arr(t_intersc_arr *interscs);
@@ -153,6 +167,7 @@ int			test_normal_at(void);
 bool		test_eng_ray_pos(void);
 bool		test_eng_intersc_ray_sphere(void);
 bool		test_eng_ray_hit(void);
+bool		test_eng_ray_intersc_world(void);
 
 //ft_engine/objs/set_transform.c
 void		eng_set_transform(t_obj *obj, t_matrix transform);
@@ -170,6 +185,9 @@ void	eng_add_obj_to_world(t_world *world, t_obj *obj);
 
 // ft_engine/world/cleanup_world.c
 void	cleanup_world(t_world *world);
+
+//ft_engine/world/default_world.c
+t_world	eng_default_world(void);
 
 //ft_engine/reflect.c
 t_vec		eng_reflect(t_vec vec, t_vec surface_normal);

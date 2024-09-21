@@ -234,7 +234,7 @@ bool	test_eng_ray_hit(void)
 	eng_add_intersc(&interscs, (t_obj *)&sph, 2);
 	eng_sort_intersc(&interscs);
 	actual_hit = eng_ray_hit(&interscs);
-	if (ft_memcmp(actual_hit, &expected_hit, sizeof expected_hit))
+	if (actual_hit->t != expected_hit.t || actual_hit->obj != expected_hit.obj)
 	{
 		ret = false;
 		fprintf(stderr, "Test failed: eng_ray_hit: %s line %d\n", __FILE__, __LINE__);
@@ -246,7 +246,7 @@ bool	test_eng_ray_hit(void)
 	expected_hit = eng_add_intersc(&interscs, (t_obj *)&sph, 1);
 	eng_sort_intersc(&interscs);
 	actual_hit = eng_ray_hit(&interscs);
-	if (ft_memcmp(actual_hit, &expected_hit, sizeof expected_hit))
+	if (actual_hit->t != expected_hit.t || actual_hit->obj != expected_hit.obj)
 	{
 		ret = false;
 		fprintf(stderr, "Test failed: eng_ray_hit: %s line %d\n", __FILE__, __LINE__);
@@ -271,7 +271,7 @@ bool	test_eng_ray_hit(void)
 	expected_hit = eng_add_intersc(&interscs, (t_obj *)&sph, 2);
 	eng_sort_intersc(&interscs);
 	actual_hit = eng_ray_hit(&interscs);
-	if (ft_memcmp(actual_hit, &expected_hit, sizeof expected_hit))
+	if (actual_hit->t != expected_hit.t || actual_hit->obj != expected_hit.obj)
 	{
 		ret = false;
 		fprintf(stderr, "Test failed: eng_ray_hit: %s line %d\n", __FILE__, __LINE__);
@@ -280,4 +280,43 @@ bool	test_eng_ray_hit(void)
 	return (ret);
 }
 
-
+bool	test_eng_ray_intersc_world(void)
+{
+	bool	ret = true;
+	t_world	world = eng_default_world();
+	t_ray	ray = eng_new_ray(new_point(0, 0, -5),new_vec(0, 0, 1));
+	t_intersc_arr	interscs = eng_new_intersc_arr();
+	eng_ray_intersc_world(ray, world, &interscs);
+	if (interscs.count != 4)
+	{
+		ret = false;
+		fprintf(stderr, "Test failed: eng_ray_intersc_world: %s line %d\n",
+			__FILE__, __LINE__);
+	}
+	if (!eq_f(interscs.arr[0].t, 4))
+	{
+		ret = false;
+		fprintf(stderr, "Test failed: eng_ray_intersc_world: %s line %d\n",
+			__FILE__, __LINE__);
+	}	
+	if (!eq_f(interscs.arr[1].t, 4.5))
+	{
+		ret = false;
+		fprintf(stderr, "Test failed: eng_ray_intersc_world: %s line %d\n",
+			__FILE__, __LINE__);
+	}
+	if (!eq_f(interscs.arr[2].t, 5.5))
+	{
+		ret = false;
+		fprintf(stderr, "Test failed: eng_ray_intersc_world: %s line %d\n",
+			__FILE__, __LINE__);
+	}
+	if (!eq_f(interscs.arr[3].t, 6))
+	{
+		ret = false;
+		fprintf(stderr, "Test failed: eng_ray_intersc_world: %s line %d\n",
+			__FILE__, __LINE__);
+	}
+	eng_free_intersc_arr(&interscs);
+	return (ret);
+}
