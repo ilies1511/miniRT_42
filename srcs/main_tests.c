@@ -207,6 +207,22 @@ void	test_objs(int *total_tests, int *passed_tests)
 	*total_tests += 1;
 }
 
+void	test_scenes(int *total_tests, int *passed_tests)
+{
+	if (test_transformation_view_default())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_transformation_view_z())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_transformation_view_world())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_transformation_view_mixed())
+		*passed_tests += 1;
+	*total_tests += 1;
+}
+
 void	test_gc(int *total_tests, int *passed_tests)
 {
 	//t_garbage_collector	*gc;
@@ -236,6 +252,7 @@ int	main(void)
 	test_rays(&total, &passed);
 	test_gc(&total, &passed);
 	test_objs(&total, &passed);
+	test_scenes(&total, &passed);
 	if (total == passed)
 		printf("%s all tests passed(%d/%d)!%s\n", FT_ANSI_GREEN_BOLD, passed, total, FT_ANSI_RESET);
 	else

@@ -109,5 +109,5 @@ void	sphere_test(void *main_data)
 		}
 		//printf("y: %lu\n", y);
 	}
-	store_as_plain_ppm(m_data, "phong_lighting_onesource.ppm");
+	// store_as_plain_ppm(m_data, "phong_lighting_onesource.ppm");
 }
