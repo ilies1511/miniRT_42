@@ -181,7 +181,7 @@ bool		test_eng_lighting(void);
 
 
 // init_engine.c
-void		init_world(t_world *world);
+t_world		eng_new_world(void);
 void		eng_init_engine(t_main *m_data);
 void		cleanup_engine(t_engine *engine);
 

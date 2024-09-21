@@ -2,12 +2,16 @@
 #include <main.h>
 #include <libft.h>
 
-void	init_world(t_world *world)
+t_world	eng_new_world(void)
 {
-	world->lights = dyn_arr_init(sizeof(t_light), 1);
-	world->light_count = 0;
-	world->objs = dyn_arr_init(sizeof(t_obj *), 1);
-	world->obj_count = 0;
+	t_world	world;
+
+	ft_bzero(&world, sizeof world);
+	world.lights = dyn_arr_init(sizeof(t_light), 1);
+	world.light_count = 0;
+	world.objs = dyn_arr_init(sizeof(t_obj *), 1);
+	world.obj_count = 0;
+	return (world);
 }
 
 void	cleanup_engine(t_engine *engine)
@@ -22,6 +26,6 @@ void	eng_init_engine(t_main *m_data)
 
 	engine = &m_data->engine;
 	//ft_bzero(engine, sizeof *engine);
-	init_world(&engine->world);
+	engine->world = eng_new_world();
 	engine->canvas = eng_new_canvas(m_data, WIDTH, HEIGHT);
 }
