@@ -126,6 +126,9 @@ typedef struct s_computation
 t_computation	eng_prepare_computation(t_intersc intersc, t_ray ray);
 bool			test_prepare_computation(void);
 
+//compute/shading.c
+t_fcolor	eng_shade_hit(t_world world, t_computation comp);
+bool		test_shading_outside_intersection(void);
 
 t_light		eng_point_light(t_fcolor intensity, t_point position);
 
@@ -181,13 +184,13 @@ bool		test_eng_trasform(void);
 bool		test_transformation_matrices(void);
 
 //ft_engine/world/add_obj_to_world.c
-void	eng_add_obj_to_world(t_world *world, t_obj *obj);
+void		eng_add_obj_to_world(t_world *world, t_obj *obj);
 
 // ft_engine/world/cleanup_world.c
-void	cleanup_world(t_world *world);
+void		cleanup_world(t_world *world);
 
 //ft_engine/world/default_world.c
-t_world	eng_default_world(void);
+t_world		eng_default_world(void);
 
 //ft_engine/reflect.c
 t_vec		eng_reflect(t_vec vec, t_vec surface_normal);

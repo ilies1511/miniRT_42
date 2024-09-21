@@ -50,67 +50,67 @@ void	eng_put_pixel(t_canvas *canvas, size_t x, size_t y, t_fcolor color)
 	((t_uintcolor *)canvas->pixels)[y * WIDTH + x] = fcolor_to_uintcolor(color);
 }
 
+static void add_objs(t_world *world)
+{
+	t_sphere	sph;
+	t_light			light;
+	t_fcolor		intensity;
+	t_point			light_position;
 
+	sph = eng_new_sphere();
+	eng_set_transform((t_obj *)&sph, mtx_translate(-5, 0, 0));
+	sph.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
+	eng_add_obj_to_world(world, (t_obj *)&sph);
+
+	sph = eng_new_sphere();
+	eng_set_transform((t_obj *)&sph, mtx_translate(-1, 3, 2));
+	sph.base_obj.material.fcolor = new_fcolor(0, 0, 1, 1);
+	eng_add_obj_to_world(world, (t_obj *)&sph);
+
+	sph = eng_new_sphere();
+	eng_set_transform((t_obj *)&sph, mtx_translate(7, 0, 3));
+	sph.base_obj.material.fcolor = new_fcolor(0, 0, 1, 1);
+	eng_add_obj_to_world(world, (t_obj *)&sph);
+
+	sph = eng_new_sphere();
+	eng_set_transform((t_obj *)&sph, mtx_translate(-1, -3, 7));
+	sph.base_obj.material.fcolor = new_fcolor(3, 2, 1, 1);
+	eng_add_obj_to_world(world, (t_obj *)&sph);
+
+	sph = eng_new_sphere();
+	eng_set_transform((t_obj *)&sph, mtx_translate(3, -2, 5));
+	sph.base_obj.material.fcolor = new_fcolor(0, 2, 1, 1);
+	eng_add_obj_to_world(world, (t_obj *)&sph);
+
+	light_position = new_point(0, 0, -10);
+	intensity = new_fcolor(3, 1, 4, 1);
+	light = eng_point_light(intensity, light_position);
+	eng_add_obj_to_world(world, (t_obj *)&light);
+
+	light_position = new_point(10, 10, -10);
+	intensity = new_fcolor(1, 4, 1, 1);
+	light = eng_point_light(intensity, light_position);
+	eng_add_obj_to_world(world, (t_obj *)&light);
+}
 
 void	sphere_test(void *main_data)
 {
-	t_main		*m_data = (t_main *)main_data;
-	t_sphere	sph;
-	double		fov_x = ((60.0 / 180) * M_PI);
-	t_canvas	canvas = m_data->engine.canvas;
-	t_camera	camera;
-	t_light		light;
-	t_fcolor	intensity;
-	t_point		light_position;
-	t_point		hit_position;
-	t_vec		normal;
-	t_vec		eyev;
-	t_world		*world;
-	t_fcolor	color;
+	t_main			*m_data = (t_main *)main_data;
+	double			fov_x = ((60.0 / 180) * M_PI);
+	t_canvas		canvas = m_data->engine.canvas;
+	t_camera		camera;
+	t_world			*world;
+	t_fcolor		color;
+	t_computation	comp;
 
 	static bool first = true;
-
 	world = &m_data->engine.world;
 	if (first)
 	{
 		first = false;
-
-		sph = eng_new_sphere();
-		eng_set_transform((t_obj *)&sph, mtx_translate(-5, 0, 0));
-		sph.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
-		eng_add_obj_to_world(world, (t_obj *)&sph);
-
-		sph = eng_new_sphere();
-		eng_set_transform((t_obj *)&sph, mtx_translate(-1, 3, 2));
-		sph.base_obj.material.fcolor = new_fcolor(0, 0, 1, 1);
-		eng_add_obj_to_world(world, (t_obj *)&sph);
-
-
-		sph = eng_new_sphere();
-		eng_set_transform((t_obj *)&sph, mtx_translate(7, 0, 3));
-		sph.base_obj.material.fcolor = new_fcolor(0, 0, 1, 1);
-		eng_add_obj_to_world(world, (t_obj *)&sph);
-
-		sph = eng_new_sphere();
-		eng_set_transform((t_obj *)&sph, mtx_translate(-1, -3, 7));
-		sph.base_obj.material.fcolor = new_fcolor(3, 2, 1, 1);
-		eng_add_obj_to_world(world, (t_obj *)&sph);
-
-		sph = eng_new_sphere();
-		eng_set_transform((t_obj *)&sph, mtx_translate(3, -2, 5));
-		sph.base_obj.material.fcolor = new_fcolor(0, 2, 1, 1);
-		eng_add_obj_to_world(world, (t_obj *)&sph);
-
-		light_position = new_point(0, 0, -10);
-		intensity = new_fcolor(3, 1, 4, 1);
-		light = eng_point_light(intensity, light_position);
-		eng_add_obj_to_world(world, (t_obj *)&light);
-
-		light_position = new_point(10, 10, -10);
-		intensity = new_fcolor(1, 4, 1, 1);
-		light = eng_point_light(intensity, light_position);
-		eng_add_obj_to_world(world, (t_obj *)&light);
+		add_objs(&m_data->engine.world);
 	}
+
 	camera = eng_new_camera(fov_x, new_point(0, 0, -100), 10);
 
 	t_intersc_arr	interscs = eng_new_intersc_arr();
@@ -126,16 +126,8 @@ void	sphere_test(void *main_data)
 			t_intersc	*intersc = eng_ray_hit(&interscs);
 			if (intersc)
 			{
-				hit_position = eng_ray_pos(camera_ray, intersc->t);
-				normal = eng_normal_at(intersc->obj, hit_position);
-				eng_put_pixel(&canvas, x, y, color);
-				eyev = negate_v(camera_ray.direct);
-				color = new_fcolor(0, 0, 0, 1);
-				for (size_t i = 0; i < world->light_count; i++)
-				{
-					light = world->lights[i];
-					color = add_fcolor(color, eng_lighting(intersc->obj->material, light, hit_position, eyev, normal));
-				}
+				comp = eng_prepare_computation(*intersc, camera_ray);
+				color = eng_shade_hit(*world, comp);
 				eng_put_pixel(&canvas, x, y, color);
 			}
 			eng_free_intersc_arr(&interscs);

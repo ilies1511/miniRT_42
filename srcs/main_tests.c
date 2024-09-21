@@ -162,6 +162,9 @@ void	test_computation(int *total_tests, int *passed_tests)
 	if (test_prepare_computation())
 		*passed_tests += 1;
 	*total_tests += 1;
+	if (test_shading_outside_intersection())
+		*passed_tests += 1;
+	*total_tests += 1;
 }
 void	test_gc(int *total_tests, int *passed_tests)
 {
