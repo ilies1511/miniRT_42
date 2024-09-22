@@ -58,8 +58,10 @@ typedef struct s_camera
 	//double	fov_y; //lets keep this commented in case we need it
 	size_t	width; //pixel count
 	size_t	height;//pixel count
-	double	pixel_width;//distance a signle pixel covers in 3d space
-	double	pixel_height;//distance a signle pixel covers in 3d space
+	double	pixel_size;//distance a signle pixel covers in 3d space
+	// lets keep these 2 also for now
+	//double	pixel_width;//distance a signle pixel covers in 3d space
+	//double	pixel_height;//distance a signle pixel covers in 3d space
 	double	half_wall_width;
 	double	half_wall_height;
 }	t_camera;
@@ -211,7 +213,8 @@ void		cleanup_engine(t_engine *engine);
 //camera.c
 t_camera	eng_new_camera(size_t width, size_t height, double fov_x);
 bool		test_eng_new_camera(void);
-
+t_ray		eng_ray_for_pixel(t_camera camera, size_t x, size_t y);
+bool		test_eng_ray_for_pixel(void);
 // Transformation view
 t_matrix	sc_transforme_view(t_point from, t_point to, t_vec up);
 bool		test_transformation_view_default(void);

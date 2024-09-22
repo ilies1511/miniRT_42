@@ -1,17 +1,5 @@
 #include <main.h>
 
-t_point	pixel_to_wall(t_camera *camera, size_t pixel_x, size_t pixel_y)
-{
-	t_point	ret;
-
-	ret = new_point(0, 0, WALL_DIST);
-	ret.x = pixel_x * camera->pixel_width + camera->pixel_width / 2;
-	ret.x -= camera->half_wall_width;
-	ret.y = pixel_y * camera->pixel_height + camera->pixel_height / 2;
-	ret.y -= camera->half_wall_height;
-	return (ret);
-}
-
 void	eng_put_pixel(t_canvas *canvas, size_t x, size_t y, t_fcolor color)
 {
 	((t_uintcolor *)canvas->pixels)[y * WIDTH + x] = fcolor_to_uintcolor(color);
@@ -83,9 +71,7 @@ void	sphere_test(void *main_data)
 	{
 		for (size_t x = 0; x < canvas.width; x++)
 		{
-			t_point	wall_hit = pixel_to_wall(&camera, x, y);
-			t_ray	camera_ray = eng_new_ray(new_point(0,0,0), norm(sub_t(wall_hit, new_point(0,0,0))));
-			camera_ray.direct = norm(camera_ray.direct);
+			t_ray	camera_ray =eng_ray_for_pixel(camera, x, y);
 			color = eng_color_at(*world, camera_ray);
 			eng_put_pixel(&canvas, x, y, color);
 		}
