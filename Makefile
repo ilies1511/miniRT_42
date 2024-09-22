@@ -113,7 +113,8 @@ SOURCE_FILES := \
 	playgrounds/matrix/1.c \
 	playgrounds/sphere1/test.c \
 	playgrounds/sphere1/test2.c \
-	playgrounds/sphere1/test3.c
+	playgrounds/sphere1/test3.c \
+	playgrounds/chap_6/1.c
 
 SOURCES = $(addprefix $(SRC_DIR), $(SOURCE_FILES))
 

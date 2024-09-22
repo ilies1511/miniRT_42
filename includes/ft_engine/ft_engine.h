@@ -226,7 +226,6 @@ bool		test_eng_new_camera(void);
 t_ray		eng_ray_for_pixel(t_camera camera, size_t x, size_t y);
 bool		test_eng_ray_for_pixel(void);
 
-
 void		eng_put_pixel(t_canvas canvas, size_t x, size_t y, t_fcolor color);
 void		eng_render(t_camera camera, t_world world, t_canvas canvas);
 t_fcolor	eng_pixel_at(t_canvas canvas, size_t x, size_t y, size_t width);
