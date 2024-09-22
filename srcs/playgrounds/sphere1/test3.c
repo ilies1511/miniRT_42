@@ -93,8 +93,6 @@ static void add_objs(t_world *world)
 	eng_add_obj_to_world(world, (t_obj *)&light);
 }
 
-
-
 void	sphere_test(void *main_data)
 {
 	t_main			*m_data = (t_main *)main_data;
@@ -103,7 +101,6 @@ void	sphere_test(void *main_data)
 	t_camera		camera;
 	t_world			*world;
 	t_fcolor		color;
-
 
 	static bool first = true;
 	world = &m_data->engine.world;
@@ -115,7 +112,6 @@ void	sphere_test(void *main_data)
 
 	camera = eng_new_camera(fov_x, new_point(0, 0, -100), 10);
 
-
 	for (size_t y = 0; y < canvas.height; y++)
 	{
 		for (size_t x = 0; x < canvas.width; x++)
@@ -126,7 +122,7 @@ void	sphere_test(void *main_data)
 			color = eng_color_at(*world, camera_ray);
 			eng_put_pixel(&canvas, x, y, color);
 		}
-		printf("y: %lu\n", y);
+		printf("%f%%\n", ((float)y) / canvas.height * 100);
 	}
 	//store_as_plain_ppm(m_data, "EXAMPLE NAME.ppm");
 }
