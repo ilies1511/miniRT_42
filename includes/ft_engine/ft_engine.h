@@ -212,6 +212,8 @@ bool		test_eng_reflect(void);
 
 // Lighting
 t_fcolor	eng_lighting(t_material material, t_light light, t_point point, t_vec eyev, t_vec normalv);
+t_fcolor	eng_lighting_impr(t_material material, t_light light, t_point point, t_vec eyev, t_vec normalv, bool in_shadow);
+bool		test_light_with_surface_shadow();
 bool		test_eng_lighting(void);
 
 //Shadow
