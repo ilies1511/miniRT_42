@@ -215,6 +215,13 @@ t_camera	eng_new_camera(size_t width, size_t height, double fov_x);
 bool		test_eng_new_camera(void);
 t_ray		eng_ray_for_pixel(t_camera camera, size_t x, size_t y);
 bool		test_eng_ray_for_pixel(void);
+
+
+void		eng_put_pixel(t_canvas canvas, size_t x, size_t y, t_fcolor color);
+void		eng_render(t_camera camera, t_world world, t_canvas canvas);
+t_fcolor	eng_pixel_at(t_canvas canvas, size_t x, size_t y, size_t width);
+bool		test_eng_render(void);
+
 // Transformation view
 t_matrix	sc_transforme_view(t_point from, t_point to, t_vec up);
 bool		test_transformation_view_default(void);

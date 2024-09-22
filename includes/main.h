@@ -43,7 +43,7 @@
 # endif
 
 # ifndef WIDTH
-#  define WIDTH 700
+#  define WIDTH 2500
 # endif
 
 # ifndef HEIGHT

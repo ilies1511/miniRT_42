@@ -116,3 +116,61 @@ bool	test_eng_color_at(void)
 	}
 	return (ret);
 }
+
+void	eng_put_pixel(t_canvas canvas, size_t x, size_t y, t_fcolor color)
+{
+	((t_uintcolor *)canvas.pixels)[y * canvas.width + x] = fcolor_to_uintcolor(color);
+}
+
+
+void	eng_render(t_camera camera, t_world world, t_canvas canvas)
+{
+	for (size_t y = 0; y < camera.height; y++)
+	{
+		for (size_t x = 0; x < camera.width; x++)
+		{
+			t_ray	ray = eng_ray_for_pixel(camera, x, y);
+			t_fcolor color = eng_color_at(world, ray);
+			eng_put_pixel(canvas, x, y, color);
+		}
+		printf("%f%%\n", ((float)y) / canvas.height * 100);
+	}
+}
+
+t_fcolor	eng_pixel_at(t_canvas canvas, size_t x, size_t y, size_t width)
+{
+	t_uintcolor	uint;
+	t_fcolor	ret;
+
+	ret = new_fcolor(0, 0, 0, 0);
+	uint = canvas.pixels[y * width + x];
+	ret.a = ((float)uint.argb.a) / 0xFF;
+	ret.r = ((float)uint.argb.r) / 0xFF;
+	ret.g = ((float)uint.argb.g) / 0xFF;
+	ret.b = ((float)uint.argb.b) / 0xFF;
+	return (ret);
+}
+
+bool	test_eng_render(void)
+{
+	bool	ret = true;
+	mlx_t *mlx = mlx_init(11, 11, "TEST CASE", false);
+	mlx_image_t	*img = mlx_new_image(mlx, 11, 11);
+
+	t_canvas		canvas = {
+		.width = 11,
+		.height = 11,
+		.pixels = (t_uintcolor *)img->pixels
+	};
+
+	eng_render(
+		eng_new_camera(11, 11, M_PI_2), eng_default_world(), canvas);
+	if (eq_fcolor(eng_pixel_at(canvas, 5, 5, 11), new_fcolor(0.38066, 0.47583, 0.2855, 1)))
+	{
+		ret = false;
+		printf("test failed %s line %d\n", __FILE__, __LINE__);
+	}
+	mlx_delete_image(mlx, img);
+	mlx_close_window(mlx);
+	return (ret);
+}

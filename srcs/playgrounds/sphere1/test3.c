@@ -1,9 +1,6 @@
 #include <main.h>
 
-void	eng_put_pixel(t_canvas *canvas, size_t x, size_t y, t_fcolor color)
-{
-	((t_uintcolor *)canvas->pixels)[y * WIDTH + x] = fcolor_to_uintcolor(color);
-}
+
 
 static void add_objs(t_world *world)
 {
@@ -51,31 +48,37 @@ static void add_objs(t_world *world)
 void	sphere_test(void *main_data)
 {
 	t_main			*m_data = (t_main *)main_data;
-	double			fov_x = ((60.0 / 180) * M_PI);
 	t_canvas		canvas = m_data->engine.canvas;
 	t_camera		camera;
-	t_world			*world;
-	t_fcolor		color;
-
+	t_world	*world;
 	static bool first = true;
+	static double angle_x1 = 0;
+	static double angle_y1 = 0;
+	static double angle_z1 = 0;
+	double angles[3] ={ M_PI / 33, M_PI / 37, M_PI / 47};
+
 	world = &m_data->engine.world;
 	if (first)
 	{
 		first = false;
-		add_objs(&m_data->engine.world);
+		add_objs(world);
 	}
-
-	camera = eng_new_camera(WIDTH, HEIGHT, fov_x);
-
-	for (size_t y = 0; y < canvas.height; y++)
+	camera = eng_new_camera(WIDTH, HEIGHT, M_PI_2);
+	eng_set_transform((t_obj *)&camera, mtx_translate(0, 0, -10));
+	eng_set_transform((t_obj *)&camera, mtx_rotation_x(angle_x1));
+	eng_set_transform((t_obj *)&camera, mtx_rotation_y(angle_y1));
+	eng_set_transform((t_obj *)&camera, mtx_rotation_z(angle_z1));
+	eng_render(camera , *world, canvas);
+	for (int i = 0; i < 5; i++)
 	{
-		for (size_t x = 0; x < canvas.width; x++)
-		{
-			t_ray	camera_ray =eng_ray_for_pixel(camera, x, y);
-			color = eng_color_at(*world, camera_ray);
-			eng_put_pixel(&canvas, x, y, color);
-		}
-		printf("%f%%\n", ((float)y) / canvas.height * 100);
+		eng_set_transform(world->objs[i], mtx_rotation_x(angle_x1  / (i + 1)));
+		eng_set_transform(world->objs[i], mtx_rotation_y(angle_x1 * (i + 1)));
+		eng_set_transform(world->objs[i], mtx_rotation_z(angle_x1 / (i + 0.123)));
 	}
+	angle_x1 += M_PI / 13;
+	angle_x1 -= M_PI / 13;
+	angle_y1 += M_PI / 23;
+	angle_z1 += M_PI / 13;
+
 	//store_as_plain_ppm(m_data, "EXAMPLE NAME.ppm");
 }
