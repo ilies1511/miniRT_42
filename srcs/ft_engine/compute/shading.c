@@ -40,11 +40,11 @@ t_fcolor	eng_color_at(t_world world, t_ray ray)
 
 bool	test_shading_outside_intersection(void)
 {
-	bool	ret = true;
-	t_world w = eng_default_world();
-	t_ray r = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
-	t_obj *shape = w.objs[0];
-	t_intersc i = {4, shape};
+	bool		ret = true;
+	t_world		w = eng_default_world();
+	t_ray		r = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
+	t_obj		*shape = w.objs[0];
+	t_intersc	i = {4, shape};
 
 	t_computation comps = eng_prepare_computation(i, r);
 	t_fcolor c = eng_shade_hit(w, comps);
@@ -82,11 +82,11 @@ bool	test_shading_outside_intersection(void)
 
 bool	test_eng_color_at(void)
 {
-	bool	ret = true;
-	t_world w = eng_default_world();
-	t_ray r = eng_new_ray(new_point(0, 0, -5), new_vec(0, 1, 0));
-	t_fcolor c = eng_color_at(w, r);
-	t_fcolor expected_color = new_fcolor(0.0f, 0.0f, 0.0f, 0.0f);
+	bool		ret = true;
+	t_world		w = eng_default_world();
+	t_ray		r = eng_new_ray(new_point(0, 0, -5), new_vec(0, 1, 0));
+	t_fcolor	c = eng_color_at(w, r);
+	t_fcolor	expected_color = new_fcolor(0.0f, 0.0f, 0.0f, 0.0f);
 	if (!eq_fcolor(c, expected_color))
 	{
 		ft_fprintf(2, "test failed: eng_color_at: %s line %d\n", __FILE__, __LINE__);
@@ -98,6 +98,18 @@ bool	test_eng_color_at(void)
 	c = eng_color_at(w, r);
 	expected_color = new_fcolor(0.38066f, 0.47583f, 0.2855f, 0.0f);
 	if (!eq_fcolor(c, expected_color))
+	{
+		ft_fprintf(2, "test failed: eng_color_at: %s line %d\n", __FILE__, __LINE__);
+		ret = false;
+	}
+    w = eng_default_world();
+    t_obj	*outer = w.objs[0];
+    outer->material.ambient = 1.0f;
+    t_obj	*inner = w.objs[1];
+    inner->material.ambient = 1.0f;
+    r = eng_new_ray(new_point(0, 0, 0.75f), new_vec(0, 0, -1));
+    c = eng_color_at(w, r);
+	if (!eq_fcolor(c, inner->material.fcolor))
 	{
 		ft_fprintf(2, "test failed: eng_color_at: %s line %d\n", __FILE__, __LINE__);
 		ret = false;
