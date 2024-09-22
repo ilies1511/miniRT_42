@@ -54,15 +54,14 @@ typedef struct s_obj
 typedef struct s_camera
 {
 	t_obj	base_obj;
-	t_point	p;
-	double	wall_dist;
-	double	wall_width;
-	double	wall_height;
 	double	fov_x;
-	double	fov_y;
-	double	aspect_ratio;
-	double	wall_pixel_width;
-	double	wall_pixel_height;
+	//double	fov_y; //lets keep this commented in case we need it
+	size_t	width; //pixel count
+	size_t	height;//pixel count
+	double	pixel_width;//distance a signle pixel covers in 3d space
+	double	pixel_height;//distance a signle pixel covers in 3d space
+	double	half_wall_width;
+	double	half_wall_height;
 }	t_camera;
 
 typedef struct s_sphere
@@ -208,6 +207,10 @@ bool		test_eng_lighting(void);
 t_world		eng_new_world(void);
 void		eng_init_engine(t_main *m_data);
 void		cleanup_engine(t_engine *engine);
+
+//camera.c
+t_camera	eng_new_camera(size_t width, size_t height, double fov_x);
+bool		test_eng_new_camera(void);
 
 // Transformation view
 t_matrix	sc_transforme_view(t_point from, t_point to, t_vec up);

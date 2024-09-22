@@ -1,6 +1,7 @@
 #include <libft.h>
 #include <ft_matrix.h>
 #include <ft_engine.h>
+#include <libft.h>
 
 static void	transform_ray(t_ray *in, t_ray *ret)
 {
@@ -18,7 +19,9 @@ static void	transform_sphere(t_sphere *in, t_sphere *ret)
 //TODO: improvised
 static void	transform_camera(t_camera *in)
 {
-	in->p= mtx_mult_mt(in->base_obj.transform, in->p);
+	(void)in;
+	fprintf(stderr, "%sWARNING: camera transformation currently not working\n%s",
+			FT_ANSI_RED_BOLD_UNDERLINE, FT_ANSI_RESET);
 }
 
 void	eng_transform(t_obj *in, t_obj *ret)

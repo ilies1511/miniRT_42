@@ -50,6 +50,9 @@
 #  define HEIGHT ((size_t)(WIDTH / ASPECT_RATIO))
 # endif
 
+# ifndef WALL_DIST
+#  define WALL_DIST 1
+# endif
 
 
 typedef int	t_fd;
