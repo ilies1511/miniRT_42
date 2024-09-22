@@ -214,6 +214,12 @@ bool		test_eng_reflect(void);
 t_fcolor	eng_lighting(t_material material, t_light light, t_point point, t_vec eyev, t_vec normalv);
 bool		test_eng_lighting(void);
 
+//Shadow
+bool	eng_is_shadowed(t_world world, t_point point);
+bool	test_shadow();
+bool	test2_shadow();
+bool	test3_shadow();
+bool	test4_shadow();
 
 // init_engine.c
 t_world		eng_new_world(void);

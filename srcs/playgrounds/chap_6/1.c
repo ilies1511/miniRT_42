@@ -4,6 +4,7 @@ static void add_objs(t_world *world)
 {
 	t_sphere	floor;
 	t_light		light;
+	t_light		light2;
 	t_sphere	left_wall;
 	t_sphere	right_wall;
 	t_sphere	sph_mid;
@@ -36,14 +37,14 @@ static void add_objs(t_world *world)
 	sph_right = eng_new_sphere();
 	eng_set_transform((t_obj *)&sph_right, mtx_translate(1.5, 0.5, -0.5));
 	eng_set_transform((t_obj *)&sph_right, mtx_scale(0.5, 0.5, 0.5));
-	sph_right.base_obj.material.fcolor = new_fcolor(0.5, 1, 0.1, 1);
+	sph_right.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
 	sph_right.base_obj.material.diffuse = 0.7;
 	sph_right.base_obj.material.specular = 0.3;
 	eng_add_obj_to_world(world, (t_obj *)&sph_right);
 
 	sph_mid = eng_new_sphere();
 	eng_set_transform((t_obj *)&sph_mid , mtx_translate(-0.5, 1, 0.5));
-	sph_mid.base_obj.material.fcolor = new_fcolor(0.5, 1, 0.1, 1);
+	sph_mid.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
 	sph_mid.base_obj.material.diffuse = 0.7;
 	sph_mid.base_obj.material.specular = 0.3;
 	eng_add_obj_to_world(world, (t_obj *)&sph_mid);
@@ -51,13 +52,17 @@ static void add_objs(t_world *world)
 	sph_left = eng_new_sphere();
 	eng_set_transform((t_obj *)&sph_left, mtx_translate(-1.5, 0.33, -0.75));
 	eng_set_transform((t_obj *)&sph_left, mtx_scale(0.33, 0.33, 0.33));
-	sph_left.base_obj.material.fcolor = new_fcolor(1, 0.8, 0.1, 1);
+	sph_left.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
 	sph_left.base_obj.material.diffuse = 0.7;
+	// sph_left.base_obj.material.shininess = 500;
 	sph_left.base_obj.material.specular = 0.3;
 	eng_add_obj_to_world(world, (t_obj *)&sph_left);
 
-	light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(-10, 10, -10));
+	light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(10, 10, -10));
 	eng_add_obj_to_world(world, (t_obj *)&light);
+
+	light2 = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(-10, 10, -10));
+	// eng_add_obj_to_world(world, (t_obj *)&light2);
 }
 
 void	sphere_test(void *main_data)
@@ -77,5 +82,5 @@ void	sphere_test(void *main_data)
 		add_objs(world);
 	}
 	eng_render(camera, *world, canvas);
-	store_as_plain_ppm(m_data, "PIT6.ppm");
+	// store_as_plain_ppm(m_data, "PIT6_twolight.ppm");
 }

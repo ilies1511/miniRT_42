@@ -188,6 +188,22 @@ void	test_gc(int *total_tests, int *passed_tests)
 	*total_tests += 1;
 }
 
+void	test_shadows(int *total_tests, int *passed_tests)
+{
+	if (test_shadow())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test2_shadow())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test3_shadow())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test4_shadow())
+		*passed_tests += 1;
+	*total_tests += 1;
+}
+
 int	main(void)
 {
 	t_garbage_collector	*gc;
@@ -209,6 +225,7 @@ int	main(void)
 	test_objs(&total, &passed);
 	test_scenes(&total, &passed);
 	test_computation(&total, &passed);
+	test_shadows(&total, &passed);
 	if (total == passed)
 		printf("%s all tests passed(%d/%d)!%s\n", FT_ANSI_GREEN_BOLD, passed, total, FT_ANSI_RESET);
 	else

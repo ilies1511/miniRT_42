@@ -59,7 +59,9 @@ SRC_FILES_ENGINE := \
 	ft_engine/objs/test_normal.c \
 	ft_engine/scene/transformation_view.c \
 	ft_engine/scene/test_scene.c \
-	ft_engine/scene/camera.c
+	ft_engine/scene/camera.c \
+	ft_engine/shadow/shadow.c \
+	ft_engine/shadow/test_shadow.c
 
 SRC_FILES_MATH := \
 	ft_math/colors/colors.c \
