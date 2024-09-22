@@ -91,7 +91,7 @@ void	sphere_test(void *main_data)
 
 		sph = eng_new_sphere();
 		eng_set_transform((t_obj *)&sph, mtx_translate(-1, -3, 7));
-		sph.base_obj.material.fcolor = new_fcolor(3, 2, 1, 1);
+		sph.base_obj.material.fcolor = new_fcolor(1.5, 1, 1, 1);
 		eng_add_obj_to_world(world, (t_obj *)&sph);
 
 		sph = eng_new_sphere();

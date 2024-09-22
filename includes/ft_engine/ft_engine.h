@@ -50,6 +50,16 @@ typedef struct s_obj
 	t_material	material;
 }	t_obj;
 
+// camera like in Book
+typedef struct s_camera_book
+{
+	t_obj		base_obj;
+	int			hsize; // horizontel size of the canvas
+	int			vsize; // vertical size of the canvas
+	double		field_of_view; // angle that descibes how much camera can see
+	t_matrix	transform; // describes how the world should be oriented relative to the camera
+}	t_camera_book;
+
 //improvised camera
 typedef struct s_camera
 {
