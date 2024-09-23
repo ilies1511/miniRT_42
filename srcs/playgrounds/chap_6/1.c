@@ -24,7 +24,7 @@ static void add_objs(t_world *world)
 	eng_set_transform((t_obj *)&left_wall, mtx_rotation_x(M_PI / 2));
 	eng_set_transform((t_obj *)&left_wall, mtx_scale(10, 0.01, 10));
 	left_wall.base_obj.material = floor.base_obj.material;
-	eng_add_obj_to_world(world, (t_obj *)&left_wall);
+	// eng_add_obj_to_world(world, (t_obj *)&left_wall);
 
 	right_wall = eng_new_sphere();
 	eng_set_transform((t_obj *)&right_wall, mtx_translate(0, 0, 5));
@@ -32,7 +32,7 @@ static void add_objs(t_world *world)
 	eng_set_transform((t_obj *)&right_wall, mtx_rotation_x(M_PI / 2));
 	eng_set_transform((t_obj *)&right_wall, mtx_scale(10, 0.01, 10));
 	right_wall.base_obj.material = floor.base_obj.material;
-	eng_add_obj_to_world(world, (t_obj *)&right_wall);
+	// eng_add_obj_to_world(world, (t_obj *)&right_wall);
 
 	sph_right = eng_new_sphere();
 	eng_set_transform((t_obj *)&sph_right, mtx_translate(1.5, 0.5, -0.5));
@@ -82,5 +82,5 @@ void	sphere_test(void *main_data)
 		add_objs(world);
 	}
 	eng_render(camera, *world, canvas);
-	// store_as_plain_ppm(m_data, "PIT6_twolight.ppm");
+	// store_as_plain_ppm(m_data, "no_walls.ppm");
 }

@@ -129,6 +129,7 @@ typedef struct s_computation
 	float	t;
 	t_obj	*obj;
 	t_point	point;
+	t_point	over_point;
 	t_vec	eye_v;
 	t_vec	normal_v;
 	bool	inside;
