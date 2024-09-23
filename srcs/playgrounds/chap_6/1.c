@@ -82,5 +82,5 @@ void	sphere_test(void *main_data)
 		add_objs(world);
 	}
 	eng_render(camera, *world, canvas);
-	// store_as_plain_ppm(m_data, "no_walls.ppm");
+	// store_as_plain_ppm(m_data, "d.ppm");
 }
