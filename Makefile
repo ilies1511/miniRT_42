@@ -103,7 +103,8 @@ SRC_FILES_GB_COLLECT := \
 	garbage_collector/gb_utils.c
 
 SRC_FILES_PARSER := \
-	parsing/ppm_parser/store_as_ppm.c
+	parsing/ppm_parser/store_as_ppm.c \
+	parsing/parser_42/parser.c
 
 SOURCE_FILES := \
 	$(SRC_MAIN)\

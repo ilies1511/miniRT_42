@@ -60,6 +60,7 @@ typedef int	t_fd;
 typedef struct s_cleanup
 {
 	mlx_image_t	*mlx_img;
+	int			fd;
 }	t_cleanup;
 
 
@@ -68,6 +69,8 @@ typedef struct s_main
 	mlx_t		*mlx;
 	t_engine	engine;
 	t_cleanup	cleanup_data;
+	int			ac;//can be removed later, only to indicated if the world
+	//is pared from a file or not
 }	t_mait;
 
 typedef enum s_tuple_type
@@ -87,7 +90,7 @@ void	sphere_test(void *main_data);
 
 // init_exit/init.c
 void	init_hooks(t_main *m_data);
-void	main_init(t_main *m_data);
+void	main_init(t_main *m_data, int ac, char *av[]);
 t_main	*get_m_data();
 
 

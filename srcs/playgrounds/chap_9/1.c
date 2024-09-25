@@ -37,12 +37,12 @@ static void add_objs(t_world *world)
 	eng_add_obj_to_world(world, (t_obj *)&sph_left);
 
 	ceil = eng_new_plane();
-	ceil.base_obj.material.fcolor = new_fcolor(0, 1, 1, 1);
+	ceil.base_obj.material.fcolor = new_fcolor(0, 0, 1, 1);
 	eng_add_obj_to_world(world, (t_obj *)&ceil);
 
 
 	top = eng_new_plane();
-	top.base_obj.material.fcolor = new_fcolor(1, 1, 0, 1);
+	top.base_obj.material.fcolor = new_fcolor(1, 0, 0, 1);
 	//***why is this buggy***
 	//eng_set_transform((t_obj *)&top, mtx_rotation_x(M_PI_2));
 	//eng_set_transform((t_obj *)&top, mtx_translate(0, 0, 4));
@@ -59,11 +59,11 @@ static void add_objs(t_world *world)
 	eng_set_transform((t_obj *)&left_top, mtx_translate(-5, 0, 0));
 	//eng_add_obj_to_world(world, (t_obj *)&left_top);
 
-	light = eng_point_light(new_fcolor(1, 0, 0, 1), new_point(5, 5, -5));
+	light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(0, 5, 0));
 	eng_add_obj_to_world(world, (t_obj *)&light);
 
-	light2 = eng_point_light(new_fcolor(0, 0, 1, 1), new_point(3, 4, -1));
-	eng_add_obj_to_world(world, (t_obj *)&light2);
+	//light2 = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(-2, 10, 0));
+	//eng_add_obj_to_world(world, (t_obj *)&light2);
 }
 
 void	sphere_test(void *main_data)

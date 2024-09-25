@@ -255,7 +255,7 @@ bool	test4_shadow();
 
 // init_engine.c
 t_world		eng_new_world(void);
-void		eng_init_engine(t_main *m_data);
+void		eng_init_engine(t_main *m_data, int ac, char *av[]);
 void		cleanup_engine(t_engine *engine);
 
 //camera.c

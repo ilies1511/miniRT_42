@@ -20,7 +20,7 @@ void	cleanup_engine(t_engine *engine)
 	ft_bzero(engine, sizeof *engine);
 }
 
-void	eng_init_engine(t_main *m_data)
+void	eng_init_engine(t_main *m_data, int ac, char *av[])
 {
 	t_engine	*engine;
 
@@ -28,4 +28,8 @@ void	eng_init_engine(t_main *m_data)
 	//ft_bzero(engine, sizeof *engine);
 	engine->world = eng_new_world();
 	engine->canvas = eng_new_canvas(m_data, WIDTH, HEIGHT);
+	if (ac > 1)
+	{
+		parser(m_data, av[1]);
+	}
 }
