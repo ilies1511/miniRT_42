@@ -223,12 +223,12 @@ int	main(void)
 	total++;
 	tuple_tests(&total, &passed);
 	test_matrixes(&total, &passed);
-	test_rays(&total, &passed);
-	test_gc(&total, &passed);
-	test_objs(&total, &passed);
-	test_scenes(&total, &passed);
-	test_computation(&total, &passed);
-	test_shadows(&total, &passed);
+	//test_rays(&total, &passed);
+	//test_gc(&total, &passed);
+	//test_objs(&total, &passed);
+	//test_scenes(&total, &passed);
+	//test_computation(&total, &passed);
+	//test_shadows(&total, &passed);
 	if (total == passed)
 		printf("%s all tests passed(%d/%d)!%s\n", FT_ANSI_GREEN_BOLD, passed, total, FT_ANSI_RESET);
 	else

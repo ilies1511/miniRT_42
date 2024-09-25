@@ -9,13 +9,11 @@ static void	add_light_to_world(t_world *world, t_light *light)
 		ft_error("Error: malloc failed", __FILE__, __LINE__, 1);
 }
 
-static void	add_normal_obj_to_world(t_world *world, void *obj_data, size_t obj_size)
+static void	add_shape_to_world(t_world *world, t_obj *obj_data, size_t obj_size)
 {
-	uint8_t	*new;
+	t_obj	*new;
 
-	new = ft_malloc(obj_size);
-	if (!new)
-		ft_error("Error: malloc failed", __FILE__, __LINE__, 1);
+	new = eng_alloc_shape((t_shape_type)obj_data->type);
 	ft_memcpy(new, obj_data, obj_size);
 	dyn_arr_add_save((void **)(&world->objs), (void *)(&new), world->obj_count++);
 	if (!world->objs)
@@ -26,8 +24,8 @@ void	eng_add_obj_to_world(t_world *world, t_obj *obj)
 {
 	if (obj->type == OBJ_LIGHT)
 		add_light_to_world(world, (t_light *)obj);
-	else if (obj->type == OBJ_SPHERE)
-		add_normal_obj_to_world(world, (void *)obj, sizeof(t_sphere));
+	else if (eng_is_shape(obj->type))
+		add_shape_to_world(world, (t_obj *)obj, sizeof(t_sphere));
 	else
 	{
 		printf("type: %u\n", obj->type);

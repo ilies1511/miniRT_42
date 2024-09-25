@@ -8,6 +8,10 @@
 # include <stdio.h>
 # include <math.h>
 
+# ifndef ERROR_BUF_LEN
+#  define ERROR_BUF_LEN 50
+# endif
+
 typedef struct s_main	t_main;
 
 typedef struct s_canvas
@@ -32,15 +36,28 @@ typedef struct s_material
 
 t_material	eng_new_material(void);
 
+//first t_obj_type must be same as t_shape_type
 typedef enum e_obj_type
 {
 	OBJ_DEFAULT = 0,
+	OBJ_SPHERE = 1,
+	OBJ_PLANE = 2,
 	OBJ_RAY,
-	OBJ_SPHERE,
 	OBJ_LIGHT,
 	OBJ_CAMERA,
 	OBJ_COUNT,
 }	t_obj_type;
+
+// can be cast to t_obj_type
+typedef enum e_shape_type
+{
+	SHAPE_DEFAULT = 0,
+	SHAPE_SPHERE = 1,
+	SHAPE_PLANE = 2,
+}	t_shape_type;
+
+const char *eng_type_to_str(t_obj_type type, char buf[ERROR_BUF_LEN]);
+bool	eng_is_shape(t_obj_type type);
 
 typedef struct s_obj
 {
@@ -49,6 +66,8 @@ typedef struct s_obj
 	t_obj_type	type;
 	t_material	material;
 }	t_obj;
+
+t_obj	*eng_alloc_shape(t_shape_type type);
 
 // camera like in Book
 typedef struct s_camera_book

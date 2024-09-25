@@ -61,7 +61,9 @@ SRC_FILES_ENGINE := \
 	ft_engine/scene/test_scene.c \
 	ft_engine/scene/camera.c \
 	ft_engine/shadow/shadow.c \
-	ft_engine/shadow/test_shadow.c
+	ft_engine/shadow/test_shadow.c \
+	ft_engine/objs/obj_utils.c \
+	ft_engine/objs/test_shape.c
 
 SRC_FILES_MATH := \
 	ft_math/colors/colors.c \
