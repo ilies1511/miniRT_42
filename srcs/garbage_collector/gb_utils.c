@@ -26,14 +26,12 @@ void	gc_print_linked_list(t_garbage_collector *gc)
 void	*ft_malloc(size_t len)
 {
 	void				*ptr;
-	t_garbage_collector	*gc;
 
-	gc = get_gc(); //TODO: (16.09.24) get_data, that will give us data thanks to static gc (struct)
 	ptr = malloc(len);
 	if (!ptr)
 		return (NULL);
 	// printf("in ft_mall: %p\n", gc);
-	gc_add_begin(gc, ptr);
+	gc_add_begin(ptr);
 	// printf("end ft_mall: %p\n", gc->head);
 	return (ptr);
 }

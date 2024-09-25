@@ -220,8 +220,8 @@ bool		test_transformation_matrices(void);
 //ft_engine/world/add_obj_to_world.c
 void		eng_add_obj_to_world(t_world *world, t_obj *obj);
 
-// ft_engine/world/cleanup_world.c
-void		cleanup_world(t_world *world);
+// ft_engine/world/eng_cleanup_world.c
+void		eng_cleanup_world(t_world *world);
 
 //ft_engine/world/default_world.c
 t_world		eng_default_world(void);

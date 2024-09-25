@@ -1,14 +1,15 @@
 #include <garbage_collector.h>
+#include <main.h>
 
-void	gc_free_all(t_garbage_collector *gc)
+void	gc_free_all(void)
 {
-	int			len;
-	int			i;
-	t_gc_node	*temp;
-	t_gc_node	*current;
+	int					len;
+	int					i;
+	t_gc_node			*temp;
+	t_gc_node			*current;
+	t_garbage_collector	*gc;
 
-	if (!gc)
-		return ;
+	gc = get_gc();
 	current = gc->head;
 	len = gc->size;
 	i = -1;
@@ -38,17 +39,17 @@ t_gc_node	*gc_create_node(void *pointer2mem)
 /*
 	Function that will be used after Malloc
 */
-void	gc_add_begin(t_garbage_collector *gc, void *pointer)
+void	gc_add_begin(void *pointer)
 {
-	t_gc_node	*new_node;
+	t_gc_node			*new_node;
+	t_garbage_collector	*gc;
 
 	if (!pointer)
 		return ;
+	gc = get_gc();
 	new_node = gc_create_node(pointer);
 	if (!new_node)
-	{
-		gc_free_all(gc); //TODO: Clean EXIT ?
-	}
+		ft_error("malloc fail", __FILE__, __LINE__, 1);
 	if (gc->head == NULL)
 	{
 		new_node->next = NULL;
@@ -69,9 +70,6 @@ t_garbage_collector	*gc_init_garbage_collector(void)
 	t_garbage_collector	*gc;
 
 	gc = get_gc();
-	// gc = (t_garbage_collector *)malloc(sizeof(t_garbage_collector) * 1);
-	// if (!gc)
-	// 	return (NULL);
 	gc->head = NULL;
 	gc->tail = NULL;
 	gc->size = 0;

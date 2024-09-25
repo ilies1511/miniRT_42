@@ -180,9 +180,6 @@ void	test_computation(int *total_tests, int *passed_tests)
 }
 void	test_gc(int *total_tests, int *passed_tests)
 {
-	//t_garbage_collector	*gc;
-
-	//gc = get_gc();
 	if (test_gc_init())
 		*passed_tests += 1;
 	*total_tests += 1;
@@ -209,12 +206,10 @@ void	test_shadows(int *total_tests, int *passed_tests)
 
 int	main(void)
 {
-	t_garbage_collector	*gc;
-
 #ifdef NO_ASSERT
 	deactivate_assert_interrupt();
 #endif
-	gc = get_gc();
+	gc_init_garbage_collector();
 	int	passed = 0;
 	int	total = 0;
 	srand(time(NULL));
@@ -223,22 +218,21 @@ int	main(void)
 	total++;
 	tuple_tests(&total, &passed);
 	test_matrixes(&total, &passed);
-	//test_rays(&total, &passed);
-	//test_gc(&total, &passed);
-	//test_objs(&total, &passed);
-	//test_scenes(&total, &passed);
-	//test_computation(&total, &passed);
-	//test_shadows(&total, &passed);
+	test_rays(&total, &passed);
+	test_gc(&total, &passed);
+	test_objs(&total, &passed);
+	test_scenes(&total, &passed);
+	test_computation(&total, &passed);
+	test_shadows(&total, &passed);
 	if (total == passed)
 		printf("%s all tests passed(%d/%d)!%s\n", FT_ANSI_GREEN_BOLD, passed, total, FT_ANSI_RESET);
 	else
 		printf("%s%d of %d test passed%s\n", FT_ANSI_RED_BOLD, passed, total, FT_ANSI_RESET);
 	//system("leaks tests.out");
-	gc = get_gc();
 	// printf("Im in main SIZE: %zu\n", gc->size);
 	// printf("Strin im gc: %s\n", (gc->head->pointer));
 	// printf("Strin im gc: %s\n", (gc->head->next->pointer));
-	gc_free_all(gc);
+	gc_free_all();
 	//system("leaks tests.out");
 	return (0);
 }

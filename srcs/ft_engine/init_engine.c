@@ -16,7 +16,7 @@ t_world	eng_new_world(void)
 
 void	cleanup_engine(t_engine *engine)
 {
-	cleanup_world(&engine->world);
+	eng_cleanup_world(&engine->world);
 	ft_bzero(engine, sizeof *engine);
 }
 

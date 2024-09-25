@@ -60,7 +60,7 @@ bool	test_shading_outside_intersection(void)
 		print_fcolor("actual:\n", c);
 		ret = false;
 	}
-	cleanup_world(&w);
+	eng_cleanup_world(&w);
 
 	w = eng_default_world();
 	w.lights[0].intensity = new_fcolor(1, 1, 1, 1);
@@ -80,7 +80,7 @@ bool	test_shading_outside_intersection(void)
 		print_fcolor("actual:\n", c);
 		ret = false;
 	}
-	cleanup_world(&w);
+	eng_cleanup_world(&w);
 	return (ret);
 }
 
@@ -96,6 +96,7 @@ bool	test_eng_color_at(void)
 		ft_fprintf(2, "test failed: eng_color_at: %s line %d\n", __FILE__, __LINE__);
 		ret = false;
 	}
+	eng_cleanup_world(&w);
 
 	w = eng_default_world();
 	r = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
@@ -106,6 +107,8 @@ bool	test_eng_color_at(void)
 		ft_fprintf(2, "test failed: eng_color_at: %s line %d\n", __FILE__, __LINE__);
 		ret = false;
 	}
+	eng_cleanup_world(&w);
+
     w = eng_default_world();
     t_obj	*outer = w.objs[0];
     outer->material.ambient = 1.0f;
@@ -118,6 +121,8 @@ bool	test_eng_color_at(void)
 		ft_fprintf(2, "test failed: eng_color_at: %s line %d\n", __FILE__, __LINE__);
 		ret = false;
 	}
+	eng_cleanup_world(&w);
+
 	return (ret);
 }
 
@@ -160,6 +165,7 @@ bool	test_eng_render(void)
 	bool	ret = true;
 	mlx_t *mlx = mlx_init(11, 11, "TEST CASE", false);
 	mlx_image_t	*img = mlx_new_image(mlx, 11, 11);
+	t_world		world = eng_default_world();
 
 	t_canvas		canvas = {
 		.width = 11,
@@ -168,7 +174,7 @@ bool	test_eng_render(void)
 	};
 
 	eng_render(
-		eng_new_camera(11, 11, M_PI_2), eng_default_world(), canvas);
+		eng_new_camera(11, 11, M_PI_2), world, canvas);
 	if (eq_fcolor(eng_pixel_at(canvas, 5, 5, 11), new_fcolor(0.38066, 0.47583, 0.2855, 1)))
 	{
 		ret = false;
@@ -176,5 +182,6 @@ bool	test_eng_render(void)
 	}
 	mlx_delete_image(mlx, img);
 	mlx_close_window(mlx);
+	eng_cleanup_world(&world);
 	return (ret);
 }
