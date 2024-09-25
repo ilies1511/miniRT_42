@@ -39,3 +39,12 @@ t_sphere	eng_new_sphere(void)
 	sph.origin = new_point(0, 0, 0);
 	return (sph);
 }
+
+t_plane	eng_new_plane(void)
+{
+	t_plane	plane;
+
+	plane.base_obj = eng_new_obj();
+	plane.base_obj.type = OBJ_PLANE;
+	return (plane);
+}

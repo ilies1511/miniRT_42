@@ -2,37 +2,19 @@
 
 static void add_objs(t_world *world)
 {
-	t_sphere	floor;
 	t_light		light;
 	t_light		light2;
-	t_sphere	left_wall;
-	t_sphere	right_wall;
+	t_plane		back;
 	t_sphere	sph_mid;
 	t_sphere	sph_right;
 	t_sphere	sph_left;
 
 
-	floor = eng_new_sphere();
-	eng_set_transform((t_obj *)&floor, mtx_scale(10, 0.01, 10));
-	floor.base_obj.material.fcolor = new_fcolor(1, 0.9, 0.9, 1);
-	floor.base_obj.material.specular = 0;
-	eng_add_obj_to_world(world, (t_obj *)&floor);
+	back = eng_new_plane();
+	eng_set_transform((t_obj *)&back, mtx_rotation_x(M_PI_2));
+	eng_set_transform((t_obj *)&back, mtx_translate(0, 0, 10));
+	eng_add_obj_to_world(world, (t_obj *)&back);
 
-	left_wall = eng_new_sphere();
-	eng_set_transform((t_obj *)&left_wall, mtx_translate(0, 0, 5));
-	eng_set_transform((t_obj *)&left_wall, mtx_rotation_y(-M_PI / 4));
-	eng_set_transform((t_obj *)&left_wall, mtx_rotation_x(M_PI / 2));
-	eng_set_transform((t_obj *)&left_wall, mtx_scale(10, 0.01, 10));
-	left_wall.base_obj.material = floor.base_obj.material;
-	// eng_add_obj_to_world(world, (t_obj *)&left_wall);
-
-	right_wall = eng_new_sphere();
-	eng_set_transform((t_obj *)&right_wall, mtx_translate(0, 0, 5));
-	eng_set_transform((t_obj *)&right_wall, mtx_rotation_y(M_PI / 4));
-	eng_set_transform((t_obj *)&right_wall, mtx_rotation_x(M_PI / 2));
-	eng_set_transform((t_obj *)&right_wall, mtx_scale(10, 0.01, 10));
-	right_wall.base_obj.material = floor.base_obj.material;
-	// eng_add_obj_to_world(world, (t_obj *)&right_wall);
 
 	sph_right = eng_new_sphere();
 	eng_set_transform((t_obj *)&sph_right, mtx_translate(1.5, 0.5, -0.5));
@@ -65,12 +47,13 @@ static void add_objs(t_world *world)
 	// eng_add_obj_to_world(world, (t_obj *)&light2);
 }
 
-void	sphere_test_chap6(void *main_data)
+void	sphere_test(void *main_data)
 {
 	t_main			*m_data = (t_main *)main_data;
 	t_canvas		canvas = m_data->engine.canvas;
 	t_camera		camera;
-	t_world	*world;
+	t_world			*world;
+
 	camera = eng_new_camera(WIDTH, HEIGHT, M_PI / 3);
 	eng_set_transform((t_obj *)&camera, sc_transforme_view(new_point(0, 1.5, -5),
 			new_point(0, 1, 0), new_vec(0, 1, 0)));

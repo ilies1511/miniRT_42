@@ -57,7 +57,7 @@ typedef enum e_shape_type
 }	t_shape_type;
 
 const char *eng_type_to_str(t_obj_type type, char buf[ERROR_BUF_LEN]);
-bool	eng_is_shape(t_obj_type type);
+bool		eng_is_shape(t_obj_type type);
 
 typedef struct s_obj
 {
@@ -67,7 +67,7 @@ typedef struct s_obj
 	t_material	material;
 }	t_obj;
 
-t_obj	*eng_alloc_shape(t_shape_type type);
+t_obj	*eng_alloc_shape(t_obj_type type);
 
 // camera like in Book
 typedef struct s_camera_book
@@ -101,6 +101,13 @@ typedef struct s_sphere
 	t_point		origin;
 	float		rad;
 }	t_sphere;
+
+typedef struct s_plane
+{
+	t_obj		base_obj;
+}	t_plane;
+
+t_plane	eng_new_plane(void);
 
 typedef struct s_intersc
 {

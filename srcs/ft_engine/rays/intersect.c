@@ -82,7 +82,6 @@ float t: scalar for ray->direct to reach the intersection point and
 // later when we can make some assumptions we can simplify
 static void	eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray ray, t_sphere *sph)
 {
-
 	t_vec	ori_diff = sub_t(ray.origin, sph->origin);
 	float	dot_direct = dot_prod(ray.direct, ray.direct);
 	float	dot_diff_direct = dot_prod(ori_diff, ray.direct);
@@ -101,12 +100,26 @@ static void	eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray ray, t_sphere 
 	eng_add_intersc(interscs, (t_obj *)sph, t2);
 }
 
+// assumes the plane to be the xz plane (normal == 0, 1, 0) at y = 0
+static void	eng_intersc_ray_plane(t_intersc_arr *interscs, t_ray ray,
+	t_plane *plane)
+{
+	float	t;
+
+	if (fabs(ray.direct.y) < EPSILON)
+		return ;
+	t = -ray.origin.y / ray.direct.y;
+	eng_add_intersc(interscs, (t_obj *)plane, t);
+}
+
 void	eng_intersc_ray(t_intersc_arr *interscs, t_ray ray, t_obj *obj)
 {
 	ray.base_obj.transform = obj->inverse;
 	eng_transform((t_obj *)&ray, (t_obj *)&ray);
 	if (obj->type == OBJ_SPHERE)
 		eng_intersc_ray_sphere(interscs, ray, (t_sphere *)obj);
+	else if (obj->type == OBJ_PLANE)
+		eng_intersc_ray_plane(interscs, ray, (t_plane *)obj);
 	else
 		ft_assert(0, __FILE__, __LINE__, "eng_intersc_ray: invalid obj type");
 }
@@ -124,3 +137,5 @@ void	eng_ray_intersc_world(t_ray ray, t_world world, t_intersc_arr *interscs)
  	}
 	eng_sort_intersc(interscs);
 }
+
+
