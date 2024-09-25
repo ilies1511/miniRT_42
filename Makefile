@@ -180,7 +180,7 @@ prof: fclean
 	@make CFLAGS="-march=native -Ofast -mavx2 -DNDEBUG=1 -g -pg" CC=gcc
 
 ###utils
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(OBJ_DIR)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 mlx: clone_mlx
