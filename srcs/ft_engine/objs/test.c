@@ -63,7 +63,7 @@ bool	test_transformation_matrices(void)
 	ray = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
 	eng_set_transform((t_obj *)&sph, mtx_scale(2, 2, 2));
-	eng_intersc_ray(&interscs, &ray, (t_obj *)&sph);
+	eng_intersc_ray(&interscs, ray, (t_obj *)&sph);
 	eng_sort_intersc(&interscs);
 	if (interscs.count != 2)
 	{
@@ -87,7 +87,7 @@ bool	test_transformation_matrices(void)
 	ray = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
 	eng_set_transform((void *)&sph, mtx_translate(5, 0, 0));
-	eng_intersc_ray(&interscs, &ray, (t_obj *) &sph);
+	eng_intersc_ray(&interscs, ray, (t_obj *) &sph);
 	if (interscs.count != 0)
 	{
 		ret = false;

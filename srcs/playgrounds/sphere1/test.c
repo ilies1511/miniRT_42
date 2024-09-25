@@ -40,7 +40,7 @@ void	sphere_test_v1(void *main_data)
 			cur_y_angle = fmod(cur_y_angle, 2 * M_PI);
 			eng_set_transform((t_obj *)&ray, mtx_rotation_y(cur_y_angle));
 			ray.direct = mtx_mult_mt(ray.base_obj.transform, ray.direct);
-			eng_intersc_ray(&interscs, &ray, (t_obj *) &sph);
+			eng_intersc_ray(&interscs, ray, (t_obj *) &sph);
 			t_intersc	*intersc = eng_ray_hit(&interscs);
 			if (intersc)
 			{

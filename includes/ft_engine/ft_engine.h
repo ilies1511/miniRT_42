@@ -154,6 +154,9 @@ typedef struct s_computation
 	bool	inside;
 }	t_computation;
 
+t_obj			test_shape(void);
+
+
 t_computation	eng_prepare_computation(t_intersc intersc, t_ray ray);
 bool			test_prepare_computation(void);
 
@@ -180,7 +183,7 @@ t_obj		eng_new_obj(void);
 t_sphere	eng_new_sphere(void);
 
 // ft_engine/rays/intersect.c
-void			eng_intersc_ray(t_intersc_arr *interscs, t_ray *ray, t_obj	*obj);
+void			eng_intersc_ray(t_intersc_arr *interscs, t_ray ray, t_obj	*obj);
 void			eng_sort_intersc(t_intersc_arr *interscs);
 t_intersc		eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, float t);
 t_intersc_arr	eng_new_intersc_arr(void);

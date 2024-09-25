@@ -3,11 +3,15 @@
 #include <ft_engine.h>
 #include <libft.h>
 
+// tmp var in case in == ret
 static void	transform_ray(t_ray *in, t_ray *ret)
 {
-	*ret = eng_new_ray(in->origin, in->direct);
-	ret->origin = mtx_mult_mt(in->base_obj.transform, in->origin);
-	ret->direct = mtx_mult_mt(in->base_obj.transform, in->direct);
+	t_ray	tmp;
+
+	tmp = eng_new_ray(in->origin, in->direct);
+	tmp.origin = mtx_mult_mt(in->base_obj.transform, in->origin);
+	tmp.direct = mtx_mult_mt(in->base_obj.transform, in->direct);
+	*ret = tmp;
 }
 
 static void	transform_sphere(t_sphere *in, t_sphere *ret)

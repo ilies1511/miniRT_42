@@ -101,18 +101,14 @@ static void	eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray ray, t_sphere 
 	eng_add_intersc(interscs, (t_obj *)sph, t2);
 }
 
-void	eng_intersc_ray(t_intersc_arr *interscs, t_ray *ray_in, t_obj *obj)
+void	eng_intersc_ray(t_intersc_arr *interscs, t_ray ray, t_obj *obj)
 {
-	t_ray		ray;
-	t_matrix	tmp = ray_in->base_obj.transform;
-
-	ray_in->base_obj.transform = obj->inverse;
-	eng_transform((t_obj *) ray_in, (t_obj *)&ray);
+	ray.base_obj.transform = obj->inverse;
+	eng_transform((t_obj *)&ray, (t_obj *)&ray);
 	if (obj->type == OBJ_SPHERE)
 		eng_intersc_ray_sphere(interscs, ray, (t_sphere *)obj);
 	else
 		ft_assert(0, __FILE__, __LINE__, "eng_intersc_ray: invalid obj type");
-	ray_in->base_obj.transform = tmp;
 }
 
 void	eng_ray_intersc_world(t_ray ray, t_world world, t_intersc_arr *interscs)
@@ -123,7 +119,7 @@ void	eng_ray_intersc_world(t_ray ray, t_world world, t_intersc_arr *interscs)
 	while (i < world.obj_count)
 	{
  		t_obj *obj = world.objs[i];
- 		eng_intersc_ray(interscs, &ray, obj);
+ 		eng_intersc_ray(interscs, ray, obj);
 		i++;
  	}
 	eng_sort_intersc(interscs);

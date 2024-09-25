@@ -84,7 +84,7 @@
 // 			t_point	wall_hit = pixel_to_wall(&camera, x, y);
 // 			t_ray	camera_ray = eng_new_ray(camera.p, norm(sub_t(wall_hit, camera.p)));
 // 			camera_ray.direct = norm(camera_ray.direct);
-// 			eng_intersc_ray(&interscs, &camera_ray, (t_obj *)&sph);
+// 			eng_intersc_ray(&interscs, camera_ray, (t_obj *)&sph);
 // 			eng_sort_intersc(&interscs);
 // 			t_intersc	*intersc = eng_ray_hit(&interscs);
 // 			if (intersc)

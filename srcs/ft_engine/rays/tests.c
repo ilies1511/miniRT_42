@@ -60,7 +60,7 @@ bool	test_eng_intersc_ray_sphere(void)
 	t_intersc_arr	interscs;
 
 	interscs = eng_new_intersc_arr();
-	eng_intersc_ray(&interscs, &ray, (t_obj *)&sph);
+	eng_intersc_ray(&interscs, ray, (t_obj *)&sph);
 	eng_sort_intersc(&interscs);
 	if (interscs.count != 2)
 	{
@@ -97,7 +97,7 @@ bool	test_eng_intersc_ray_sphere(void)
 
 	ray = eng_new_ray(new_point(0, 1, -5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
-	eng_intersc_ray(&interscs, &ray, (t_obj *)&sph);
+	eng_intersc_ray(&interscs, ray, (t_obj *)&sph);
 	eng_sort_intersc(&interscs);
 	if (interscs.count != 2)
 	{
@@ -134,7 +134,7 @@ bool	test_eng_intersc_ray_sphere(void)
 
 	ray = eng_new_ray(new_point(0, 2, -5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
-	eng_intersc_ray(&interscs, &ray, (t_obj *)&sph);
+	eng_intersc_ray(&interscs, ray, (t_obj *)&sph);
 	eng_sort_intersc(&interscs);
 	if (interscs.count != 0)
 	{
@@ -147,7 +147,7 @@ bool	test_eng_intersc_ray_sphere(void)
 
 	ray = eng_new_ray(new_point(0, 0, 0), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
-	eng_intersc_ray(&interscs, &ray, (t_obj *)&sph);
+	eng_intersc_ray(&interscs, ray, (t_obj *)&sph);
 	eng_sort_intersc(&interscs);
 	if (interscs.count != 2)
 	{
@@ -184,7 +184,7 @@ bool	test_eng_intersc_ray_sphere(void)
 
 	ray = eng_new_ray(new_point(0, 0, 5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
-	eng_intersc_ray(&interscs, &ray, (t_obj *)&sph);
+	eng_intersc_ray(&interscs, ray, (t_obj *)&sph);
 	eng_sort_intersc(&interscs);
 	if (interscs.count != 2)
 	{
