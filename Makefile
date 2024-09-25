@@ -172,7 +172,7 @@ rre: ffclean
 	@make all
 
 #to optimize for speed without debugging info
-fast: fclean
+fast:
 	@make CFLAGS="$(FLAGS_SPEED)"
 
 #to create a performece profile on linux

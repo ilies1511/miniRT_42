@@ -4,9 +4,14 @@ void	main_cleanup(t_main *m_data, uint8_t exit_stat)
 	cleanup_engine(&m_data->engine);
 	mlx_delete_image(m_data->mlx, m_data->cleanup_data.mlx_img);
 	mlx_close_window(m_data->mlx);
+	mlx_terminate(m_data->mlx);
 	gc_free_all();
+	// zero out static vars to detect leaks with fsan or valgrind
 	bzero(m_data, sizeof *m_data);
+	bzero(get_gc(), sizeof(t_garbage_collector));
 	//system("leaks miniRT");
+	// leaks detected by valgrind from mlx_init():
+	// ==40446==    still reachable: 309,526 bytes in 3,127 blocks
 	exit(exit_stat);
 }
 

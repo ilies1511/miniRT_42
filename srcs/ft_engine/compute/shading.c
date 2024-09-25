@@ -163,9 +163,9 @@ t_fcolor	eng_pixel_at(t_canvas canvas, size_t x, size_t y, size_t width)
 bool	test_eng_render(void)
 {
 	bool	ret = true;
+	t_world		world = eng_default_world();
 	mlx_t *mlx = mlx_init(11, 11, "TEST CASE", false);
 	mlx_image_t	*img = mlx_new_image(mlx, 11, 11);
-	t_world		world = eng_default_world();
 
 	t_canvas		canvas = {
 		.width = 11,
@@ -180,8 +180,12 @@ bool	test_eng_render(void)
 		ret = false;
 		printf("test failed %s line %d\n", __FILE__, __LINE__);
 	}
+
+//==40235==    still reachable: 309,526 bytes in 3,127 blocks
+//mlx leak deteteced by valgrind, is in all mlx projects i checked on github
 	mlx_delete_image(mlx, img);
 	mlx_close_window(mlx);
+	mlx_terminate(mlx);
 	eng_cleanup_world(&world);
 	return (ret);
 }
