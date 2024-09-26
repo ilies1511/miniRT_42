@@ -137,7 +137,7 @@ void	eng_render(t_camera camera, t_world world, t_canvas canvas)
 			t_fcolor color = eng_color_at(world, ray);
 			eng_put_pixel(canvas, x, y, color);
 		}
-		printf("%f%%\n", ((float)y) / canvas.height * 100);
+		printf("%f%%\n", ((double)y) / canvas.height * 100);
 	}
 }
 
@@ -148,10 +148,10 @@ t_fcolor	eng_pixel_at(t_canvas canvas, size_t x, size_t y, size_t width)
 
 	ret = new_fcolor(0, 0, 0, 0);
 	uint = canvas.pixels[y * width + x];
-	ret.a = ((float)uint.argb.a) / 0xFF;
-	ret.r = ((float)uint.argb.r) / 0xFF;
-	ret.g = ((float)uint.argb.g) / 0xFF;
-	ret.b = ((float)uint.argb.b) / 0xFF;
+	ret.a = ((double)uint.argb.a) / 0xFF;
+	ret.r = ((double)uint.argb.r) / 0xFF;
+	ret.g = ((double)uint.argb.g) / 0xFF;
+	ret.b = ((double)uint.argb.b) / 0xFF;
 	return (ret);
 }
 

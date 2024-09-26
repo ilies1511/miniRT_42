@@ -33,7 +33,7 @@ t_matrix	mtx_inverse(t_matrix m)
 //	t_matrix	cofac;
 //	int			row;
 //	int			col;
-//	float		det;
+//	double		det;
 //
 //	cofac.type = m.type;
 //	inv.type = m.type;

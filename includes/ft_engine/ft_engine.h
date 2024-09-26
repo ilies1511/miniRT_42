@@ -24,10 +24,10 @@ void		reset_canvas(t_canvas *canvas);
 typedef struct s_material
 {
 	t_fcolor	fcolor;
-	float		ambient;
-	float		diffuse;
-	float		specular;
-	float		shininess;
+	double		ambient;
+	double		diffuse;
+	double		specular;
+	double		shininess;
 }	t_material;
 
 t_material	eng_new_material(void);
@@ -80,12 +80,12 @@ typedef struct s_sphere
 {
 	t_obj		base_obj;
 	t_point		origin;
-	float		rad;
+	double		rad;
 }	t_sphere;
 
 typedef struct s_intersc
 {
-	float		t;
+	double		t;
 	t_obj		*obj;
 }	t_intersc;
 
@@ -126,7 +126,7 @@ typedef struct s_engine
 
 typedef struct s_computation
 {
-	float	t;
+	double	t;
 	t_obj	*obj;
 	t_point	point;
 	t_point	over_point;
@@ -164,7 +164,7 @@ t_sphere	eng_new_sphere(void);
 // ft_engine/rays/intersect.c
 void			eng_intersc_ray(t_intersc_arr *interscs, t_ray *ray, t_obj	*obj);
 void			eng_sort_intersc(t_intersc_arr *interscs);
-t_intersc		eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, float t);
+t_intersc		eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, double t);
 t_intersc_arr	eng_new_intersc_arr(void);
 void			eng_ray_intersc_world(t_ray ray, t_world world, t_intersc_arr *interscs);
 
@@ -173,7 +173,7 @@ void			eng_free_intersc_arr(t_intersc_arr *interscs);
 
 //ft_engine/rays/ray_hit.c
 t_intersc		*eng_ray_hit(t_intersc_arr *interscs);
-t_point			eng_ray_pos(t_ray ray, float time);
+t_point			eng_ray_pos(t_ray ray, double time);
 
 // ft_engine/rays/utils.c
 bool		eng_eq_ray(t_ray r1, t_ray r2);

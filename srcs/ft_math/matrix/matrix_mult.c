@@ -42,8 +42,8 @@ t_matrix	mtx_mult_mm(t_matrix ma, t_matrix mb)
 			{
 				ft_assert(
 					fabs((double)ma.m[i][j] * (double)mb.m[j][k] + (double)ret.m[i][k])
-					< FLT_MAX,
-					__FILE__, __LINE__, "Error: float overflow mtx_mult_mm");
+					< DBL_MAX,
+					__FILE__, __LINE__, "Error: double overflow mtx_mult_mm");
 				ret.m[i][k] += ma.m[i][j] * mb.m[j][k];
 				k++;
 			}

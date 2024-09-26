@@ -6,7 +6,7 @@ bool	eng_is_shadowed(t_world world, t_point point)
 	t_vec			v;
 	t_vec			direction;
 	t_point			delta;
-	float			distance;
+	double			distance;
 	t_ray			ray;
 	t_intersc_arr	intersecs;
 	t_intersc		*intersec;

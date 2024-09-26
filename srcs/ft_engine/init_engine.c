@@ -7,9 +7,9 @@ t_world	eng_new_world(void)
 	t_world	world;
 
 	ft_bzero(&world, sizeof world);
-	world.lights = dyn_arr_init(sizeof(t_light), 1);
+	world.lights = dyn_arr_init(sizeof(t_light), 0);
 	world.light_count = 0;
-	world.objs = dyn_arr_init(sizeof(t_obj *), 1);
+	world.objs = dyn_arr_init(sizeof(t_obj *), 0);
 	world.obj_count = 0;
 	return (world);
 }

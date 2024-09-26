@@ -2,7 +2,7 @@
 #include <ft_floats.h>
 #include <ft_colors.h>
 
-t_fcolor	new_fcolor(float r, float g, float b, float a)
+t_fcolor	new_fcolor(double r, double g, double b, double a)
 {
 	t_fcolor	color;
 
@@ -61,7 +61,7 @@ t_fcolor	sub_fcolor(t_fcolor a, t_fcolor b)
 	return (dif);
 }
 
-t_fcolor	scale_fcolor(t_fcolor c, float scalar)
+t_fcolor	scale_fcolor(t_fcolor c, double scalar)
 {
 	t_fcolor	res;
 

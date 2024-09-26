@@ -1,7 +1,7 @@
 #include <ft_matrix.h>
 
 // // TODO:
-t_matrix	mtx_scale(float x, float y, float z)
+t_matrix	mtx_scale(double x, double y, double z)
 {
 	t_matrix	ret;
 

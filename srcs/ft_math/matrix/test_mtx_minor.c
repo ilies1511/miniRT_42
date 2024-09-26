@@ -2,7 +2,7 @@
 #include <libft.h>
 #include <ft_floats.h>
 
-static int	mtx_compare_floats(float a, float b)
+static int	mtx_compare_floats(double a, double b)
 {
 	return (fabs(a - b) < EPSILON);
 }
@@ -10,8 +10,8 @@ static int	mtx_compare_floats(float a, float b)
 int	test_mtx_minor(void)
 {
 	// t_matrix	ist;
-	float		ist;
-	float		soll;
+	double		ist;
+	double		soll;
 
 	t_matrix	pre =
 	{

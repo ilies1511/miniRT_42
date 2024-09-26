@@ -16,7 +16,7 @@ typedef enum e_matrix_type
 
 typedef struct s_matrix
 {
-	float			m[4][4];//mat[row][col] indexed no matter the type
+	double			m[4][4];//mat[row][col] indexed no matter the type
 	t_matrix_type	type;
 }	t_matrix;
 
@@ -52,14 +52,14 @@ t_matrix	mtx_inverse(t_matrix m);
 bool		test_mtx_inverse(void);
 
 // matrix_translate_scaling.c
-t_matrix	mtx_translate(float x, float y, float z);
+t_matrix	mtx_translate(double x, double y, double z);
 t_matrix	mtx_translate_izi(t_tuple tuple);
 int			test_matrix_translate(void);
 
-t_matrix	mtx_scale(float x, float y, float z);
+t_matrix	mtx_scale(double x, double y, double z);
 
 // Matrix Skew aka Shearing
-t_matrix	mtx_skew(float xy, float xz, float yx, float yz, float zx, float zy);
+t_matrix	mtx_skew(double xy, double xz, double yx, double yz, double zx, double zy);
 // end TODO
 
 // matrix_rotation.c

@@ -3,7 +3,7 @@
 
 t_vec	eng_reflect(t_vec vec, t_vec surface_normal)
 {
-	float	dot;
+	double	dot;
 	t_vec	scaled_normal;
 
 	dot = dot_prod(vec, surface_normal);

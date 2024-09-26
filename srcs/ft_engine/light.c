@@ -1,7 +1,7 @@
 #include <ft_engine.h>
 #include <main.h>
 
-t_fcolor	eng_mult_color_f(t_fcolor color1, float scale)
+t_fcolor	eng_mult_color_f(t_fcolor color1, double scale)
 {
 	t_fcolor	result;
 
@@ -71,8 +71,8 @@ t_fcolor	eng_lighting_impr(t_material material, t_light light, t_point point, t_
 	t_vec		lightv;
 	t_vec		reflectv;
 	t_tuple		light_direction;
-	float		light_dot_normal;
-	float		reflect_dot_eye;
+	double		light_dot_normal;
+	double		reflect_dot_eye;
 	double		factor;
 	t_fcolor	diffuse_c;
 	t_fcolor	specular_c;
@@ -118,8 +118,8 @@ t_fcolor	eng_lighting(t_material material, t_light light, t_point point, t_vec e
 	t_vec		lightv;
 	t_vec		reflectv;
 	t_tuple		light_direction;
-	float		light_dot_normal;
-	float		reflect_dot_eye;
+	double		light_dot_normal;
+	double		reflect_dot_eye;
 	double		factor;
 	t_fcolor	diffuse_c;
 	t_fcolor	specular_c;

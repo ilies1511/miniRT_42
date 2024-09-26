@@ -2,7 +2,7 @@
 
 // TODO: izi
 // also needs some kind of struct for arguement to pass norm
-t_matrix	mtx_skew(float xy, float xz, float yx, float yz, float zx, float zy)
+t_matrix	mtx_skew(double xy, double xz, double yx, double yz, double zx, double zy)
 {
 	t_matrix	ret;
 
