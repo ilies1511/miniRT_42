@@ -15,7 +15,7 @@ t_matrix	mtx_translate_izi(t_tuple tuple)
 	ret.m[0][3] += x;
 	Warum "+="
 */
-t_matrix	mtx_translate(float x, float y, float z)
+t_matrix	mtx_translate(double x, double y, double z)
 {
 	t_matrix	ret;
 

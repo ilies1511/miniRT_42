@@ -31,7 +31,7 @@ t_matrix	mtx_get_rdm_m(t_matrix_type type)
 	{
 		for (int col = 0; col < (int)(m.type); col++)
 		{
-			m.m[row][col] = ((float)rand()) / rand();
+			m.m[row][col] = ((double)rand()) / rand();
 		}
 	}
 	return (m);

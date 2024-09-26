@@ -2,7 +2,7 @@
 #include <ft_tuple.h>
 #include <libft.h>
 
-float	len_v(t_vec v)
+double	len_v(t_vec v)
 {
 #ifndef NDBUG//can be removed later
 	ft_assert(is_vec(v), __FILE__, __LINE__, "getting length of a none vector");
@@ -12,7 +12,7 @@ float	len_v(t_vec v)
 
 t_vec	norm(t_vec v)
 {
-	float	len;
+	double	len;
 
 	len = len_v(v);
 #ifndef NDBUG
@@ -21,7 +21,7 @@ t_vec	norm(t_vec v)
 	return (div_v(v, len));
 }
 
-float	dot_prod(t_vec a, t_vec b)
+double	dot_prod(t_vec a, t_vec b)
 {
 #ifndef NDBUG//can be removed later
 	ft_assert(is_vec(a) && is_vec(b), __FILE__, __LINE__,

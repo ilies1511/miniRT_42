@@ -15,7 +15,7 @@ bool	is_point(t_tuple t)
 	return (false);
 }
 
-t_point	new_point(float x, float y, float z)
+t_point	new_point(double x, double y, double z)
 {
 	t_point	new;
 
@@ -26,7 +26,7 @@ t_point	new_point(float x, float y, float z)
 	return (new);
 }
 
-t_vec	new_vec(float x, float y, float z)
+t_vec	new_vec(double x, double y, double z)
 {
 	t_point	new;
 

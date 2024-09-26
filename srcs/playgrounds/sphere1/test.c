@@ -33,10 +33,10 @@ void	sphere_test_v1(void *main_data)
 		for (size_t x = 0; x < m_data->engine.canvas.width; x++)
 		{
 			t_ray	ray = ray_base;
-			double	cur_x_angle = base_x_angle - fov_x / 2 + (float)x / m_data->engine.canvas.width * fov_x;
+			double	cur_x_angle = base_x_angle - fov_x / 2 + (double)x / m_data->engine.canvas.width * fov_x;
 			cur_x_angle = fmod(cur_x_angle, 2 * M_PI);
 			eng_set_transform((t_obj *)&ray, mtx_rotation_x(cur_x_angle));
-			double	cur_y_angle = base_y_angle - fov_y / 2 + (float)y / m_data->engine.canvas.height * fov_y;
+			double	cur_y_angle = base_y_angle - fov_y / 2 + (double)y / m_data->engine.canvas.height * fov_y;
 			cur_y_angle = fmod(cur_y_angle, 2 * M_PI);
 			eng_set_transform((t_obj *)&ray, mtx_rotation_y(cur_y_angle));
 			ray.direct = mtx_mult_mt(ray.base_obj.transform, ray.direct);
@@ -47,7 +47,7 @@ void	sphere_test_v1(void *main_data)
 				////uncomment to get shading
 				//t_point	intersc_p = add_t(ray.origin, mult_v(ray.direct, intersc->t));
 				//t_vec	rad_v = sub_t(sph.origin, intersc_p);
-				//float	dot = dot_prod(norm(rad_v), norm(ray.direct));
+				//double	dot = dot_prod(norm(rad_v), norm(ray.direct));
 				//if (dot < 0)
 				{
 					//color.full = WHITE;

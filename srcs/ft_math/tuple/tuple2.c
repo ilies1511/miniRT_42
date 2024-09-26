@@ -74,7 +74,7 @@ t_vec	negate_v(t_vec v)
 /*
 	Scenario: tuple * scalar
 */
-t_vec	mult_v(t_vec v, float scalar)
+t_vec	mult_v(t_vec v, double scalar)
 {
 #ifndef NDBUG//can be removed later
 	ft_assert(is_vec(v), __FILE__, __LINE__, "multiplying a none vector");
@@ -94,7 +94,7 @@ t_vec	mult_v(t_vec v, float scalar)
 /*
 	Dividing a tuple by a scalar
 */
-t_vec	div_v(t_vec v, float scalar)
+t_vec	div_v(t_vec v, double scalar)
 {
 #ifndef NDBUG
 	ft_assert(!eq_f(scalar, 0.0), __FILE__, __LINE__, "zero devision");

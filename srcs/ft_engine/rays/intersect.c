@@ -39,7 +39,7 @@ t_intersc_arr	eng_new_intersc_arr(void)
 /*
 //Wikipedia line sphere intersection step by step:
 point px: intersection point
-float t: scalar for ray->direct to reach the intersection point and
+double t: scalar for ray->direct to reach the intersection point and
 	the var we want
 
 // ray formular with px beeing a point on the ray
@@ -66,14 +66,14 @@ float t: scalar for ray->direct to reach the intersection point and
 //-sph.rad^2
 ->dot(ori_diff, ori_diff) + t * 2 * dot(ori_diff, ray->direct) + t^2 * dot(ray.direct, ray.direct) - sph.rad^2 = 0
 ->t^2 * dot(ray->direct, ray.direct) + 2 * t * dot(ori_diff, ray.direct) + dot(ori_diff, ori_diff) - sph.rad^2 = 0
-// float	dot_direct = dot(ray->dircet, ray.direct)
-// float	dot_diff_direct = dot(ori_diff, ray->direct);
-// float	dot_diff = dot(ori_diff, ori_diff);
+// double	dot_direct = dot(ray->dircet, ray.direct)
+// double	dot_diff_direct = dot(ori_diff, ray->direct);
+// double	dot_diff = dot(ori_diff, ori_diff);
 // a = dot_direct
 // b =  2 *dot_diff_direct
 // c = dot_diff - sph.rad^2
 // t = (-b +- sqrt(b^2 - 4 * a * c)) / 2a
-// float sqr_dot_diff_direct = dot_direct * dot_direct
+// double sqr_dot_diff_direct = dot_direct * dot_direct
 -> t = -2*dot_diff_direct +- sqrt(sqr_dot_diff_direct - 4 * dot_direct * (dot_diff - sph.rad^2)) / (2 * dot_direct)
 */
 // can be simplyfied by making assumtions like unit vectors, that the sphere
@@ -83,17 +83,17 @@ float t: scalar for ray->direct to reach the intersection point and
 static void	eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray ray, t_sphere *sph)
 {
 	t_vec	ori_diff = sub_t(ray.origin, sph->origin);
-	float	dot_direct = dot_prod(ray.direct, ray.direct);
-	float	dot_diff_direct = dot_prod(ori_diff, ray.direct);
-	float	dot_diff = dot_prod(ori_diff, ori_diff);
-	float	rad_sqr = sph->rad * sph->rad;
-	float	a = dot_direct;
-	float	b = 2 * dot_diff_direct;
-	float	c = dot_diff - rad_sqr;
-	float	discriminant = b * b - 4 * a * c;
+	double	dot_direct = dot_prod(ray.direct, ray.direct);
+	double	dot_diff_direct = dot_prod(ori_diff, ray.direct);
+	double	dot_diff = dot_prod(ori_diff, ori_diff);
+	double	rad_sqr = sph->rad * sph->rad;
+	double	a = dot_direct;
+	double	b = 2 * dot_diff_direct;
+	double	c = dot_diff - rad_sqr;
+	double	discriminant = b * b - 4 * a * c;
 	if (discriminant < 0)
 		return ;
-	float	sqrt_discriminant = sqrt(discriminant);
+	double	sqrt_discriminant = sqrt(discriminant);
 	double	t1 = (-b + sqrt_discriminant) / (2 * a);
 	double	t2 = (-b - sqrt_discriminant) / (2 * a);
 	eng_add_intersc(interscs, (t_obj *)sph, t1);

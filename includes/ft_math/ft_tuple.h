@@ -3,17 +3,17 @@
 
 # include <stdbool.h>
 
-//keep x,y,z as the first elements to allow casting t_tuple* to float*
+//keep x,y,z as the first elements to allow casting t_tuple* to double*
 typedef union u_tuple
 {
 	struct
 	{
-		float	x;
-		float	y;
-		float	z;
-		float	w;
+		double	x;
+		double	y;
+		double	z;
+		double	w;
 	};
-	float		arr[4];
+	double		arr[4];
 }__attribute__((packed))	t_tuple;
 
 typedef t_tuple	t_vec;
@@ -24,8 +24,8 @@ bool	is_vec(t_tuple tuple);
 // for points w == 1
 bool	is_point(t_tuple tuple);
 
-t_point	new_point(float x, float y, float z);
-t_vec	new_vec(float x, float y, float z);
+t_point	new_point(double x, double y, double z);
+t_vec	new_vec(double x, double y, double z);
 
 //equal tuple
 bool	eq_t(t_tuple a, t_tuple b);
@@ -38,16 +38,16 @@ t_tuple	sub_t(t_tuple a, t_tuple b);
 t_vec	negate_v(t_vec v);
 //negate_t test
 
-t_vec	mult_v(t_vec v, float scalar);
-t_vec	div_v(t_vec v, float scalar);
+t_vec	mult_v(t_vec v, double scalar);
+t_vec	div_v(t_vec v, double scalar);
 
 //len/magnitude
-float	len_v(t_vec v);
+double	len_v(t_vec v);
 
 //creates uint vector (len == 1)
 t_vec	norm(t_vec v);
 
-float	dot_prod(t_vec a, t_vec b);
+double	dot_prod(t_vec a, t_vec b);
 t_vec	cross_prod(t_vec a, t_vec b);
 
 //******tests**********

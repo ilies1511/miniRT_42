@@ -28,10 +28,10 @@ void		reset_canvas(t_canvas *canvas);
 typedef struct s_material
 {
 	t_fcolor	fcolor;
-	float		ambient;
-	float		diffuse;
-	float		specular;
-	float		shininess;
+	double		ambient;
+	double		diffuse;
+	double		specular;
+	double		shininess;
 }	t_material;
 
 t_material	eng_new_material(void);
@@ -99,7 +99,7 @@ typedef struct s_sphere
 {
 	t_obj		base_obj;
 	t_point		origin;
-	float		rad;
+	double		rad;
 }	t_sphere;
 
 typedef struct s_plane
@@ -169,6 +169,7 @@ bool			test_prepare_computation(void);
 
 //compute/shading.c
 t_fcolor	eng_shade_hit(t_world world, t_computation comp);
+bool		test_shade_hit(void);
 bool		test_shading_outside_intersection(void);
 t_fcolor	eng_color_at(t_world world, t_ray ray);
 bool		test_eng_color_at(void);
@@ -201,7 +202,7 @@ void			eng_free_intersc_arr(t_intersc_arr *interscs);
 
 //ft_engine/rays/ray_hit.c
 t_intersc		*eng_ray_hit(t_intersc_arr *interscs);
-t_point			eng_ray_pos(t_ray ray, float time);
+t_point			eng_ray_pos(t_ray ray, double time);
 
 // ft_engine/rays/utils.c
 bool		eng_eq_ray(t_ray r1, t_ray r2);

@@ -92,7 +92,7 @@
 // 				//*** extra: for shading
 // 				t_point hit = eng_ray_pos(camera_ray, intersc->t);
 // 				t_vec surface_normal = eng_normal_at((t_obj *) &transformed, hit);
-// 				float	dot = dot_prod(surface_normal, camera_ray.direct);
+// 				double	dot = dot_prod(surface_normal, camera_ray.direct);
 // 				color = scale_fcolor(color, fabs(dot));
 // 				///*** end extra
 // 				eng_put_pixel(&canvas, x, y, color);

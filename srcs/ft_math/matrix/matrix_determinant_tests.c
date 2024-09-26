@@ -77,8 +77,8 @@ bool	test_mtx_cofactor(void)
 	},
 	.type = MAT3X3
 	};
-	float actual = mtx_cofactor(m, 0, 0);
-	float expected = -12;
+	double actual = mtx_cofactor(m, 0, 0);
+	double expected = -12;
 	if (!eq_f(actual, expected))
 	{
 		ft_fprintf(2, "test failed: mtx_cofactor\ninput:");
@@ -92,8 +92,8 @@ bool	test_mtx_cofactor(void)
 bool	test_mtx_det(void)
 {
 	bool	ret = true;
-	float	actual;
-	float	expected;
+	double	actual;
+	double	expected;
 
 	t_matrix	test1 = {.m = {
 			{1, 2, 6},

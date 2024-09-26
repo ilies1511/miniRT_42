@@ -10,6 +10,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <math.h>
+#include <limits.h>
 
 // MLX and libft
 # include <MLX42.h>

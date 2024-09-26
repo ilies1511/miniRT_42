@@ -10,7 +10,7 @@ t_camera	eng_new_camera(size_t width, size_t height, double fov_x)
 	double		aspect_ratio;
 	double		half_view;
 
-	aspect_ratio = width / (float)height;
+	aspect_ratio = width / (double)height;
 
 	camera.base_obj = eng_new_obj();
 	camera.base_obj.transform = mtx_new_ident(MAT4X4);//not needed but to highliht written out
@@ -106,10 +106,10 @@ bool test_eng_new_camera(void)
 
 t_ray	eng_ray_for_pixel(t_camera camera, size_t x, size_t y)
 {
-	float	x_offset;
-	float	y_offset;
-	float	world_x;
-	float	world_y;
+	double	x_offset;
+	double	y_offset;
+	double	world_x;
+	double	world_y;
 
 	x_offset = (x + 0.5) * camera.pixel_size;
 	y_offset = (y + 0.5) * camera.pixel_size;

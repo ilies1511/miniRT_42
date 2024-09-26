@@ -3,7 +3,7 @@ CC := cc
 CFLAGS := -Wall -Wextra -DFSAN -fsanitize=address -g
 #CFLAGS := -Wall -Wextra -g
 # FLAGS_SPEED := -Wall -Wextra -O3 -march=native-flto -DNDBUG=1
-FLAGS_SPEED := -Wall -Wextra -O3 -march=native -DNDBUG=1
+FLAGS_SPEED := -Wall -Wextra -g -O3 -march=native -DNDBUG=1
 #-Werror
 #-O3
 # -Werror

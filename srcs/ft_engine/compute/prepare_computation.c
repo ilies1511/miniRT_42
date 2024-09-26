@@ -2,7 +2,7 @@
 #include <libft.h>
 #include <ft_floats.h>
 
-t_point	mult_p_scalar(t_point point, float scale)
+t_point	mult_p_scalar(t_point point, double scale)
 {
 	t_point	new;
 
@@ -19,7 +19,7 @@ t_computation	eng_prepare_computation(t_intersc intersc, t_ray ray)
 	comp.t = intersc.t;
 	comp.obj = intersc.obj;
 	comp.point = eng_ray_pos(ray, comp.t);
-	comp.over_point = eng_ray_pos(ray, comp.t);
+	// comp.over_point = eng_ray_pos(ray, comp.t);
 	comp.eye_v = negate_v(ray.direct);
 	comp.normal_v = eng_normal_at(comp.obj, comp.point);
 	if (dot_prod(comp.normal_v, comp.eye_v) < 0)
@@ -31,6 +31,7 @@ t_computation	eng_prepare_computation(t_intersc intersc, t_ray ray)
 		comp.inside = false;
 	// comp.over_point = mult_p_scalar(add_t(comp.point, comp.normal_v), EPSILON);
 	comp.over_point = add_t(comp.point, mult_v(comp.normal_v, EPSILON)); //TODO: not sure if correct
+	// comp.over_point.w = 1;
 	return (comp);
 }
 

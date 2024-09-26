@@ -202,6 +202,9 @@ void	test_shadows(int *total_tests, int *passed_tests)
 	if (test_light_with_surface_shadow())
 		*passed_tests += 1;
 	*total_tests += 1;
+	if (test_shade_hit())
+		*passed_tests += 1;
+	*total_tests += 1;
 }
 
 int	main(void)

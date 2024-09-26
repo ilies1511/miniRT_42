@@ -67,10 +67,10 @@ typedef union u_uintcolor
 //(x->r, y->g, z->b, w->a)
 typedef struct s_fcolor
 {
-	float	r;
-	float	g;
-	float	b;
-	float	a;	//not used in the book as far as I saw
+	double	r;
+	double	g;
+	double	b;
+	double	a;	//not used in the book as far as I saw
 				//to enable casting to t_vec should be left as 0.0
 				//when converting to t_uintcolor should be treated as 1.0
 }	t_fcolor;
@@ -78,11 +78,11 @@ typedef struct s_fcolor
 /*TODO:
  * color types and function names need consitant names
 */
-t_fcolor		new_fcolor(float r, float g, float b, float a);
+t_fcolor		new_fcolor(double r, double g, double b, double a);
 t_uintcolor		fcolor_to_uintcolor(t_fcolor fcolor);
 t_fcolor		add_fcolor(t_fcolor a, t_fcolor b);
 t_fcolor		sub_fcolor(t_fcolor a, t_fcolor b);
-t_fcolor		scale_fcolor(t_fcolor c, float scalar);
+t_fcolor		scale_fcolor(t_fcolor c, double scalar);
 /*
 	Hadamard product (or Schur product)
 	Multiplacation of two colors;

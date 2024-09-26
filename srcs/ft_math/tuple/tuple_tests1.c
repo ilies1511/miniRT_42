@@ -72,8 +72,8 @@ bool	is_point_test(void)
 	return (true);
 }
 
-t_point	new_point(float x, float y, float z);
-t_vec	new_vec(float x, float y, float z);
+t_point	new_point(double x, double y, double z);
+t_vec	new_vec(double x, double y, double z);
 bool	eq_t(t_tuple a, t_tuple b);
 
 

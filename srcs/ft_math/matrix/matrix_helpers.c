@@ -11,7 +11,7 @@ void	mtx_print_matrix(void *matrix, t_matrix_type type)
 	int		dim;
 	int		i;
 	int		j;
-	float	*mat;
+	double	*mat;
 
 
 	dim = mtx_get_matrix_dimension(type);
@@ -20,7 +20,7 @@ void	mtx_print_matrix(void *matrix, t_matrix_type type)
 		printf("Invalid matrix or type.\n");
 		return ;
 	}
-	mat = (float *)matrix;
+	mat = (double *)matrix;
 	i = 0;
 	while (i < dim)
 	{

@@ -57,7 +57,7 @@
 //				pixels[y * WIDTH + x].argb.r--;
 //				pixels[y * WIDTH + x].argb.g++;
 //			}
-//			//float factor = m_data->mlx->delta_time / 20;
+//			//double factor = m_data->mlx->delta_time / 20;
 //			x++;
 //		}
 //		y++;
