@@ -44,11 +44,11 @@ static void add_objs(t_world *world)
 	top = eng_new_plane();
 	top.base_obj.material.fcolor = new_fcolor(1, 0, 0, 1);
 	//***why is this buggy***
-	//eng_set_transform((t_obj *)&top, mtx_rotation_x(M_PI_2));
-	//eng_set_transform((t_obj *)&top, mtx_translate(0, 0, 4));
-	//***but this not ***
-	eng_set_transform((t_obj *)&top, mtx_translate(0, 0, 4));
 	eng_set_transform((t_obj *)&top, mtx_rotation_x(M_PI_2));
+	eng_set_transform((t_obj *)&top, mtx_translate(0, 0, 4));
+	//***but this not ***
+	//eng_set_transform((t_obj *)&top, mtx_translate(0, 0, 4));
+	//eng_set_transform((t_obj *)&top, mtx_rotation_x(M_PI_2));
 	//*******************
 	eng_add_obj_to_world(world, (t_obj *)&top);
 

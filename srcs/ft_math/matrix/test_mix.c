@@ -34,8 +34,8 @@ bool	test_matrix_mult_inverse(void)
 	if (!mtx_eq(res, ma))
 	{
 		ret = false;
-		ft_printf("test failed: mtx_mult_mm()->mtx_inverse()->mtx_mult_mm():\
-				%s line %s\n", __FILE__, __LINE__);
+		printf("test failed: mtx_mult_mm()->mtx_inverse()->mtx_mult_mm():\
+				%s line %d\n", __FILE__, __LINE__);
 	}
 	for (int i = 0; i < 100; i++)
 	{
