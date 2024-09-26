@@ -67,7 +67,7 @@ static void add_objs(t_world *world)
 	// eng_add_obj_to_world(world, (t_obj *)&light2);
 }
 
-void	sphere_test(void *main_data)
+void	sphere_test_v6(void *main_data)
 {
 	t_main			*m_data = (t_main *)main_data;
 	t_canvas		canvas = m_data->engine.canvas;

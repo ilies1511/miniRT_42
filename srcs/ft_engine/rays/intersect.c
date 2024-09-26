@@ -106,7 +106,7 @@ static void	eng_intersc_ray_plane(t_intersc_arr *interscs, t_ray ray,
 {
 	double	t;
 
-	if (fabs(ray.direct.y) < EPSILON)
+	if (fabsl(ray.direct.y) < EPSILON)
 		return ;
 	t = -ray.origin.y / ray.direct.y;
 	eng_add_intersc(interscs, (t_obj *)plane, t);
