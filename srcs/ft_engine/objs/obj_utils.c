@@ -11,12 +11,12 @@ t_obj *eng_alloc_shape(t_obj_type type)
 	t_obj	*shape;
 	char	error_type_buffer[ERROR_BUF_LEN];
 
-	if (type == SHAPE_SPHERE)
+	if (type == OBJ_SPHERE)
 	{
 		shape = ft_malloc(sizeof(t_sphere));
 		*(t_sphere *)shape = eng_new_sphere();
 	}
-	else if (type == SHAPE_PLANE)
+	else if (type == OBJ_PLANE)
 	{
 		shape = ft_malloc(sizeof(t_plane));
 		*(t_plane *)shape = eng_new_plane();

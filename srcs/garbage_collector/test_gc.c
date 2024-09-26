@@ -3,7 +3,6 @@
 
 int	test_gc_init(void)
 {
-	t_garbage_collector	*gc;
 	char				*chars_test;
 	int					len;
 	int					i;
@@ -15,7 +14,6 @@ int	test_gc_init(void)
 	//gc = gc_init_garbage_collector();
 	*/
 
-	gc = get_gc();
 	digits_test = malloc(sizeof(int) * 10);
 	if (!digits_test)
 		ft_assert(0, __FILE__, __LINE__, "malloc fail in test");

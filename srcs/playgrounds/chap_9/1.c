@@ -64,6 +64,7 @@ static void add_objs(t_world *world)
 
 	//light2 = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(-2, 10, 0));
 	//eng_add_obj_to_world(world, (t_obj *)&light2);
+	(void)light2;
 }
 
 void	sphere_test(void *main_data)
