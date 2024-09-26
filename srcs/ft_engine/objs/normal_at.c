@@ -5,7 +5,7 @@
 /*
 	use case: unit circle sphere (sphere that was not tranformed yet)
 */
-t_vec	compute_normal_sphere(t_sphere *sphere, t_point object_point)
+t_vec	compute_normal_sphere(t_point object_point)
 {
 	t_point		object_normal;
 
@@ -13,9 +13,8 @@ t_vec	compute_normal_sphere(t_sphere *sphere, t_point object_point)
 	return (object_normal);
 }
 
-t_vec	compute_normal_plane(t_plane *plane, t_point object_point)
+t_vec	compute_normal_plane(t_point object_point)
 {
-	(void) plane;
 	(void) object_point;
 	return (new_vec(0, 1, 0));
 }
@@ -23,9 +22,9 @@ t_vec	compute_normal_plane(t_plane *plane, t_point object_point)
 static t_vec	normal_at_iterate_types(t_obj *object, t_point point_obj_space)
 {
 	if (object->type == OBJ_SPHERE)
-		return(compute_normal_sphere((t_sphere *)object, point_obj_space));
+		return(compute_normal_sphere(point_obj_space));
 	else if (object->type == OBJ_PLANE)
-		return(compute_normal_plane((t_plane *)object, point_obj_space));
+		return(compute_normal_plane(point_obj_space));
 	else
 	{
 		ft_assert(0, __FILE__, __LINE__, "eng_normal_at: Wrong Input");

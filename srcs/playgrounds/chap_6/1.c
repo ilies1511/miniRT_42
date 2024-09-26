@@ -62,7 +62,7 @@ static void add_objs(t_world *world)
 	eng_add_obj_to_world(world, (t_obj *)&light);
 
 	light2 = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(-10, 10, -10));
-	// eng_add_obj_to_world(world, (t_obj *)&light2);
+	eng_add_obj_to_world(world, (t_obj *)&light2);
 }
 
 void	sphere_test_chap6(void *main_data)
