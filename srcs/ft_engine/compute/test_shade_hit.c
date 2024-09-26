@@ -28,7 +28,7 @@ bool	test_shade_hit(void)
 	intersecs = eng_new_intersc_arr();
 	intersec = eng_add_intersc(&intersecs, &s2, 4);
 	ray = eng_new_ray(new_point(0, 0, 5), new_vec(0, 0, 1));
-	eng_intersc_ray(&intersecs, (t_obj *)&ray, (t_obj *)&s2);
+	eng_intersc_ray(&intersecs, ray, (t_obj *)&s2);
 	comp = eng_prepare_computation(intersec, ray);
 	ist_color = eng_shade_hit(w, comp);
 	if (eq_fcolor(ist_color, soll_color))
@@ -39,5 +39,5 @@ bool	test_shade_hit(void)
 		print_fcolor("\nIST:\n", ist_color);
 		status = false;
 	}
-	return (cleanup_world(&w), eng_free_intersc_arr(&intersecs), status);
+	return (eng_cleanup_world(&w), eng_free_intersc_arr(&intersecs), status);
 }

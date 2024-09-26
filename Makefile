@@ -63,7 +63,8 @@ SRC_FILES_ENGINE := \
 	ft_engine/shadow/shadow.c \
 	ft_engine/shadow/test_shadow.c \
 	ft_engine/objs/obj_utils.c \
-	ft_engine/objs/test_shape.c
+	ft_engine/objs/test_shape.c \
+	ft_engine/compute/test_shade_hit.c
 
 SRC_FILES_MATH := \
 	ft_math/colors/colors.c \
