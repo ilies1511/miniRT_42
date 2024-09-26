@@ -3,7 +3,7 @@ CC := cc
 CFLAGS := -Wall -Wextra -DFSAN -fsanitize=address -g
 #CFLAGS := -Wall -Wextra -g
 # FLAGS_SPEED := -Wall -Wextra -O3 -march=native-flto -DNDBUG=1
-FLAGS_SPEED := -Wall -Wextra -O3 -march=native -DNDBUG=1
+FLAGS_SPEED := -Wall -Wextra -g -O3 -march=native -DNDBUG=1
 #-Werror
 #-O3
 # -Werror
@@ -61,7 +61,8 @@ SRC_FILES_ENGINE := \
 	ft_engine/scene/test_scene.c \
 	ft_engine/scene/camera.c \
 	ft_engine/shadow/shadow.c \
-	ft_engine/shadow/test_shadow.c
+	ft_engine/shadow/test_shadow.c \
+	ft_engine/compute/test_shade_hit.c
 
 SRC_FILES_MATH := \
 	ft_math/colors/colors.c \
