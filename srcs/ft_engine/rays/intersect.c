@@ -12,7 +12,7 @@ void	eng_sort_intersc(t_intersc_arr *interscs)
 	ft_sort(interscs->arr, sizeof(t_intersc), interscs->count, swap_intersc);
 }
 
-t_intersc	eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, float t)
+t_intersc	eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, double t)
 {
 	t_intersc		intersc;
 
@@ -94,8 +94,8 @@ static void	eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray ray, t_sphere 
 	if (discriminant < 0)
 		return ;
 	float	sqrt_discriminant = sqrt(discriminant);
-	float	t1 = (-b + sqrt_discriminant) / (2 * a);
-	float	t2 = (-b - sqrt_discriminant) / (2 * a);
+	double	t1 = (-b + sqrt_discriminant) / (2 * a);
+	double	t2 = (-b - sqrt_discriminant) / (2 * a);
 	eng_add_intersc(interscs, (t_obj *)sph, t1);
 	eng_add_intersc(interscs, (t_obj *)sph, t2);
 }
@@ -104,7 +104,7 @@ static void	eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray ray, t_sphere 
 static void	eng_intersc_ray_plane(t_intersc_arr *interscs, t_ray ray,
 	t_plane *plane)
 {
-	float	t;
+	double	t;
 
 	if (fabs(ray.direct.y) < EPSILON)
 		return ;

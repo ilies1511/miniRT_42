@@ -111,7 +111,7 @@ t_plane	eng_new_plane(void);
 
 typedef struct s_intersc
 {
-	float		t;
+	double		t;
 	t_obj		*obj;
 }	t_intersc;
 
@@ -152,7 +152,7 @@ typedef struct s_engine
 
 typedef struct s_computation
 {
-	float	t;
+	double	t;
 	t_obj	*obj;
 	t_point	point;
 	t_point	over_point;
@@ -192,7 +192,7 @@ t_sphere	eng_new_sphere(void);
 // ft_engine/rays/intersect.c
 void			eng_intersc_ray(t_intersc_arr *interscs, t_ray ray, t_obj	*obj);
 void			eng_sort_intersc(t_intersc_arr *interscs);
-t_intersc		eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, float t);
+t_intersc		eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, double t);
 t_intersc_arr	eng_new_intersc_arr(void);
 void			eng_ray_intersc_world(t_ray ray, t_world world, t_intersc_arr *interscs);
 

@@ -8,6 +8,7 @@ t_tuple	mtx_mult_mt(t_matrix m, t_tuple tup)
 	t_tuple	res;
 	float	tmp[4];
 
+	ft_bzero(&res, sizeof(res));
 	ft_assert(m.type == MAT4X4, __FILE__, __LINE__,
 		"mult_mt: given matrix is not 4x4");
 	for (int i = 0; i < 4; i++)
@@ -21,7 +22,7 @@ t_tuple	mtx_mult_mt(t_matrix m, t_tuple tup)
 	return (res);
 }
 
-// assumes a 4x4 matrix
+//// assumes a 4x4 matrix
 //t_matrix	mtx_mult_mm(t_matrix ma, t_matrix mb)
 //{
 //	t_matrix	ret;

@@ -51,9 +51,9 @@ double	mtx_cofactor(t_matrix m, int row, int col)
 {
 	int		sign;
 
-	sign = 1;
+	sign = 1.0;
 	if ((row + col) % 2)
-		sign = -1;
+		sign = -1.0;
 	return (sign * mtx_minor(m, row, col));
 }
 
@@ -62,8 +62,9 @@ double	mtx_det(t_matrix m)
 {
 	double	result;
 	int			i;
+	double	tmp[4];
 
-	result = 0;
+	result = 0.0;
 	i = -1;
 	if (m.type == MAT2X2)
 		return ((double)m.m[0][0] * (double)m.m[1][1] - (double)m.m[0][1]
@@ -73,7 +74,8 @@ double	mtx_det(t_matrix m)
 		ft_assert(m.type == MAT4X4 || m.type == MAT3X3, __FILE__, __LINE__,
 			"error: mtx_det: invalid matrix type");
 		while (++i < (int)m.type)
-			result += m.m[0][i] * mtx_cofactor(m, 0, i);
+			tmp[i] = m.m[0][i] * mtx_cofactor(m, 0, i);
+		result = kahan_sum_d(tmp, (size_t)m.type);
 		return (result);
 	}
 }
