@@ -75,7 +75,7 @@ double	mtx_det(t_matrix m)
 			"error: mtx_det: invalid matrix type");
 		while (++i < (int)m.type)
 			tmp[i] = m.m[0][i] * mtx_cofactor(m, 0, i);
-		result = kahan_sum_d(tmp, (size_t)m.type);
+		result = kahan_sum(tmp, (size_t)m.type);
 		return (result);
 	}
 }

@@ -6,7 +6,7 @@
 t_tuple	mtx_mult_mt(t_matrix m, t_tuple tup)
 {
 	t_tuple	res;
-	float	tmp[4];
+	double	tmp[4];
 
 	ft_bzero(&res, sizeof(res));
 	ft_assert(m.type == MAT4X4, __FILE__, __LINE__,
@@ -63,7 +63,7 @@ t_matrix	mtx_mult_mm(t_matrix ma, t_matrix mb)
 	int			i;
 	int			j;
 	int			k;
-	float		tmp[4];
+	double		tmp[4];
 
 	ft_assert(ma.type == MAT4X4 && mb.type == MAT4X4, __FILE__, __LINE__,
 			"Error: matrix multiplication_mm of wrong matrix type");

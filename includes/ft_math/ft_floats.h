@@ -19,7 +19,6 @@ bool	greater_eq_f(float a, float b);
 float	clamp_f(float nb, float min, float max);
 
 // returns the sum of the nbs arre with increased precision
-float	kahan_sum(float *nbs, size_t count);
-double	kahan_sum_d(double *nbs, size_t count);
+double	kahan_sum(double *nbs, size_t count);
 
 #endif //FT_FLOATS_H
