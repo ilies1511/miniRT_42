@@ -14,7 +14,7 @@ t_fcolor	eng_shade_hit(t_world world, t_computation comp)
 		in_shadow = false;
 		if (eng_is_shadowed(world, comp.over_point))
 			in_shadow = true;
-		color = add_fcolor(color, eng_lighting_impr(comp.obj->material,
+		color = add_fcolor(color, eng_lighting(*comp.obj, comp.obj->material,
 			world.lights[i], comp.over_point, comp.eye_v, comp.normal_v, in_shadow));
 		i++;
 	}

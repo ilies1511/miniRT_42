@@ -79,7 +79,7 @@ bool	test_stripe_lighting(void)
 	eye_v = new_vec(0, 0, -1);
 	normal = new_vec(0, 0, -1);
 	expect = fcolor_white();
-	actual = eng_lighting_impr(material, light, new_point(0.9, 0, 0), eye_v, normal, false);
+	actual = eng_lighting(eng_new_obj(), material, light, new_point(0.9, 0, 0), eye_v, normal, false);
 	if (!eq_fcolor(actual, expect))
 	{
 		ret = false;
@@ -89,7 +89,7 @@ bool	test_stripe_lighting(void)
 		print_fcolor("actual: ", actual);
 	}
 	expect = fcolor_black();
-	actual = eng_lighting_impr(material, light, new_point(1.1, 0, 0), eye_v, normal, false);
+	actual = eng_lighting(eng_new_obj(), material, light, new_point(1.1, 0, 0), eye_v, normal, false);
 	if (!eq_fcolor(actual, expect))
 	{
 		ret = false;
