@@ -1,11 +1,13 @@
 #include <ft_engine.h>
 #include <libft.h>
+#include <ft_reflection.h>
 
 t_fcolor	eng_shade_hit(t_world world, t_computation comp)
 {
 	size_t		i;
 	t_fcolor	color;
 	bool		in_shadow;
+	t_fcolor	reflected;
 
 	color = new_fcolor(0, 0, 0, 0);
 	i = 0;
@@ -16,6 +18,8 @@ t_fcolor	eng_shade_hit(t_world world, t_computation comp)
 			in_shadow = true;
 		color = add_fcolor(color, eng_lighting(*comp.obj, comp.obj->material,
 			world.lights[i], comp.over_point, comp.eye_v, comp.normal_v, in_shadow));
+		reflected = ref_reflected_color(world, comp);
+		color = add_fcolor(color, reflected);
 		i++;
 	}
 	return (color);

@@ -1,5 +1,6 @@
 #include <ft_engine.h>
 #include <main.h>
+#include <ft_reflection.h>
 
 t_vec	ref_reflect(t_vec vec, t_vec surface_normal)
 {
@@ -13,13 +14,12 @@ t_vec	ref_reflect(t_vec vec, t_vec surface_normal)
 
 t_fcolor	ref_reflected_color(t_world world, t_computation comp)
 {
+	t_ray		reflected_ray;
+	t_fcolor	color;
 
-}
-
-bool	test_ref_reflect_color(void)
-{
-	bool	ret = true;
-	t_world	world = eng_default_world();
-
-	return (ret);
+	if (eq_f(comp.obj->material.reflective, 0))
+		return (fcolor_black());
+	reflected_ray = eng_new_ray(comp.over_point, comp.reflection);
+	color = eng_color_at(world, reflected_ray);
+	return (scale_fcolor(color, comp.obj->material.reflective));
 }

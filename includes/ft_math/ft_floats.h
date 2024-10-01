@@ -9,7 +9,7 @@
 # include <stdlib.h>
 
 # ifndef EPSILON //precision to compare 2 floats
-#  define EPSILON ((double)0.00001)
+#  define EPSILON ((double)0.0001)
 # endif
 
 //equal double

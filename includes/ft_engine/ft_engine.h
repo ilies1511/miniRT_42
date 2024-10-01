@@ -261,10 +261,6 @@ t_world		eng_default_world(void);
 void	eng_print_light(char *str, t_light light);
 void	eng_print_world(t_world world);
 
-//ft_engine/reflect.c
-t_vec		ref_reflect(t_vec vec, t_vec surface_normal);
-bool		test_eng_reflect(void);
-
 // Lighting
 t_fcolor	eng_lighting(t_obj obj, t_material material, t_light light, t_point point, t_vec eyev, t_vec normalv, bool in_shadow);
 bool		test_light_with_surface_shadow();
