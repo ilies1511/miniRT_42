@@ -12,6 +12,17 @@ static void add_objs(t_world *world)
 	t_sphere	sph_right;
 	t_sphere	sph_left;
 
+	t_cylinder	cyl;
+
+	cyl = eng_new_cylinder();
+	cyl.min = 0.5;
+	cyl.max = 2;
+	cyl.closed = true;
+	cyl.base_obj.material.reflective = 0;
+	cyl.base_obj.material.pattern = pat_square3d_pattern(new_fcolor(0.5, 0.5, 0, 1), new_fcolor(0, 1, 1, 1));
+	eng_set_transform((t_obj *)&cyl, mtx_translate(2, 0, -2));
+	eng_add_obj_to_world(world, (t_obj *)&cyl);
+
 	sph_right = eng_new_sphere();
 	eng_set_transform((t_obj *)&sph_right, mtx_translate(1.5, 0.5, -0.5));
 	eng_set_transform((t_obj *)&sph_right, mtx_scale(0.5, 0.5, 0.5));
@@ -54,7 +65,7 @@ static void add_objs(t_world *world)
 
 	top = eng_new_plane();
 	top.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
-	top.base_obj.material.reflective = 0.8;
+	top.base_obj.material.reflective = 0.9;
 	top.base_obj.material.pattern = pat_checker2d_pattern(new_fcolor(1, 0, 0, 1), new_fcolor(0,0,1, 1));
 	//***why is this buggy***
 	eng_set_transform((t_obj *)&top, mtx_rotation_x(M_PI_2));

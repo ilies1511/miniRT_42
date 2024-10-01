@@ -28,6 +28,8 @@ void	eng_add_obj_to_world(t_world *world, t_obj *obj)
 		add_shape_to_world(world, (t_obj *)obj, sizeof(t_sphere));
 	else if (obj->type == OBJ_PLANE)
 		add_shape_to_world(world, (t_obj *)obj, sizeof(t_plane));
+	else if (obj->type == OBJ_CYLINDER)
+		add_shape_to_world(world, (t_obj *)obj, sizeof(t_cylinder));
 	else
 	{
 		printf("type: %u\n", obj->type);
