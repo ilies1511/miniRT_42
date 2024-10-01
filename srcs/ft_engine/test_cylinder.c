@@ -2,7 +2,60 @@
 #include <ft_engine.h>
 #include <libft.h>
 
-bool	test_cylinder_hits()
+bool	test_normal_at_cylinder(void)
+{
+	bool			result;
+	t_cylinder		cylinder;
+	t_vec			vec;
+	t_vec			vec2;
+	t_vec			vec3;
+	t_vec			vec4;
+
+	result = true;
+	vec = compute_normal_cylinder(new_point(1, 0, 0));
+	if (!eq_t(vec, new_vec(1, 0, 0)))
+	{
+		printf("MINE:\n");
+		print_t(2, vec);
+		printf("OG:\n");
+		print_t(2, new_vec(1, 0, 0));
+		printf("%s Line %d\n", __FILE__, __LINE__);
+		result = false;
+	}
+	vec2 = compute_normal_cylinder(new_point(0, 5, -1));
+	if (!eq_t(vec2, new_vec(0, 0, -1)))
+	{
+		printf("MINE:\n");
+		print_t(2, vec2);
+		printf("OG:\n");
+		print_t(2, new_vec(0, 0, -1));
+		printf("%s Line %d\n", __FILE__, __LINE__);
+		result = false;
+	}
+	vec3 = compute_normal_cylinder(new_point(0, -2, 1));
+	if (!eq_t(vec3, new_vec(0, 0, 1)))
+	{
+		printf("%s Line %d\n", __FILE__, __LINE__);
+		printf("TEST 3 - MINE:\n");
+		print_t(2, vec3);
+		printf("OG:\n");
+		print_t(2, new_vec(0, 0, 1));
+		result = false;
+	}
+	vec4 = compute_normal_cylinder(new_point(-1, 1, 0));
+	if (!eq_t(vec4, new_vec(-1, 0, 0)))
+	{
+		printf("TEST 4 - MINE:\n");
+		print_t(2, vec4);
+		printf("OG:\n");
+		print_t(2, new_vec(-1, 0, 0));
+		printf("%s Line %d\n", __FILE__, __LINE__);
+		result = false;
+	}
+	return (result);
+}
+
+bool	test_cylinder_hits(void)
 {
 	bool			result;
 	t_cylinder		cylinder;
@@ -32,20 +85,29 @@ bool	test_cylinder_hits()
 	if ((intersecs.count != 2) || (intersecs2.count != 2) || (intersecs3.count != 2))
 		return (false);
 	if ((intersecs.arr[0].t != 5) || (intersecs.arr[1].t != 5))
+	{
+		printf("%s Line %d\n", __FILE__, __LINE__);
 		return (printf("TEST 1:\nMY t1 : %lf vs. OG: %lf\nMY t2: %lf vs. OG: %lf\n", intersecs.arr[0].t, 5, \
 		intersecs.arr[1].t), 5, false);
+	}
 	if ((intersecs2.arr[0].t != 4) || (intersecs2.arr[1].t != 6))
+	{
+		printf("%s Line %d\n", __FILE__, __LINE__);
 		return (printf("TEST 2:\nMY t1: %lf vs. OG: %lf\nMY t2: %lf vs. OG: %lf\n", \
 			intersecs2.arr[0].t, 4, intersecs2.arr[1].t, 6), false);
+	}
 	if ((!eq_f(intersecs3.arr[0].t, 6.80769)) || (!eq_f(intersecs3.arr[1].t, 7.08872)))
+	{
+		printf("%s Line %d\n", __FILE__, __LINE__);
 		return (printf("TEST 3:\nMY t1 : %lf vs. OG: %lf\nMY t2: %lf vs. OG: %lf\n", \
 			intersecs3.arr[0].t, 6.80769, intersecs3.arr[1].t, 7.08872), false);
+	}
 	printf("RAY1 Intersecs Count: %d\nRAY2 Intersecs Count: %d\nRAY3 Intersecs Count: %d\n", \
 			intersecs.count, intersecs2.count, intersecs3.count);
 	return (result);
 }
 
-bool	test_cylinder_no_hits()
+bool	test_cylinder_no_hits(void)
 {
 	bool			result;
 	t_cylinder		cylinder;

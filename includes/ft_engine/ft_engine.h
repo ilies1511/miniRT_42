@@ -115,6 +115,8 @@ typedef struct s_cylinder
 	// TODO: add stuff (siehe sphere bsp)
 	t_point		origin;
 	double		rad;
+	double		min;
+	double		max;
 }				t_cylinder;
 t_cylinder	eng_new_cylinder(void);
 
@@ -207,8 +209,10 @@ t_intersc		eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, double t);
 t_intersc_arr	eng_new_intersc_arr(void);
 void			eng_ray_intersc_world(t_ray ray, t_world world, t_intersc_arr *interscs);
 void			eng_intersc_ray_cylinder(t_intersc_arr *intersecs, t_ray ray, t_cylinder *cylinder);
+t_vec			compute_normal_cylinder(t_point object_point);
 bool			test_cylinder_no_hits();
 bool			test_cylinder_hits();
+bool			test_normal_at_cylinder(void);
 
 //cleanup
 void			eng_free_intersc_arr(t_intersc_arr *interscs);

@@ -19,6 +19,11 @@ t_vec	compute_normal_plane(t_point object_point)
 	return (new_vec(0, 1, 0));
 }
 
+t_vec	compute_normal_cylinder(t_point object_point)
+{
+	return (new_vec(object_point.x, 0, object_point.z));
+}
+
 static t_vec	normal_at_iterate_types(t_obj *object, t_point point_obj_space)
 {
 	if (object->type == OBJ_SPHERE)
@@ -26,8 +31,8 @@ static t_vec	normal_at_iterate_types(t_obj *object, t_point point_obj_space)
 	else if (object->type == OBJ_PLANE)
 		return(compute_normal_plane(point_obj_space));
 	//TODO:
-	//else if (object->type == OBJ_CYLINDER)
-	//	return(compute_normal_cylinder(point_obj_space));
+	else if (object->type == OBJ_CYLINDER)
+		return(compute_normal_cylinder(point_obj_space));
 	else
 	{
 		ft_assert(0, __FILE__, __LINE__, "eng_normal_at: Wrong Input");
