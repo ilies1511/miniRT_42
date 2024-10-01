@@ -56,6 +56,8 @@ t_cylinder	eng_new_cylinder(void)
 	cylinder.base_obj = eng_new_obj();
 	cylinder.base_obj.type = OBJ_CYLINDER;
 	cylinder.rad = 1;
+	cylinder.max = INFINITY;
+	cylinder.min = -INFINITY;
 	cylinder.origin = new_point(0, 0, 0);
 	return (cylinder);
 }

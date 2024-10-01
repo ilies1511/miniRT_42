@@ -213,6 +213,7 @@ t_vec			compute_normal_cylinder(t_point object_point);
 bool			test_cylinder_no_hits();
 bool			test_cylinder_hits();
 bool			test_normal_at_cylinder(void);
+bool			test_truncated_cylinder();
 
 //cleanup
 void			eng_free_intersc_arr(t_intersc_arr *interscs);

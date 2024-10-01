@@ -117,7 +117,10 @@ void	eng_intersc_ray_cylinder(t_intersc_arr *intersecs, t_ray ray, t_cylinder *c
 	double	a;
 	double	b;
 	double	c;
+	double	temp;
 	double	disc;
+	double	y0;
+	double	y1;
 
 	a = (ray.direct.x * ray.direct.x) + (ray.direct.z * ray.direct.z);
 	if (eq_f(a, EPSILON))
@@ -131,8 +134,18 @@ void	eng_intersc_ray_cylinder(t_intersc_arr *intersecs, t_ray ray, t_cylinder *c
 	double	two_a = (2 * a);
 	double	t0 = (-b - sqrt_discriminant) / two_a;
 	double	t1 = (-b + sqrt_discriminant) / two_a;
-	eng_add_intersc(intersecs, (t_obj *)cylinder, t0);
-	eng_add_intersc(intersecs, (t_obj *)cylinder, t1);
+	if (t0 > t1)
+	{
+		temp = t0;
+		t0 = t1;
+		t1 = temp;
+	}
+	y0 = ray.origin.y + t0 * ray.direct.y;
+	if (cylinder->min < y0 && y0 < cylinder->max)
+		eng_add_intersc(intersecs, (t_obj *)cylinder, t0);
+	y1 = ray.origin.y + t1 * ray.direct.y;
+	if (cylinder->min < y1 && y1 < cylinder->max)
+		eng_add_intersc(intersecs, (t_obj *)cylinder, t1);
 	// eng_add_intersc(intersecs, cylinder, 1);
 }
 
