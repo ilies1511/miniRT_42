@@ -39,5 +39,5 @@ bool	test_shade_hit(void)
 		print_fcolor("\nIST:\n", ist_color);
 		status = false;
 	}
-	return (eng_cleanup_world(&w), eng_free_intersc_arr(&intersecs), status);
+	return (eng_free_intersc_arr(&intersecs), status);
 }

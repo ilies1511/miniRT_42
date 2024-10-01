@@ -1,11 +1,13 @@
 #include <ft_engine.h>
 #include <libft.h>
+#include <ft_reflection.h>
 
 t_fcolor	eng_shade_hit(t_world world, t_computation comp)
 {
 	size_t		i;
 	t_fcolor	color;
 	bool		in_shadow;
+	t_fcolor	reflected;
 
 	color = new_fcolor(0, 0, 0, 0);
 	i = 0;
@@ -16,6 +18,8 @@ t_fcolor	eng_shade_hit(t_world world, t_computation comp)
 			in_shadow = true;
 		color = add_fcolor(color, eng_lighting(*comp.obj, comp.obj->material,
 			world.lights[i], comp.over_point, comp.eye_v, comp.normal_v, in_shadow));
+		reflected = ref_reflected_color(world, comp);
+		color = add_fcolor(color, reflected);
 		i++;
 	}
 	return (color);
@@ -60,7 +64,6 @@ bool	test_shading_outside_intersection(void)
 		print_fcolor("actual:\n", c);
 		ret = false;
 	}
-	eng_cleanup_world(&w);
 
 	w = eng_default_world();
 	w.lights[0].intensity = new_fcolor(1, 1, 1, 1);
@@ -80,7 +83,6 @@ bool	test_shading_outside_intersection(void)
 		print_fcolor("actual:\n", c);
 		ret = false;
 	}
-	eng_cleanup_world(&w);
 	return (ret);
 }
 
@@ -96,7 +98,6 @@ bool	test_eng_color_at(void)
 		ft_fprintf(2, "test failed: eng_color_at: %s line %d\n", __FILE__, __LINE__);
 		ret = false;
 	}
-	eng_cleanup_world(&w);
 
 	w = eng_default_world();
 	r = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
@@ -107,7 +108,6 @@ bool	test_eng_color_at(void)
 		ft_fprintf(2, "test failed: eng_color_at: %s line %d\n", __FILE__, __LINE__);
 		ret = false;
 	}
-	eng_cleanup_world(&w);
 
     w = eng_default_world();
     t_obj	*outer = w.objs[0];
@@ -121,7 +121,6 @@ bool	test_eng_color_at(void)
 		ft_fprintf(2, "test failed: eng_color_at: %s line %d\n", __FILE__, __LINE__);
 		ret = false;
 	}
-	eng_cleanup_world(&w);
 
 	return (ret);
 }
@@ -186,6 +185,5 @@ bool	test_eng_render(void)
 	mlx_delete_image(mlx, img);
 	mlx_close_window(mlx);
 	mlx_terminate(mlx);
-	eng_cleanup_world(&world);
 	return (ret);
 }

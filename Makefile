@@ -34,10 +34,8 @@ SRC_TEST_MAIN := main_tests.c
 SRC_FILES_ENGINE := \
 	ft_engine/init_engine.c \
 	ft_engine/world/add_objs_to_world.c \
-	ft_engine/world/cleanup_world.c \
 	ft_engine/world/default_world.c \
 	ft_engine/world/print_world.c \
-	ft_engine/world/tests.c \
 	ft_engine/compute/prepare_computation.c \
 	ft_engine/compute/shading.c \
 	ft_engine/canvas/canvas.c \
@@ -53,7 +51,8 @@ SRC_FILES_ENGINE := \
 	ft_engine/objs/transform.c \
 	ft_engine/objs/set_transform.c \
 	ft_engine/objs/test.c \
-	ft_engine/reflect.c \
+	ft_engine/reflections/reflect.c \
+	ft_engine/reflections/tests.c \
 	ft_engine/light.c \
 	ft_engine/material.c \
 	ft_engine/objs/normal_at.c \

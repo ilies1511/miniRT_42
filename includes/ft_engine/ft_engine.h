@@ -35,6 +35,7 @@ typedef struct s_material
 	double		diffuse;
 	double		specular;
 	double		shininess;
+	double		reflective;
 }	t_material;
 
 t_material	eng_new_material(void);
@@ -192,6 +193,7 @@ typedef struct s_computation
 	t_vec	eye_v;
 	t_vec	normal_v;
 	bool	inside;
+	t_vec	reflection;
 }	t_computation;
 
 t_obj			test_shape(void);
@@ -274,19 +276,12 @@ bool		test_transformation_matrices(void);
 //ft_engine/world/add_obj_to_world.c
 void		eng_add_obj_to_world(t_world *world, t_obj *obj);
 
-// ft_engine/world/eng_cleanup_world.c
-void		eng_cleanup_world(t_world *world);
-
 //ft_engine/world/default_world.c
 t_world		eng_default_world(void);
 
 //print_world
 void	eng_print_light(char *str, t_light light);
 void	eng_print_world(t_world world);
-
-//ft_engine/reflect.c
-t_vec		eng_reflect(t_vec vec, t_vec surface_normal);
-bool		test_eng_reflect(void);
 
 // Lighting
 t_fcolor	eng_lighting(t_obj obj, t_material material, t_light light, t_point point, t_vec eyev, t_vec normalv, bool in_shadow);

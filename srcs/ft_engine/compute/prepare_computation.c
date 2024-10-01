@@ -1,6 +1,7 @@
 #include <ft_engine.h>
 #include <libft.h>
 #include <ft_floats.h>
+#include <ft_reflection.h>
 
 t_point	mult_p_scalar(t_point point, double scale)
 {
@@ -15,6 +16,7 @@ t_point	mult_p_scalar(t_point point, double scale)
 t_computation	eng_prepare_computation(t_intersc intersc, t_ray ray)
 {
 	t_computation	comp;
+
 	ft_bzero(&comp, sizeof comp);
 	comp.t = intersc.t;
 	comp.obj = intersc.obj;
@@ -32,6 +34,7 @@ t_computation	eng_prepare_computation(t_intersc intersc, t_ray ray)
 	// comp.over_point = mult_p_scalar(add_t(comp.point, comp.normal_v), EPSILON);
 	comp.over_point = add_t(comp.point, mult_v(comp.normal_v, EPSILON)); //TODO: not sure if correct
 	// comp.over_point.w = 1;
+	comp.reflection = ref_reflect(ray.direct, comp.normal_v);
 	return (comp);
 }
 
@@ -127,6 +130,17 @@ bool	test_prepare_computation(void)
 	if (actual.inside != true)
 	{
 		ft_fprintf(2,"Test failed at %s:%d: expected 'inside' to be true, got %s\n", __FILE__, __LINE__, actual.inside ? "true" : "false");
+		ret = false;
+	}
+
+	t_plane plane = eng_new_plane();
+	ray = eng_new_ray(new_point(0, 1, -1), new_vec(0, -sqrt(2) / 2, sqrt(2) / 2));
+	intersc.t = sqrt(2);
+	intersc.obj = (t_obj *)&plane;
+	actual = eng_prepare_computation(intersc, ray);
+	if (!eq_t(actual.reflection, new_vec(0, sqrt(2) / 2, sqrt(2) / 2)))
+	{
+		ft_fprintf(2,"Test failed at %s:%d: prepare compt reflection is wrong\n", __FILE__, __LINE__);
 		ret = false;
 	}
 	return (ret);

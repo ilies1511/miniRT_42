@@ -28,6 +28,7 @@ static void add_objs(t_world *world)
 	sph_mid.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
 	sph_mid.base_obj.material.diffuse = 0.7;
 	sph_mid.base_obj.material.specular = 0.3;
+	sph_mid.base_obj.material.reflective = 0.3;
 	sph_mid.base_obj.material.pattern = pat_square3d_pattern(new_fcolor(1, 1, 0, 1), new_fcolor(0,1,1, 1));
 	eng_set_transform((t_obj *)sph_mid.base_obj.material.pattern, mtx_scale(0.1, 0.1, 0.1));
 	//eng_set_transform((t_obj *)sph_mid.base_obj.material.pattern, mtx_rotation_y(M_PI_4));
@@ -52,7 +53,8 @@ static void add_objs(t_world *world)
 
 
 	top = eng_new_plane();
-	top.base_obj.material.fcolor = new_fcolor(1, 0, 0, 1);
+	top.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
+	top.base_obj.material.reflective = 0.8;
 	top.base_obj.material.pattern = pat_checker2d_pattern(new_fcolor(1, 0, 0, 1), new_fcolor(0,0,1, 1));
 	//***why is this buggy***
 	eng_set_transform((t_obj *)&top, mtx_rotation_x(M_PI_2));
@@ -96,5 +98,5 @@ void	sphere_test(void *main_data)
 		add_objs(world);
 	}
 	eng_render(camera, *world, canvas);
-	// store_as_plain_ppm(m_data, "d.ppm");
+	//store_as_plain_ppm(m_data, "xxxx.ppm");
 }

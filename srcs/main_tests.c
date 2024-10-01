@@ -247,6 +247,24 @@ void	test_patterns(int *total_tests, int *passed_tests)
 	*total_tests += 1;
 }
 
+void	test_reflections(int *total_tests, int *passed_tests)
+{
+	if (test_ref_reflect_color_none())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_ref_reflect_color())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_ref_with_shade_hit())
+		*passed_tests += 1;
+	*total_tests += 1;
+	//TODO:
+	//if (test_ref_infinite_recursion())
+	//	*passed_tests += 1;
+	//*total_tests += 1;
+}
+
+
 int	main(void)
 {
 #ifdef NO_ASSERT
@@ -269,6 +287,7 @@ int	main(void)
 	test_shadows(&total, &passed);
 	test_patterns(&total, &passed);
 	test_intesec_cy(&total, &passed);
+	test_reflections(&total, &passed);
 	if (total == passed)
 		printf("%s all tests passed(%d/%d)!%s\n", FT_ANSI_GREEN_BOLD, passed, total, FT_ANSI_RESET);
 	else
