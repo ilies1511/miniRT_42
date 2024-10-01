@@ -112,6 +112,24 @@ static void	eng_intersc_ray_plane(t_intersc_arr *interscs, t_ray ray,
 	eng_add_intersc(interscs, (t_obj *)plane, t);
 }
 
+static void	eng_intersc_ray_cylinder(t_intersc_arr *intersecs, t_ray ray, t_cylinder *cylinder)
+{
+	double	a;
+	double	b;
+	double	c;
+	double	disc;
+
+	a = (ray.direct.x * ray.direct.x) + (ray.direct.z * ray.direct.z);
+	if (eq_f(a, 0))
+		return ;
+	b = 2 * ray.origin.x * ray.direct.x + 2 * ray.origin.z * ray.direct.z;
+	c = (ray.origin.x * ray.origin.x) + (ray.origin.z * ray.origin.z) - 1;
+	disc = (b * b) - 4 * a * c;
+	if (disc < 0)
+		return ;
+	eng_add_intersc(intersecs, cylinder, 1);
+}
+
 void	eng_intersc_ray(t_intersc_arr *interscs, t_ray ray, t_obj *obj)
 {
 	ray.base_obj.transform = obj->inverse;
@@ -120,6 +138,9 @@ void	eng_intersc_ray(t_intersc_arr *interscs, t_ray ray, t_obj *obj)
 		eng_intersc_ray_sphere(interscs, ray, (t_sphere *)obj);
 	else if (obj->type == OBJ_PLANE)
 		eng_intersc_ray_plane(interscs, ray, (t_plane *)obj);
+	//TODO: Add Cylinder
+	else if (obj->type == OBJ_CYLINDER)
+		eng_intersc_ray_cylinder(interscs, ray, (t_cylinder *)obj);
 	else
 		ft_assert(0, __FILE__, __LINE__, "eng_intersc_ray: invalid obj type");
 }

@@ -42,6 +42,7 @@ typedef enum e_obj_type
 	OBJ_DEFAULT = 0,
 	OBJ_SPHERE = 1,
 	OBJ_PLANE = 2,
+	OBJ_CYLINDER = 3,
 	OBJ_RAY,
 	OBJ_LIGHT,
 	OBJ_CAMERA,
@@ -106,8 +107,16 @@ typedef struct s_plane
 {
 	t_obj		base_obj;
 }	t_plane;
-
 t_plane	eng_new_plane(void);
+
+typedef struct s_cylinder
+{
+	t_obj		base_obj;
+	// TODO: add stuff (siehe sphere bsp)
+	t_point		origin;
+	double		rad;
+}				t_cylinder;
+t_cylinder	eng_new_cylinder(void);
 
 typedef struct s_intersc
 {
@@ -183,12 +192,13 @@ void		main_key_hooks(mlx_key_data_t keydata, void *main_data);
 
 // ft_engine/reset.c
 void		reset_canvas(t_canvas *canvas);
-void		smoth_vanish(t_main *m_data);
+//void		smoth_vanish(t_main *m_data);
 
 // ft_engine/rays/init.c
 t_ray		eng_new_ray(t_point origin, t_vec direct);
 t_obj		eng_new_obj(void);
 t_sphere	eng_new_sphere(void);
+t_cylinder	eng_new_cylinder(void);
 
 // ft_engine/rays/intersect.c
 void			eng_intersc_ray(t_intersc_arr *interscs, t_ray ray, t_obj	*obj);

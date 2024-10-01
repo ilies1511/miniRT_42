@@ -32,7 +32,7 @@ t_obj	eng_new_obj(void)
 t_sphere	eng_new_sphere(void)
 {
 	t_sphere	sph;
-	
+
 	sph.base_obj = eng_new_obj();
 	sph.base_obj.type = OBJ_SPHERE;
 	sph.rad = 1;
@@ -47,4 +47,15 @@ t_plane	eng_new_plane(void)
 	plane.base_obj = eng_new_obj();
 	plane.base_obj.type = OBJ_PLANE;
 	return (plane);
+}
+
+t_cylinder	eng_new_cylinder(void)
+{
+	t_cylinder	cylinder;
+
+	cylinder.base_obj = eng_new_obj();
+	cylinder.base_obj.type = OBJ_CYLINDER;
+	cylinder.rad = 1;
+	cylinder.origin = new_point(0, 0, 0);
+	return (cylinder);
 }
