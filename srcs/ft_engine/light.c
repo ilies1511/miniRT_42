@@ -95,7 +95,7 @@ t_fcolor	eng_lighting(t_obj obj, t_material material, t_light light, t_point poi
 	else
 	{
 		diffuse_c = scale_fcolor(scale_fcolor(effective_color, material.diffuse), light_dot_normal); // ?
-		reflectv = eng_reflect(negate_v(lightv), normalv);
+		reflectv = ref_reflect(negate_v(lightv), normalv);
 		reflect_dot_eye = dot_prod(reflectv, eyev);
 		if (reflect_dot_eye <= 0)
 			specular_c = new_fcolor(0, 0, 0, 1);

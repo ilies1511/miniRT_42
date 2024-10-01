@@ -319,6 +319,5 @@ bool	test_eng_ray_intersc_world(void)
 			__FILE__, __LINE__);
 	}
 	eng_free_intersc_arr(&interscs);
-	eng_cleanup_world(&world);
 	return (ret);
 }

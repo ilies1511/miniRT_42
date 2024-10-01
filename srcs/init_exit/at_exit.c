@@ -2,7 +2,6 @@
 
 void	main_cleanup(t_main *m_data, uint8_t exit_stat)
 {
-	cleanup_engine(&m_data->engine);
 	if (m_data->mlx)
 	{
 		if (m_data->cleanup_data.mlx_img)

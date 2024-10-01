@@ -14,7 +14,6 @@ bool	test4_shadow()
 		printf("eng_is_shadow should return false\n File: %s \t Line: %d\n", __FILE__, __LINE__);
 		return (false);
 	}
-	eng_cleanup_world(&default_world);
 	return (true);
 }
 
@@ -30,7 +29,6 @@ bool	test3_shadow()
 		printf("eng_is_shadow should return false\n File: %s \t Line: %d\n", __FILE__, __LINE__);
 		return (false);
 	}
-	eng_cleanup_world(&default_world);
 	return (true);
 }
 
@@ -46,7 +44,6 @@ bool	test2_shadow()
 		printf("eng_is_shadow should return true\n File: %s \t Line: %d\n", __FILE__, __LINE__);
 		return (false);
 	}
-	eng_cleanup_world(&default_world);
 	return (true);
 }
 
@@ -62,6 +59,5 @@ bool	test_shadow()
 		printf("eng_is_shadow should return false\n File: %s \t Line: %d\n", __FILE__, __LINE__);
 		return (false);
 	}
-	eng_cleanup_world(&default_world);
 	return (true);
 }

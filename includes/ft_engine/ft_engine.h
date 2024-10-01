@@ -254,9 +254,6 @@ bool		test_transformation_matrices(void);
 //ft_engine/world/add_obj_to_world.c
 void		eng_add_obj_to_world(t_world *world, t_obj *obj);
 
-// ft_engine/world/eng_cleanup_world.c
-void		eng_cleanup_world(t_world *world);
-
 //ft_engine/world/default_world.c
 t_world		eng_default_world(void);
 
@@ -265,7 +262,7 @@ void	eng_print_light(char *str, t_light light);
 void	eng_print_world(t_world world);
 
 //ft_engine/reflect.c
-t_vec		eng_reflect(t_vec vec, t_vec surface_normal);
+t_vec		ref_reflect(t_vec vec, t_vec surface_normal);
 bool		test_eng_reflect(void);
 
 // Lighting

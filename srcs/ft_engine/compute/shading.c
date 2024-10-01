@@ -60,7 +60,6 @@ bool	test_shading_outside_intersection(void)
 		print_fcolor("actual:\n", c);
 		ret = false;
 	}
-	eng_cleanup_world(&w);
 
 	w = eng_default_world();
 	w.lights[0].intensity = new_fcolor(1, 1, 1, 1);
@@ -80,7 +79,6 @@ bool	test_shading_outside_intersection(void)
 		print_fcolor("actual:\n", c);
 		ret = false;
 	}
-	eng_cleanup_world(&w);
 	return (ret);
 }
 
@@ -96,7 +94,6 @@ bool	test_eng_color_at(void)
 		ft_fprintf(2, "test failed: eng_color_at: %s line %d\n", __FILE__, __LINE__);
 		ret = false;
 	}
-	eng_cleanup_world(&w);
 
 	w = eng_default_world();
 	r = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
@@ -107,7 +104,6 @@ bool	test_eng_color_at(void)
 		ft_fprintf(2, "test failed: eng_color_at: %s line %d\n", __FILE__, __LINE__);
 		ret = false;
 	}
-	eng_cleanup_world(&w);
 
     w = eng_default_world();
     t_obj	*outer = w.objs[0];
@@ -121,7 +117,6 @@ bool	test_eng_color_at(void)
 		ft_fprintf(2, "test failed: eng_color_at: %s line %d\n", __FILE__, __LINE__);
 		ret = false;
 	}
-	eng_cleanup_world(&w);
 
 	return (ret);
 }
@@ -186,6 +181,5 @@ bool	test_eng_render(void)
 	mlx_delete_image(mlx, img);
 	mlx_close_window(mlx);
 	mlx_terminate(mlx);
-	eng_cleanup_world(&world);
 	return (ret);
 }

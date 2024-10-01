@@ -7,17 +7,11 @@ t_world	eng_new_world(void)
 	t_world	world;
 
 	ft_bzero(&world, sizeof world);
-	world.lights = dyn_arr_init(sizeof(t_light), 0);
+	world.lights = gc_dyn_arr_init(sizeof(t_light), 0);
 	world.light_count = 0;
-	world.objs = dyn_arr_init(sizeof(t_obj *), 0);
+	world.objs = gc_dyn_arr_init(sizeof(t_obj *), 0);
 	world.obj_count = 0;
 	return (world);
-}
-
-void	cleanup_engine(t_engine *engine)
-{
-	eng_cleanup_world(&engine->world);
-	ft_bzero(engine, sizeof *engine);
 }
 
 void	eng_init_engine(t_main *m_data, int ac, char *av[])
