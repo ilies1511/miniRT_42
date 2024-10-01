@@ -35,6 +35,7 @@ typedef struct s_material
 	double		diffuse;
 	double		specular;
 	double		shininess;
+	double		reflective;
 }	t_material;
 
 t_material	eng_new_material(void);
@@ -180,6 +181,7 @@ typedef struct s_computation
 	t_vec	eye_v;
 	t_vec	normal_v;
 	bool	inside;
+	t_vec	reflection;
 }	t_computation;
 
 t_obj			test_shape(void);
