@@ -45,6 +45,7 @@ typedef enum e_obj_type
 	OBJ_DEFAULT = 0,
 	OBJ_SPHERE = 1,
 	OBJ_PLANE = 2,
+	OBJ_CYLINDER = 3,
 	OBJ_RAY,
 	OBJ_LIGHT,
 	OBJ_CAMERA,
@@ -127,8 +128,19 @@ typedef struct s_plane
 {
 	t_obj		base_obj;
 }	t_plane;
-
 t_plane	eng_new_plane(void);
+
+typedef struct s_cylinder
+{
+	t_obj		base_obj;
+	// TODO: add stuff (siehe sphere bsp)
+	t_point		origin;
+	double		rad;
+	double		min;
+	double		max;
+	bool		closed;
+}				t_cylinder;
+t_cylinder	eng_new_cylinder(void);
 
 typedef struct s_intersc
 {
@@ -204,12 +216,13 @@ void		main_key_hooks(mlx_key_data_t keydata, void *main_data);
 
 // ft_engine/reset.c
 void		reset_canvas(t_canvas *canvas);
-void		smoth_vanish(t_main *m_data);
+//void		smoth_vanish(t_main *m_data);
 
 // ft_engine/rays/init.c
 t_ray		eng_new_ray(t_point origin, t_vec direct);
 t_obj		eng_new_obj(void);
 t_sphere	eng_new_sphere(void);
+t_cylinder	eng_new_cylinder(void);
 
 // ft_engine/rays/intersect.c
 void			eng_intersc_ray(t_intersc_arr *interscs, t_ray ray, t_obj	*obj);
@@ -217,6 +230,15 @@ void			eng_sort_intersc(t_intersc_arr *interscs);
 t_intersc		eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, double t);
 t_intersc_arr	eng_new_intersc_arr(void);
 void			eng_ray_intersc_world(t_ray ray, t_world world, t_intersc_arr *interscs);
+void			eng_intersc_ray_cylinder(t_intersc_arr *intersecs, t_ray ray, t_cylinder *cylinder);
+t_vec			compute_normal_cylinder(t_cylinder *cylinder, t_point object_point);
+bool			test_cylinder_no_hits();
+bool			test_cylinder_hits();
+bool			test_normal_at_cylinder(void);
+bool			test_truncated_cylinder();
+bool			test_capped_cylinder(void);
+bool			test_closed_capped_cylinder(void);
+bool			test_normal_cylinde2();
 
 //cleanup
 void			eng_free_intersc_arr(t_intersc_arr *interscs);

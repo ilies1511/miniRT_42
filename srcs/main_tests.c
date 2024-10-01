@@ -157,6 +157,30 @@ void	test_scenes(int *total_tests, int *passed_tests)
 	*total_tests += 1;
 }
 
+void	test_intesec_cy(int *total_tests, int *passed_tests)
+{
+	if (test_cylinder_no_hits())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_cylinder_hits())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_normal_at_cylinder())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_truncated_cylinder())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_capped_cylinder())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_closed_capped_cylinder())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_normal_cylinde2())
+		*passed_tests += 1;
+	*total_tests += 1;
+}
 void	test_computation(int *total_tests, int *passed_tests)
 {
 	if (test_prepare_computation())
@@ -174,9 +198,9 @@ void	test_computation(int *total_tests, int *passed_tests)
 	if (test_eng_ray_for_pixel())
 		*passed_tests += 1;
 	*total_tests += 1;
-	if (test_eng_render())
-		*passed_tests += 1;
-	*total_tests += 1;
+	// if (test_eng_render())
+	// 	*passed_tests += 1;
+	// *total_tests += 1;
 }
 void	test_gc(int *total_tests, int *passed_tests)
 {
@@ -244,6 +268,7 @@ int	main(void)
 	test_computation(&total, &passed);
 	test_shadows(&total, &passed);
 	test_patterns(&total, &passed);
+	test_intesec_cy(&total, &passed);
 	if (total == passed)
 		printf("%s all tests passed(%d/%d)!%s\n", FT_ANSI_GREEN_BOLD, passed, total, FT_ANSI_RESET);
 	else

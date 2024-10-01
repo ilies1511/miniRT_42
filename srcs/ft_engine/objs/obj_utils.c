@@ -3,7 +3,7 @@
 
 bool	eng_is_shape(t_obj_type type)
 {
-	return (type == OBJ_SPHERE  || type == OBJ_PLANE);
+	return (type == OBJ_SPHERE || type == OBJ_PLANE || OBJ_CYLINDER);
 }
 
 t_obj *eng_alloc_shape(t_obj_type type)
@@ -20,6 +20,13 @@ t_obj *eng_alloc_shape(t_obj_type type)
 	{
 		shape = ft_malloc(sizeof(t_plane));
 		*(t_plane *)shape = eng_new_plane();
+	}
+	else if (type == OBJ_CYLINDER)
+	{
+		shape = ft_malloc(sizeof(t_cylinder)); //TODO: Add malloc CHECK
+		if (!shape)
+			gc_free_all();
+		*(t_cylinder *)shape = eng_new_cylinder();
 	}
 	else
 	{

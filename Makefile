@@ -66,6 +66,7 @@ SRC_FILES_ENGINE := \
 	ft_engine/objs/obj_utils.c \
 	ft_engine/objs/test_shape.c \
 	ft_engine/compute/test_shade_hit.c \
+	ft_engine/test_cylinder.c \
 	ft_engine/patterns/patterns.c \
 	ft_engine/patterns/stripe_pattern.c \
 	ft_engine/patterns/checker_pattern.c \
