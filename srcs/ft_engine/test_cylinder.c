@@ -2,6 +2,75 @@
 #include <ft_engine.h>
 #include <libft.h>
 
+bool	test_closed_capped_cylinder(void)
+{
+	bool		result;
+	t_cylinder	cylinder;
+	t_ray		ray;
+	t_ray		ray2;
+	t_ray		ray3;
+	t_ray		ray4;
+	t_ray		ray5;
+	t_intersc_arr	intersecs;
+	t_intersc_arr	intersecs2;
+	t_intersc_arr	intersecs3;
+	t_intersc_arr	intersecs4;
+	t_intersc_arr	intersecs5;
+
+	result = true;
+	cylinder.max = 2;
+	cylinder.min = 1;
+	cylinder.closed = true;
+	intersecs = eng_new_intersc_arr();
+	intersecs2 = eng_new_intersc_arr();
+	intersecs3 = eng_new_intersc_arr();
+	intersecs4 = eng_new_intersc_arr();
+	intersecs5 = eng_new_intersc_arr();
+	ray = eng_new_ray(new_point(0, 3, 0), new_vec(0, -1, 0));
+	ray2 = eng_new_ray(new_point(0, 3, -2), new_vec(0, -1, 2));
+	ray3 = eng_new_ray(new_point(0, 4, -2), new_vec(0, -1, 1));
+	ray4 = eng_new_ray(new_point(0, 0, -2), new_vec(0, 1, 2));
+	ray5 = eng_new_ray(new_point(0, -1, -2), new_vec(0, 1, 1));
+	ray.direct = norm(ray.direct);
+	ray2.direct = norm(ray2.direct);
+	ray3.direct = norm(ray3.direct);
+	ray4.direct = norm(ray4.direct);
+	ray5.direct = norm(ray5.direct);
+	eng_intersc_ray_cylinder(&intersecs, ray, &cylinder);
+	eng_intersc_ray_cylinder(&intersecs2, ray2, &cylinder);
+	eng_intersc_ray_cylinder(&intersecs3, ray3, &cylinder);
+	eng_intersc_ray_cylinder(&intersecs4, ray4, &cylinder);
+	eng_intersc_ray_cylinder(&intersecs5, ray5, &cylinder);
+	if (intersecs.count != 2 || intersecs2.count != 2 || intersecs3.count != 2 ||
+		intersecs4.count != 2 || intersecs5.count != 2)
+	{
+		//printf("TEST: Truncated Cylinder:\nIntersecs.count");
+		printf("intersecs.count: %zu\n", intersecs.count);
+		printf("intersecs2.count: %zu\n", intersecs2.count);
+		printf("intersecs3.count: %zu\n", intersecs3.count);
+		printf("intersecs4.count: %zu\n", intersecs4.count);
+		printf("intersecs5.count: %zu\n", intersecs5.count);
+		printf("%s Line %d\n", __FILE__, __LINE__);
+		result = false;
+	}
+	eng_free_intersc_arr(&intersecs);
+	eng_free_intersc_arr(&intersecs2);
+	eng_free_intersc_arr(&intersecs3);
+	eng_free_intersc_arr(&intersecs4);
+	eng_free_intersc_arr(&intersecs5);
+	return (result);
+}
+
+bool	test_capped_cylinder(void)
+{
+	t_cylinder	cylinder;
+
+	if (cylinder.closed == false)
+		return (true);
+	else
+		return (false);
+}
+
 bool	test_truncated_cylinder(void)
 {
 	t_cylinder		cylinder;

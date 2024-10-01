@@ -117,6 +117,7 @@ typedef struct s_cylinder
 	double		rad;
 	double		min;
 	double		max;
+	bool		closed;
 }				t_cylinder;
 t_cylinder	eng_new_cylinder(void);
 
@@ -214,6 +215,8 @@ bool			test_cylinder_no_hits();
 bool			test_cylinder_hits();
 bool			test_normal_at_cylinder(void);
 bool			test_truncated_cylinder();
+bool			test_capped_cylinder(void);
+bool			test_closed_capped_cylinder(void);
 
 //cleanup
 void			eng_free_intersc_arr(t_intersc_arr *interscs);

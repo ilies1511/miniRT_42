@@ -58,6 +58,7 @@ t_cylinder	eng_new_cylinder(void)
 	cylinder.rad = 1;
 	cylinder.max = INFINITY;
 	cylinder.min = -INFINITY;
+	cylinder.closed = false;
 	cylinder.origin = new_point(0, 0, 0);
 	return (cylinder);
 }
