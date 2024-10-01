@@ -59,7 +59,7 @@ static void add_objs(t_world *world)
 	eng_set_transform((t_obj *)&left_top, mtx_translate(-5, 0, 0));
 	//eng_add_obj_to_world(world, (t_obj *)&left_top);
 
-	light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(0, 5, 0));
+	light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(0, 5, 0.000001));
 	eng_add_obj_to_world(world, (t_obj *)&light);
 
 	//light2 = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(-2, 10, 0));

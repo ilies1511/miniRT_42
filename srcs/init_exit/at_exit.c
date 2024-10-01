@@ -3,9 +3,13 @@
 void	main_cleanup(t_main *m_data, uint8_t exit_stat)
 {
 	cleanup_engine(&m_data->engine);
-	mlx_delete_image(m_data->mlx, m_data->cleanup_data.mlx_img);
-	mlx_close_window(m_data->mlx);
-	mlx_terminate(m_data->mlx);
+	if (m_data->mlx)
+	{
+		if (m_data->cleanup_data.mlx_img)
+			mlx_delete_image(m_data->mlx, m_data->cleanup_data.mlx_img);
+		mlx_close_window(m_data->mlx);
+		mlx_terminate(m_data->mlx);
+	}
 	gc_free_all();
 	get_next_line(-1, true);
 	if (m_data->cleanup_data.fd)
