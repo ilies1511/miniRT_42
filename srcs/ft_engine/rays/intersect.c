@@ -112,7 +112,7 @@ static void	eng_intersc_ray_plane(t_intersc_arr *interscs, t_ray ray,
 	eng_add_intersc(interscs, (t_obj *)plane, t);
 }
 
-static void	eng_intersc_ray_cylinder(t_intersc_arr *intersecs, t_ray ray, t_cylinder *cylinder)
+void	eng_intersc_ray_cylinder(t_intersc_arr *intersecs, t_ray ray, t_cylinder *cylinder)
 {
 	double	a;
 	double	b;
@@ -120,14 +120,20 @@ static void	eng_intersc_ray_cylinder(t_intersc_arr *intersecs, t_ray ray, t_cyli
 	double	disc;
 
 	a = (ray.direct.x * ray.direct.x) + (ray.direct.z * ray.direct.z);
-	if (eq_f(a, 0))
+	if (eq_f(a, EPSILON))
 		return ;
 	b = 2 * ray.origin.x * ray.direct.x + 2 * ray.origin.z * ray.direct.z;
 	c = (ray.origin.x * ray.origin.x) + (ray.origin.z * ray.origin.z) - 1;
-	disc = (b * b) - 4 * a * c;
+	disc = (b * b) - (4 * a * c);
 	if (disc < 0)
 		return ;
-	eng_add_intersc(intersecs, cylinder, 1);
+	double	sqrt_discriminant = sqrtl(disc);
+	double	two_a = (2 * a);
+	double	t0 = (-b - sqrt_discriminant) / two_a;
+	double	t1 = (-b + sqrt_discriminant) / two_a;
+	eng_add_intersc(intersecs, (t_obj *)cylinder, t0);
+	eng_add_intersc(intersecs, (t_obj *)cylinder, t1);
+	// eng_add_intersc(intersecs, cylinder, 1);
 }
 
 void	eng_intersc_ray(t_intersc_arr *interscs, t_ray ray, t_obj *obj)
