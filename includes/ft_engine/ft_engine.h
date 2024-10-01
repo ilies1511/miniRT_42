@@ -237,6 +237,10 @@ void		eng_cleanup_world(t_world *world);
 //ft_engine/world/default_world.c
 t_world		eng_default_world(void);
 
+//print_world
+void	eng_print_light(char *str, t_light light);
+void	eng_print_world(t_world world);
+
 //ft_engine/reflect.c
 t_vec		eng_reflect(t_vec vec, t_vec surface_normal);
 bool		test_eng_reflect(void);

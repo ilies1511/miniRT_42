@@ -36,6 +36,7 @@ SRC_FILES_ENGINE := \
 	ft_engine/world/add_objs_to_world.c \
 	ft_engine/world/cleanup_world.c \
 	ft_engine/world/default_world.c \
+	ft_engine/world/print_world.c \
 	ft_engine/world/tests.c \
 	ft_engine/compute/prepare_computation.c \
 	ft_engine/compute/shading.c \

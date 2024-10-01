@@ -55,6 +55,7 @@ bool	test_eng_ray_pos(void)
 bool	test_eng_intersc_ray_sphere(void)
 {
 	bool		ret = true;
+
 	t_ray		ray = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
 	t_sphere	sph = eng_new_sphere();
 	t_intersc_arr	interscs;

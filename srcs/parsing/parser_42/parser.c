@@ -1,4 +1,56 @@
 #include <main.h>
+#include <ft_engine.h>
+
+#define PARSER_OFFSET_SPHERE 0.0003
+#define PARSER_OFFSET_PLANE 0.0005
+#define PARSER_OFFSET_LIGHT 0.0007
+#define PARSER_OFFSET_CAMERA 0.00011
+
+#define PARSER_MEM_SIZE 10000
+#define PARSER_HASH_PRIME 31
+#define PARSER_HASH_SCALAR 1000
+
+size_t	parser_hash_point(t_point point)
+{
+	size_t	hash;
+	t_vec	vec;
+
+	vec = sub_t(point, new_point(0, 0, 0));
+	vec = mult_v(vec, PARSER_HASH_SCALAR);
+	hash = ((size_t) (PARSER_HASH_PRIME * PARSER_HASH_PRIME * vec.x
+		+ PARSER_HASH_PRIME * vec.y
+		+ vec. x)) % PARSER_MEM_SIZE;
+	return (hash);
+}
+
+size_t	parser_get_mem_count(size_t mem[PARSER_MEM_SIZE], t_point point)
+{
+	size_t	hash;
+
+	hash = parser_hash_point(point);
+	return (mem[hash]);
+}
+
+void	parser_inc_mem(size_t mem[PARSER_MEM_SIZE], t_point point)
+{
+	size_t	hash;
+
+	hash = parser_hash_point(point);
+	mem[hash]++;
+}
+
+t_point	handle_point_collision(size_t mem_points[PARSER_MEM_SIZE],
+			t_point point, double obj_modulo_prime)
+{
+	double	collision_offset;
+
+	collision_offset = obj_modulo_prime
+		* parser_get_mem_count(mem_points, point);
+	parser_inc_mem(mem_points, point);
+	point = add_t(point,
+			new_vec(collision_offset, collision_offset, collision_offset));
+	return(point);
+}
 
 // retusn false on invalid tuple str
 void	str_to_tuple(char *str, t_tuple *ret, char **str_ptr)
@@ -10,18 +62,24 @@ void	str_to_tuple(char *str, t_tuple *ret, char **str_ptr)
 		ft_error("parsing error", __FILE__, __LINE__, 100);
 	}
 	ret->x = str_to_float(str);
+	if (*str == '-')
+		str++;
 	while (*str && *str != ',')
 		str++;
 	str++;
 	if (!ft_isdigit(*str) && *str != '-')
 		ft_error("parsing error", __FILE__, __LINE__, 100);
 	ret->y = str_to_float(str);
+	if (*str == '-')
+		str++;
 	while (*str && *str != ',')
 		str++;
 	str++;
 	if (!ft_isdigit(*str) && *str != '-')
 		ft_error("parsing error", __FILE__, __LINE__, 100);
 	ret->z = str_to_float(str);
+	if (*str == '-')
+		str++;
 	while (*str && (*str == '.' || ft_isdigit(*str)))
 		str++;
 	while(*str && ft_iswhitespace(*str))
@@ -29,7 +87,8 @@ void	str_to_tuple(char *str, t_tuple *ret, char **str_ptr)
 	*str_ptr = str;
 }
 
-void	parse_camera(t_main *m_data, char *line)
+void	parse_camera(t_main *m_data, char *line,
+			size_t mem_points[PARSER_MEM_SIZE])
 {
 	t_point	origin;
 	t_point	to;
@@ -41,9 +100,9 @@ void	parse_camera(t_main *m_data, char *line)
 	origin = new_point(0, 0, 0);
 	to = new_point(0, 0, 0);
 	str_to_tuple(line, &origin, &line);
+	parser_inc_mem(mem_points, origin);
 	str_to_tuple(line, &to, &line);
-	print_t(1, origin);
-	print_t(1, to);
+	parser_inc_mem(mem_points, to);
 	while (ft_iswhitespace(*line))
 		line++;
 	if (!ft_isdigit(*line) && *line != '-')
@@ -81,7 +140,8 @@ void	str_to_fcolor(char *str, t_fcolor *ret, char **str_ptr)
 	*str_ptr = str;
 }
 
-void	parse_light(t_main *m_data, char *line)
+void	parse_light(t_main *m_data, char *line,
+			size_t mem_points[PARSER_MEM_SIZE])
 {
 	t_light		light;
 	t_point		origin;
@@ -90,62 +150,35 @@ void	parse_light(t_main *m_data, char *line)
 
 	printf("parsing light\n");
 	line++;
-	origin = new_point(0, 0, 0);
-	color = new_fcolor(0, 0, 0, 1);
-	str_to_tuple(line, &origin, &line);
 
-	if (!ft_isdigit(*line))
+	origin = new_point(0, 0, 0);
+	str_to_tuple(line, &origin, &line);
+	origin = handle_point_collision(mem_points, origin, PARSER_OFFSET_LIGHT);
+
+	if (!ft_isdigit(*line) && *line != '-')
 		ft_error("parsing error", __FILE__, __LINE__, 100);
 	scalar = str_to_float(line);
 	while (line && !ft_iswhitespace(*line))
 		line++;
 
+	color = new_fcolor(0, 0, 0, 1);
 	str_to_fcolor(line, &color, &line);
-
 	color = scale_fcolor(color, scalar);
+
 	light = eng_point_light(color, origin);
 	eng_add_obj_to_world(&m_data->engine.world, (t_obj *)&light);
 }
 
-
-t_matrix mtx_rotation_axis_angle(t_vec axis, double angle) {
-	axis = norm(axis);
-	double cos_a = cos(angle);
-	double sin_a = sin(angle);
-	double one_minus_cos_a = 1 - cos_a;
-
-	t_matrix rot = {
-		.m[0] = {
-			cos_a + axis.x * axis.x * one_minus_cos_a,
-			axis.x * axis.y * one_minus_cos_a - axis.z * sin_a,
-			axis.x * axis.z * one_minus_cos_a + axis.y * sin_a
-		},
-		.m[1] = {
-			axis.y * axis.x * one_minus_cos_a + axis.z * sin_a,
-			cos_a + axis.y * axis.y * one_minus_cos_a,
-			axis.y * axis.z * one_minus_cos_a - axis.x * sin_a
-		},
-		.m[2] = {
-			axis.z * axis.x * one_minus_cos_a - axis.y * sin_a,
-			axis.z * axis.y * one_minus_cos_a + axis.x * sin_a,
-			cos_a + axis.z * axis.z * one_minus_cos_a
-		},
-		.m[3] = {0,0,0,1},
-		.type = MAT4X4,
-	};
-	return rot;
-}
-
-//TODO: figure out how to correctly take a normal and convert it to the
-//correct transformation matrix
-void	parse_plane(t_main *m_data, char *line)
+void	parse_plane(t_main *m_data, char *line,
+			size_t mem_points[PARSER_MEM_SIZE])
 {
-	return ;
 	t_plane		plane;
 	t_point		point;
 	t_vec		normal;
 	t_fcolor	fcolor;
 	t_vec		base_normal;
+	t_vec		rotation_axis;
+	double		angle;
 
 	printf("parsing plane\n");
 	line += 2;
@@ -153,6 +186,7 @@ void	parse_plane(t_main *m_data, char *line)
 
 	point = new_point(0, 0, 0);
 	str_to_tuple(line, &point, &line);
+	point = handle_point_collision(mem_points, point, PARSER_OFFSET_PLANE);
 
 	normal = new_vec(0, 0, 0);
 	str_to_tuple(line, &normal, &line);
@@ -161,21 +195,19 @@ void	parse_plane(t_main *m_data, char *line)
 	fcolor = new_fcolor(0, 0, 0, 1);
 	str_to_fcolor(line, &fcolor, &line);
 	plane.base_obj.material.fcolor = fcolor;
-
 	base_normal = norm(new_vec(0, 1, 0));
-	
 	if (!eq_t(base_normal, normal))
 	{
-		t_vec	rotation_axis = cross_prod(base_normal, normal);
-		double angle  = acos(dot_prod(base_normal, normal));
-
+		rotation_axis = cross_prod(base_normal, normal);
+		angle  = acos(dot_prod(base_normal, normal));
 		eng_set_transform((t_obj *)&plane, mtx_rotation_axis_angle(rotation_axis, angle));
 	}
 	eng_set_transform((t_obj *)&plane, mtx_translate(point.x, point.y, point.z));
 	eng_add_obj_to_world(&m_data->engine.world, (t_obj *)&plane);
 }
 
-void	parse_sphere(t_main *m_data, char *line)
+void	parse_sphere(t_main *m_data, char *line,
+			size_t mem_points[PARSER_MEM_SIZE])
 {
 	t_sphere	sph;
 	t_point		origin;
@@ -185,25 +217,31 @@ void	parse_sphere(t_main *m_data, char *line)
 	printf("parsing sphere\n");
 	line += 2;
 	sph = eng_new_sphere();
+
 	origin = new_point(0, 0, 0);
 	str_to_tuple(line, &origin, &line);
+
+	origin = handle_point_collision(mem_points, origin, PARSER_OFFSET_PLANE);
 
 	if (!ft_isdigit(*line))
 		ft_error("parsing error", __FILE__, __LINE__, 100);
 	diameter = str_to_float(line);
+	if (*line == '-')
+		line++;
 	while (line && !ft_iswhitespace(*line))
 		line++;
 	
 	fcolor = new_fcolor(0, 0, 0, 1);
 	str_to_fcolor(line, &fcolor, &line);
 	sph.base_obj.material.fcolor = fcolor;
-
+	
 	eng_set_transform((t_obj *)&sph, mtx_scale(diameter / 2, diameter / 2,
 		diameter / 2));
 	eng_add_obj_to_world(&m_data->engine.world, (t_obj *)&sph);
 }
 
-void	parse_line(t_main *m_data, char *line)
+void	parse_line(t_main *m_data, char *line,
+			size_t mem_points[PARSER_MEM_SIZE])
 {
 	while (ft_iswhitespace(*line))
 		line++;
@@ -214,16 +252,13 @@ void	parse_line(t_main *m_data, char *line)
 		//should not be hard
 	}
 	else if (*line == 'C')
-		parse_camera(m_data, line);
+		parse_camera(m_data, line, mem_points);
 	else if (*line == 'L')
-		parse_light(m_data, line);
+		parse_light(m_data, line, mem_points);
 	else if (line[0] == 'p' && line[1] == 'l')
-	{
-		//TODO: read pase_plane todo, not simple math problem
-		parse_plane(m_data, line);
-	}
+		parse_plane(m_data, line, mem_points);
 	else if (line[0] == 's' && line[1] == 'p')
-		parse_sphere(m_data, line);
+		parse_sphere(m_data, line, mem_points);
 	else if (line[0] == 'c' && line[1] == 'y')
 	{
 		//TODO:
@@ -235,7 +270,9 @@ void	parser(t_main *m_data, char *path)
 {
 	char	*line;
 	int		fd;
+	size_t	mem_points[PARSER_MEM_SIZE];
 
+	ft_bzero(mem_points, sizeof mem_points);
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		ft_error("Can not open file", __FILE__, __LINE__, errno);
@@ -243,11 +280,12 @@ void	parser(t_main *m_data, char *path)
 	line = get_next_line(fd, false);
 	while (line)
 	{
-		parse_line(m_data, line);
+		parse_line(m_data, line, mem_points);
 		free(line);
 		line = get_next_line(fd, false);
 	}
 	close(fd);
 	m_data->cleanup_data.fd = 0;
 	get_next_line(fd, true);
+	//eng_print_world(m_data->engine.world);
 }
