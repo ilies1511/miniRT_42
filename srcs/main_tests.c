@@ -218,6 +218,9 @@ void	test_patterns(int *total_tests, int *passed_tests)
 	if (test_stripe_obj())
 		*passed_tests += 1;
 	*total_tests += 1;
+	if (test_checkers_pattern())
+		*passed_tests += 1;
+	*total_tests += 1;
 }
 
 int	main(void)

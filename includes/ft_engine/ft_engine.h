@@ -75,6 +75,9 @@ typedef enum e_pattern_type
 {
 	PAT_DEFAULT = 0,
 	PAT_STRIPE,
+	PAT_CHECKER_2D,
+	PAT_CHECKER_3D,
+	PAT_SQUARE_3D
 }	t_pattern_type;
 
 typedef struct s_pattern

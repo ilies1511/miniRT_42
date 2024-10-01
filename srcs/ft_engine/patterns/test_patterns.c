@@ -148,3 +148,60 @@ bool	test_stripe_obj(void)
 	}
 	return (ret);
 }
+
+bool	test_checkers_pattern(void)
+{
+	bool ret = true;
+	t_pattern *pattern;
+	t_fcolor actual_color;
+
+	pattern = pat_checker3d_pattern(fcolor_white(), fcolor_black());
+
+	// Checkers should repeat in x
+	actual_color = pat_color_at(eng_new_obj(), *pattern, new_point(0, 0, 0));
+	if (!eq_fcolor(actual_color, fcolor_white())) {
+		printf("Test failed: pat_color_at checkers repeat in x at (0,0,0): %s line %d\n", __FILE__, __LINE__);
+		ret = false;
+	}
+
+	actual_color = pat_color_at(eng_new_obj(), *pattern, new_point(0.99, 0, 0));
+	if (!eq_fcolor(actual_color, fcolor_white())) {
+		printf("Test failed: pat_color_at checkers repeat in x at (0.99,0,0): %s line %d\n", __FILE__, __LINE__);
+		ret = false;
+	}
+
+	actual_color = pat_color_at(eng_new_obj(), *pattern, new_point(1.01, 0, 0));
+	if (!eq_fcolor(actual_color, fcolor_black())) {
+		printf("Test failed: pat_color_at checkers repeat in x at (1.01,0,0): %s line %d\n", __FILE__, __LINE__);
+		ret = false;
+	}
+
+	// Checkers should repeat in y
+	actual_color = pat_color_at(eng_new_obj(), *pattern, new_point(0, 0.99, 0));
+	if (!eq_fcolor(actual_color, fcolor_white())) {
+		printf("Test failed: pat_color_at checkers repeat in y at (0,0.99,0): %s line %d\n", __FILE__, __LINE__);
+		ret = false;
+	}
+
+	actual_color = pat_color_at(eng_new_obj(), *pattern, new_point(0, 1.01, 0));
+	if (!eq_fcolor(actual_color, fcolor_black())) {
+		printf("Test failed: pat_color_at checkers repeat in y at (0,1.01,0): %s line %d\n", __FILE__, __LINE__);
+		ret = false;
+	}
+
+	// Checkers should repeat in z
+	actual_color = pat_color_at(eng_new_obj(), *pattern, new_point(0, 0, 0.99));
+	if (!eq_fcolor(actual_color, fcolor_white())) {
+		printf("Test failed: pat_color_at checkers repeat in z at (0,0,0.99): %s line %d\n", __FILE__, __LINE__);
+		ret = false;
+	}
+
+	actual_color = pat_color_at(eng_new_obj(), *pattern, new_point(0, 0, 1.01));
+	if (!eq_fcolor(actual_color, fcolor_black())) {
+		printf("Test failed: pat_color_at checkers repeat in z at (0,0,1.01): %s line %d\n", __FILE__, __LINE__);
+		ret = false;
+	}
+
+	return ret;
+}
+

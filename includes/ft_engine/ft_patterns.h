@@ -17,9 +17,27 @@ t_fcolor	pat_color_at(t_obj obj, t_pattern pattern, t_point world_point);
 t_pattern	*pat_stripe_pattern(t_fcolor color1, t_fcolor color2);
 t_fcolor	pat_stripe_at(t_pattern pat, t_point point);
 
+//checkers_pattern.c
+t_pattern	*pat_checker2d_pattern(t_fcolor color1, t_fcolor color2);
+t_fcolor	pat_checker2d_at(t_pattern pat, t_point point);
+t_pattern	*pat_checker3d_pattern(t_fcolor color1, t_fcolor color2);
+t_fcolor	pat_checker3d_at(t_pattern pat, t_point point);
+
+//square_pattern.c
+t_pattern	*pat_square3d_pattern(t_fcolor color1, t_fcolor color2);
+t_fcolor	pat_square3d_at(t_pattern pat, t_point point);
+
+/*todo: if we want we can add more patterns
+ *simple example:
+	* ring pattern
+	* gradiant pattern
+ * more complex:
+	* jutter pattern (perlin or simplex noise)
+*/
 //tests
 bool		test_stripe_pattern(void);
 bool		test_stripe_lighting(void);
 bool		test_stripe_obj(void);
+bool		test_checkers_pattern(void);
 
 #endif //FT_PATTERNS_H

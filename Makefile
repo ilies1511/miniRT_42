@@ -68,6 +68,8 @@ SRC_FILES_ENGINE := \
 	ft_engine/compute/test_shade_hit.c \
 	ft_engine/patterns/patterns.c \
 	ft_engine/patterns/stripe_pattern.c \
+	ft_engine/patterns/checker_pattern.c \
+	ft_engine/patterns/square_pattern.c \
 	ft_engine/patterns/test_patterns.c \
 
 

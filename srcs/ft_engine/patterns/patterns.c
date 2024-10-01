@@ -26,16 +26,19 @@ t_fcolor	pat_color_at(t_obj obj, t_pattern pattern, t_point world_point)
 	t_point	obj_point;
 	t_point	pattern_point;
 
-	//printf("*****************\n");
-	//mtx_print(1, obj.inverse);
-	//mtx_print(1, pattern.base_obj.transform);
 	obj_point = mtx_mult_mt(obj.inverse, world_point);
 	pattern_point = mtx_mult_mt(pattern.base_obj.inverse, obj_point);
-	//print_t(1, pattern_point);
-	//if (pattern.type == PAT_DEFAULT)
-	//	return (pattern.colors[0]);
-	//else if (pattern.type == PAT_STRIPE)
+	if (pattern.type == PAT_DEFAULT)
+		return (pattern.colors[0]);
+	else if (pattern.type == PAT_STRIPE)
 		return (pat_stripe_at(pattern, pattern_point));
+	else if (pattern.type == PAT_CHECKER_2D)
+		return (pat_checker2d_at(pattern, pattern_point));
+	else if (pattern.type == PAT_CHECKER_3D)
+		return (pat_checker3d_at(pattern, pattern_point));
+	else if (pattern.type == PAT_SQUARE_3D)
+		return (pat_square3d_at(pattern, pattern_point));
+
 	ft_assert(0, __FILE__, __LINE__, "pat_color_at: invalid pattern type");
 	__builtin_unreachable();
 }

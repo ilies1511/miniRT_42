@@ -18,6 +18,9 @@ static void add_objs(t_world *world)
 	sph_right.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
 	sph_right.base_obj.material.diffuse = 0.7;
 	sph_right.base_obj.material.specular = 0.3;
+	sph_right.base_obj.material.pattern = pat_checker3d_pattern(new_fcolor(1, 1, 1, 1), new_fcolor(0,0,0, 1));
+	eng_set_transform((t_obj *)sph_right.base_obj.material.pattern, mtx_scale(0.1, 0.1, 0.1));
+
 	eng_add_obj_to_world(world, (t_obj *)&sph_right);
 
 	sph_mid = eng_new_sphere();
@@ -25,8 +28,10 @@ static void add_objs(t_world *world)
 	sph_mid.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
 	sph_mid.base_obj.material.diffuse = 0.7;
 	sph_mid.base_obj.material.specular = 0.3;
-	sph_mid.base_obj.material.pattern = pat_stripe_pattern(new_fcolor(1, 0, 0, 1), new_fcolor(0,0,1, 1));
-	eng_set_transform((t_obj *)sph_mid.base_obj.material.pattern, mtx_rotation_y(M_PI_2));
+	sph_mid.base_obj.material.pattern = pat_square3d_pattern(new_fcolor(1, 1, 0, 1), new_fcolor(0,1,1, 1));
+	eng_set_transform((t_obj *)sph_mid.base_obj.material.pattern, mtx_scale(0.1, 0.1, 0.1));
+	//eng_set_transform((t_obj *)sph_mid.base_obj.material.pattern, mtx_rotation_y(M_PI_4));
+
 	eng_add_obj_to_world(world, (t_obj *)&sph_mid);
 
 	sph_left = eng_new_sphere();
@@ -36,6 +41,9 @@ static void add_objs(t_world *world)
 	sph_left.base_obj.material.diffuse = 0.7;
 	// sph_left.base_obj.material.shininess = 500;
 	sph_left.base_obj.material.specular = 0.3;
+	sph_left.base_obj.material.pattern = pat_checker3d_pattern(new_fcolor(0, 1, 0, 1), new_fcolor(1,0,1, 1));
+	eng_set_transform((t_obj *)sph_left.base_obj.material.pattern, mtx_scale(0.1, 0.1, 0.1));
+
 	eng_add_obj_to_world(world, (t_obj *)&sph_left);
 
 	ceil = eng_new_plane();
@@ -45,6 +53,7 @@ static void add_objs(t_world *world)
 
 	top = eng_new_plane();
 	top.base_obj.material.fcolor = new_fcolor(1, 0, 0, 1);
+	top.base_obj.material.pattern = pat_checker2d_pattern(new_fcolor(1, 0, 0, 1), new_fcolor(0,0,1, 1));
 	//***why is this buggy***
 	eng_set_transform((t_obj *)&top, mtx_rotation_x(M_PI_2));
 	eng_set_transform((t_obj *)&top, mtx_translate(0, 0, 4));
@@ -61,7 +70,7 @@ static void add_objs(t_world *world)
 	eng_set_transform((t_obj *)&left_top, mtx_translate(-5, 0, 0));
 	//eng_add_obj_to_world(world, (t_obj *)&left_top);
 
-	light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(5, 5, -5));
+	light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(9, 8, -5));
 	eng_add_obj_to_world(world, (t_obj *)&light);
 
 	//light2 = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(-2, 10, 0));
