@@ -1,5 +1,6 @@
 #include <ft_engine.h>
 #include <main.h>
+#include <ft_patterns.h>
 
 t_fcolor	eng_mult_color_f(t_fcolor color1, double scale)
 {
@@ -77,10 +78,13 @@ t_fcolor	eng_lighting_impr(t_material material, t_light light, t_point point, t_
 	t_fcolor	diffuse_c;
 	t_fcolor	specular_c;
 
-	effective_color = eng_mult_color_color(material.fcolor, light.intensity);
+	if (!material.pattern)
+		effective_color = mult_fcolor(material.fcolor, light.intensity);
+	else
+		effective_color = pat_color_at(eng_new_obj(), *material.pattern, point);
 	light_direction = sub_t(light.origin, point);
 	lightv = norm(new_vec(light_direction.x, light_direction.y, light_direction.z));
-	ambient_c = eng_mult_color_f(effective_color, material.ambient);
+	ambient_c = scale_fcolor(effective_color, material.ambient);
 	light_dot_normal = dot_prod(lightv, normalv);
 	if (light_dot_normal < 0)
 	{
@@ -90,7 +94,7 @@ t_fcolor	eng_lighting_impr(t_material material, t_light light, t_point point, t_
 	}
 	else
 	{
-		diffuse_c = eng_mult_color_f(eng_mult_color_f(effective_color, material.diffuse), light_dot_normal); // ?
+		diffuse_c = scale_fcolor(scale_fcolor(effective_color, material.diffuse), light_dot_normal); // ?
 		reflectv = eng_reflect(negate_v(lightv), normalv);
 		reflect_dot_eye = dot_prod(reflectv, eyev);
 		if (reflect_dot_eye <= 0)
@@ -98,15 +102,12 @@ t_fcolor	eng_lighting_impr(t_material material, t_light light, t_point point, t_
 		else
 		{
 			factor = pow(reflect_dot_eye, material.shininess);
-			specular_c = eng_mult_color_f(light.intensity, (material.specular * factor));
+			specular_c = scale_fcolor(light.intensity, (material.specular * factor));
 		}
 	}
 	// result = ambient + diffuse_c + specular_c
 	if (in_shadow)
-	{
-		ambient_c.a = 1; //TODO: Wie wichtig ist hier der a value ?
 		return (ambient_c);
-	}
 	result = add_fcolor(add_fcolor(ambient_c, diffuse_c), specular_c);
 	return (result);
 }
@@ -124,10 +125,10 @@ t_fcolor	eng_lighting(t_material material, t_light light, t_point point, t_vec e
 	t_fcolor	diffuse_c;
 	t_fcolor	specular_c;
 
-	effective_color = eng_mult_color_color(material.fcolor, light.intensity);
+	effective_color = mult_fcolor(material.fcolor, light.intensity);
 	light_direction = sub_t(light.origin, point);
 	lightv = norm(new_vec(light_direction.x, light_direction.y, light_direction.z));
-	ambient_c = eng_mult_color_f(effective_color, material.ambient);
+	ambient_c = scale_fcolor(effective_color, material.ambient);
 	light_dot_normal = dot_prod(lightv, normalv);
 	if (light_dot_normal < 0)
 	{
@@ -137,7 +138,7 @@ t_fcolor	eng_lighting(t_material material, t_light light, t_point point, t_vec e
 	}
 	else
 	{
-		diffuse_c = eng_mult_color_f(eng_mult_color_f(effective_color, material.diffuse), light_dot_normal); // ?
+		diffuse_c = scale_fcolor(scale_fcolor(effective_color, material.diffuse), light_dot_normal); // ?
 		reflectv = eng_reflect(negate_v(lightv), normalv);
 		reflect_dot_eye = dot_prod(reflectv, eyev);
 		if (reflect_dot_eye <= 0)
@@ -145,7 +146,7 @@ t_fcolor	eng_lighting(t_material material, t_light light, t_point point, t_vec e
 		else
 		{
 			factor = pow(reflect_dot_eye, material.shininess);
-			specular_c = eng_mult_color_f(light.intensity, (material.specular * factor));
+			specular_c = scale_fcolor(light.intensity, (material.specular * factor));
 		}
 	}
 	// result = ambient + diffuse_c + specular_c
@@ -163,8 +164,6 @@ t_light	eng_point_light(t_fcolor intensity, t_point position)
 	light.base_obj.type = OBJ_LIGHT;
 	return (light);
 }
-
-
 
 bool	test_eng_lighting(void)
 {

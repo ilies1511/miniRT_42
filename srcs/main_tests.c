@@ -207,6 +207,19 @@ void	test_shadows(int *total_tests, int *passed_tests)
 	*total_tests += 1;
 }
 
+void	test_patterns(int *total_tests, int *passed_tests)
+{
+	if (test_stripe_pattern())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_stripe_lighting())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_stripe_obj())
+		*passed_tests += 1;
+	*total_tests += 1;
+}
+
 int	main(void)
 {
 #ifdef NO_ASSERT
@@ -227,6 +240,7 @@ int	main(void)
 	test_scenes(&total, &passed);
 	test_computation(&total, &passed);
 	test_shadows(&total, &passed);
+	test_patterns(&total, &passed);
 	if (total == passed)
 		printf("%s all tests passed(%d/%d)!%s\n", FT_ANSI_GREEN_BOLD, passed, total, FT_ANSI_RESET);
 	else

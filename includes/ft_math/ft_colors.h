@@ -63,8 +63,6 @@ typedef union u_uintcolor
 	}	__attribute__((packed))argb;
 }	__attribute__((packed))t_uintcolor;
 
-//t_fcolor can be cast to t_vec / t_tuple with this layout
-//(x->r, y->g, z->b, w->a)
 typedef struct s_fcolor
 {
 	double	r;
@@ -75,9 +73,9 @@ typedef struct s_fcolor
 				//when converting to t_uintcolor should be treated as 1.0
 }	t_fcolor;
 
-/*TODO:
- * color types and function names need consitant names
-*/
+t_fcolor		fcolor_white(void);
+t_fcolor		fcolor_black(void);
+
 t_fcolor		new_fcolor(double r, double g, double b, double a);
 t_uintcolor		fcolor_to_uintcolor(t_fcolor fcolor);
 t_fcolor		add_fcolor(t_fcolor a, t_fcolor b);

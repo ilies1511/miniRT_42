@@ -12,8 +12,9 @@
 #  define ERROR_BUF_LEN 50
 # endif
 
-typedef struct s_main	t_main;
-
+typedef struct s_main		t_main;
+typedef struct s_obj		t_obj;
+typedef struct s_pattern	t_pattern;
 typedef struct s_canvas
 {
 	size_t		width;
@@ -21,12 +22,14 @@ typedef struct s_canvas
 	t_uintcolor	*pixels;
 }	t_canvas;
 
+
+
 //canvas.c
 t_canvas	eng_new_canvas(t_main *m_data, size_t width, size_t height);
 void		reset_canvas(t_canvas *canvas);
-
 typedef struct s_material
 {
+	t_pattern	*pattern;
 	t_fcolor	fcolor;
 	double		ambient;
 	double		diffuse;
@@ -45,6 +48,7 @@ typedef enum e_obj_type
 	OBJ_RAY,
 	OBJ_LIGHT,
 	OBJ_CAMERA,
+	OBJ_PATTERN,
 	OBJ_COUNT,
 }	t_obj_type;
 
@@ -66,6 +70,20 @@ typedef struct s_obj
 	t_obj_type	type;
 	t_material	material;
 }	t_obj;
+
+typedef enum e_pattern_type
+{
+	PAT_DEFAULT = 0,
+	PAT_STRIPE,
+}	t_pattern_type;
+
+typedef struct s_pattern
+{
+	t_obj			base_obj;
+	t_pattern_type	type;
+	t_fcolor		*colors;
+	size_t			color_count;
+}	t_pattern;
 
 t_obj	*eng_alloc_shape(t_obj_type type);
 

@@ -94,7 +94,7 @@ void create_filename(char *filename, size_t size) {
 	snprintf(filename, size, "screenshot_%s.ppm", buffer);
 }
 
-void	sphere_test(void *main_data)
+void	sphere_test_v6(void *main_data)
 {
 	t_main			*m_data = (t_main *)main_data;
 	t_canvas		canvas = m_data->engine.canvas;

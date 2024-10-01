@@ -29,6 +29,10 @@ void				gc_free_all(void);
 t_garbage_collector	*get_gc(void);
 // void				*ft_malloc(size_t size);
 void				*ft_malloc(size_t len);
+void	*gc_dyn_arr_init(uint64_t data_size, size_t init_len);
+int		gc_dyn_arr_resize(void **arr);
+int		gc_dyn_arr_add_save(void **arr, void *data, size_t index);
+
 //END: FNC-Prototyps
 
 //BEGIN: FNC-Prototyps TEST

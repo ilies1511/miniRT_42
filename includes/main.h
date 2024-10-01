@@ -27,6 +27,7 @@
 # include <ppm_parser.h>
 # include <parser_42.h>
 # include <garbage_collector.h>
+# include <ft_patterns.h>
 // for development but not allowed functions
 // # include <....h>
 # include <time.h>//used for tests to init rand()

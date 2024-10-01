@@ -65,7 +65,11 @@ SRC_FILES_ENGINE := \
 	ft_engine/shadow/test_shadow.c \
 	ft_engine/objs/obj_utils.c \
 	ft_engine/objs/test_shape.c \
-	ft_engine/compute/test_shade_hit.c
+	ft_engine/compute/test_shade_hit.c \
+	ft_engine/patterns/patterns.c \
+	ft_engine/patterns/stripe_pattern.c \
+	ft_engine/patterns/test_patterns.c \
+
 
 SRC_FILES_MATH := \
 	ft_math/colors/colors.c \
@@ -102,7 +106,8 @@ SRC_FILES_MATH := \
 SRC_FILES_GB_COLLECT := \
 	garbage_collector/gb_garbage_collector.c \
 	garbage_collector/test_gc.c \
-	garbage_collector/gb_utils.c
+	garbage_collector/gb_utils.c \
+	garbage_collector/gc_dyn_arr.c
 
 SRC_FILES_PARSER := \
 	parsing/ppm_parser/store_as_ppm.c \
@@ -122,7 +127,8 @@ SOURCE_FILES := \
 	playgrounds/sphere1/test2.c \
 	playgrounds/sphere1/test3.c \
 	playgrounds/chap_6/1.c \
-	playgrounds/chap_9/1.c
+	playgrounds/chap_9/1.c \
+	playgrounds/chap_10/1.c
 
 SOURCES = $(addprefix $(SRC_DIR), $(SOURCE_FILES))
 

@@ -14,6 +14,16 @@ t_fcolor	new_fcolor(double r, double g, double b, double a)
 	return (color);
 }
 
+t_fcolor	fcolor_black(void)
+{
+	return (new_fcolor(0, 0, 0, 1));
+}
+
+t_fcolor	fcolor_white(void)
+{
+	return (new_fcolor(1, 1, 1, 1));
+}
+
 t_uintcolor	fcolor_to_uintcolor(t_fcolor fcolor)
 {
 	t_uintcolor	ret;
