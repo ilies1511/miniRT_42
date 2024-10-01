@@ -69,6 +69,7 @@ t_matrix	mtx_skew(double xy, double xz, double yx, double yz, double zx, double 
 t_matrix	mtx_rotation_x(double theta);
 t_matrix	mtx_rotation_y(double theta);
 t_matrix	mtx_rotation_z(double theta);
+t_matrix	mtx_rotation_axis_angle(t_vec axis, double angle);
 
 // test_mix.c
 bool		test_matrix_mult_inverse(void);
