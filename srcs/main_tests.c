@@ -177,6 +177,9 @@ void	test_intesec_cy(int *total_tests, int *passed_tests)
 	if (test_closed_capped_cylinder())
 		*passed_tests += 1;
 	*total_tests += 1;
+	if (test_normal_cylinde2())
+		*passed_tests += 1;
+	*total_tests += 1;
 }
 void	test_computation(int *total_tests, int *passed_tests)
 {

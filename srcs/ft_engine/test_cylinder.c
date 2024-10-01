@@ -2,6 +2,61 @@
 #include <ft_engine.h>
 #include <libft.h>
 
+bool	test_normal_cylinde2(void)
+{
+	t_cylinder	cylinder;
+	t_vec		n;
+	t_vec		n2;
+	t_vec		n3;
+	t_vec		n4;
+	t_vec		n5;
+	t_vec		n6;
+	bool		result;
+
+	cylinder = eng_new_cylinder();
+	result = true;
+	cylinder.max = 2;
+	cylinder.min = 2;
+	cylinder.closed = true;
+	n = eng_normal_at(&cylinder, new_point(0, 1, 0));
+	n2 = eng_normal_at(&cylinder, new_point(0.5, 1, 0));
+	n3 = eng_normal_at(&cylinder, new_point(0, 1, 0.5));
+	n4 = eng_normal_at(&cylinder, new_point(0, 2, 0));
+	n5 = eng_normal_at(&cylinder, new_point(0.5, 2, 0));
+	n6  = eng_normal_at(&cylinder, new_point(0, 2, 0.5));
+	if (!eq_t(n, new_vec(0, -1, 0)))
+	{
+		printf("normal_cylinder: %s %d\n", __FILE__, __LINE__);
+		result = false;
+	}
+	if (!eq_t(n2, new_vec(0, -1, 0)))
+	{
+		printf("normal_cylinder: %s %d\n", __FILE__, __LINE__);
+		result = false;
+	}
+	if (!eq_t(n3, new_vec(0, -1, 0)))
+	{
+		printf("normal_cylinder: %s %d\n", __FILE__, __LINE__);
+		result = false;
+	}
+	if (!eq_t(n4, new_vec(0, 1, 0)))
+	{
+		printf("normal_cylinder: %s %d\n", __FILE__, __LINE__);
+		result = false;
+	}
+	if (!eq_t(n5, new_vec(0, 1, 0)))
+	{
+		printf("normal_cylinder: %s %d\n", __FILE__, __LINE__);
+		result = false;
+	}
+	if (!eq_t(n6, new_vec(0, 1, 0)))
+	{
+		printf("normal_cylinder: %s %d\n", __FILE__, __LINE__);
+		result = false;
+	}
+	return (result);
+}
+
 bool	test_closed_capped_cylinder(void)
 {
 	bool		result;
@@ -17,6 +72,7 @@ bool	test_closed_capped_cylinder(void)
 	t_intersc_arr	intersecs4;
 	t_intersc_arr	intersecs5;
 
+	cylinder = eng_new_cylinder();
 	result = true;
 	cylinder.max = 2;
 	cylinder.min = 1;
@@ -148,7 +204,8 @@ bool	test_normal_at_cylinder(void)
 	t_vec			vec4;
 
 	result = true;
-	vec = compute_normal_cylinder(new_point(1, 0, 0));
+	cylinder = eng_new_cylinder();
+	vec = compute_normal_cylinder(&cylinder, new_point(1, 0, 0));
 	if (!eq_t(vec, new_vec(1, 0, 0)))
 	{
 		printf("MINE:\n");
@@ -158,7 +215,7 @@ bool	test_normal_at_cylinder(void)
 		printf("%s Line %d\n", __FILE__, __LINE__);
 		result = false;
 	}
-	vec2 = compute_normal_cylinder(new_point(0, 5, -1));
+	vec2 = compute_normal_cylinder(&cylinder, new_point(0, 5, -1));
 	if (!eq_t(vec2, new_vec(0, 0, -1)))
 	{
 		printf("MINE:\n");
@@ -168,7 +225,7 @@ bool	test_normal_at_cylinder(void)
 		printf("%s Line %d\n", __FILE__, __LINE__);
 		result = false;
 	}
-	vec3 = compute_normal_cylinder(new_point(0, -2, 1));
+	vec3 = compute_normal_cylinder(&cylinder, new_point(0, -2, 1));
 	if (!eq_t(vec3, new_vec(0, 0, 1)))
 	{
 		printf("%s Line %d\n", __FILE__, __LINE__);
@@ -178,7 +235,7 @@ bool	test_normal_at_cylinder(void)
 		print_t(2, new_vec(0, 0, 1));
 		result = false;
 	}
-	vec4 = compute_normal_cylinder(new_point(-1, 1, 0));
+	vec4 = compute_normal_cylinder(&cylinder, new_point(-1, 1, 0));
 	if (!eq_t(vec4, new_vec(-1, 0, 0)))
 	{
 		printf("TEST 4 - MINE:\n");
