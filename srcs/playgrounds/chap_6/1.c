@@ -1,4 +1,5 @@
 #include <main.h>
+#include <time.h>
 
 static void add_objs(t_world *world)
 {
@@ -67,22 +68,52 @@ static void add_objs(t_world *world)
 	// eng_add_obj_to_world(world, (t_obj *)&light2);
 }
 
-void	sphere_test_v6(void *main_data)
+// void create_filename(char *filename, size_t size) {
+// 	// Hole das aktuelle Datum und die Uhrzeit
+// 	time_t rawtime;
+// 	struct tm *timeinfo;
+// 	char buffer[80];
+// 	time(&rawtime);
+// 	timeinfo = localtime(&rawtime);
+// 	// Formatierung des Zeitstempels: z.B. "2024-09-26_15-30-45"
+// 	strftime(buffer, sizeof(buffer), "%Y-%m-%d_%H-%M-%S", timeinfo);
+// 	// Erstelle den Dateinamen mit dem Zeitstempel
+// 	snprintf(filename, size, "screenshot_%s.ppm", buffer);
+// }
+
+void create_filename(char *filename, size_t size) {
+	// Hole das aktuelle Datum und die Uhrzeit
+	time_t rawtime;
+	struct tm *timeinfo;
+	char buffer[80];
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+	// Formatierung des Zeitstempels im deutschen Format: z.B. "26-09-2024_15-30-45"
+	strftime(buffer, sizeof(buffer), "%d-%m-%Y_%H-%M-%S", timeinfo);
+	// Erstelle den Dateinamen mit dem Zeitstempel
+	snprintf(filename, size, "screenshot_%s.ppm", buffer);
+}
+
+void	sphere_test(void *main_data)
 {
 	t_main			*m_data = (t_main *)main_data;
 	t_canvas		canvas = m_data->engine.canvas;
 	t_camera		camera;
-	t_world	*world;
+	t_world			*world;
+	char			filename[100];
+
 	camera = eng_new_camera(WIDTH, HEIGHT, M_PI / 3);
 	eng_set_transform((t_obj *)&camera, sc_transforme_view(new_point(0, 1.5, -5),
 			new_point(0, 1, 0), new_vec(0, 1, 0)));
 	static bool first = true;
 	world = &m_data->engine.world;
+	create_filename(filename, sizeof(filename));
 	if (first)
 	{
 		first = false;
 		add_objs(world);
 	}
 	eng_render(camera, *world, canvas);
-	// store_as_plain_ppm(m_data, "d.ppm");
+	// if (first)
+	// 	store_as_plain_ppm(m_data, filename);
 }
