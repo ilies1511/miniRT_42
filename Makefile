@@ -44,6 +44,8 @@ SRC_FILES_ENGINE := \
 	ft_engine/rays/init.c \
 	ft_engine/rays/cleanup.c \
 	ft_engine/rays/intersect.c \
+	ft_engine/rays/intersect_utils.c \
+	ft_engine/rays/cylinder_intersect.c \
 	ft_engine/rays/ray_hit.c \
 	ft_engine/rays/utils.c \
 	ft_engine/rays/tests.c \
@@ -60,6 +62,7 @@ SRC_FILES_ENGINE := \
 	ft_engine/scene/transformation_view.c \
 	ft_engine/scene/test_scene.c \
 	ft_engine/scene/camera.c \
+	ft_engine/scene/test_camera.c \
 	ft_engine/shadow/shadow.c \
 	ft_engine/shadow/test_shadow.c \
 	ft_engine/objs/obj_utils.c \

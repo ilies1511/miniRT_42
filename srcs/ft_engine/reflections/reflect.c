@@ -12,7 +12,8 @@ t_vec	ref_reflect(t_vec vec, t_vec surface_normal)
 	return (sub_t(vec, scaled_normal));
 }
 
-t_fcolor	ref_reflected_color(t_world world, t_computation comp, size_t remaining_reflects)
+t_fcolor	ref_reflected_color(t_world world, t_computation comp,
+		size_t remaining_reflects)
 {
 	t_ray		reflected_ray;
 	t_fcolor	color;
