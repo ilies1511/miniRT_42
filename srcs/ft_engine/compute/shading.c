@@ -2,7 +2,7 @@
 #include <libft.h>
 #include <ft_reflection.h>
 
-t_fcolor	eng_shade_hit(t_world world, t_computation comp)
+t_fcolor	eng_shade_hit(t_world world, t_computation comp, size_t remaining_reflects)
 {
 	size_t		i;
 	t_fcolor	color;
@@ -18,14 +18,14 @@ t_fcolor	eng_shade_hit(t_world world, t_computation comp)
 			in_shadow = true;
 		color = add_fcolor(color, eng_lighting(*comp.obj, comp.obj->material,
 			world.lights[i], comp.over_point, comp.eye_v, comp.normal_v, in_shadow));
-		reflected = ref_reflected_color(world, comp);
+		reflected = ref_reflected_color(world, comp, remaining_reflects);
 		color = add_fcolor(color, reflected);
 		i++;
 	}
 	return (color);
 }
 
-t_fcolor	eng_color_at(t_world world, t_ray ray)
+t_fcolor	eng_color_at(t_world world, t_ray ray, size_t remaining_reflects)
 {
 	t_intersc_arr	interscs;
 	t_intersc		*intersc;
@@ -38,7 +38,7 @@ t_fcolor	eng_color_at(t_world world, t_ray ray)
 	if (intersc)
 	{
 		comp = eng_prepare_computation(*intersc, ray);
-		color = eng_shade_hit(world, comp);
+		color = eng_shade_hit(world, comp, remaining_reflects);
 	}
 	else
 		color = new_fcolor(0, 0, 0, 1);
@@ -55,7 +55,7 @@ bool	test_shading_outside_intersection(void)
 	t_intersc	i = {4, shape};
 
 	t_computation comps = eng_prepare_computation(i, r);
-	t_fcolor c = eng_shade_hit(w, comps);
+	t_fcolor c = eng_shade_hit(w, comps, 10);
 	t_fcolor expected = new_fcolor(0.38066, 0.47583, 0.2855, 1);
 	if (!eq_fcolor(c, expected))
 	{
@@ -74,7 +74,7 @@ bool	test_shading_outside_intersection(void)
 	i.t = 0.5;
 	i.obj = shape;
 	comps = eng_prepare_computation(i, r);
-	c = eng_shade_hit(w, comps);
+	c = eng_shade_hit(w, comps, 10);
 	expected = new_fcolor(0.90498, 0.90498, 0.90498, 1);
 	if (!eq_fcolor(c, expected))
 	{
@@ -91,7 +91,7 @@ bool	test_eng_color_at(void)
 	bool		ret = true;
 	t_world		w = eng_default_world();
 	t_ray		r = eng_new_ray(new_point(0, 0, -5), new_vec(0, 1, 0));
-	t_fcolor	c = eng_color_at(w, r);
+	t_fcolor	c = eng_color_at(w, r, 10);
 	t_fcolor	expected_color = new_fcolor(0.0f, 0.0f, 0.0f, 0.0f);
 	if (!eq_fcolor(c, expected_color))
 	{
@@ -101,7 +101,7 @@ bool	test_eng_color_at(void)
 
 	w = eng_default_world();
 	r = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
-	c = eng_color_at(w, r);
+	c = eng_color_at(w, r, 10);
 	expected_color = new_fcolor(0.38066f, 0.47583f, 0.2855f, 0.0f);
 	if (!eq_fcolor(c, expected_color))
 	{
@@ -115,7 +115,7 @@ bool	test_eng_color_at(void)
     t_obj	*inner = w.objs[1];
     inner->material.ambient = 1.0f;
     r = eng_new_ray(new_point(0, 0, 0.75f), new_vec(0, 0, -1));
-    c = eng_color_at(w, r);
+    c = eng_color_at(w, r, 10);
 	if (!eq_fcolor(c, inner->material.fcolor))
 	{
 		ft_fprintf(2, "test failed: eng_color_at: %s line %d\n", __FILE__, __LINE__);
@@ -138,7 +138,7 @@ void	eng_render(t_camera camera, t_world world, t_canvas canvas)
 		for (size_t x = 0; x < camera.width; x++)
 		{
 			t_ray	ray = eng_ray_for_pixel(camera, x, y);
-			t_fcolor color = eng_color_at(world, ray);
+			t_fcolor color = eng_color_at(world, ray, 100);
 			eng_put_pixel(canvas, x, y, color);
 		}
 		printf("%f%%\n", ((double)y) / canvas.height * 100);

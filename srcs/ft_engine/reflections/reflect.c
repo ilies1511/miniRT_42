@@ -12,14 +12,14 @@ t_vec	ref_reflect(t_vec vec, t_vec surface_normal)
 	return (sub_t(vec, scaled_normal));
 }
 
-t_fcolor	ref_reflected_color(t_world world, t_computation comp)
+t_fcolor	ref_reflected_color(t_world world, t_computation comp, size_t remaining_reflects)
 {
 	t_ray		reflected_ray;
 	t_fcolor	color;
 
-	if (eq_f(comp.obj->material.reflective, 0))
+	if (eq_f(comp.obj->material.reflective, 0) || !remaining_reflects)
 		return (fcolor_black());
 	reflected_ray = eng_new_ray(comp.over_point, comp.reflection);
-	color = eng_color_at(world, reflected_ray);
+	color = eng_color_at(world, reflected_ray, remaining_reflects - 1);
 	return (scale_fcolor(color, comp.obj->material.reflective));
 }

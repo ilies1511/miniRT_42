@@ -30,7 +30,7 @@ bool	test_shade_hit(void)
 	ray = eng_new_ray(new_point(0, 0, 5), new_vec(0, 0, 1));
 	eng_intersc_ray(&intersecs, ray, (t_obj *)&s2);
 	comp = eng_prepare_computation(intersec, ray);
-	ist_color = eng_shade_hit(w, comp);
+	ist_color = eng_shade_hit(w, comp, 10);
 	if (eq_fcolor(ist_color, soll_color))
 		status = true;
 	else

@@ -53,7 +53,7 @@ bool	test_ref_reflect_color_none(void)
 	intersc.obj = obj;
 	comp = eng_prepare_computation(intersc, ray);
 	expect = fcolor_black();
-	actual = ref_reflected_color(world, comp);
+	actual = ref_reflected_color(world, comp, 10);
 	if (!eq_fcolor(actual, expect))
 	{
 		ret = false;
@@ -88,7 +88,7 @@ bool	test_ref_reflect_color(void)
 	intersc.obj = obj;
 	comp = eng_prepare_computation(intersc, ray);
 	expect = new_fcolor(0.19032, 0.2379, 0.14274, 1);
-	actual = ref_reflected_color(world, comp);
+	actual = ref_reflected_color(world, comp, 10);
 	if (!eq_fcolor(actual, expect))
 	{
 		ret = false;
@@ -123,7 +123,7 @@ bool	test_ref_with_shade_hit(void)
 	intersc.obj = obj;
 	comp = eng_prepare_computation(intersc, ray);
 	expect = new_fcolor(0.87677, 0.92436, 0.82918, 1);
-	actual = eng_shade_hit(world, comp);
+	actual = eng_shade_hit(world, comp, 10);
 	if (!eq_fcolor(actual, expect))
 	{
 		ret = false;
@@ -155,7 +155,8 @@ bool	test_ref_infinite_recursion(void)
 	eng_set_transform((t_obj *)&upper, mtx_translate(0, 1, 0));
 	eng_add_obj_to_world(&world, (t_obj *)&upper);
 	ray = eng_new_ray(new_point(0, 0, 0), new_vec(0, 1, 0));
-	printf("testing for infinit recursion..\n");
-	eng_color_at(world, ray);
+	printf("testing for infinit recursion, crashes on error..\n");
+	eng_color_at(world, ray, 10);
+	printf("passed infinit recursion test\n");
 	return (ret);
 }

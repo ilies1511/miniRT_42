@@ -258,10 +258,9 @@ void	test_reflections(int *total_tests, int *passed_tests)
 	if (test_ref_with_shade_hit())
 		*passed_tests += 1;
 	*total_tests += 1;
-	//TODO:
-	//if (test_ref_infinite_recursion())
-	//	*passed_tests += 1;
-	//*total_tests += 1;
+	if (test_ref_infinite_recursion())
+		*passed_tests += 1;
+	*total_tests += 1;
 }
 
 

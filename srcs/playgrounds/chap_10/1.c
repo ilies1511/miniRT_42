@@ -18,8 +18,8 @@ static void add_objs(t_world *world)
 	cyl.min = 0.5;
 	cyl.max = 2;
 	cyl.closed = true;
-	cyl.base_obj.material.reflective = 0;
-	cyl.base_obj.material.pattern = pat_square3d_pattern(new_fcolor(0.5, 0.5, 0, 1), new_fcolor(0, 1, 1, 1));
+	cyl.base_obj.material.reflective = 0.1;
+	//cyl.base_obj.material.pattern = pat_square3d_pattern(new_fcolor(0.5, 0.5, 0, 1), new_fcolor(0, 1, 1, 1));
 	eng_set_transform((t_obj *)&cyl, mtx_translate(2, 0, -2));
 	eng_add_obj_to_world(world, (t_obj *)&cyl);
 
