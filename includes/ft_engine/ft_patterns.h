@@ -1,14 +1,13 @@
 #ifndef FT_PATTERNS_H
 # define FT_PATTERNS_H
 
-#include <stdlib.h>
-#include <ft_colors.h>
-#include <ft_tuple.h>
-#include <ft_matrix.h>
-#include <ft_engine.h>
+# include <stdlib.h>
+# include <ft_colors.h>
+# include <ft_tuple.h>
+# include <ft_matrix.h>
+# include <ft_engine.h>
 
 typedef struct s_obj	t_obj;
-
 
 t_pattern	*pat_new_pattern(void);
 t_fcolor	pat_color_at(t_obj obj, t_pattern pattern, t_point world_point);

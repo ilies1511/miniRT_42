@@ -1,5 +1,5 @@
-#ifndef FT_REFLECTION
-# define FT_REFLECTION
+#ifndef FT_REFLECTION_H
+# define FT_REFLECTION_H
 
 # include <stdbool.h>
 # include <ft_tuple.h>
@@ -15,4 +15,4 @@ bool		test_ref_reflect_color_none(void);
 bool		test_ref_reflect_color(void);
 bool		test_ref_with_shade_hit(void);
 bool		test_ref_infinite_recursion(void);
-#endif //FT_REFLECTION
+#endif //FT_REFLECTION_H
