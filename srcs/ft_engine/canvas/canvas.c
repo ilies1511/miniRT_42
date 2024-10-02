@@ -3,7 +3,7 @@
 
 t_canvas	eng_new_canvas(t_main *m_data, size_t width, size_t height)
 {
-	t_canvas canv;
+	t_canvas	canv;
 
 	canv.width = width;
 	canv.height = height;
@@ -14,11 +14,10 @@ t_canvas	eng_new_canvas(t_main *m_data, size_t width, size_t height)
 
 void	reset_canvas(t_canvas *canvas)
 {
-	t_uintcolor		*pixels;
+	t_uintcolor			*pixels;
 	size_t				x;
 	size_t				y;
-	const t_uintcolor color =
-	{
+	const t_uintcolor	color = {
 		.argb.a = 0xFF,
 		.argb.r = 0x00,
 		.argb.g = 0x00,
