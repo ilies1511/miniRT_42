@@ -1,7 +1,6 @@
 #include <ft_engine.h>
 #include <main.h>
 
-
 t_matrix	sc_transforme_view(t_point from, t_point to, t_vec up)
 {
 	t_vec		forward;
@@ -9,7 +8,6 @@ t_matrix	sc_transforme_view(t_point from, t_point to, t_vec up)
 	t_vec		true_up;
 	t_point		delta;
 	t_matrix	orientation;
-	t_matrix	result;
 
 	delta = sub_t(to, from);
 	forward = norm(new_vec(delta.x, delta.y, delta.z));
@@ -25,6 +23,5 @@ t_matrix	sc_transforme_view(t_point from, t_point to, t_vec up)
 	orientation.m[2][0] = -forward.x;
 	orientation.m[2][1] = -forward.y;
 	orientation.m[2][2] = -forward.z;
-	result = mtx_mult_mm(orientation, mtx_translate(-from.x, -from.y, -from.z));
-	return (result);
+	return (mtx_mult_mm(orientation, mtx_translate(-from.x, -from.y, -from.z)));
 }
