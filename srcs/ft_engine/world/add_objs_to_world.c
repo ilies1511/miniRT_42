@@ -15,7 +15,8 @@ static void	add_shape_to_world(t_world *world, t_obj *obj_data, size_t obj_size)
 
 	new = eng_alloc_shape(obj_data->type);
 	ft_memcpy(new, obj_data, obj_size);
-	gc_dyn_arr_add_save((void **)(&world->objs), (void *)(&new), world->obj_count++);
+	gc_dyn_arr_add_save((void **)(&world->objs), (void *)(&new),
+		world->obj_count++);
 	if (!world->objs)
 		ft_error("Error: malloc failed", __FILE__, __LINE__, 1);
 }
