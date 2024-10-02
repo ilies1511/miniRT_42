@@ -4,6 +4,7 @@
 //Libs
 # include <stdlib.h>
 # include <stdio.h>
+# include <stdint.h>
 
 //BEGIN: Structs
 typedef struct s_gc_node
