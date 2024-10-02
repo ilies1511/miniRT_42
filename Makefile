@@ -111,7 +111,11 @@ SRC_FILES_GB_COLLECT := \
 
 SRC_FILES_PARSER := \
 	parsing/ppm_parser/store_as_ppm.c \
-	parsing/parser_42/parser.c
+	parsing/parser_42/parser.c \
+	parsing/parser_42/utils.c \
+	parsing/parser_42/parse_object.c \
+	parsing/parser_42/collision_handlers.c
+
 
 SOURCE_FILES := \
 	$(SRC_MAIN)\
