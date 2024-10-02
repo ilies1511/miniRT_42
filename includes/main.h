@@ -1,4 +1,3 @@
-
 #ifndef MAIN_H
 # define MAIN_H
 
@@ -10,7 +9,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <math.h>
-#include <limits.h>
+# include <limits.h>
 
 // MLX and libft
 # include <MLX42.h>
@@ -56,7 +55,6 @@
 #  define WALL_DIST 1
 # endif
 
-
 typedef int	t_fd;
 
 typedef struct s_cleanup
@@ -65,14 +63,13 @@ typedef struct s_cleanup
 	int			fd;
 }	t_cleanup;
 
-
+// ac(argument count) can be removed later
 typedef struct s_main
 {
 	mlx_t		*mlx;
 	t_engine	engine;
 	t_cleanup	cleanup_data;
-	int			ac;//can be removed later, only to indicated if the world
-	//is pared from a file or not
+	int			ac;
 }	t_mait;
 
 typedef enum s_tuple_type
@@ -86,20 +83,13 @@ typedef enum s_tuple_type
 void	draw_projectile(void *main_data);
 void	sphere_test(void *main_data);
 
-// main.c
-
-//******engine/******
-
 // init_exit/init.c
 void	init_hooks(t_main *m_data);
 void	main_init(t_main *m_data, int ac, char *av[]);
-t_main	*get_m_data();
-
+t_main	*get_m_data(void);
 
 // init_exit/at_exit.c
 void	main_cleanup(t_main *m_data, uint8_t exit_stat);
 void	ft_error(char *msg, char *file,
-			  int line, uint8_t exit_stat);
-
-
+			int line, uint8_t exit_stat);
 #endif
