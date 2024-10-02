@@ -85,7 +85,6 @@ SRC_FILES_MATH := \
 	ft_math/general/max_min_i.c \
 	ft_math/matrix/matrix_rotation.c \
 	ft_math/matrix/matrix_translation.c \
-	ft_math/matrix/matrix_helpers.c \
 	ft_math/matrix/matrix_init.c \
 	ft_math/matrix/matrix_mult.c \
 	ft_math/matrix/matrix_determinant.c \

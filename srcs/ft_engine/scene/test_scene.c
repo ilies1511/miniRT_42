@@ -35,10 +35,10 @@ bool	test_transformation_view_mixed(void)
 	if (!flag)
 	{
 		printf("IST: \n");
-		mtx_print_matrix(&ist, MAT4X4);
+		mtx_print(2, ist);
 		printf("\n");
 		printf("SOLL: \n");
-		mtx_print_matrix(&soll, MAT4X4);
+		mtx_print(2, soll);
 	}
 	return(flag);
 }
@@ -61,10 +61,10 @@ bool	test_transformation_view_world(void)
 	if (!flag)
 	{
 		printf("IST: \n");
-		mtx_print_matrix(&ist, MAT4X4);
+		mtx_print(2, ist);
 		printf("\n");
 		printf("SOLL: \n");
-		mtx_print_matrix(&soll, MAT4X4);
+		mtx_print(2, soll);
 	}
 	return(flag);
 }
@@ -85,10 +85,10 @@ bool	test_transformation_view_z(void)
 	if (!mtx_eq(ist, soll))
 	{
 		printf("IST: \n");
-		mtx_print_matrix(&ist, MAT4X4);
+		mtx_print(2, ist);
 		printf("\n");
 		printf("SOLL: \n");
-		mtx_print_matrix(&soll, MAT4X4);
+		mtx_print(2, soll);
 	}
 	return(mtx_eq(ist, soll));
 }
@@ -109,10 +109,10 @@ bool	test_transformation_view_default(void)
 	if (!mtx_eq(ist, soll))
 	{
 		printf("IST: \n");
-		mtx_print_matrix(&ist, MAT4X4);
+		mtx_print(2, ist);
 		printf("\n");
 		printf("SOLL: \n");
-		mtx_print_matrix(&soll, MAT4X4);
+		mtx_print(2, soll);
 	}
 	return(mtx_eq(ist, soll));
 }

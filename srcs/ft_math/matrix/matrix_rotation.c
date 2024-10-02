@@ -61,8 +61,8 @@ t_matrix	mtx_rotation_z(double theta)
 t_matrix	mtx_rotation_axis_angle(t_vec axis, double angle)
 {
 	double		cos_a;
-	double 		sin_a;
-	double 		one_minus_cos_a;
+	double		sin_a;
+	double		one_minus_cos_a;
 	t_matrix	rot;
 
 	cos_a = cos(angle);

@@ -20,19 +20,24 @@ t_matrix	mtx_new_ident(t_matrix_type type)
 //for tests and bebugging
 t_matrix	mtx_get_rdm_m(t_matrix_type type)
 {
-
 	t_matrix	m;
+	int			row;
+	int			col;
 
 	if (type)
 		m.type = type;
 	else
 		m.type = (t_matrix_type)(rand() % 3) + 2;
-	for (int row = 0; row < (int)(m.type); row++)
+	row = 0;
+	while (row < (int)(m.type))
 	{
-		for (int col = 0; col < (int)(m.type); col++)
+		col = 0;
+		while (col < (int)(m.type))
 		{
 			m.m[row][col] = ((double)rand()) / rand();
+			col++;
 		}
+		row++;
 	}
 	return (m);
 }

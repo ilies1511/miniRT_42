@@ -59,8 +59,16 @@ int			test_matrix_translate(void);
 t_matrix	mtx_scale(double x, double y, double z);
 
 // Matrix Skew aka Shearing
-t_matrix	mtx_skew(double xy, double xz, double yx,
-				double yz, double zx, double zy);
+struct s_skew
+{
+	double	xy;
+	double	xz;
+	double	yx;
+	double	yz;
+	double	zx;
+	double	zy;
+};
+t_matrix	mtx_skew(struct s_skew);
 // end TODO
 
 // matrix_rotation.c
@@ -90,9 +98,5 @@ int			test_mtx_transpose(void);
 // Matrix Scaling
 t_matrix	mtx_scale_izi(t_tuple tuple);
 int			test_mtx_scaling(void);
-
-//Helper
-int			mtx_get_matrix_dimension(t_matrix_type type);
-void		mtx_print_matrix(void *matrix, t_matrix_type type);
 
 #endif // FT_MATRIX_H

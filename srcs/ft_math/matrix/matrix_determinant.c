@@ -10,9 +10,6 @@ t_matrix	mtx_sub_matrix(t_matrix m, int remove_row, int remove_col)
 	int			new_row;
 	int			new_col;
 
-	ft_assert(m.type > MAT2X2 && remove_col < (int)m.type
-			&& remove_row < (int)m.type,
-		__FILE__, __LINE__, "mtx_sub_matrix invalid input");
 	sub.type = m.type - 1;
 	new_row = 0;
 	old_row = 0;
@@ -24,22 +21,21 @@ t_matrix	mtx_sub_matrix(t_matrix m, int remove_row, int remove_col)
 		{
 			if (old_col != remove_col && old_row != remove_row)
 				sub.m[new_row][new_col] = m.m[old_row][old_col];
-			if (old_col != remove_col)
+			if (old_col++ != remove_col)
 				new_col ++;
-			old_col++;
 		}
-		if (old_row != remove_row)
+		if (old_row++ != remove_row)
 			new_row++;
-		old_row++;
 	}
 	return (sub);
 }
+
 /*
 	“determinant of the submatrix"
 */
 double	mtx_minor(t_matrix m, int row, int col)
 {
-	double	minor;
+	double		minor;
 	t_matrix	sub_m;
 
 	sub_m = mtx_sub_matrix(m, row, col);
@@ -61,7 +57,7 @@ double	mtx_cofactor(t_matrix m, int row, int col)
 double	mtx_det(t_matrix m)
 {
 	double	result;
-	int			i;
+	int		i;
 	double	tmp[4];
 
 	result = 0.0;
