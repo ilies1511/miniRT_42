@@ -68,14 +68,6 @@ typedef enum e_obj_type
 	OBJ_COUNT,
 }	t_obj_type;
 
-// can be cast to t_obj_type
-typedef enum e_shape_type
-{
-	SHAPE_DEFAULT = 0,
-	SHAPE_SPHERE = 1,
-	SHAPE_PLANE = 2,
-}	t_shape_type;
-
 const char		*eng_type_to_str(t_obj_type type, char buf[ERROR_BUF_LEN]);
 bool			eng_is_shape(t_obj_type type);
 

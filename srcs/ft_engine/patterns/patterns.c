@@ -38,7 +38,6 @@ t_fcolor	pat_color_at(t_obj obj, t_pattern pattern, t_point world_point)
 		return (pat_checker3d_at(pattern, pattern_point));
 	else if (pattern.type == PAT_SQUARE_3D)
 		return (pat_square3d_at(pattern, pattern_point));
-
 	ft_assert(0, __FILE__, __LINE__, "pat_color_at: invalid pattern type");
 	__builtin_unreachable();
 }

@@ -13,4 +13,3 @@ t_material	eng_new_material(void)
 	mat.reflective = 0.0;
 	return (mat);
 }
-

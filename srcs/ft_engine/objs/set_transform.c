@@ -14,7 +14,6 @@ void	eng_set_transform(t_obj *obj, t_matrix transform)
 	obj->inverse = mtx_inverse(obj->transform);
 }
 
-
 //*******mayebe something like this is needed later on****
 /*
 static void	set_transform_ray(t_ray *ray, t_matrix transform)

@@ -20,23 +20,12 @@ static void	transform_sphere(t_sphere *in, t_sphere *ret)
 	ret->origin = mtx_mult_mt(in->base_obj.transform, in->origin);
 }
 
-//TODO: improvised
-static void	transform_camera(t_camera *in)
-{
-	(void)in;
-	fprintf(stderr, "%sWARNING: camera transformation currently not working\n%s",
-			FT_ANSI_RED_BOLD_UNDERLINE, FT_ANSI_RESET);
-}
-
 void	eng_transform(t_obj *in, t_obj *ret)
 {
 	if (in->type == OBJ_RAY)
 		transform_ray((t_ray *)in, (t_ray *)ret);
 	else if (in->type == OBJ_SPHERE)
 		transform_sphere((t_sphere *)in, (t_sphere *)ret);
-	else if (in->type == OBJ_CAMERA)
-		transform_camera((t_camera *)in);
 	else
 		ft_assert(0, __FILE__, __LINE__, "Error: eng_transform: Invalid type");
 }
-

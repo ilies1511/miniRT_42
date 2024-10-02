@@ -21,4 +21,3 @@ t_fcolor	pat_stripe_at(t_pattern pat, t_point point)
 		return (pat.colors[0]);
 	return (pat.colors[1]);
 }
-

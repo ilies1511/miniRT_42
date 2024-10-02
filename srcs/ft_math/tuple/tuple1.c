@@ -45,4 +45,3 @@ bool	eq_t(t_tuple a, t_tuple b)
 		&& eq_f(a.w, b.w)
 	);
 }
-

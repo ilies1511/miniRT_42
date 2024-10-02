@@ -3,45 +3,38 @@
 
 bool	eng_is_shape(t_obj_type type)
 {
-	return (type == OBJ_SPHERE || type == OBJ_PLANE || OBJ_CYLINDER);
+	return (type == OBJ_SPHERE || type == OBJ_PLANE || type == OBJ_CYLINDER);
 }
 
-t_obj *eng_alloc_shape(t_obj_type type)
+t_obj	*eng_alloc_shape(t_obj_type type)
 {
 	t_obj	*shape;
-	char	error_type_buffer[ERROR_BUF_LEN];
+	char	buf[ERROR_BUF_LEN];
 
 	if (type == OBJ_SPHERE)
-	{
 		shape = ft_malloc(sizeof(t_sphere));
-		*(t_sphere *)shape = eng_new_sphere();
-	}
 	else if (type == OBJ_PLANE)
-	{
 		shape = ft_malloc(sizeof(t_plane));
-		*(t_plane *)shape = eng_new_plane();
-	}
 	else if (type == OBJ_CYLINDER)
-	{
-		shape = ft_malloc(sizeof(t_cylinder)); //TODO: Add malloc CHECK
-		if (!shape)
-			gc_free_all();
-		*(t_cylinder *)shape = eng_new_cylinder();
-	}
+		shape = ft_malloc(sizeof(t_cylinder));
 	else
 	{
-		ft_fprintf(2, "eng_alloc_shape: invlid shape type: %s\n",
-			eng_type_to_str((t_obj_type)type, error_type_buffer));
-		ft_assert(0,  __FILE__, __LINE__,
-			"Assertion: eng_alloc_shape: invalid shape type");
+		ft_fprintf(2, "invlid shape: %s\n", eng_type_to_str(type, buf));
+		ft_assert(0, __FILE__, __LINE__, "eng_alloc_shape:invalid shape type");
 		__builtin_unreachable();
 	}
 	if (!shape)
 		ft_error("Error: malloc failed", __FILE__, __LINE__, 1);
+	if (type == OBJ_SPHERE)
+		*(t_sphere *)shape = eng_new_sphere();
+	else if (type == OBJ_PLANE)
+		*(t_plane *)shape = eng_new_plane();
+	else if (type == OBJ_CYLINDER)
+		*(t_cylinder *)shape = eng_new_cylinder();
 	return (shape);
 }
 
-const char *eng_type_to_str(t_obj_type type, char buf[ERROR_BUF_LEN])
+const char	*eng_type_to_str(t_obj_type type, char buf[ERROR_BUF_LEN])
 {
 	const char	*type_str;
 

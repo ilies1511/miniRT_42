@@ -19,7 +19,6 @@ void	eng_init_engine(t_main *m_data, int ac, char *av[])
 	t_engine	*engine;
 
 	engine = &m_data->engine;
-	//ft_bzero(engine, sizeof *engine);
 	engine->world = eng_new_world();
 	engine->canvas = eng_new_canvas(m_data, WIDTH, HEIGHT);
 	if (ac > 1)

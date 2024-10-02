@@ -17,5 +17,6 @@ t_pattern	*pat_square3d_pattern(t_fcolor color1, t_fcolor color2)
 
 t_fcolor	pat_square3d_at(t_pattern pat, t_point point)
 {
-	return (pat.colors[(int)fmod(fabs(point.x) + fabs(point.y) + fabs(point.z), 2)]);
+	return (pat.colors[(int)fmod(fabs(point.x) + fabs(point.y)
+				+ fabs(point.z), 2)]);
 }
