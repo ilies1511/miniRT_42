@@ -66,7 +66,7 @@ bool	test_light_with_surface_shadow()
 	return (ret);
 }
 
-void	init_lighting_norm_strukt(t_lighting_norm	*light_norm)
+static void	init_lighting_norm_strukt(t_lighting_norm	*light_norm)
 {
 	light_norm->ambient_c = new_fcolor(0, 0, 0, 0);
 	light_norm->diffuse_c = new_fcolor(0, 0, 0, 0);
@@ -75,6 +75,20 @@ void	init_lighting_norm_strukt(t_lighting_norm	*light_norm)
 	light_norm->light_direction = sub_t(new_vec(0, 0, 0), new_vec(0, 0, 0));
 	light_norm->light_dot_normal = 0;
 	light_norm->lightv = new_vec(0, 0, 0);
+}
+
+static void	in_light_case(t_lighting_norm *n, t_light light, t_computation comp)
+{
+	n->diffuse_c = scale_fcolor(scale_fcolor(n->effective_color, (comp.obj->material.diffuse)), n->light_dot_normal); // ?
+	n->reflectv = ref_reflect(negate_v(n->lightv), comp.normal_v);
+	n->reflect_dot_eye = dot_prod(n->reflectv, comp.eye_v);
+	if (n->reflect_dot_eye <= 0)
+		n->specular_c = new_fcolor(0, 0, 0, 1);
+	else
+	{
+		n->factor = pow(n->reflect_dot_eye, (comp.obj->material.shininess));
+		n->specular_c = scale_fcolor(light.intensity, ((comp.obj->material.specular) * n->factor));
+	}
 }
 
 //Improved Light Function: bool in_shadow, which will make sure the pixel in question will not be fully lighten up
@@ -98,22 +112,10 @@ t_fcolor	eng_lighting(t_computation comp, t_light light, bool in_shadow)
 		n.specular_c = new_fcolor(0, 0, 0, 1);
 	}
 	else
-	{
-		n.diffuse_c = scale_fcolor(scale_fcolor(n.effective_color, (comp.obj->material.diffuse)), n.light_dot_normal); // ?
-		n.reflectv = ref_reflect(negate_v(n.lightv), comp.normal_v);
-		n.reflect_dot_eye = dot_prod(n.reflectv, comp.eye_v);
-		if (n.reflect_dot_eye <= 0)
-			n.specular_c = new_fcolor(0, 0, 0, 1);
-		else
-		{
-			n.factor = pow(n.reflect_dot_eye, (comp.obj->material.shininess));
-			n.specular_c = scale_fcolor(light.intensity, ((comp.obj->material.specular) * n.factor));
-		}
-	}
-	// result = ambient + n.diffuse_c + specular_c
+		in_light_case(&n, light, comp);
 	if (in_shadow)
 		return (n.ambient_c);
-	// n.result =
+	// result = ambient + n.diffuse_c + specular_c
 	return (add_fcolor(add_fcolor(n.ambient_c, n.diffuse_c), n.specular_c));
 }
 // //Improved Light Function: bool in_shadow, which will make sure the pixel in question will not be fully lighten up
