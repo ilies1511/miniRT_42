@@ -23,7 +23,6 @@
 # include <ft_math.h>
 # include <ft_matrix.h>
 # include <ft_engine.h>
-# include <mlx_interface.h>
 # include <ppm_parser.h>
 # include <parser_42.h>
 # include <garbage_collector.h>

@@ -39,9 +39,7 @@ SRC_FILES_ENGINE := \
 	ft_engine/compute/prepare_computation.c \
 	ft_engine/compute/shading.c \
 	ft_engine/canvas/canvas.c \
-	ft_engine/utils/reset.c \
 	ft_engine/mlx_interface/hooks.c \
-	ft_engine/mlx_interface/helper1.c \
 	ft_engine/rays/init.c \
 	ft_engine/rays/cleanup.c \
 	ft_engine/rays/intersect.c \
