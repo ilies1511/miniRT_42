@@ -29,16 +29,16 @@ t_fcolor	eng_shade_hit(t_world world, t_computation comp,
 t_fcolor	eng_color_at(t_world world, t_ray ray, size_t remaining_reflects)
 {
 	t_intersc_arr	interscs;
-	t_intersc		*intersc;
+	t_intersc		*hit;
 	t_fcolor		color;
 	t_computation	comp;
 
 	interscs = eng_new_intersc_arr();
 	eng_ray_intersc_world(ray, world, &interscs);
-	intersc = eng_ray_hit(&interscs);
-	if (intersc)
+	hit = eng_ray_hit(&interscs);
+	if (hit)
 	{
-		comp = eng_prepare_computation(*intersc, ray);
+		comp = eng_prepare_computation(*hit, ray, interscs);
 		color = eng_shade_hit(world, comp, remaining_reflects);
 	}
 	else
@@ -67,7 +67,7 @@ void	eng_render(t_camera camera, t_world world, t_canvas canvas)
 		while (x < camera.width)
 		{
 			ray = eng_ray_for_pixel(camera, x, y);
-			color = eng_color_at(world, ray, 100);
+			color = eng_color_at(world, ray, REFLECTION_COUNT);
 			eng_put_pixel(canvas, x, y, color);
 			x++;
 		}

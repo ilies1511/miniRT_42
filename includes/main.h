@@ -27,6 +27,7 @@
 # include <garbage_collector.h>
 # include <ft_patterns.h>
 # include <ft_reflection.h>
+# include <ft_refraction.h>
 // for development but not allowed functions
 // # include <....h>
 # include <time.h>//used for tests to init rand()

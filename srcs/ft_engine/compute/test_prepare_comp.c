@@ -5,6 +5,9 @@
 
 bool	test_prepare_computation(void)
 {
+	t_intersc_arr	interscs = eng_new_intersc_arr();
+	dyn_arr_resize((void **)&interscs.arr);
+	interscs.count = 1;
 	bool		ret = true;
 	t_ray		ray = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
 	t_sphere	sph = eng_new_sphere();
@@ -16,7 +19,9 @@ bool	test_prepare_computation(void)
 	expect.point = new_point(0, 0, -1);
 	expect.eye_v = new_vec(0, 0, -1);
 	expect.normal_v = new_vec(0, 0, -1);
-	t_computation	actual = eng_prepare_computation(intersc, ray);
+	interscs.count = 1;
+	interscs.arr[0] = intersc;
+	t_computation	actual = eng_prepare_computation(intersc, ray, interscs);
 	if (!eq_f(actual.t, expect.t))
 	{
 		ft_fprintf(2, "Failed at %s:%d: expected t %f, got %f\n", __FILE__, __LINE__, expect.t, actual.t);
@@ -59,7 +64,8 @@ bool	test_prepare_computation(void)
 	sph = eng_new_sphere();
 	intersc.t = 4;
 	intersc.obj = (t_obj *)&sph;
-	actual = eng_prepare_computation(intersc, ray);
+	interscs.arr[0] = intersc;
+	actual = eng_prepare_computation(intersc, ray, interscs);
 	if (actual.inside != false)
 	{
 		ft_fprintf(2, "Test failed at %s:%d: expected 'inside' to be false, got %s\n", __FILE__, __LINE__, actual.inside ? "true" : "false");
@@ -70,7 +76,8 @@ bool	test_prepare_computation(void)
 	sph = eng_new_sphere();
 	intersc.t = 1;
 	intersc.obj = (t_obj *)&sph;
-	actual = eng_prepare_computation(intersc, ray);
+	interscs.arr[0] = intersc;
+	actual = eng_prepare_computation(intersc, ray, interscs);
 	if (!eq_t(actual.point, new_point(0, 0, 1)))
 	{
 		ft_fprintf(2, "Test failed at %s:%d: expected point to be (0, 0, 1), got ", __FILE__, __LINE__);
@@ -102,12 +109,14 @@ bool	test_prepare_computation(void)
 	ray = eng_new_ray(new_point(0, 1, -1), new_vec(0, -sqrt(2) / 2, sqrt(2) / 2));
 	intersc.t = sqrt(2);
 	intersc.obj = (t_obj *)&plane;
-	actual = eng_prepare_computation(intersc, ray);
+	interscs.arr[0] = intersc;
+	actual = eng_prepare_computation(intersc, ray, interscs);
 	if (!eq_t(actual.reflection, new_vec(0, sqrt(2) / 2, sqrt(2) / 2)))
 	{
 		ft_fprintf(2,"Test failed at %s:%d: prepare compt reflection is wrong\n", __FILE__, __LINE__);
 		ret = false;
 	}
+	eng_free_intersc_arr(&interscs);
 	return (ret);
 }
 

@@ -29,6 +29,16 @@ t_obj	eng_new_obj(void)
 	return (obj);
 }
 
+t_sphere	eng_new_glass_sphere(void)
+{
+	t_sphere	sph;
+
+	sph = eng_new_sphere();
+	sph.base_obj.material.transparency = 1.0;
+	sph.base_obj.material.refractive_index = 1.5;
+	return (sph);
+}
+
 t_sphere	eng_new_sphere(void)
 {
 	t_sphere	sph;

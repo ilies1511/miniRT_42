@@ -54,6 +54,7 @@ SRC_FILES_ENGINE := \
 	ft_engine/objs/test.c \
 	ft_engine/reflections/reflect.c \
 	ft_engine/reflections/tests.c \
+	ft_engine/refraction/tests.c \
 	ft_engine/light.c \
 	ft_engine/light_tests.c \
 	ft_engine/material.c \
