@@ -22,10 +22,10 @@ typedef struct s_canvas
 	t_uintcolor	*pixels;
 }	t_canvas;
 
+//Lokal in Funktion selbst
+// t_fcolor	result;
 typedef struct s_lighting_norm
 {
-	//Lokal in Funktion selbst
-	// t_fcolor	result;
 	t_fcolor	effective_color;
 	t_fcolor	ambient_c;
 	t_vec		lightv;
@@ -291,12 +291,15 @@ void			eng_print_light(char *str, t_light light);
 void			eng_print_world(t_world world);
 
 // Lighting
-t_fcolor	eng_lighting(t_computation comp, t_light light, bool in_shadow);
-// t_fcolor	eng_lighting(t_obj obj, t_material material, t_light light, t_point point, t_vec eyev, t_vec normalv, bool in_shadow);
-// t_fcolor	eng_lighting(t_obj obj, t_computation comp, t_light light, bool in_shadow);
-// t_fcolor	eng_lighting(t_obj obj, t_computation *comp, t_light light, bool in_shadow);
-bool		test_light_with_surface_shadow();
-bool		test_eng_lighting(void);
+t_fcolor		eng_lighting(t_computation comp, t_light light, bool in_shadow);
+// t_fcolor	eng_lighting(t_obj obj, t_material material, t_light light,
+//					t_point point, t_vec eyev, t_vec normalv, bool in_shadow);
+// t_fcolor	eng_lighting(t_obj obj, t_computation comp, t_light light,
+//				bool in_shadow);
+// t_fcolor	eng_lighting(t_obj obj, t_computation *comp, t_light light,
+//				bool in_shadow);
+bool			test_light_with_surface_shadow(void);
+bool			test_eng_lighting(void);
 
 //Shadow
 bool			eng_is_shadowed(t_world world, t_point point);
