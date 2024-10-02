@@ -53,6 +53,7 @@ SRC_FILES_ENGINE := \
 	ft_engine/reflections/reflect.c \
 	ft_engine/reflections/tests.c \
 	ft_engine/light.c \
+	ft_engine/light_tests.c \
 	ft_engine/material.c \
 	ft_engine/objs/normal_at.c \
 	ft_engine/objs/test_normal.c \
