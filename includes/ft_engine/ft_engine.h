@@ -117,7 +117,7 @@ typedef struct s_plane
 	t_obj		base_obj;
 }	t_plane;
 
-t_plane			ang_new_plane(void);
+t_plane			eng_new_plane(void);
 
 typedef struct s_cylinder
 {
