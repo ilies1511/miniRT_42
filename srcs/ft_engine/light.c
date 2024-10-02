@@ -37,22 +37,25 @@ t_fcolor	eng_mult_color_color(t_fcolor color1, t_fcolor color2)
 
 bool	test_light_with_surface_shadow()
 {
+	t_computation	comp;
 	bool		ret = true;
 	bool		in_shadow = true;
-	t_vec		eye_v = new_vec(0, 0, -1);
-	t_vec		normal_v = new_vec(0, 0, -1);
 	t_light		light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(0, 0, -10));
 
-	t_material	material = eng_new_material();
-	t_point		position = new_point(0, 0, 0);
+	comp.obj = ft_malloc(sizeof(t_obj));
+	*(comp.obj) = eng_new_obj();
+	comp.eye_v = new_vec(0, 0, -1);
+	comp.normal_v = new_vec(0, 0, -1);
+	comp.obj->material = eng_new_material();
+	comp.over_point = new_point(0, 0, 0);
 	t_fcolor	expected = new_fcolor(1.9, 1.9, 1.9, 1);
-	t_fcolor	actual = eng_lighting(eng_new_obj(), material, light, position, eye_v, normal_v, false);
+	t_fcolor	actual = eng_lighting(comp, light, false);
 
-	eye_v = new_vec(0, 0, -1);
-	normal_v = new_vec(0, 0, -1);
+	comp.eye_v = new_vec(0, 0, -1);
+	comp.normal_v = new_vec(0, 0, -1);
 	light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(0, 10, 10));
 	expected = new_fcolor(0.1, 0.1, 0.1, 1);
-	actual = eng_lighting(eng_new_obj(), material, light, position, eye_v, normal_v, in_shadow);
+	actual = eng_lighting(comp, light, in_shadow);
 	if (!eq_fcolor(expected, actual))
 	{
 		ret = false;
@@ -63,54 +66,104 @@ bool	test_light_with_surface_shadow()
 	return (ret);
 }
 
-//Improved Light Function: bool in_shadow, which will make sure the pixel in question will not be fully lighten up
-t_fcolor	eng_lighting(t_obj obj, t_material material, t_light light, t_point point, t_vec eyev, t_vec normalv, bool in_shadow)
+void	init_lighting_norm_strukt(t_lighting_norm	*light_norm)
 {
-	t_fcolor	result;
-	t_fcolor	effective_color;
-	t_fcolor	ambient_c;
-	t_vec		lightv;
-	t_vec		reflectv;
-	t_tuple		light_direction;
-	double		light_dot_normal;
-	double		reflect_dot_eye;
-	double		factor;
-	t_fcolor	diffuse_c;
-	t_fcolor	specular_c;
+	light_norm->ambient_c = new_fcolor(0, 0, 0, 0);
+	light_norm->diffuse_c = new_fcolor(0, 0, 0, 0);
+	light_norm->effective_color = new_fcolor(0, 0, 0, 0);
+	light_norm->factor = 0;
+	light_norm->light_direction = sub_t(new_vec(0, 0, 0), new_vec(0, 0, 0));
+	light_norm->light_dot_normal = 0;
+	light_norm->lightv = new_vec(0, 0, 0);
+}
 
-	if (!material.pattern)
-		effective_color = mult_fcolor(material.fcolor, light.intensity);
+//Improved Light Function: bool in_shadow, which will make sure the pixel in question will not be fully lighten up
+t_fcolor	eng_lighting(t_computation comp, t_light light, bool in_shadow)
+{
+	t_lighting_norm	n;
+
+	init_lighting_norm_strukt(&n);
+	if (!(comp.obj->material.pattern))
+		n.effective_color = mult_fcolor((comp.obj->material.fcolor), light.intensity);
 	else
-		effective_color = pat_color_at(obj, *material.pattern, point);
-	light_direction = sub_t(light.origin, point);
-	lightv = norm(new_vec(light_direction.x, light_direction.y, light_direction.z));
-	ambient_c = scale_fcolor(effective_color, material.ambient);
-	light_dot_normal = dot_prod(lightv, normalv);
-	if (light_dot_normal < 0)
+		n.effective_color = pat_color_at(*(comp.obj), *(comp.obj->material.pattern), (comp.over_point));
+	n.light_direction = sub_t(light.origin, comp.over_point);
+	n.lightv = norm(new_vec((n.light_direction.x), (n.light_direction.y), (n.light_direction.z)));
+	n.ambient_c = scale_fcolor(n.effective_color, comp.obj->material.ambient);
+	n.light_dot_normal = dot_prod(n.lightv, comp.normal_v);
+	if (n.light_dot_normal < 0)
 	{
 		//Light is on the other side of the surface--> BLACK
-		diffuse_c = new_fcolor(0, 0, 0, 1);
-		specular_c = new_fcolor(0, 0, 0, 1);
+		n.diffuse_c = new_fcolor(0, 0, 0, 1);
+		n.specular_c = new_fcolor(0, 0, 0, 1);
 	}
 	else
 	{
-		diffuse_c = scale_fcolor(scale_fcolor(effective_color, material.diffuse), light_dot_normal); // ?
-		reflectv = ref_reflect(negate_v(lightv), normalv);
-		reflect_dot_eye = dot_prod(reflectv, eyev);
-		if (reflect_dot_eye <= 0)
-			specular_c = new_fcolor(0, 0, 0, 1);
+		n.diffuse_c = scale_fcolor(scale_fcolor(n.effective_color, (comp.obj->material.diffuse)), n.light_dot_normal); // ?
+		n.reflectv = ref_reflect(negate_v(n.lightv), comp.normal_v);
+		n.reflect_dot_eye = dot_prod(n.reflectv, comp.eye_v);
+		if (n.reflect_dot_eye <= 0)
+			n.specular_c = new_fcolor(0, 0, 0, 1);
 		else
 		{
-			factor = pow(reflect_dot_eye, material.shininess);
-			specular_c = scale_fcolor(light.intensity, (material.specular * factor));
+			n.factor = pow(n.reflect_dot_eye, (comp.obj->material.shininess));
+			n.specular_c = scale_fcolor(light.intensity, ((comp.obj->material.specular) * n.factor));
 		}
 	}
-	// result = ambient + diffuse_c + specular_c
+	// result = ambient + n.diffuse_c + specular_c
 	if (in_shadow)
-		return (ambient_c);
-	result = add_fcolor(add_fcolor(ambient_c, diffuse_c), specular_c);
-	return (result);
+		return (n.ambient_c);
+	// n.result =
+	return (add_fcolor(add_fcolor(n.ambient_c, n.diffuse_c), n.specular_c));
 }
+// //Improved Light Function: bool in_shadow, which will make sure the pixel in question will not be fully lighten up
+// t_fcolor	eng_lighting(t_obj obj, t_material material, t_light light, t_point point, t_vec eyev, t_vec normalv, bool in_shadow)
+// {
+// 	t_fcolor	result;
+// 	t_fcolor	effective_color;
+// 	t_fcolor	ambient_c;
+// 	t_vec		lightv;
+// 	t_vec		reflectv;
+// 	t_tuple		light_direction;
+// 	double		light_dot_normal;
+// 	double		reflect_dot_eye;
+// 	double		factor;
+// 	t_fcolor	diffuse_c;
+// 	t_fcolor	specular_c;
+
+// 	if (!material.pattern)
+// 		effective_color = mult_fcolor(material.fcolor, light.intensity);
+// 	else
+// 		effective_color = pat_color_at(obj, *material.pattern, point);
+// 	light_direction = sub_t(light.origin, point);
+// 	lightv = norm(new_vec(light_direction.x, light_direction.y, light_direction.z));
+// 	ambient_c = scale_fcolor(effective_color, material.ambient);
+// 	light_dot_normal = dot_prod(lightv, normalv);
+// 	if (light_dot_normal < 0)
+// 	{
+// 		//Light is on the other side of the surface--> BLACK
+// 		diffuse_c = new_fcolor(0, 0, 0, 1);
+// 		specular_c = new_fcolor(0, 0, 0, 1);
+// 	}
+// 	else
+// 	{
+// 		diffuse_c = scale_fcolor(scale_fcolor(effective_color, material.diffuse), light_dot_normal); // ?
+// 		reflectv = ref_reflect(negate_v(lightv), normalv);
+// 		reflect_dot_eye = dot_prod(reflectv, eyev);
+// 		if (reflect_dot_eye <= 0)
+// 			specular_c = new_fcolor(0, 0, 0, 1);
+// 		else
+// 		{
+// 			factor = pow(reflect_dot_eye, material.shininess);
+// 			specular_c = scale_fcolor(light.intensity, (material.specular * factor));
+// 		}
+// 	}
+// 	// result = ambient + diffuse_c + specular_c
+// 	if (in_shadow)
+// 		return (ambient_c);
+// 	result = add_fcolor(add_fcolor(ambient_c, diffuse_c), specular_c);
+// 	return (result);
+// }
 
 t_light	eng_point_light(t_fcolor intensity, t_point position)
 {
@@ -125,14 +178,19 @@ t_light	eng_point_light(t_fcolor intensity, t_point position)
 
 bool	test_eng_lighting(void)
 {
-	bool		ret = true;
-	t_material	material = eng_new_material();
-	t_point		position = new_point(0, 0, 0);
-	t_vec		eye_v = new_vec(0, 0, -1);
-	t_vec		normal_v = new_vec(0, 0, -1);
-	t_light		light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(0, 0, -10));
+	bool			ret = true;
+	t_computation	comp;
+	t_light			light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(0, 0, -10));
+
+	//eng_prepare_computation();
+	comp.obj = ft_malloc(sizeof(t_obj));
+	*(comp.obj) = eng_new_obj();
+	comp.obj->material = eng_new_material();
+	comp.over_point = new_point(0, 0, 0);
+	comp.eye_v = new_vec(0, 0, -1);
+	comp.normal_v = new_vec(0, 0, -1);
 	t_fcolor	expected = new_fcolor(1.9, 1.9, 1.9, 1);
-	t_fcolor	actual = eng_lighting(eng_new_obj(), material, light, position, eye_v, normal_v, false);
+	t_fcolor	actual = eng_lighting(comp, light, false);
 	if (!eq_fcolor(expected, actual))
 	{
 		ret = false;
@@ -140,12 +198,12 @@ bool	test_eng_lighting(void)
 		print_fcolor("expected:\n", expected);
 		print_fcolor("actual:\n", actual);
 	}
-
-	eye_v = new_vec(0, sqrt(2) / 2, -sqrt(2) / 2);
-	normal_v = new_vec(0, 0, -1);
+	*(comp.obj) = eng_new_obj();
+	comp.eye_v = new_vec(0, sqrt(2) / 2, -sqrt(2) / 2);
+	comp.normal_v = new_vec(0, 0, -1);
 	light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(0, 0, -10));
 	expected = new_fcolor(1, 1, 1, 1);
-	actual = eng_lighting(eng_new_obj(), material, light, position, eye_v, normal_v, false);
+	actual = eng_lighting(comp, light, false);
 	if (!eq_fcolor(expected, actual))
 	{
 		ret = false;
@@ -154,11 +212,12 @@ bool	test_eng_lighting(void)
 		print_fcolor("actual:\n", actual);
 	}
 
-	eye_v = new_vec(0, 0, -1);
-	normal_v = new_vec(0, 0, -1);
+	*(comp.obj) = eng_new_obj();
+	comp.eye_v = new_vec(0, 0, -1);
+	comp.normal_v = new_vec(0, 0, -1);
 	light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(0, 10, -10));
 	expected = new_fcolor(0.7364, 0.7364, 0.7364, 1);
-	actual = eng_lighting(eng_new_obj(), material, light, position, eye_v, normal_v, false);
+	actual = eng_lighting(comp, light, false);
 	if (!eq_fcolor(expected, actual))
 	{
 		ret = false;
@@ -166,12 +225,12 @@ bool	test_eng_lighting(void)
 		print_fcolor("expected:\n", expected);
 		print_fcolor("actual:\n", actual);
 	}
-
-	eye_v = new_vec(0, -sqrt(2) / 2, -sqrt(2) / 2);
-	normal_v = new_vec(0, 0, -1);
+	*(comp.obj) = eng_new_obj();
+	comp.eye_v = new_vec(0, -sqrt(2) / 2, -sqrt(2) / 2);
+	comp.normal_v = new_vec(0, 0, -1);
 	light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(0, 10, -10));
 	expected = new_fcolor(1.6364, 1.6364, 1.6364, 1);
-	actual = eng_lighting(eng_new_obj(), material, light, position, eye_v, normal_v, false);
+	actual = eng_lighting(comp, light, false);
 	if (!eq_fcolor(expected, actual))
 	{
 		ret = false;
@@ -179,12 +238,12 @@ bool	test_eng_lighting(void)
 		print_fcolor("expected:\n", expected);
 		print_fcolor("actual:\n", actual);
 	}
-
-	eye_v = new_vec(0, 0, -1);
-	normal_v = new_vec(0, 0, -1);
+	*(comp.obj) = eng_new_obj();
+	comp.eye_v = new_vec(0, 0, -1);
+	comp.normal_v = new_vec(0, 0, -1);
 	light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(0, 10, 10));
 	expected = new_fcolor(0.1, 0.1, 0.1, 1);
-	actual = eng_lighting(eng_new_obj(), material, light, position, eye_v, normal_v, false);
+	actual = eng_lighting(comp, light, false);
 	if (!eq_fcolor(expected, actual))
 	{
 		ret = false;

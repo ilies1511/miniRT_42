@@ -63,23 +63,24 @@ bool	test_stripe_pattern(void)
 bool	test_stripe_lighting(void)
 {
 	bool	ret = true;
-	t_material	material;
-	t_vec		eye_v;
-	t_vec		normal;
 	t_light		light;
 	t_fcolor	expect;
 	t_fcolor	actual;
+	t_computation	c;
 
-	material = eng_new_material();
-	material.pattern = pat_stripe_pattern(fcolor_white(), fcolor_black());
-	material.ambient = 1;
-	material.diffuse = 0;
-	material.specular = 0;
+	c.obj = ft_malloc(sizeof(t_obj));
+	*(c.obj) = eng_new_obj();
+	c.obj->material = eng_new_material();
+	c.obj->material.pattern = pat_stripe_pattern(fcolor_white(), fcolor_black());
+	c.obj->material.ambient = 1;
+	c.obj->material.diffuse = 0;
+	c.obj->material.specular = 0;
 	light = eng_point_light(fcolor_white(), new_point(0, 0, -10));
-	eye_v = new_vec(0, 0, -1);
-	normal = new_vec(0, 0, -1);
+	c.eye_v = new_vec(0, 0, -1);
+	c.normal_v = new_vec(0, 0, -1);
+	c.over_point = new_point(0.9, 0, 0);
 	expect = fcolor_white();
-	actual = eng_lighting(eng_new_obj(), material, light, new_point(0.9, 0, 0), eye_v, normal, false);
+	actual = eng_lighting(c, light, false);
 	if (!eq_fcolor(actual, expect))
 	{
 		ret = false;
@@ -89,7 +90,8 @@ bool	test_stripe_lighting(void)
 		print_fcolor("actual: ", actual);
 	}
 	expect = fcolor_black();
-	actual = eng_lighting(eng_new_obj(), material, light, new_point(1.1, 0, 0), eye_v, normal, false);
+	c.over_point = new_point(1.1, 0, 0);
+	actual = eng_lighting(c, light, false);
 	if (!eq_fcolor(actual, expect))
 	{
 		ret = false;
