@@ -61,7 +61,6 @@ void	gc_add_begin(void *pointer)
 		new_node->next = (gc->head);
 		gc->head = new_node;
 	}
-	// printf("end gc_add_begin: %p\n", gc->head);
 	gc->size++;
 }
 

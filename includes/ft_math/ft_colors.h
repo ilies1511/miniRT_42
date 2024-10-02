@@ -86,5 +86,11 @@ t_fcolor		scale_fcolor(t_fcolor c, double scalar);
 t_fcolor		mult_fcolor(t_fcolor a, t_fcolor b);
 bool			eq_fcolor(t_fcolor a, t_fcolor b);
 void			print_fcolor(char *str, t_fcolor col);
+/*
+	Utils Color
+*/
+t_fcolor		eng_mult_color_f(t_fcolor color1, double scale);
+t_fcolor		eng_add_color_color(t_fcolor color1, t_fcolor color2);
+t_fcolor		eng_mult_color_color(t_fcolor color1, t_fcolor color2);
 
 #endif //FT_COLORS_H

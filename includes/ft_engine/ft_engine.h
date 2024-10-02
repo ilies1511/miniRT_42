@@ -24,6 +24,22 @@ typedef struct s_canvas
 
 //Lokal in Funktion selbst
 // t_fcolor	result;
+typedef struct s_cylinder_norm
+{
+	double	a;
+	double	b;
+	double	c;
+	double	disc;
+	double	y0;
+	double	y1;
+	double	sqrt_discriminant;
+	double	two_a;
+	double	t0;
+	double	t1;
+}			t_cylinder_norm;
+
+//Lokal in Funktion selbst
+// t_fcolor	result;
 typedef struct s_lighting_norm
 {
 	t_fcolor	effective_color;
