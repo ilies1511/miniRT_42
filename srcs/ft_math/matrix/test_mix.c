@@ -41,14 +41,14 @@ bool	test_matrix_mult_inverse(void)
 	{
 		ma = mtx_get_rdm_m(MAT4X4);
 		mb = mtx_get_rdm_m(MAT4X4);
-		if (fabs(mtx_det(mb)) < EPSILON * 100)
+		if (fabs(mtx_det(mb)) < (EPSILON) * 100)
 			continue ;
 		for (int i = 0; i < 4; i++)
 		{
 			if (mb.m[i][i] < 0)
-				mb.m[i][i] += EPSILON;
+				mb.m[i][i] += (EPSILON);
 			else
-				mb.m[i][i] -= EPSILON;
+				mb.m[i][i] -= (EPSILON);
 		}
 		prod = mtx_mult_mm(ma, mb);
 		mib = mtx_inverse(mb);

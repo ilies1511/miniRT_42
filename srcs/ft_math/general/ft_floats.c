@@ -2,7 +2,7 @@
 
 bool	eq_f(double a, double b)
 {
-	if (fabsl(a - b) <= EPSILON)
+	if (fabsl(a - b) <= (EPSILON))
 		return (true);
 	return (false);
 }

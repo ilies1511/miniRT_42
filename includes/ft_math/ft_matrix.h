@@ -1,6 +1,5 @@
-
-#ifndef MATRIX_H
-# define MATRIX_H
+#ifndef FT_MATRIX_H
+# define FT_MATRIX_H
 
 # include <stdbool.h>
 # include <ft_tuple.h>
@@ -14,9 +13,10 @@ typedef enum e_matrix_type
 	MAT4X4 = 4
 }	t_matrix_type;
 
+//mat[row][col] indexed no matter the type
 typedef struct s_matrix
 {
-	double			m[4][4];//mat[row][col] indexed no matter the type
+	double			m[4][4];
 	t_matrix_type	type;
 }	t_matrix;
 
@@ -59,7 +59,8 @@ int			test_matrix_translate(void);
 t_matrix	mtx_scale(double x, double y, double z);
 
 // Matrix Skew aka Shearing
-t_matrix	mtx_skew(double xy, double xz, double yx, double yz, double zx, double zy);
+t_matrix	mtx_skew(double xy, double xz, double yx,
+				double yz, double zx, double zy);
 // end TODO
 
 // matrix_rotation.c
@@ -94,6 +95,4 @@ int			test_mtx_scaling(void);
 int			mtx_get_matrix_dimension(t_matrix_type type);
 void		mtx_print_matrix(void *matrix, t_matrix_type type);
 
-//End Helper
-#endif // MATRIX_H
-
+#endif // FT_MATRIX_H

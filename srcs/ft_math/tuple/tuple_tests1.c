@@ -31,8 +31,8 @@ bool	is_vec_test(void)
 	const t_tuple	tests[] = {
 		{.x = 1.0, .y=1.0, .z=1.0, .w=3.1},
 		{.x = 0.0, .y=1.0, .z=1.0, .w=0.0},
-		{.x = 0.0, .y=1.0, .z=1.0, .w=0.0 - EPSILON * 0.99},
-		{.x = 0.0, .y=1.0, .z=1.0, .w=0.0 + EPSILON * 0.99},
+		{.x = 0.0, .y=1.0, .z=1.0, .w=0.0 - (EPSILON) * 0.99},
+		{.x = 0.0, .y=1.0, .z=1.0, .w=0.0 + (EPSILON) * 0.99},
 	};
 	const size_t	test_count = sizeof expected / sizeof expected[0];
 
@@ -54,10 +54,10 @@ bool	is_point_test(void)
 	const t_tuple	tests[] = {
 		{.x = 1.0, .y = 1.0, .z = 1.0, .w = 3.1},
 		{.x = 0.0, .y = 1.0, .z = 1.0, .w = 0.0},
-		{.x = 0.0, .y = 1.0, .z = 1.0, .w = 0.0 - EPSILON * 0.99},
-		{.x = 0.0, .y = 1.0, .z = 1.0, .w = 0.0 + EPSILON * 0.99},
-		{.x = 0.0, .y = 1.0, .z = 1.0, .w = 1.0 - EPSILON * 0.99},
-		{.x = 0.0, .y = 1.0, .z = 1.0, .w = 1.0 + EPSILON * 0.99},
+		{.x = 0.0, .y = 1.0, .z = 1.0, .w = 0.0 - (EPSILON) * 0.99},
+		{.x = 0.0, .y = 1.0, .z = 1.0, .w = 0.0 + (EPSILON) * 0.99},
+		{.x = 0.0, .y = 1.0, .z = 1.0, .w = 1.0 - (EPSILON) * 0.99},
+		{.x = 0.0, .y = 1.0, .z = 1.0, .w = 1.0 + (EPSILON) * 0.99},
 	};
 	const size_t	test_count = sizeof expected / sizeof expected[0];
 

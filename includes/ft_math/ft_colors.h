@@ -54,23 +54,21 @@ typedef union u_uintcolor
 {
 	uint8_t		bytes[4];
 	uint32_t	full;
-	struct
+	struct s_argb
 	{
-			uint8_t	r;
-			uint8_t	g;
-			uint8_t	b;
-			uint8_t	a;
+		uint8_t	r;
+		uint8_t	g;
+		uint8_t	b;
+		uint8_t	a;
 	}	__attribute__((packed))argb;
-}	__attribute__((packed))t_uintcolor;
+} __attribute__((packed))t_uintcolor;
 
 typedef struct s_fcolor
 {
 	double	r;
 	double	g;
 	double	b;
-	double	a;	//not used in the book as far as I saw
-				//to enable casting to t_vec should be left as 0.0
-				//when converting to t_uintcolor should be treated as 1.0
+	double	a;
 }	t_fcolor;
 
 t_fcolor		fcolor_white(void);

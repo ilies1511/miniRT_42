@@ -19,7 +19,7 @@ t_tuple	add_t(t_tuple a, t_tuple b)
 		ft_assert(less_eq_f(sum.w , 1.0), __FILE__, __LINE__,
 			"sum of 2 tuples is > 1.0, added 2 points?");
 #else
-	if (sum.w + EPSILON > 1.0)
+	if (sum.w + (EPSILON) > 1.0)
 		__builtin_unreachable();
 #endif //NDBUG
 	return (sum);
@@ -42,7 +42,7 @@ t_tuple	sub_t(t_tuple a, t_tuple b)
 		ft_assert(greater_eq_f(dif.w , 0.0), __FILE__, __LINE__,
 			"dif of 2 tuples is < 0.0, subtracted a point from a vector?");
 #else
-	if (dif.w + EPSILON < 0.0)
+	if (dif.w + (EPSILON) < 0.0)
 		__builtin_unreachable();
 #endif //NDBUG
 	return (dif);

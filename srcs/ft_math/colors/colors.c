@@ -2,39 +2,6 @@
 #include <ft_floats.h>
 #include <ft_colors.h>
 
-t_fcolor	new_fcolor(double r, double g, double b, double a)
-{
-	t_fcolor	color;
-
-	color.r = r;
-	color.g = g;
-	color.b = b;
-	color.a = 1;
-	(void)a;
-	return (color);
-}
-
-t_fcolor	fcolor_black(void)
-{
-	return (new_fcolor(0, 0, 0, 1));
-}
-
-t_fcolor	fcolor_white(void)
-{
-	return (new_fcolor(1, 1, 1, 1));
-}
-
-t_uintcolor	fcolor_to_uintcolor(t_fcolor fcolor)
-{
-	t_uintcolor	ret;
-
-	ret.argb.r = (uint8_t)(0xFF * clamp_f(fcolor.r, 0, 1));
-	ret.argb.g = (uint8_t)(0xFF * clamp_f(fcolor.g, 0, 1));
-	ret.argb.b = (uint8_t)(0xFF * clamp_f(fcolor.b, 0, 1));
-	ret.argb.a = 0xFF;
-	return (ret);
-}
-
 t_fcolor	mult_fcolor(t_fcolor a, t_fcolor b)
 {
 	t_fcolor	new_color;
@@ -85,11 +52,5 @@ t_fcolor	scale_fcolor(t_fcolor c, double scalar)
 bool	eq_fcolor(t_fcolor a, t_fcolor b)
 {
 	return (eq_f(a.r, b.r) && eq_f(a.g, b.g)
-			&& eq_f(a.b, b.b) && eq_f(a.a, b.a));
+		&& eq_f(a.b, b.b) && eq_f(a.a, b.a));
 }
-
-void	print_fcolor(char *str, t_fcolor col)
-{
-	printf("%sr:%f; g: %f; b: %f; a: %f\n", str, col.r, col.g, col.b, col.a);
-}
-

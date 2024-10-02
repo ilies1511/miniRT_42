@@ -106,7 +106,7 @@ static void	eng_intersc_ray_plane(t_intersc_arr *interscs, t_ray ray,
 {
 	double	t;
 
-	if (fabsl(ray.direct.y) < EPSILON)
+	if (fabsl(ray.direct.y) < (EPSILON))
 		return ;
 	t = -ray.origin.y / ray.direct.y;
 	eng_add_intersc(interscs, (t_obj *)plane, t);
@@ -148,7 +148,7 @@ void	eng_intersc_ray_cylinder(t_intersc_arr *intersecs, t_ray ray, t_cylinder *c
 	double	y1;
 
 	a = (ray.direct.x * ray.direct.x) + (ray.direct.z * ray.direct.z);
-	if (eq_f(a, EPSILON))
+	if (eq_f(a, (EPSILON)))
 		return (eng_intersc_ray_cylinder_caps(intersecs, ray, cylinder));
 	b = 2 * ray.origin.x * ray.direct.x + 2 * ray.origin.z * ray.direct.z;
 	c = (ray.origin.x * ray.origin.x) + (ray.origin.z * ray.origin.z) - 1;

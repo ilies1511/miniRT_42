@@ -73,6 +73,7 @@ SRC_FILES_ENGINE := \
 
 SRC_FILES_MATH := \
 	ft_math/colors/colors.c \
+	ft_math/colors/init_colors.c \
 	ft_math/tuple/tuple1.c \
 	ft_math/tuple/tuple2.c \
 	ft_math/tuple/tuple3.c \

@@ -31,8 +31,8 @@ t_computation	eng_prepare_computation(t_intersc intersc, t_ray ray)
 	}
 	else
 		comp.inside = false;
-	// comp.over_point = mult_p_scalar(add_t(comp.point, comp.normal_v), EPSILON);
-	comp.over_point = add_t(comp.point, mult_v(comp.normal_v, EPSILON)); //TODO: not sure if correct
+	// comp.over_point = mult_p_scalar(add_t(comp.point, comp.normal_v), (EPSILON));
+	comp.over_point = add_t(comp.point, mult_v(comp.normal_v, (EPSILON))); //TODO: not sure if correct
 	// comp.over_point.w = 1;
 	comp.reflection = ref_reflect(ray.direct, comp.normal_v);
 	return (comp);

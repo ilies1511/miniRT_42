@@ -4,7 +4,7 @@
 
 static int	mtx_compare_floats(double a, double b)
 {
-	return (fabs(a - b) < EPSILON);
+	return (fabs(a - b) < (EPSILON));
 }
 
 int	test_mtx_minor(void)

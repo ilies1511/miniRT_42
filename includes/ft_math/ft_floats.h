@@ -1,15 +1,14 @@
 #ifndef FT_FLOATS_H
 # define FT_FLOATS_H
 
-// # include <double.h>
-# include <float.h>
 # include <stdbool.h>
+//# include <float.h> // norm dosn't like this for some reason
 # include <math.h>
 # include <stdint.h>
 # include <stdlib.h>
 
 # ifndef EPSILON //precision to compare 2 floats
-#  define EPSILON ((double)0.0001)
+#  define EPSILON 0.0001
 # endif
 
 //equal double

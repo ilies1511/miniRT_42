@@ -68,7 +68,7 @@ bool	mtx_eq_roughly(t_matrix ma, t_matrix mb)
 		col = 0;
 		while (col < ma.type)
 		{
-			if (fabs(ma.m[row][col] - mb.m[row][col]) > EPSILON * 1000)
+			if (fabs(ma.m[row][col] - mb.m[row][col]) > (EPSILON) * 1000)
 				return (false);
 			col++;
 		}

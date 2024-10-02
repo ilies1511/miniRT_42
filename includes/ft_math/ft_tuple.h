@@ -64,5 +64,4 @@ int		p_compareifequal(t_point a, t_point b);
 //Comapare Tubles including the w
 int		t_check_ifequal(t_tuple a, t_tuple b);
 
-
 #endif
