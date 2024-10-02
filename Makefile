@@ -37,6 +37,7 @@ SRC_FILES_ENGINE := \
 	ft_engine/world/default_world.c \
 	ft_engine/world/print_world.c \
 	ft_engine/compute/prepare_computation.c \
+	ft_engine/compute/test_prepare_comp.c \
 	ft_engine/compute/shading.c \
 	ft_engine/canvas/canvas.c \
 	ft_engine/mlx_interface/hooks.c \

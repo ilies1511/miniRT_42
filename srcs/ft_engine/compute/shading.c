@@ -2,7 +2,8 @@
 #include <libft.h>
 #include <ft_reflection.h>
 
-t_fcolor	eng_shade_hit(t_world world, t_computation comp, size_t remaining_reflects)
+t_fcolor	eng_shade_hit(t_world world, t_computation comp,
+	size_t remaining_reflects)
 {
 	size_t		i;
 	t_fcolor	color;
@@ -16,7 +17,8 @@ t_fcolor	eng_shade_hit(t_world world, t_computation comp, size_t remaining_refle
 		in_shadow = false;
 		if (eng_is_shadowed(world, comp.over_point))
 			in_shadow = true;
-		color = add_fcolor(color, eng_lighting(comp, world.lights[i], in_shadow));
+		color = add_fcolor(color, eng_lighting(comp, world.lights[i],
+					in_shadow));
 		reflected = ref_reflected_color(world, comp, remaining_reflects);
 		color = add_fcolor(color, reflected);
 		i++;
@@ -45,102 +47,32 @@ t_fcolor	eng_color_at(t_world world, t_ray ray, size_t remaining_reflects)
 	return (color);
 }
 
-bool	test_shading_outside_intersection(void)
-{
-	bool		ret = true;
-	t_world		w = eng_default_world();
-	t_ray		r = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
-	t_obj		*shape = w.objs[0];
-	t_intersc	i = {4, shape};
-
-	t_computation comps = eng_prepare_computation(i, r);
-	t_fcolor c = eng_shade_hit(w, comps, 10);
-	t_fcolor expected = new_fcolor(0.38066, 0.47583, 0.2855, 1);
-	if (!eq_fcolor(c, expected))
-	{
-		ft_fprintf(2, "test failed: eng_shade_hit: %s line %d\n", __FILE__, __LINE__);
-		print_fcolor("expected:\n", expected);
-		print_fcolor("actual:\n", c);
-		ret = false;
-	}
-
-	w = eng_default_world();
-	w.lights[0].intensity = new_fcolor(1, 1, 1, 1);
-	w.lights[0].origin = new_point(0, 0.25, 0);
-
-	r = eng_new_ray(new_point(0, 0, 0), new_vec(0, 0, 1));
-	shape = w.objs[1];
-	i.t = 0.5;
-	i.obj = shape;
-	comps = eng_prepare_computation(i, r);
-	c = eng_shade_hit(w, comps, 10);
-	expected = new_fcolor(0.90498, 0.90498, 0.90498, 1);
-	if (!eq_fcolor(c, expected))
-	{
-		ft_fprintf(2, "test failed: eng_shade_hit: %s line %d\n", __FILE__, __LINE__);
-		print_fcolor("expected:\n", expected);
-		print_fcolor("actual:\n", c);
-		ret = false;
-	}
-	return (ret);
-}
-
-bool	test_eng_color_at(void)
-{
-	bool		ret = true;
-	t_world		w = eng_default_world();
-	t_ray		r = eng_new_ray(new_point(0, 0, -5), new_vec(0, 1, 0));
-	t_fcolor	c = eng_color_at(w, r, 10);
-	t_fcolor	expected_color = new_fcolor(0.0f, 0.0f, 0.0f, 0.0f);
-	if (!eq_fcolor(c, expected_color))
-	{
-		ft_fprintf(2, "test failed: eng_color_at: %s line %d\n", __FILE__, __LINE__);
-		ret = false;
-	}
-
-	w = eng_default_world();
-	r = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
-	c = eng_color_at(w, r, 10);
-	expected_color = new_fcolor(0.38066f, 0.47583f, 0.2855f, 0.0f);
-	if (!eq_fcolor(c, expected_color))
-	{
-		ft_fprintf(2, "test failed: eng_color_at: %s line %d\n", __FILE__, __LINE__);
-		ret = false;
-	}
-
-    w = eng_default_world();
-    t_obj	*outer = w.objs[0];
-    outer->material.ambient = 1.0f;
-    t_obj	*inner = w.objs[1];
-    inner->material.ambient = 1.0f;
-    r = eng_new_ray(new_point(0, 0, 0.75f), new_vec(0, 0, -1));
-    c = eng_color_at(w, r, 10);
-	if (!eq_fcolor(c, inner->material.fcolor))
-	{
-		ft_fprintf(2, "test failed: eng_color_at: %s line %d\n", __FILE__, __LINE__);
-		ret = false;
-	}
-
-	return (ret);
-}
-
 void	eng_put_pixel(t_canvas canvas, size_t x, size_t y, t_fcolor color)
 {
-	((t_uintcolor *)canvas.pixels)[y * canvas.width + x] = fcolor_to_uintcolor(color);
+	((t_uintcolor *)canvas.pixels)[y * canvas.width + x] = fcolor_to_uintcolor(
+			color);
 }
-
 
 void	eng_render(t_camera camera, t_world world, t_canvas canvas)
 {
-	for (size_t y = 0; y < camera.height; y++)
+	size_t		y;
+	size_t		x;
+	t_ray		ray;
+	t_fcolor	color;
+
+	y = 0;
+	while (y < camera.height)
 	{
-		for (size_t x = 0; x < camera.width; x++)
+		x = 0;
+		while (x < camera.width)
 		{
-			t_ray	ray = eng_ray_for_pixel(camera, x, y);
-			t_fcolor color = eng_color_at(world, ray, 100);
+			ray = eng_ray_for_pixel(camera, x, y);
+			color = eng_color_at(world, ray, 100);
 			eng_put_pixel(canvas, x, y, color);
+			x++;
 		}
 		printf("%f%%\n", ((double)y) / canvas.height * 100);
+		y++;
 	}
 }
 
@@ -155,34 +87,5 @@ t_fcolor	eng_pixel_at(t_canvas canvas, size_t x, size_t y, size_t width)
 	ret.r = ((double)uint.argb.r) / 0xFF;
 	ret.g = ((double)uint.argb.g) / 0xFF;
 	ret.b = ((double)uint.argb.b) / 0xFF;
-	return (ret);
-}
-
-bool	test_eng_render(void)
-{
-	bool	ret = true;
-	t_world		world = eng_default_world();
-	mlx_t *mlx = mlx_init(11, 11, "TEST CASE", false);
-	mlx_image_t	*img = mlx_new_image(mlx, 11, 11);
-
-	t_canvas		canvas = {
-		.width = 11,
-		.height = 11,
-		.pixels = (t_uintcolor *)img->pixels
-	};
-
-	eng_render(
-		eng_new_camera(11, 11, M_PI_2), world, canvas);
-	if (eq_fcolor(eng_pixel_at(canvas, 5, 5, 11), new_fcolor(0.38066, 0.47583, 0.2855, 1)))
-	{
-		ret = false;
-		printf("test failed %s line %d\n", __FILE__, __LINE__);
-	}
-
-//==40235==    still reachable: 309,526 bytes in 3,127 blocks
-//mlx leak deteteced by valgrind, is in all mlx projects i checked on github
-	mlx_delete_image(mlx, img);
-	mlx_close_window(mlx);
-	mlx_terminate(mlx);
 	return (ret);
 }
