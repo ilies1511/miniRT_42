@@ -194,6 +194,8 @@ rre: ffclean
 fast:
 	@make CFLAGS="$(FLAGS_SPEED)"
 
+refast: fclean fast
+
 #to create a performece profile on linux
 prof: fclean
 	@make CFLAGS="-march=native -Ofast -mavx2 -DNDEBUG=1 -g -pg" CC=gcc
