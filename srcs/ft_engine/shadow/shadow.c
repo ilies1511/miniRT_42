@@ -1,7 +1,7 @@
 #include <ft_engine.h>
 #include <main.h>
 
-bool	eng_is_shadowed(t_world world, t_point point)
+bool	eng_is_shadowed(t_world world, t_point point, t_light light)
 {
 	t_vec			direction;
 	t_point			delta;
@@ -9,7 +9,7 @@ bool	eng_is_shadowed(t_world world, t_point point)
 	t_intersc_arr	intersecs;
 	t_intersc		*intersec;
 
-	delta = sub_t(world.lights->origin, point);
+	delta = sub_t(light.origin, point);
 	direction = new_vec(delta.x, delta.y, delta.z);
 	distance = len_v(direction);
 	direction = norm(direction);

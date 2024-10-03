@@ -9,11 +9,11 @@
 # include <math.h>
 
 # ifndef REFLECTION_COUNT
-#  define REFLECTION_COUNT 50
+#  define REFLECTION_COUNT 10
 # endif
 
 # ifndef REFRACTION_COUNT
-#  define REFRACTION_COUNT 300
+#  define REFRACTION_COUNT 10
 # endif
 
 # ifndef ERROR_BUF_LEN
@@ -310,7 +310,7 @@ bool			test_light_with_surface_shadow(void);
 bool			test_eng_lighting(void);
 
 //Shadow
-bool			eng_is_shadowed(t_world world, t_point point);
+bool			eng_is_shadowed(t_world world, t_point point, t_light light);
 bool			test_shadow(void);
 bool			test2_shadow(void);
 bool			test3_shadow(void);

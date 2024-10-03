@@ -101,6 +101,6 @@ t_light	eng_point_light(t_fcolor intensity, t_point position)
 	light.intensity = intensity;
 	light.origin = position;
 	light.base_obj.type = OBJ_LIGHT;
-	light.radius = 0;
+	light.radius = 1;
 	return (light);
 }

@@ -79,6 +79,7 @@ t_uintcolor		fcolor_to_uintcolor(t_fcolor fcolor);
 t_fcolor		add_fcolor(t_fcolor a, t_fcolor b);
 t_fcolor		sub_fcolor(t_fcolor a, t_fcolor b);
 t_fcolor		scale_fcolor(t_fcolor c, double scalar);
+t_fcolor		div_fcolor(t_fcolor c, double div);
 /*
 	Hadamard product (or Schur product)
 	Multiplacation of two colors;

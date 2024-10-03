@@ -9,7 +9,7 @@ bool	test4_shadow()
 
 	default_world = eng_default_world();
 	point = new_point(-2, 2, -2);
-	if (eng_is_shadowed(default_world, point))
+	if (eng_is_shadowed(default_world, point, *default_world.lights))
 	{
 		printf("eng_is_shadow should return false\n File: %s \t Line: %d\n", __FILE__, __LINE__);
 		return (false);
@@ -24,7 +24,7 @@ bool	test3_shadow()
 
 	default_world = eng_default_world();
 	point = new_point(-20, 20, -20);
-	if (eng_is_shadowed(default_world, point))
+	if (eng_is_shadowed(default_world, point, *default_world.lights))
 	{
 		printf("eng_is_shadow should return false\n File: %s \t Line: %d\n", __FILE__, __LINE__);
 		return (false);
@@ -39,7 +39,7 @@ bool	test2_shadow()
 
 	default_world = eng_default_world();
 	point = new_point(10, -10, 10);
-	if (!eng_is_shadowed(default_world, point))
+	if (!eng_is_shadowed(default_world, point, *default_world.lights))
 	{
 		printf("eng_is_shadow should return true\n File: %s \t Line: %d\n", __FILE__, __LINE__);
 		return (false);
@@ -54,7 +54,7 @@ bool	test_shadow()
 
 	default_world = eng_default_world();
 	point = new_point(0, 10, 0);
-	if (eng_is_shadowed(default_world, point))
+	if (eng_is_shadowed(default_world, point, *default_world.lights))
 	{
 		printf("eng_is_shadow should return false\n File: %s \t Line: %d\n", __FILE__, __LINE__);
 		return (false);

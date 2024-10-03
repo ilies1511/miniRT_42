@@ -26,7 +26,7 @@ void	reset_canvas(t_canvas *canvas)
 
 	pixels = canvas->pixels;
 	y = 0;
-	while (y < HEIGHT)
+	while (y < canvas->height)
 	{
 		x = 0;
 		while (x < canvas->width)

@@ -19,7 +19,7 @@ static void add_objs(t_world *world)
 	cyl.min = 0.5;
 	cyl.max = 2;
 	cyl.closed = true;
-	cyl.base_obj.material.reflective = 0.3;
+	cyl.base_obj.material.reflective = 0;
 	//cyl.base_obj.material.transparency = 1;
 	//cyl.base_obj.material.refractive_index = 1.333;
 
@@ -45,22 +45,23 @@ static void add_objs(t_world *world)
 	sph_mid.base_obj.material.diffuse = 0.7;
 	sph_mid.base_obj.material.specular = 0.3;
 	sph_mid.base_obj.material.transparency = 0.9;
-	sph_mid.base_obj.material.reflective = 0;
+	sph_mid.base_obj.material.reflective = 0.4;
+	sph_mid.base_obj.material.refractive_index = 1.33;
 	//sph_mid.base_obj.material.pattern = pat_square3d_pattern(new_fcolor(1, 1, 0, 1), new_fcolor(0,1,1, 1));
 	//eng_set_transform((t_obj *)sph_mid.base_obj.material.pattern, mtx_scale(0.1, 0.1, 0.1));
 	//eng_set_transform((t_obj *)sph_mid.base_obj.material.pattern, mtx_rotation_y(M_PI_4));
 	eng_add_obj_to_world(world, (t_obj *)&sph_mid);
 
-	sph_mid2 = eng_new_glass_sphere();
-	eng_set_transform((t_obj *)&sph_mid2 , mtx_translate(-0.5, 2, -3));
-	eng_set_transform((t_obj *)&sph_mid2 , mtx_scale(0.3, 0.3, 0.3));
-	sph_mid2.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
-	sph_mid2.base_obj.material.diffuse = 0.7;
-	sph_mid2.base_obj.material.specular = 0.3;
-	sph_mid2.base_obj.material.transparency = 0.3;
-	sph_mid2.base_obj.material.reflective = 0;
-	sph_mid2.base_obj.material.pattern = pat_square3d_pattern(new_fcolor(1, 1, 0, 1), new_fcolor(0,1,1, 1));
-	eng_add_obj_to_world(world, (t_obj *)&sph_mid2);
+	//sph_mid2 = eng_new_glass_sphere();
+	//eng_set_transform((t_obj *)&sph_mid2 , mtx_translate(-0.5, 2, -3));
+	//eng_set_transform((t_obj *)&sph_mid2 , mtx_scale(0.3, 0.3, 0.3));
+	//sph_mid2.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
+	//sph_mid2.base_obj.material.diffuse = 0.7;
+	//sph_mid2.base_obj.material.specular = 0.3;
+	//sph_mid2.base_obj.material.transparency = 0.3;
+	//sph_mid2.base_obj.material.reflective = 0;
+	//sph_mid2.base_obj.material.pattern = pat_square3d_pattern(new_fcolor(1, 1, 0, 1), new_fcolor(0,1,1, 1));
+	//eng_add_obj_to_world(world, (t_obj *)&sph_mid2);
 
 	sph_left = eng_new_sphere();
 	eng_set_transform((t_obj *)&sph_left, mtx_translate(-1.5, 0.33, -0.75));
@@ -103,6 +104,7 @@ static void add_objs(t_world *world)
 	//eng_add_obj_to_world(world, (t_obj *)&left_top);
 
 	light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(9, 8, -5));
+	light.radius = 1;
 	eng_add_obj_to_world(world, (t_obj *)&light);
 
 	//light2 = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(-2, 10, 0));

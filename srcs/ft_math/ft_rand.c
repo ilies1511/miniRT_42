@@ -21,7 +21,5 @@ double	ft_rand(void)
 				__LINE__, errno);
 		close(fd);
 	}
-	printf("i: %lu\n", i);
-
-	return ((double)rand_buffer[i++ % 1250000] / UINT64_MAX);double	
+	return ((double)rand_buffer[i++ % 1250000] / UINT64_MAX);
 }
