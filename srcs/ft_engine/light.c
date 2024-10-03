@@ -34,36 +34,6 @@ t_fcolor	eng_mult_color_color(t_fcolor color1, t_fcolor color2)
 	result.a = color1.a * color2.a;
 	return (result);
 }
-bool	test_light_with_surface_shadow()
-{
-	t_computation	comp;
-	bool		ret = true;
-	bool		in_shadow = true;
-	t_light		light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(0, 0, -10));
-
-	comp.obj = ft_malloc(sizeof(t_obj));
-	*(comp.obj) = eng_new_obj();
-	comp.eye_v = new_vec(0, 0, -1);
-	comp.normal_v = new_vec(0, 0, -1);
-	comp.obj->material = eng_new_material();
-	comp.over_point = new_point(0, 0, 0);
-	t_fcolor	expected = new_fcolor(1.9, 1.9, 1.9, 1);
-	t_fcolor	actual = eng_lighting(comp, light, false);
-
-	comp.eye_v = new_vec(0, 0, -1);
-	comp.normal_v = new_vec(0, 0, -1);
-	light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(0, 10, 10));
-	expected = new_fcolor(0.1, 0.1, 0.1, 1);
-	actual = eng_lighting(comp, light, in_shadow);
-	if (!eq_fcolor(expected, actual))
-	{
-		ret = false;
-		printf("Test failed: lighting(): test case 5 %s line %d\n", __FILE__, __LINE__);
-		print_fcolor("expected:\n", expected);
-		print_fcolor("actual:\n", actual);
-	}
-	return (ret);
-}
 
 static void	init_lighting_norm_strukt(t_lighting_norm *light_norm)
 {
