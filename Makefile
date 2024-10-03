@@ -54,6 +54,7 @@ SRC_FILES_ENGINE := \
 	ft_engine/objs/test.c \
 	ft_engine/reflections/reflect.c \
 	ft_engine/reflections/tests.c \
+	ft_engine/refraction/refraction.c \
 	ft_engine/refraction/tests.c \
 	ft_engine/light.c \
 	ft_engine/light_tests.c \
@@ -78,6 +79,7 @@ SRC_FILES_ENGINE := \
 
 
 SRC_FILES_MATH := \
+	ft_math/ft_rand.c \
 	ft_math/colors/colors.c \
 	ft_math/colors/init_colors.c \
 	ft_math/tuple/tuple1.c \

@@ -4,7 +4,6 @@
 #include <ft_matrix.h>
 #include <libft.h>
 
-
 bool	test_prepare_comp_n1_n2(void)
 {
 	bool			ret = true;
@@ -80,4 +79,150 @@ bool	test_prepare_comp_n1_n2(void)
 	}
 	eng_free_intersc_arr(&intersc_arr);
 	return (ret);
+}
+
+bool	test_prepare_comp_underpoint(void)
+{
+	bool			ret = true;
+	t_ray			ray;
+	t_sphere		sph;
+	t_intersc		intersc;
+	t_intersc		interscs_buff[1];
+	t_intersc_arr	interscs;
+	t_computation	comp;
+
+	ray = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
+	sph = eng_new_glass_sphere();
+	eng_set_transform((t_obj *)&sph, mtx_translate(0, 0, 1));
+	intersc.t = 5;
+	intersc.obj = (t_obj *)&sph;
+	interscs.count = 1;
+	interscs.arr = interscs_buff;
+	interscs.arr[0] = intersc;
+	comp = eng_prepare_computation(intersc, ray, interscs);
+	if (comp.under_point.z <= EPSILON / 2)
+	{
+		ret = false;
+		printf("%s", FT_ANSI_RED_BOLD);
+		ret = false;
+		printf("Test failed: eng_prepare_computation: under_point is wrong: %s line %d"
+				"\nexpected >= %lf actual: %lf\n", __FILE__,
+				__LINE__, EPSILON / 2, comp.under_point.z);
+		printf("%s", FT_ANSI_RESET);
+	}
+	if (comp.under_point.z <= comp.point.z)
+	{
+		ret = false;
+		printf("%s", FT_ANSI_RED_BOLD);
+		ret = false;
+		printf("Test failed: eng_prepare_computation: under_point is wrong: %s line %d"
+				"\nexpected >= %lf actual: %lf\n", __FILE__,
+				__LINE__, comp.point.z, comp.under_point.z);
+		printf("%s", FT_ANSI_RESET);
+	}
+	return (ret);
+}
+
+bool	test_refracted_color(void)
+{
+	bool			ret = true;
+	t_world			world = eng_default_world();
+	t_obj			*obj = world.objs[0];
+	t_ray			ray = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
+	t_intersc_arr	interscs;
+	t_intersc		interscs_buffer[2];
+	interscs.count = 2;
+	interscs.arr = interscs_buffer;
+	interscs.arr[0].t = 4;
+	interscs.arr[1].t = 6;
+	interscs.arr[0].obj = obj;
+	interscs.arr[1].obj = obj;
+	t_computation comp = eng_prepare_computation(interscs.arr[0], ray, interscs);
+	t_fcolor color = refracted_color(world, comp, 5);
+
+	if (!eq_fcolor(color, fcolor_black()))
+	{
+		printf("%s", FT_ANSI_RED_BOLD);
+		ret = false;
+		printf("Test failed: refracted_color: %s line %d\n", __FILE__,
+				__LINE__);
+		print_fcolor("expected", fcolor_black());
+		print_fcolor("actual", color);
+		printf("%s", FT_ANSI_RESET);
+	}
+	return (ret);
+}
+
+bool	test_refracted_color_total_reflect(void)
+{
+	bool			ret = true;
+	t_world			world = eng_default_world();
+	t_obj			*obj = world.objs[0];
+	obj->material.transparency = 1;
+	obj->material.refractive_index = 1.5;
+	t_ray			ray = eng_new_ray(new_point(0, 0, sqrt(2) / 2), new_vec(0, 1, 0));
+	t_intersc_arr	interscs;
+	t_intersc		interscs_buffer[2];
+	interscs.count = 2;
+	interscs.arr = interscs_buffer;
+	interscs.arr[0].obj = obj;
+	interscs.arr[1].obj = obj;
+	interscs.arr[0].t = -sqrt(2) / 2;
+	interscs.arr[1].t = sqrt(2) / 2;
+	t_computation comp = eng_prepare_computation(interscs.arr[1], ray, interscs);
+	t_fcolor color = refracted_color(world, comp, 5);
+
+	if (!eq_fcolor(color, fcolor_black()))
+	{
+		printf("%s", FT_ANSI_RED_BOLD);
+		ret = false;
+		printf("Test failed: refracted_color: %s line %d\n", __FILE__,
+				__LINE__);
+		print_fcolor("expected", fcolor_black());
+		print_fcolor("actual", color);
+		printf("%s", FT_ANSI_RESET);
+	}
+	return (ret);
+}
+
+bool	test_shade_hit_with_transparent_material(void)
+{
+	bool ret = true;
+	t_world world = eng_default_world();
+
+	t_plane floor = eng_new_plane();
+	eng_set_transform((t_obj *)&floor, mtx_translate(0, -1, 0));
+	floor.base_obj.material.transparency = 0.5;
+	floor.base_obj.material.refractive_index = 1.5;
+	eng_add_obj_to_world(&world, (t_obj *)&floor);
+
+	t_sphere	ball = eng_new_sphere();
+	eng_set_transform((t_obj *)&ball, mtx_translate(0, -3.5, -0.5));
+	ball.base_obj.material.fcolor = new_fcolor(1, 0, 0, 1);
+	ball.base_obj.material.ambient = 0.5;
+	eng_add_obj_to_world(&world, (t_obj *)&ball);
+
+	t_ray ray = eng_new_ray(new_point(0, 0, -3), new_vec(0, -sqrt(2) / 2, sqrt(2) / 2));
+
+	t_intersc_arr xs;
+	t_intersc xs_buffer[1] = {{.obj = (t_obj *)&floor, .t = sqrt(2)}};
+	xs.count = 1;
+	xs.arr = xs_buffer;
+
+	t_computation comps = eng_prepare_computation(xs.arr[0], ray, xs);
+
+	t_fcolor color = eng_shade_hit(world, comps, 5);
+
+	t_fcolor expected = new_fcolor(0.93642, 0.68642, 0.68642, 1);
+
+	if (!eq_fcolor(color, expected))
+	{
+		printf("%s", FT_ANSI_RED_BOLD);
+		ret = false;
+		printf("Test failed: shade_hit_with_transparent_material: %s line %d\n", __FILE__, __LINE__);
+		print_fcolor("expected", expected);
+		print_fcolor("actual", color);
+		printf("%s", FT_ANSI_RESET);
+	}
+	return ret;
 }

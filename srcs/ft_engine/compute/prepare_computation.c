@@ -32,6 +32,7 @@ t_computation	eng_prepare_computation(t_intersc hit, t_ray ray,
 	else
 		comp.inside = false;
 	comp.over_point = add_t(comp.point, mult_v(comp.normal_v, (EPSILON)));
+	comp.under_point = sub_t(comp.point, mult_v(comp.normal_v, (EPSILON)));
 	comp.reflection = ref_reflect(ray.direct, comp.normal_v);
 
 	t_list		*containers;

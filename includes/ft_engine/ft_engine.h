@@ -9,11 +9,11 @@
 # include <math.h>
 
 # ifndef REFLECTION_COUNT
-#  define REFLECTION_COUNT 100
+#  define REFLECTION_COUNT 50
 # endif
 
 # ifndef REFRACTION_COUNT
-#  define REFRACTION_COUNT 100
+#  define REFRACTION_COUNT 300
 # endif
 
 # ifndef ERROR_BUF_LEN
@@ -173,6 +173,7 @@ typedef struct s_light
 	t_obj			base_obj;
 	t_point			origin;
 	t_fcolor		intensity;
+	double			radius;
 }	t_light;
 
 typedef struct s_world
