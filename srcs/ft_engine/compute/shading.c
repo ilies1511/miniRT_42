@@ -51,7 +51,8 @@ t_fcolor	eng_shade_hit(t_world world, t_computation comp,
 	i = 0;
 	while (i < world.light_count)
 	{
-		modified_light = eng_randomly_offset_light(world.lights[i]);
+		//modified_light = world.lights[i];//for boolen shadows use this line
+		modified_light = eng_randomly_offset_light(world.lights[i]);//for smooth shadows use this line
 		in_shadow = eng_is_shadowed(world, comp.over_point, modified_light);
 		color = add_fcolor(color, eng_lighting(comp, modified_light,
 					in_shadow));

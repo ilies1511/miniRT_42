@@ -1,5 +1,81 @@
 #include <main.h>
 
+t_material	eng_new_material_matte(void)
+{
+	t_material	mat;
+
+	mat.fcolor.r = 1;
+	mat.fcolor.g = 1;
+	mat.fcolor.b = 1;
+	mat.fcolor.a = 1;
+	mat.pattern = NULL;
+	mat.ambient = 0.1;
+	mat.diffuse = 0.9;
+	mat.specular = 0.1;
+	mat.shininess = 10;
+	mat.reflective = 0.0;
+	mat.transparency = 0.0;
+	mat.refractive_index = 1;
+	return (mat);
+}
+
+t_material	eng_new_dirty_water_material(void)
+{
+	t_material	mat;
+
+	mat.fcolor.r = 0.5;
+	mat.fcolor.g = 0.5;
+	mat.fcolor.b = 0.4;
+	mat.fcolor.a = 1;
+	mat.pattern = NULL;
+	mat.ambient = 0.3;
+	mat.diffuse = 0.7;
+	mat.specular = 0.5;
+	mat.shininess = 50;
+	mat.reflective = 0.1;
+	mat.transparency = 0.7;
+	mat.refractive_index = 1.33;
+	return (mat);
+}
+
+t_material	eng_new_material_dark_wood(void)
+{
+	t_material	mat;
+
+	mat.fcolor.r = 0.36;
+	mat.fcolor.g = 0.25;
+	mat.fcolor.b = 0.20;
+	mat.fcolor.a = 1.0;
+	mat.pattern = NULL;
+	mat.ambient = 0.3;
+	mat.diffuse = 0.6;
+	mat.specular = 0.2;
+	mat.shininess = 50;
+	mat.reflective = 0.1;
+	mat.transparency = 0.0;
+	mat.refractive_index = 1.0;
+	return (mat);
+}
+
+t_material	eng_dark_tree_stump(void)
+{
+	t_material	mat;
+
+	mat.fcolor.r = 0.3;
+	mat.fcolor.g = 0.2;
+	mat.fcolor.b = 0.1;
+	mat.fcolor.a = 1;
+	mat.pattern = NULL;
+	mat.ambient = 0.5;
+	mat.diffuse = 0.7;
+	mat.specular = 0.0;
+	mat.shininess = 50;
+	mat.reflective = 0.0;
+	mat.transparency = 0.0;
+	mat.refractive_index = 1;
+	return (mat);
+}
+
 static void add_objs(t_world *world)
 {
 	t_light		light;
@@ -22,9 +98,10 @@ static void add_objs(t_world *world)
 	cyl.closed = true;
 	//cyl.base_obj.material.transparency = 1.0;
 	//cyl.base_obj.material.refractive_index = 1.5;
-	cyl.base_obj.material.reflective = 0.3;
+	//cyl.base_obj.material.reflective = 0.3;
 	//cyl.base_obj.material.transparency = 1;
 	//cyl.base_obj.material.refractive_index = 1.333;
+	cyl.base_obj.material = eng_dark_tree_stump();
 
 	//cyl.base_obj.material.pattern = pat_square3d_pattern(new_fcolor(0.5, 0.5, 0, 1), new_fcolor(0, 1, 1, 1));
 	eng_set_transform((t_obj *)&cyl, mtx_translate(2, 0, -2));
@@ -44,12 +121,13 @@ static void add_objs(t_world *world)
 
 	sph_mid = eng_new_glass_sphere();
 	eng_set_transform((t_obj *)&sph_mid , mtx_translate(-0.5, 2, -3));
-	sph_mid.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
-	sph_mid.base_obj.material.diffuse = 0.7;
-	sph_mid.base_obj.material.specular = 0.3;
-	sph_mid.base_obj.material.transparency = 0;
-	sph_mid.base_obj.material.reflective = 0.4;
-	sph_mid.base_obj.material.refractive_index = 1.33;
+	sph_mid.base_obj.material = eng_new_material_dark_wood();
+	//sph_mid.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
+	//sph_mid.base_obj.material.diffuse = 0.7;
+	//sph_mid.base_obj.material.specular = 0.3;
+	//sph_mid.base_obj.material.transparency = 0;
+	//sph_mid.base_obj.material.reflective = 0.4;
+	//sph_mid.base_obj.material.refractive_index = 1.33;
 	//sph_mid.base_obj.material.pattern = pat_square3d_pattern(new_fcolor(1, 1, 0, 1), new_fcolor(0,1,1, 1));
 	//eng_set_transform((t_obj *)sph_mid.base_obj.material.pattern, mtx_scale(0.1, 0.1, 0.1));
 	//eng_set_transform((t_obj *)sph_mid.base_obj.material.pattern, mtx_rotation_y(M_PI_4));
