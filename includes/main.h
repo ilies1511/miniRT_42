@@ -41,7 +41,8 @@
 # endif
 
 # ifndef ASPECT_RATIO
-#  define ASPECT_RATIO (16.0 / 9.0)
+//#  define ASPECT_RATIO (16.0 / 9.0)
+#  define ASPECT_RATIO 1.7777777777777777
 # endif
 
 # ifndef WIDTH
