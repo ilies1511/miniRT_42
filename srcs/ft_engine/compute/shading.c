@@ -19,25 +19,24 @@
 //	return (out);
 //}
 
-t_light eng_randomly_offset_light(t_light in) {
-    t_light out = in;
-    double phi = ft_rand() * 2 * M_PI; // Random angle for azimuth
-    double costheta = ft_rand() * 2 - 1; // Cosine of polar angle
-    double u = ft_rand(); // For random radius
+t_light	eng_randomly_offset_light(t_light in)
+{
+	t_light		out = in;
+	double		phi = ft_rand() * 2 * M_PI;
+	double 		costheta = ft_rand() * 2 - 1;
+	double 		u = ft_rand();
+	double		theta = acos(costheta);
+	double 		r = in.radius * cbrt(u);
 
-    double theta = acos(costheta);
-    double r = in.radius * cbrt(u); // Cube root to distribute uniformly within the sphere
-
-    // Convert spherical to Cartesian coordinates
-    t_vec offset = new_vec(
-        r * sin(theta) * cos(phi),
-        r * sin(theta) * sin(phi),
-        r * cos(theta)
-    );
-
-    out.origin = add_t(out.origin, offset);
-    return out;
+	t_vec offset = new_vec(
+		r * sin(theta) * cos(phi),
+		r * sin(theta) * sin(phi),
+		r * cos(theta)
+	);
+	out.origin = add_t(out.origin, offset);
+	return (out);
 }
+
 t_fcolor	eng_shade_hit(t_world world, t_computation comp,
 	size_t remaining_reflects)
 {
@@ -88,10 +87,16 @@ t_fcolor	eng_color_at(t_world world, t_ray ray, size_t remaining_reflects)
 
 void	eng_put_pixel(t_canvas canvas, size_t x, size_t y, t_fcolor color)
 {
-	static t_fcolor	mem_sum[(int)(WIDTH / ASPECT_RATIO)][WIDTH] = {0};
+	static t_fcolor	mem_sum[HEIGHT][WIDTH];
+	static bool		first = true;
 	static size_t	iter_count = 0;
 	t_fcolor		prev_sum;
 
+	if (first)
+	{
+		ft_bzero(mem_sum, sizeof mem_sum);
+		first = false;
+	}
 	if (!y && !x)
 		iter_count++;
 	mem_sum[y][x] = add_fcolor(mem_sum[y][x], color);
