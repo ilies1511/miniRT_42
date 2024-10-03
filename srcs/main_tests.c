@@ -268,6 +268,15 @@ void	test_cones(int *total_tests, int *passed_tests)
 	if (test_cone_intersect())
 		*passed_tests += 1;
 	*total_tests += 1;
+	if (test_parallel())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_intersec_cone_caps())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_normal_cone())
+		*passed_tests += 1;
+	*total_tests += 1;
 }
 
 int	main(void)

@@ -37,20 +37,24 @@ t_vec	compute_normal_cylinder(t_cylinder *cylinder, t_point object_point)
 t_vec	compute_normal_cone(t_cone *cone, t_point object_point)
 {
 	double	distance;
+	double	y;
 
-	distance = (object_point.x * object_point.x) + (object_point.z
-			* object_point.z);
+	//TODO: 2fix casea
+	if (eq_t(object_point, new_point(0, 0, 0)))
+		return (norm(new_vec(0, 1, 0)));
+	distance = (object_point.x * object_point.x) + \
+		(object_point.z * object_point.z);
 	if (distance < 1 && object_point.y >= cone->max - (EPSILON))
 		return (new_vec(0, 1, 0));
 	else if (distance < 1 && object_point.y <= cone->min + (EPSILON))
 		return (new_vec(0, -1, 0));
 	else
 	{
-		object_point.y = sqrtl(object_point.x * object_point.x \
-			+ object_point.z * object_point.z);
+		y = sqrt((object_point.x * object_point.x) \
+			+ (object_point.z * object_point.z));
 		if (object_point.y > 0)
-			object_point.y = -object_point.y;
-		return (new_vec(object_point.x, object_point.y, object_point.z));
+			y = -y;
+		return (new_vec(object_point.x, y, object_point.z));
 	}
 }
 

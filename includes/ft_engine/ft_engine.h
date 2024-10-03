@@ -277,9 +277,12 @@ void			eng_intersc_ray_cylinder(t_intersc_arr *intersecs, t_ray ray,
 void			eng_intersc_ray_cone(t_intersc_arr *intersecs, t_ray ray,
 					t_cone *cone);
 bool			test_cone_intersect(void);
+bool			test_intersec_cone_caps(void);
+bool			test_normal_cone(void);
 t_vec			compute_normal_cone(t_cone *cone, t_point object_point);
 t_vec			compute_normal_cylinder(t_cylinder *cylinder,
 					t_point object_point);
+bool			test_parallel(void);
 bool			test_cylinder_no_hits(void);
 bool			test_cylinder_hits(void);
 bool			test_normal_at_cylinder(void);
