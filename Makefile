@@ -56,6 +56,8 @@ SRC_FILES_ENGINE := \
 	ft_engine/reflections/tests.c \
 	ft_engine/refraction/refraction.c \
 	ft_engine/refraction/tests.c \
+	ft_engine/refraction/fresnel.c \
+	ft_engine/refraction/test_fresnel.c \
 	ft_engine/light.c \
 	ft_engine/light_tests.c \
 	ft_engine/material.c \
@@ -140,7 +142,8 @@ SOURCE_FILES := \
 	playgrounds/sphere1/test3.c \
 	playgrounds/chap_6/1.c \
 	playgrounds/chap_9/1.c \
-	playgrounds/chap_10/1.c
+	playgrounds/chap_10/1.c \
+	playgrounds/chap_11.c
 
 SOURCES = $(addprefix $(SRC_DIR), $(SOURCE_FILES))
 

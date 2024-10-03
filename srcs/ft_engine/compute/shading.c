@@ -42,10 +42,12 @@ t_fcolor	eng_shade_hit(t_world world, t_computation comp,
 {
 	size_t		i;
 	t_fcolor	color;
+	t_fcolor	surface;
 	bool		in_shadow;
 	t_fcolor	reflected;
 	t_fcolor	refracted;
 	t_light		modified_light;
+	double		reflactance;
 
 	color = new_fcolor(0, 0, 0, 0);
 	i = 0;
@@ -54,10 +56,17 @@ t_fcolor	eng_shade_hit(t_world world, t_computation comp,
 		//modified_light = world.lights[i];//for boolen shadows use this line
 		modified_light = eng_randomly_offset_light(world.lights[i]);//for smooth shadows use this line
 		in_shadow = eng_is_shadowed(world, comp.over_point, modified_light);
-		color = add_fcolor(color, eng_lighting(comp, modified_light,
+		surface = add_fcolor(color, eng_lighting(comp, modified_light,
 					in_shadow));
 		reflected = ref_reflected_color(world, comp, remaining_reflects);
 		refracted = refracted_color(world, comp, remaining_reflects);
+		if (comp.obj->material.reflective > 0 && comp.obj->material.transparency > 0)
+		{
+			reflactance = ref_schlick(comp);
+			reflected = scale_fcolor(reflected, reflactance);
+			refracted = scale_fcolor(refracted, 1.0 - reflactance);
+		}
+		color = add_fcolor(color, surface);
 		color = add_fcolor(color, reflected);
 		color = add_fcolor(color, refracted);
 		i++;

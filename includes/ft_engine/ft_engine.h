@@ -9,7 +9,7 @@
 # include <math.h>
 
 # ifndef REFLECTION_COUNT
-#  define REFLECTION_COUNT 5
+#  define REFLECTION_COUNT 7
 # endif
 
 # ifndef REFRACTION_COUNT

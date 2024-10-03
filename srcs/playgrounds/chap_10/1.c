@@ -1,5 +1,24 @@
 #include <main.h>
 
+t_material	eng_new_material_water(void)
+{
+	t_material	mat;
+
+	mat.fcolor.r = 1;
+	mat.fcolor.g = 1;
+	mat.fcolor.b = 1;
+	mat.fcolor.a = 1;
+	mat.pattern = NULL;
+	mat.ambient = 0.1;
+	mat.diffuse = 0.9;
+	mat.specular = 0.9;
+	mat.shininess = 200;
+	mat.reflective = 0.0;
+	mat.transparency = 1.0;
+	mat.refractive_index = 1.333;
+	return (mat);
+}
+
 t_material	eng_new_material_matte(void)
 {
 	t_material	mat;
@@ -121,7 +140,7 @@ static void add_objs(t_world *world)
 
 	sph_mid = eng_new_glass_sphere();
 	eng_set_transform((t_obj *)&sph_mid , mtx_translate(-0.5, 2, -3));
-	sph_mid.base_obj.material = eng_new_material_dark_wood();
+	sph_mid.base_obj.material = eng_new_material_water();
 	//sph_mid.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
 	//sph_mid.base_obj.material.diffuse = 0.7;
 	//sph_mid.base_obj.material.specular = 0.3;
@@ -198,7 +217,7 @@ static void add_objs(t_world *world)
 	(void)light2;
 }
 
-void	sphere_test(void *main_data)
+void	sphere_test_10(void *main_data)
 {
 	t_main			*m_data = (t_main *)main_data;
 	t_canvas		canvas = m_data->engine.canvas;
