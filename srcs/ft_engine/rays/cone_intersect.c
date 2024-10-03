@@ -60,38 +60,37 @@ void	eng_intersc_ray_cone(t_intersc_arr *intersecs, t_ray ray,
 			t_cone *cone)
 {
 	t_cone_norm	n;
-	bool		flag;
 
-	flag = false;
 	init_cone_norm(&n);
 	n.a = (ray.direct.x * ray.direct.x) - (ray.direct.y * ray.direct.y) + \
 			(ray.direct.z * ray.direct.z);
-	if (eq_f(n.a, (EPSILON)))
+	n.b = 2 * ray.origin.x * ray.direct.x - 2 * ray.origin.y * ray.direct.y + \
+		2 * ray.origin.z * ray.direct.z;
+	if (eq_f(n.a, 0) && eq_f(n.b, 0))
 		return (eng_intersc_ray_cone_caps(intersecs, ray, cone));
-	n.b = (2 * ray.origin.x * ray.direct.x) - (2 * ray.origin.y * ray.direct.y) + \
-		(2 * ray.origin.z * ray.direct.z);
-	n.c = (ray.origin.x * ray.origin.x) - (ray.origin.y * ray.origin.y) \
-		+ (ray.origin.z * ray.origin.z);
-	//Disc muss fuer Cones raus
-	n.disc = (n.b * n.b) - (4 * n.a * n.c);
-	if (n.disc < 0)
+	n.c = (ray.origin.x * ray.origin.x) - (ray.origin.y * ray.origin.y) + \
+		(ray.origin.z * ray.origin.z);
+	n.disc = (n.b * n.b) - 4 * n.a * n.c;
+	if (n.disc < 0 - EPSILON)
 		return ;
-	// return (eng_intersc_ray_cone_caps(intersecs, ray, cone));
-	//TODO: 2CHECK if correct spot
-	if (eq_f(n.a, EPSILON) && !eq_f(n.b, EPSILON))
-	{
-		flag = true;
-		n.t0 = -(n.c) / 2 * n.b;
-	}
-	n.sqrt_discriminant = sqrtl(n.disc);
+	if (!eq_f(n.disc, 0))
+		n.sqrt_discriminant = sqrtl(n.disc);
+	else
+		n.sqrt_discriminant = 0;
 	n.two_a = (2 * n.a);
-	if (!flag)
+	if (!eq_f(n.a, 0))
 	{
-		n.t0 = (-(n.b) - n.sqrt_discriminant) / n.two_a;
-		n.t1 = (-(n.b) + n.sqrt_discriminant) / n.two_a;
+		n.t0 = (-n.b - n.sqrt_discriminant) / n.two_a;
+		n.t1 = (-n.b + n.sqrt_discriminant) / n.two_a;
 	}
-	// n.t0 = (-(n.b) - n.sqrt_discriminant) / n.two_a;
-	// n.t1 = (-(n.b) + n.sqrt_discriminant) / n.two_a;
+	else if (eq_f(n.a, 0) && !eq_f(n.b, 0))
+	{
+		n.t0 = -n.c / 2 * n.b;
+		n.t1 = n.t0;
+	}
+	else
+		ft_assert(false, __FILE__, __LINE__, \
+			"Impossible Case for Cone Intersection");
 	if (n.t0 > n.t1)
 		swap_double(&n);
 	n.y0 = ray.origin.y + n.t0 * ray.direct.y;

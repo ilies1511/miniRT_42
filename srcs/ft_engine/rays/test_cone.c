@@ -10,6 +10,8 @@ bool	test_cone_intersect(void)
 	t_intersc_arr	intersecs3;
 	t_cone			cone;
 	t_ray			ray;
+	t_ray			ray2;
+	t_ray			ray3;
 
 	result = true;
 	cone = eng_new_cone();
@@ -35,9 +37,9 @@ bool	test_cone_intersect(void)
 			intersecs.arr[0].t, 5, intersecs.arr[1].t, 5);
 	//TEST2
 	intersecs2 = eng_new_intersc_arr();
-	ray = eng_new_ray(new_point(0, 0, -5), new_vec(1, 1, 1));
-	ray.direct = norm(ray.direct);
-	eng_intersc_ray_cone(&intersecs2, ray, &cone);
+	ray2 = eng_new_ray(new_point(0, 0, -5), new_vec(1, 1, 1));
+	ray2.direct = norm(ray2.direct);
+	eng_intersc_ray_cone(&intersecs2, ray2, &cone);
 	if (intersecs2.count == 2)
 	{
 		if ((!eq_f(intersecs2.arr[0].t, 8.66025))
@@ -69,6 +71,9 @@ bool	test_cone_intersect(void)
 			intersecs3.arr[0].t, 4.55006, intersecs3.arr[1].t, 49.44994);
 		result = false;
 	}
+	printf("%s Line %d\n", __FILE__, __LINE__);
+	printf("TEST 3:\nMY t1 : %lf vs. OG: %lf\nMY t2: %lf vs. OG: %lf\n", \
+		intersecs3.arr[0].t, 4.55006, intersecs3.arr[1].t, 49.44994);
 	eng_free_intersc_arr(&intersecs3);
 	return (result);
 }
