@@ -15,6 +15,8 @@ bool	test_shade_hit(void)
 	t_fcolor		soll_color;
 	t_fcolor		ist_color;
 	bool			status;
+	t_intersc_arr	dummy;
+	dummy.count = 0;
 
 	soll_color = new_fcolor(0.1, 0.1, 0.1, 1);
 	w = eng_new_world();
@@ -29,7 +31,7 @@ bool	test_shade_hit(void)
 	intersec = eng_add_intersc(&intersecs, (t_obj *)&s2, 4);
 	ray = eng_new_ray(new_point(0, 0, 5), new_vec(0, 0, 1));
 	eng_intersc_ray(&intersecs, ray, (t_obj *)&s2);
-	comp = eng_prepare_computation(intersec, ray);
+	comp = eng_prepare_computation(intersec, ray, dummy);
 	ist_color = eng_shade_hit(w, comp, 10);
 	if (eq_fcolor(ist_color, soll_color))
 		status = true;
@@ -87,8 +89,10 @@ bool	test_shading_outside_intersection(void)
 	t_ray		r = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
 	t_obj		*shape = w.objs[0];
 	t_intersc	i = {4, shape};
+	t_intersc_arr	dummy;
+	dummy.count = 0;
 
-	t_computation comps = eng_prepare_computation(i, r);
+	t_computation comps = eng_prepare_computation(i, r, dummy);
 	t_fcolor c = eng_shade_hit(w, comps, 10);
 	t_fcolor expected = new_fcolor(0.38066, 0.47583, 0.2855, 1);
 	if (!eq_fcolor(c, expected))
@@ -106,7 +110,7 @@ bool	test_shading_outside_intersection(void)
 	shape = w.objs[1];
 	i.t = 0.5;
 	i.obj = shape;
-	comps = eng_prepare_computation(i, r);
+	comps = eng_prepare_computation(i, r, dummy);
 	c = eng_shade_hit(w, comps, 10);
 	expected = new_fcolor(0.90498, 0.90498, 0.90498, 1);
 	if (!eq_fcolor(c, expected))

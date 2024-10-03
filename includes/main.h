@@ -27,6 +27,7 @@
 # include <garbage_collector.h>
 # include <ft_patterns.h>
 # include <ft_reflection.h>
+# include <ft_refraction.h>
 // for development but not allowed functions
 // # include <....h>
 # include <time.h>//used for tests to init rand()
@@ -44,7 +45,7 @@
 # endif
 
 # ifndef WIDTH
-#  define WIDTH 2000
+#  define WIDTH 1000
 # endif
 
 # ifndef HEIGHT
@@ -54,6 +55,10 @@
 # ifndef WALL_DIST
 #  define WALL_DIST 1
 # endif
+
+# ifndef RANDOM_BIN_FILE
+#  define RANDOM_BIN_FILE "rand_bin_data.bin"
+# endif //RANDOM_BIN_FILE
 
 typedef int	t_fd;
 
@@ -78,6 +83,8 @@ typedef enum s_tuple_type
 	VECTOR,
 	POINT
 }	t_tuple_type;
+
+double	ft_rand(void);
 
 // experiments
 void	draw_projectile(void *main_data);

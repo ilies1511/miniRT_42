@@ -11,5 +11,7 @@ t_material	eng_new_material(void)
 	mat.specular = 0.9;
 	mat.shininess = 200;
 	mat.reflective = 0.0;
+	mat.transparency = 0.0;
+	mat.refractive_index = 1;
 	return (mat);
 }

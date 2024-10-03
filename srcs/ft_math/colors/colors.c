@@ -49,6 +49,17 @@ t_fcolor	scale_fcolor(t_fcolor c, double scalar)
 	return (res);
 }
 
+t_fcolor	div_fcolor(t_fcolor c, double div)
+{
+	t_fcolor	res;
+
+	res.r = c.r / div;
+	res.g = c.g / div;
+	res.b = c.b / div;
+	res.a = 1.0;
+	return (res);
+}
+
 bool	eq_fcolor(t_fcolor a, t_fcolor b)
 {
 	return (eq_f(a.r, b.r) && eq_f(a.g, b.g)

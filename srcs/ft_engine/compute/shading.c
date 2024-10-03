@@ -1,7 +1,43 @@
 #include <ft_engine.h>
+#include <main.h>
 #include <libft.h>
 #include <ft_reflection.h>
+#include <ft_refraction.h>
 
+//t_light	eng_randomly_offset_light(t_light in)
+//{
+//	t_light	out;
+//	t_vec	offset;
+//
+//	out = in;
+//	offset = norm(new_vec(1, 0, 0));
+//	offset = mtx_mult_mt(mtx_rotation_y(ft_rand() * M_PI_2), offset);
+//	offset = mtx_mult_mt(mtx_rotation_z(ft_rand() * M_PI_2), offset);
+//	offset = mtx_mult_mt(mtx_rotation_x(ft_rand() * M_PI_2), offset);
+//	offset = mtx_mult_mt(mtx_scale(in.radius, in.radius, in.radius), offset);
+//	out.origin = add_t(out.origin, offset);
+//	return (out);
+//}
+
+t_light eng_randomly_offset_light(t_light in) {
+    t_light out = in;
+    double phi = ft_rand() * 2 * M_PI; // Random angle for azimuth
+    double costheta = ft_rand() * 2 - 1; // Cosine of polar angle
+    double u = ft_rand(); // For random radius
+
+    double theta = acos(costheta);
+    double r = in.radius * cbrt(u); // Cube root to distribute uniformly within the sphere
+
+    // Convert spherical to Cartesian coordinates
+    t_vec offset = new_vec(
+        r * sin(theta) * cos(phi),
+        r * sin(theta) * sin(phi),
+        r * cos(theta)
+    );
+
+    out.origin = add_t(out.origin, offset);
+    return out;
+}
 t_fcolor	eng_shade_hit(t_world world, t_computation comp,
 	size_t remaining_reflects)
 {
@@ -9,18 +45,21 @@ t_fcolor	eng_shade_hit(t_world world, t_computation comp,
 	t_fcolor	color;
 	bool		in_shadow;
 	t_fcolor	reflected;
+	t_fcolor	refracted;
+	t_light		modified_light;
 
 	color = new_fcolor(0, 0, 0, 0);
 	i = 0;
 	while (i < world.light_count)
 	{
-		in_shadow = false;
-		if (eng_is_shadowed(world, comp.over_point))
-			in_shadow = true;
-		color = add_fcolor(color, eng_lighting(comp, world.lights[i],
+		modified_light = eng_randomly_offset_light(world.lights[i]);
+		in_shadow = eng_is_shadowed(world, comp.over_point, modified_light);
+		color = add_fcolor(color, eng_lighting(comp, modified_light,
 					in_shadow));
 		reflected = ref_reflected_color(world, comp, remaining_reflects);
+		refracted = refracted_color(world, comp, remaining_reflects);
 		color = add_fcolor(color, reflected);
+		color = add_fcolor(color, refracted);
 		i++;
 	}
 	return (color);
@@ -29,16 +68,16 @@ t_fcolor	eng_shade_hit(t_world world, t_computation comp,
 t_fcolor	eng_color_at(t_world world, t_ray ray, size_t remaining_reflects)
 {
 	t_intersc_arr	interscs;
-	t_intersc		*intersc;
+	t_intersc		*hit;
 	t_fcolor		color;
 	t_computation	comp;
 
 	interscs = eng_new_intersc_arr();
 	eng_ray_intersc_world(ray, world, &interscs);
-	intersc = eng_ray_hit(&interscs);
-	if (intersc)
+	hit = eng_ray_hit(&interscs);
+	if (hit)
 	{
-		comp = eng_prepare_computation(*intersc, ray);
+		comp = eng_prepare_computation(*hit, ray, interscs);
 		color = eng_shade_hit(world, comp, remaining_reflects);
 	}
 	else
@@ -49,6 +88,14 @@ t_fcolor	eng_color_at(t_world world, t_ray ray, size_t remaining_reflects)
 
 void	eng_put_pixel(t_canvas canvas, size_t x, size_t y, t_fcolor color)
 {
+	static t_fcolor	mem_sum[(int)(WIDTH / ASPECT_RATIO)][WIDTH] = {0};
+	static size_t	iter_count = 0;
+	t_fcolor		prev_sum;
+
+	if (!y && !x)
+		iter_count++;
+	mem_sum[y][x] = add_fcolor(mem_sum[y][x], color);
+	color = div_fcolor(mem_sum[y][x], iter_count);
 	((t_uintcolor *)canvas.pixels)[y * canvas.width + x] = fcolor_to_uintcolor(
 			color);
 }
@@ -67,7 +114,7 @@ void	eng_render(t_camera camera, t_world world, t_canvas canvas)
 		while (x < camera.width)
 		{
 			ray = eng_ray_for_pixel(camera, x, y);
-			color = eng_color_at(world, ray, 100);
+			color = eng_color_at(world, ray, REFLECTION_COUNT);
 			eng_put_pixel(canvas, x, y, color);
 			x++;
 		}

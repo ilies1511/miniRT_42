@@ -8,6 +8,14 @@
 # include <stdio.h>
 # include <math.h>
 
+# ifndef REFLECTION_COUNT
+#  define REFLECTION_COUNT 10
+# endif
+
+# ifndef REFRACTION_COUNT
+#  define REFRACTION_COUNT 10
+# endif
+
 # ifndef ERROR_BUF_LEN
 #  define ERROR_BUF_LEN 50
 # endif
@@ -50,6 +58,8 @@ typedef struct s_material
 	double		specular;
 	double		shininess;
 	double		reflective;
+	double		transparency;
+	double		refractive_index;
 }	t_material;
 
 t_material		eng_new_material(void);
@@ -163,6 +173,7 @@ typedef struct s_light
 	t_obj			base_obj;
 	t_point			origin;
 	t_fcolor		intensity;
+	double			radius;
 }	t_light;
 
 typedef struct s_world
@@ -186,15 +197,19 @@ typedef struct s_computation
 	t_obj	*obj;
 	t_point	point;
 	t_point	over_point;
+	t_point	under_point;
 	t_vec	eye_v;
 	t_vec	normal_v;
 	bool	inside;
 	t_vec	reflection;
+	double	n1;
+	double	n2;
 }	t_computation;
 
 t_obj			test_shape(void);
 
-t_computation	eng_prepare_computation(t_intersc intersc, t_ray ray);
+t_computation	eng_prepare_computation(t_intersc hit, t_ray ray,
+					t_intersc_arr interscs);
 bool			test_prepare_computation(void);
 
 //compute/shading.c
@@ -219,6 +234,7 @@ void			reset_canvas(t_canvas *canvas);
 t_ray			eng_new_ray(t_point origin, t_vec direct);
 t_obj			eng_new_obj(void);
 t_sphere		eng_new_sphere(void);
+t_sphere		eng_new_glass_sphere(void);
 t_cylinder		eng_new_cylinder(void);
 
 // ft_engine/rays/intersect.c
@@ -294,7 +310,7 @@ bool			test_light_with_surface_shadow(void);
 bool			test_eng_lighting(void);
 
 //Shadow
-bool			eng_is_shadowed(t_world world, t_point point);
+bool			eng_is_shadowed(t_world world, t_point point, t_light light);
 bool			test_shadow(void);
 bool			test2_shadow(void);
 bool			test3_shadow(void);

@@ -1,5 +1,5 @@
 #include <main.h>
-
+//#define NO_ASSERT
 #ifdef NO_ASSERT
 void	do_nothing(int sig)
 {
@@ -262,7 +262,24 @@ void	test_reflections(int *total_tests, int *passed_tests)
 		*passed_tests += 1;
 	*total_tests += 1;
 }
-
+void	test_refractions(int *total_tests, int *passed_tests)
+{
+	if (test_prepare_comp_n1_n2())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_prepare_comp_underpoint())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_refracted_color())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_refracted_color_total_reflect())
+		*passed_tests += 1;
+	*total_tests += 1;
+	if (test_shade_hit_with_transparent_material())
+		*passed_tests += 1;
+	*total_tests += 1;
+}
 
 int	main(void)
 {
@@ -287,6 +304,7 @@ int	main(void)
 	test_patterns(&total, &passed);
 	test_intesec_cy(&total, &passed);
 	test_reflections(&total, &passed);
+	test_refractions(&total, &passed);
 	if (total == passed)
 		printf("%s all tests passed(%d/%d)!%s\n", FT_ANSI_GREEN_BOLD, passed, total, FT_ANSI_RESET);
 	else
