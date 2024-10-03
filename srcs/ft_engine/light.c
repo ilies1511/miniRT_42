@@ -62,6 +62,12 @@ static void	in_light_case(t_lighting_norm *n, t_light light, t_computation comp)
 	}
 }
 
+static void	no_light_case(t_lighting_norm *n)
+{
+	n->diffuse_c = new_fcolor(0, 0, 0, 1);
+	n->specular_c = new_fcolor(0, 0, 0, 1);
+}
+
 //Improved Light Function: bool in_shadow,
 //which will make sure the pixel in question will not be fully lighten up
 t_fcolor	eng_lighting(t_computation comp, t_light light, bool in_shadow)
@@ -76,17 +82,14 @@ t_fcolor	eng_lighting(t_computation comp, t_light light, bool in_shadow)
 		n.effective_color = pat_color_at(*(comp.obj),
 				*(comp.obj->material.pattern), comp.over_point);
 	n.light_direction = sub_t(light.origin, comp.over_point);
-	n.lightv = norm(new_vec((n.light_direction.x), (n.light_direction.y), \
-		(n.light_direction.z)));
+	n.lightv = norm(new_vec(n.light_direction.x, n.light_direction.y, \
+		n.light_direction.z));
 	n.lightv = norm(new_vec(n.light_direction.x, n.light_direction.y,
 				n.light_direction.z));
 	n.ambient_c = scale_fcolor(n.effective_color, comp.obj->material.ambient);
 	n.light_dot_normal = dot_prod(n.lightv, comp.normal_v);
 	if (n.light_dot_normal < 0)
-	{
-		n.diffuse_c = new_fcolor(0, 0, 0, 1);
-		n.specular_c = new_fcolor(0, 0, 0, 1);
-	}
+		no_light_case(&n);
 	else
 		in_light_case(&n, light, comp);
 	if (in_shadow)

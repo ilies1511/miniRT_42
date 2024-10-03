@@ -61,6 +61,20 @@ t_plane	eng_new_plane(void)
 	return (plane);
 }
 
+t_cone	eng_new_cone(void)
+{
+	t_cone	cone;
+
+	cone.base_obj = eng_new_obj();
+	cone.base_obj.type = OBJ_CONE;
+	cone.rad = 1;
+	cone.max = INFINITY;
+	cone.min = -INFINITY;
+	cone.closed = false;
+	cone.origin = new_point(0, 0, 0);
+	return (cone);
+}
+
 t_cylinder	eng_new_cylinder(void)
 {
 	t_cylinder	cylinder;

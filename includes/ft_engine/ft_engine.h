@@ -30,6 +30,36 @@ typedef struct s_canvas
 	t_uintcolor	*pixels;
 }	t_canvas;
 
+typedef struct s_cone_norm
+{
+	double	a;
+	double	b;
+	double	c;
+	double	disc;
+	double	y0;
+	double	y1;
+	double	sqrt_discriminant;
+	double	two_a;
+	double	t0;
+	double	t1;
+}			t_cone_norm;
+
+//Lokal in Funktion selbst
+// t_fcolor	result;
+typedef struct s_cylinder_norm
+{
+	double	a;
+	double	b;
+	double	c;
+	double	disc;
+	double	y0;
+	double	y1;
+	double	sqrt_discriminant;
+	double	two_a;
+	double	t0;
+	double	t1;
+}			t_cylinder_norm;
+
 //Lokal in Funktion selbst
 // t_fcolor	result;
 typedef struct s_lighting_norm
@@ -71,6 +101,7 @@ typedef enum e_obj_type
 	OBJ_SPHERE = 1,
 	OBJ_PLANE = 2,
 	OBJ_CYLINDER = 3,
+	OBJ_CONE = 4,
 	OBJ_RAY,
 	OBJ_LIGHT,
 	OBJ_CAMERA,
@@ -136,6 +167,18 @@ typedef struct s_plane
 }	t_plane;
 
 t_plane			eng_new_plane(void);
+
+typedef struct s_cone
+{
+	t_obj		base_obj;
+	t_point		origin;
+	double		rad;
+	double		min;
+	double		max;
+	bool		closed;
+}				t_cone;
+
+t_cone		eng_new_cone(void);
 
 typedef struct s_cylinder
 {
@@ -247,8 +290,15 @@ void			eng_ray_intersc_world(t_ray ray, t_world world,
 					t_intersc_arr *interscs);
 void			eng_intersc_ray_cylinder(t_intersc_arr *intersecs, t_ray ray,
 					t_cylinder *cylinder);
+void			eng_intersc_ray_cone(t_intersc_arr *intersecs, t_ray ray,
+					t_cone *cone);
+bool			test_cone_intersect(void);
+bool			test_intersec_cone_caps(void);
+bool			test_normal_cone(void);
+t_vec			compute_normal_cone(t_cone *cone, t_point object_point);
 t_vec			compute_normal_cylinder(t_cylinder *cylinder,
 					t_point object_point);
+bool			test_parallel(void);
 bool			test_cylinder_no_hits(void);
 bool			test_cylinder_hits(void);
 bool			test_normal_at_cylinder(void);

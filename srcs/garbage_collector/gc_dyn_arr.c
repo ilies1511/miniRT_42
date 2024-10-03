@@ -15,7 +15,8 @@ void	*gc_dyn_arr_init(uint64_t data_size, size_t init_len)
 {
 	t_dyn_header	*arr;
 
-	arr = (t_dyn_header *)ft_malloc(data_size * init_len + sizeof(t_dyn_header));
+	arr = (t_dyn_header *)ft_malloc(data_size * init_len + \
+		sizeof(t_dyn_header));
 	if (!arr)
 		return (NULL);
 	arr->len = init_len;

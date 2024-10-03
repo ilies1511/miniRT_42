@@ -46,6 +46,8 @@ SRC_FILES_ENGINE := \
 	ft_engine/rays/intersect.c \
 	ft_engine/rays/intersect_utils.c \
 	ft_engine/rays/cylinder_intersect.c \
+	ft_engine/rays/cone_intersect.c \
+	ft_engine/rays/test_cone.c \
 	ft_engine/rays/ray_hit.c \
 	ft_engine/rays/utils.c \
 	ft_engine/rays/tests.c \
@@ -82,6 +84,7 @@ SRC_FILES_ENGINE := \
 
 SRC_FILES_MATH := \
 	ft_math/ft_rand.c \
+	ft_math/colors/color_utils.c \
 	ft_math/colors/colors.c \
 	ft_math/colors/init_colors.c \
 	ft_math/tuple/tuple1.c \
@@ -136,7 +139,6 @@ SOURCE_FILES := \
 	init_exit/init.c \
 	init_exit/at_exit.c \
 	playgrounds/1/projectile.c \
-	playgrounds/matrix/1.c \
 	playgrounds/sphere1/test.c \
 	playgrounds/sphere1/test2.c \
 	playgrounds/sphere1/test3.c \
