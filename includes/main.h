@@ -46,12 +46,12 @@
 # endif
 
 # ifndef WIDTH
-#  define WIDTH 1000
+#  define WIDTH 2000
 # endif
 
 # ifndef HEIGHT
 //#  define HEIGHT ((size_t)(WIDTH / ASPECT_RATIO))
-#  define HEIGHT 562
+#  define HEIGHT 1124
 # endif
 
 # ifndef WALL_DIST

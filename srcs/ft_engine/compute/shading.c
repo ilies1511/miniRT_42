@@ -85,7 +85,7 @@ t_fcolor	eng_color_at(t_world world, t_ray ray, size_t remaining_reflects)
 	return (color);
 }
 
-void	eng_put_pixel(t_canvas canvas, size_t x, size_t y, t_fcolor color)
+size_t	eng_put_pixel(t_canvas canvas, size_t x, size_t y, t_fcolor color)
 {
 	static t_fcolor	mem_sum[HEIGHT][WIDTH];
 	static bool		first = true;
@@ -98,11 +98,14 @@ void	eng_put_pixel(t_canvas canvas, size_t x, size_t y, t_fcolor color)
 		first = false;
 	}
 	if (!y && !x)
+	{
 		iter_count++;
+	}
 	mem_sum[y][x] = add_fcolor(mem_sum[y][x], color);
 	color = div_fcolor(mem_sum[y][x], iter_count);
 	((t_uintcolor *)canvas.pixels)[y * canvas.width + x] = fcolor_to_uintcolor(
 			color);
+	return (iter_count);
 }
 
 void	eng_render(t_camera camera, t_world world, t_canvas canvas)
@@ -111,6 +114,7 @@ void	eng_render(t_camera camera, t_world world, t_canvas canvas)
 	size_t		x;
 	t_ray		ray;
 	t_fcolor	color;
+	size_t		iter;
 
 	y = 0;
 	while (y < camera.height)
@@ -120,10 +124,10 @@ void	eng_render(t_camera camera, t_world world, t_canvas canvas)
 		{
 			ray = eng_ray_for_pixel(camera, x, y);
 			color = eng_color_at(world, ray, REFLECTION_COUNT);
-			eng_put_pixel(canvas, x, y, color);
+			iter = eng_put_pixel(canvas, x, y, color);
 			x++;
 		}
-		printf("%f%%\n", ((double)y) / canvas.height * 100);
+		printf("iter %lu: %f%%\n", iter, ((double)y) / canvas.height * 100);
 		y++;
 	}
 }

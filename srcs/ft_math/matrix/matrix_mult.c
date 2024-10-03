@@ -2,6 +2,29 @@
 #include <libft.h>
 #include <ft_floats.h>
 
+static inline double	kahan_sum_inline(double *nbs, size_t count)
+{
+	size_t	i;
+	double	sum;
+	double	next_add;
+	double	compensation;
+	double	total;
+
+	i = 0;
+	sum = 0.0;
+	compensation = 0.0;
+	total = 0.0;
+	while (i < count)
+	{
+		next_add = nbs[i] - compensation;
+		total = sum + next_add;
+		compensation = (total - sum) - next_add;
+		sum = total;
+		i++;
+	}
+	return (sum);
+}
+
 // using kahan sum to reduce floating point addition errors
 t_tuple	mtx_mult_mt(t_matrix m, t_tuple tup)
 {
@@ -22,7 +45,7 @@ t_tuple	mtx_mult_mt(t_matrix m, t_tuple tup)
 			tmp[j] = m.m[i][j] * tup.arr[j];
 			j++;
 		}
-		res.arr[i] = kahan_sum(tmp, 4);
+		res.arr[i] = kahan_sum_inline(tmp, 4);
 		i++;
 	}
 	return (res);
@@ -51,7 +74,7 @@ t_matrix	mtx_mult_mm(t_matrix ma, t_matrix mb)
 				tmp[k] = ma.m[i][k] * mb.m[k][j];
 				k++;
 			}
-			ret.m[i][j++] = kahan_sum(tmp, 4);
+			ret.m[i][j++] = kahan_sum_inline(tmp, 4);
 		}
 	}
 	return (ret);

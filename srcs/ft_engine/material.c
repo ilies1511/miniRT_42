@@ -4,7 +4,10 @@ t_material	eng_new_material(void)
 {
 	t_material	mat;
 
-	mat.fcolor = fcolor_white();
+	mat.fcolor.r = 1;
+	mat.fcolor.g = 1;
+	mat.fcolor.b = 1;
+	mat.fcolor.a = 1;
 	mat.pattern = NULL;
 	mat.ambient = 0.1;
 	mat.diffuse = 0.9;

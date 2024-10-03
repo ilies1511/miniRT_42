@@ -7,10 +7,12 @@ t_ray	eng_new_ray(t_point origin, t_vec direct)
 {
 	t_ray	ray;
 
+#ifndef NDBUG
 	ft_assert(is_point(origin), __FILE__, __LINE__, "Error: eng_new_ray: \
 			origin is not a point");
 	ft_assert(is_vec(direct), __FILE__, __LINE__, "Error: eng_new_ray: \
 			direct is not a vec");
+#endif
 	ray.base_obj = eng_new_obj();
 	ray.base_obj.type = OBJ_RAY;
 	ray.origin = origin;
@@ -23,7 +25,7 @@ t_obj	eng_new_obj(void)
 	t_obj	obj;
 
 	obj.transform = mtx_new_ident(MAT4X4);
-	obj.inverse = mtx_new_ident(MAT4X4);
+	obj.inverse = obj.transform;
 	obj.type = OBJ_DEFAULT;
 	obj.material = eng_new_material();
 	return (obj);
