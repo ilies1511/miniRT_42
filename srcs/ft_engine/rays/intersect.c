@@ -47,6 +47,8 @@ void	eng_intersc_ray(t_intersc_arr *interscs, t_ray ray, t_obj *obj)
 		eng_intersc_ray_plane(interscs, ray, (t_plane *)obj);
 	else if (obj->type == OBJ_CYLINDER)
 		eng_intersc_ray_cylinder(interscs, ray, (t_cylinder *)obj);
+	else if (obj->type == OBJ_CONE)
+		eng_intersc_ray_cone(interscs, ray, (t_cone *)obj);
 	else
 		ft_assert(0, __FILE__, __LINE__, "eng_intersc_ray: invalid obj type");
 }

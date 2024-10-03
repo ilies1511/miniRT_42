@@ -46,6 +46,8 @@ SRC_FILES_ENGINE := \
 	ft_engine/rays/intersect.c \
 	ft_engine/rays/intersect_utils.c \
 	ft_engine/rays/cylinder_intersect.c \
+	ft_engine/rays/cone_intersect.c \
+	ft_engine/rays/test_cone.c \
 	ft_engine/rays/ray_hit.c \
 	ft_engine/rays/utils.c \
 	ft_engine/rays/tests.c \
@@ -132,7 +134,6 @@ SOURCE_FILES := \
 	init_exit/init.c \
 	init_exit/at_exit.c \
 	playgrounds/1/projectile.c \
-	playgrounds/matrix/1.c \
 	playgrounds/sphere1/test.c \
 	playgrounds/sphere1/test2.c \
 	playgrounds/sphere1/test3.c \
