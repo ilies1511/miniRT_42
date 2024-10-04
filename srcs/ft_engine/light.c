@@ -2,39 +2,6 @@
 #include <main.h>
 #include <ft_patterns.h>
 
-t_fcolor	eng_mult_color_f(t_fcolor color1, double scale)
-{
-	t_fcolor	result;
-
-	result.r = color1.r * scale;
-	result.g = color1.g * scale;
-	result.b = color1.b * scale;
-	result.a = color1.a * scale;
-	return (result);
-}
-
-t_fcolor	eng_add_color_color(t_fcolor color1, t_fcolor color2)
-{
-	t_fcolor	result;
-
-	result.r = color1.r + color2.r;
-	result.g = color1.g + color2.g;
-	result.b = color1.b + color2.b;
-	result.a = color1.a + color2.a;
-	return (result);
-}
-
-t_fcolor	eng_mult_color_color(t_fcolor color1, t_fcolor color2)
-{
-	t_fcolor	result;
-
-	result.r = color1.r * color2.r;
-	result.g = color1.g * color2.g;
-	result.b = color1.b * color2.b;
-	result.a = color1.a * color2.a;
-	return (result);
-}
-
 static void	init_lighting_norm_strukt(t_lighting_norm *light_norm)
 {
 	light_norm->ambient_c = new_fcolor(0, 0, 0, 0);
@@ -62,6 +29,12 @@ static void	in_light_case(t_lighting_norm *n, t_light light, t_computation comp)
 	}
 }
 
+static void	no_light_case(t_lighting_norm *n)
+{
+	n->diffuse_c = new_fcolor(0, 0, 0, 1);
+	n->specular_c = new_fcolor(0, 0, 0, 1);
+}
+
 //Improved Light Function: bool in_shadow,
 //which will make sure the pixel in question will not be fully lighten up
 t_fcolor	eng_lighting(t_computation comp, t_light light, bool in_shadow)
@@ -76,17 +49,14 @@ t_fcolor	eng_lighting(t_computation comp, t_light light, bool in_shadow)
 		n.effective_color = pat_color_at(*(comp.obj),
 				*(comp.obj->material.pattern), comp.over_point);
 	n.light_direction = sub_t(light.origin, comp.over_point);
-	n.lightv = norm(new_vec((n.light_direction.x), (n.light_direction.y), \
-		(n.light_direction.z)));
+	n.lightv = norm(new_vec(n.light_direction.x, n.light_direction.y, \
+		n.light_direction.z));
 	n.lightv = norm(new_vec(n.light_direction.x, n.light_direction.y,
 				n.light_direction.z));
 	n.ambient_c = scale_fcolor(n.effective_color, comp.obj->material.ambient);
 	n.light_dot_normal = dot_prod(n.lightv, comp.normal_v);
 	if (n.light_dot_normal < 0)
-	{
-		n.diffuse_c = new_fcolor(0, 0, 0, 1);
-		n.specular_c = new_fcolor(0, 0, 0, 1);
-	}
+		no_light_case(&n);
 	else
 		in_light_case(&n, light, comp);
 	if (in_shadow)

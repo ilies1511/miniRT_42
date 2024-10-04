@@ -68,19 +68,6 @@ static void add_objs(t_world *world)
 	// eng_add_obj_to_world(world, (t_obj *)&light2);
 }
 
-// void create_filename(char *filename, size_t size) {
-// 	// Hole das aktuelle Datum und die Uhrzeit
-// 	time_t rawtime;
-// 	struct tm *timeinfo;
-// 	char buffer[80];
-// 	time(&rawtime);
-// 	timeinfo = localtime(&rawtime);
-// 	// Formatierung des Zeitstempels: z.B. "2024-09-26_15-30-45"
-// 	strftime(buffer, sizeof(buffer), "%Y-%m-%d_%H-%M-%S", timeinfo);
-// 	// Erstelle den Dateinamen mit dem Zeitstempel
-// 	snprintf(filename, size, "screenshot_%s.ppm", buffer);
-// }
-
 void create_filename(char *filename, size_t size) {
 	// Hole das aktuelle Datum und die Uhrzeit
 	time_t rawtime;

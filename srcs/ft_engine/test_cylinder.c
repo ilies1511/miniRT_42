@@ -305,9 +305,9 @@ bool	test_cylinder_hits(void)
 	}
 	// printf("RAY1 Intersecs Count: %d\nRAY2 Intersecs Count: %d\nRAY3 Intersecs Count: %d\n", \
 	// 		intersecs.count, intersecs2.count, intersecs3.count);
-	eng_free_intersc_arr(&intersecs);
-	eng_free_intersc_arr(&intersecs2);
-	eng_free_intersc_arr(&intersecs3);
+	// eng_free_intersc_arr(&intersecs);
+	// eng_free_intersc_arr(&intersecs2);
+	// eng_free_intersc_arr(&intersecs3);
 	return (result);
 }
 
