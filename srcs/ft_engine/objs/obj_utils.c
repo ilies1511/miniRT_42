@@ -17,6 +17,8 @@ t_obj	*eng_alloc_shape(t_obj_type type)
 		shape = ft_malloc(sizeof(t_plane));
 	else if (type == OBJ_CYLINDER)
 		shape = ft_malloc(sizeof(t_cylinder));
+	else if (type == OBJ_CONE)
+		shape = ft_malloc(sizeof(t_cone));
 	else
 	{
 		ft_fprintf(2, "invlid shape: %s\n", eng_type_to_str(type, buf));
@@ -50,6 +52,8 @@ const char	*eng_type_to_str(t_obj_type type, char buf[ERROR_BUF_LEN])
 		type_str = "OBJ_LIGHT";
 	else if (type == OBJ_CAMERA)
 		type_str = "OBJ_CAMERA";
+	else if (type == OBJ_CONE)
+		type_str = "OBJ_CONE";
 	else
 	{
 		ft_assert(0, __FILE__, __LINE__,

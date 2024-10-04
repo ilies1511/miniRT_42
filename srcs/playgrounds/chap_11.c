@@ -29,6 +29,9 @@ static void add_objs(t_world *world)
 	t_plane		bot = eng_new_plane();
 	t_cylinder	cyl = eng_new_cylinder();
 	t_cylinder	cyl2 = eng_new_cylinder();
+	t_cone		cone = eng_new_cone();
+	
+	t_sphere	test = eng_new_sphere();
 
 	sph1.base_obj.material.reflective = 0.5;
 	eng_set_transform((t_obj *)&sph1, mtx_translate(-6, 3, 0));
@@ -55,11 +58,28 @@ static void add_objs(t_world *world)
 	cyl.max = 5;
 	eng_set_transform((t_obj *)&cyl, mtx_translate(4, 0, -6));
 
-	//cyl.base_obj.material = eng_new_material_polished_metal();
-	cyl2.base_obj.material.fcolor = new_fcolor(0, 1, 0, 1);
+	cyl2.base_obj.material = eng_new_material_polished_metal();
+	//cyl2.base_obj.material.fcolor = new_fcolor(0, 1, 0, 1);
 	eng_set_transform((t_obj *)&cyl2, mtx_scale(3, 3, 3));
 	cyl2.max = 1.5;
 	eng_set_transform((t_obj *)&cyl2, mtx_translate(1, 0, -9));
+
+
+	cone.min = 0;
+	cone.max = 2;
+	cone.closed = true;
+	cone.origin = new_point(0, 20, 0);
+	eng_set_transform((t_obj *)&cone, mtx_scale(3, 3, 3));
+	eng_set_transform((t_obj *)&cone , mtx_translate(0, -6, 15));
+	eng_set_transform((t_obj *)&cone , mtx_rotation_z(M_PI_2));
+	eng_set_transform((t_obj *)&cone , mtx_rotation_y(M_PI_2));
+
+	eng_set_transform((t_obj *)&cone , mtx_rotation_z(M_PI_2));
+	//eng_set_transform((t_obj *)&cone , mtx_rotation_x(M_PI));
+	//eng_set_transform((t_obj *)&cone , mtx_scale(0.1, 0.1, 0.1));
+
+	eng_set_transform((t_obj *)&test, mtx_translate(0, 2, 15));
+	
 
 	eng_add_obj_to_world(world, (t_obj *)&light_1);
 	eng_add_obj_to_world(world, (t_obj *)&light_2);
@@ -69,6 +89,8 @@ static void add_objs(t_world *world)
 	eng_add_obj_to_world(world, (t_obj *)&bot);
 	eng_add_obj_to_world(world, (t_obj *)&cyl);
 	eng_add_obj_to_world(world, (t_obj *)&cyl2);
+	//eng_add_obj_to_world(world, (t_obj *)&cone);
+	//eng_add_obj_to_world(world, (t_obj *)&test);
 }
 
 void	sphere_test(void *main_data)
@@ -81,6 +103,8 @@ void	sphere_test(void *main_data)
 	camera = eng_new_camera(WIDTH, HEIGHT, M_PI / 3);
 	eng_set_transform((t_obj *)&camera, sc_transforme_view(new_point(0, 10, -70),
 			new_point(0, 0, 0), new_vec(0, 1, 0)));
+	//eng_set_transform((t_obj *)&camera, sc_transforme_view(new_point(0, 20, -15),
+	//		new_point(0, 0, 0), new_vec(0, 1, 0)));
 	static bool first = true;
 	world = &m_data->engine.world;
 	if (first)

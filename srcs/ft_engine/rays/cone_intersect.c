@@ -19,7 +19,7 @@ static bool	check_cap_cone(t_ray ray, double t, double y)
 
 	x = ray.origin.x + t * ray.direct.x;
 	z = ray.origin.z + t * ray.direct.z;
-	if (y < 0)
+	if (y < 0 )
 		y = -y;
 	result = (x * x) + (z * z) <= y;
 	return (result);

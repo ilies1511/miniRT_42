@@ -27,7 +27,7 @@ t_vec	compute_normal_cylinder(t_cylinder *cylinder, t_point object_point)
 	distance = (object_point.x * object_point.x) + (object_point.z
 			* object_point.z);
 	if (distance < 1 && object_point.y >= cylinder->max - (EPSILON))
-		return (new_vec(0, 1, 0));
+		return (new_vec(0, 0, 0));
 	else if (distance < 1 && object_point.y <= cylinder->min + (EPSILON))
 		return (new_vec(0, -1, 0));
 	else
