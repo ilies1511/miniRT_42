@@ -22,6 +22,7 @@ t_computation	eng_prepare_computation(t_intersc hit, t_ray ray,
 	ft_bzero(&comp, sizeof comp);
 	comp.t = hit.t;
 	comp.obj = hit.obj;
+	comp.color_at = (hit.obj->material.fcolor);
 	comp.point = eng_ray_pos(ray, comp.t);
 	comp.eye_v = negate_v(ray.direct);
 	comp.normal_v = eng_normal_at(comp.obj, comp.point);
@@ -102,5 +103,6 @@ t_computation	eng_prepare_computation(t_intersc hit, t_ray ray,
 		i++;
 	}
 	ft_lstclear(&containers, ft_lst_dummy_del);
+
 	return (comp);
 }

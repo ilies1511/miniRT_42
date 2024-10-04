@@ -70,6 +70,11 @@ static inline bool	in_light_fov(t_light light, t_point point)
 	return (false);
 }
 
+t_fcolor	eng_ambient42(t_world world, t_fcolor color_at)
+{
+	return (mult_fcolor(world.ambient42, color_at));
+}
+
 t_fcolor	eng_shade_hit(t_world world, t_computation comp,
 	size_t remaining_reflects)
 {
@@ -82,16 +87,16 @@ t_fcolor	eng_shade_hit(t_world world, t_computation comp,
 	t_light		light;
 	double		reflactance;
 
-	color = new_fcolor(0, 0, 0, 0);
+	color = fcolor_black();
 	i = -1;
 	while (++i < (int)world.light_count)
 	{
 		light = adjust_light(world.lights[i]);
 		if (!in_light_fov(light, comp.point))
-			continue ;
-		in_shadow = eng_is_shadowed(world, comp.over_point, light);
-		surface = add_fcolor(color, eng_lighting(comp, light,
-					in_shadow));
+			in_shadow = true;
+		else
+			in_shadow = eng_is_shadowed(world, comp.over_point, light);
+		surface = eng_lighting(comp, light, in_shadow);
 		reflected = ref_reflected_color(world, comp, remaining_reflects);
 		refracted = refracted_color(world, comp, remaining_reflects);
 		if (comp.obj->material.reflective > 0 && comp.obj->material.transparency > 0)
@@ -106,6 +111,46 @@ t_fcolor	eng_shade_hit(t_world world, t_computation comp,
 	}
 	return (color);
 }
+
+t_fcolor	eng_shade_hit42(t_world world, t_computation comp,
+	size_t remaining_reflects)
+{
+	int			i;
+	t_fcolor	color;
+	t_fcolor	surface;
+	t_fcolor	reflected;
+	t_fcolor	refracted;
+	t_light		light;
+	double		reflactance;
+
+	world.ambient42 = scale_fcolor(new_fcolor(1, 1, 1, 1), 0.2);
+	color = eng_ambient42(world, comp.color_at);
+	i = -1;
+	while (++i < (int)world.light_count)
+	{
+		light = adjust_light(world.lights[i]);
+		if (in_light_fov(light, comp.point) && !eng_is_shadowed(world, comp.over_point, light))
+			surface = eng_lighting42(comp, light);
+		else
+			surface = fcolor_black();
+		reflected = ref_reflected_color(world, comp, remaining_reflects);
+		refracted = refracted_color(world, comp, remaining_reflects);
+		if (comp.obj->material.reflective > 0 && comp.obj->material.transparency > 0)
+		{
+			reflactance = ref_schlick(comp);
+			reflected = scale_fcolor(reflected, reflactance);
+			refracted = scale_fcolor(refracted, 1.0 - reflactance);
+		}
+		color = add_fcolor(color, surface);
+		color = add_fcolor(color, reflected);
+		color = add_fcolor(color, refracted);
+	}
+	return (color);
+}
+
+//if this ifdef block is moved the 'test' rule in the make file needs
+//to be changed accordingly
+#ifdef TEST
 
 t_fcolor	eng_color_at(t_world world, t_ray ray, size_t remaining_reflects)
 {
@@ -127,6 +172,29 @@ t_fcolor	eng_color_at(t_world world, t_ray ray, size_t remaining_reflects)
 	eng_free_intersc_arr(&interscs);
 	return (color);
 }
+#else
+
+t_fcolor	eng_color_at(t_world world, t_ray ray, size_t remaining_reflects)
+{
+	t_intersc_arr	interscs;
+	t_intersc		*hit;
+	t_fcolor		color;
+	t_computation	comp;
+
+	interscs = eng_new_intersc_arr();
+	eng_ray_intersc_world(ray, world, &interscs);
+	hit = eng_ray_hit(&interscs);
+	if (hit)
+	{
+		comp = eng_prepare_computation(*hit, ray, interscs);
+		color = eng_shade_hit42(world, comp, remaining_reflects);
+	}
+	else
+		color = new_fcolor(0, 0, 0, 1);
+	eng_free_intersc_arr(&interscs);
+	return (color);
+}
+#endif //TEST
 
 size_t	eng_put_pixel(t_canvas canvas, size_t x, size_t y, t_fcolor color)
 {

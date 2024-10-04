@@ -9,7 +9,7 @@
 # include <math.h>
 
 # ifndef REFLECTION_COUNT
-#  define REFLECTION_COUNT 15
+#  define REFLECTION_COUNT 0
 # endif
 
 # ifndef ERROR_BUF_LEN
@@ -37,6 +37,7 @@
 
 typedef struct s_main		t_main;
 typedef struct s_obj		t_obj;
+typedef t_obj *				t_obj_ptr __attribute__((may_alias));
 typedef struct s_pattern	t_pattern;
 typedef struct s_canvas
 {
@@ -249,6 +250,7 @@ typedef struct s_world
 	size_t		obj_count;
 	t_light		*lights;
 	size_t		light_count;
+	t_fcolor	ambient42;
 }	t_world;
 
 typedef struct s_engine
@@ -345,7 +347,9 @@ t_point			eng_ray_pos(t_ray ray, double time);
 bool			eng_eq_ray(t_ray r1, t_ray r2);
 
 // Compute Normal
-t_vec			eng_normal_at(t_obj *object, t_point intersec_point);
+//t_vec			eng_normal_at(t_obj *object, t_point intersec_point);
+t_vec	eng_normal_at(t_obj *restrict object, t_point intersec_point);
+
 int				test_normal_at(void);
 
 // ft_engine/rays/test.c
@@ -377,6 +381,8 @@ void			eng_print_world(t_world world);
 
 // Lighting
 t_fcolor		eng_lighting(t_computation comp, t_light light, bool in_shadow);
+t_fcolor		eng_lighting42(t_computation comp, t_light light);
+t_fcolor		eng_lighting42(t_computation comp, t_light light);
 // t_fcolor	eng_lighting(t_obj obj, t_material material, t_light light,
 //					t_point point, t_vec eyev, t_vec normalv, bool in_shadow);
 // t_fcolor	eng_lighting(t_obj obj, t_computation comp, t_light light,

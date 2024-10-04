@@ -59,7 +59,8 @@ t_material	eng_blue_sky(void)
 
 static void add_objs(t_world *world)
 {
-	t_light	light_1 = eng_spot_light(new_fcolor(1, 1, 1, 1), new_point(11, 40, -40), new_point(-2, 0, -3), 30);
+	//t_light	light_1 = eng_spot_light(new_fcolor(1, 1, 1, 1), new_point(11, 40, -40), new_point(-2, 0, -3), 30);
+	t_light	light_1 = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(11, 40, -40));
 	//t_light	light_1 = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(0, 0, 0));
 	t_light	light_2 = eng_point_light(new_fcolor(0.01, 0.01, 0.01, 1), new_point(-5, 10, -1));
 	t_sphere	sph1 = eng_new_glass_sphere();
@@ -82,8 +83,8 @@ static void add_objs(t_world *world)
 	sph2.base_obj.material.transparency = 1.0;
 	eng_set_transform((t_obj *)&sph2, mtx_translate(-6, 3, 0));
 
-	//back.base_obj.material.pattern = pat_checker3d_pattern(fcolor_white(), fcolor_black());
-	back.base_obj.material = material123();
+	back.base_obj.material.pattern = pat_checker3d_pattern(fcolor_white(), fcolor_black());
+	//back.base_obj.material = material123();
 	eng_set_transform((t_obj *)&back, mtx_rotation_x(M_PI_2));
 	eng_set_transform((t_obj *)&back, mtx_translate(0, 0, 10));
 
@@ -161,5 +162,5 @@ void	sphere_test(void *main_data)
 		add_objs(world);
 	}
 	eng_render(camera, *world, canvas);
-	store_as_plain_ppm(m_data, "spotlight.ppm");
+	//store_as_plain_ppm(m_data, "123123.ppm");
 }

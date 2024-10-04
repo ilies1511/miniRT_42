@@ -11,6 +11,7 @@ t_world	eng_new_world(void)
 	world.light_count = 0;
 	world.objs = gc_dyn_arr_init(sizeof(t_obj *), 0);
 	world.obj_count = 0;
+	world.ambient42 = fcolor_black();
 	return (world);
 }
 

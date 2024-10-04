@@ -35,10 +35,7 @@ static void	no_light_case(t_lighting_norm *n)
 	n->specular_c = new_fcolor(0, 0, 0, 1);
 }
 
-t_fcolor	eng_ambient(t_fcolor color, double ambient_scalar)
-{
-}
-
+// good lighting but that dosnt do what subject does
 //Improved Light Function: bool in_shadow,
 //which will make sure the pixel in question will not be fully lighten up
 t_fcolor	eng_lighting(t_computation comp, t_light light, bool in_shadow)
@@ -46,7 +43,12 @@ t_fcolor	eng_lighting(t_computation comp, t_light light, bool in_shadow)
 	t_lighting_norm	n;
 
 	init_lighting_norm_strukt(&n);
-	n.effective_color = mult_fcolor(comp.color_at, light.intensity);
+	if (comp.obj->material.pattern)
+		n.effective_color = pat_color_at(*(comp.obj),
+				*(comp.obj->material.pattern), comp.over_point);
+	else
+		n.effective_color = mult_fcolor((comp.obj->material.fcolor),
+				light.intensity);
 	n.light_direction = sub_t(light.origin, comp.over_point);
 	n.lightv = norm(new_vec(n.light_direction.x, n.light_direction.y, \
 		n.light_direction.z));
@@ -57,9 +59,37 @@ t_fcolor	eng_lighting(t_computation comp, t_light light, bool in_shadow)
 		return (n.ambient_c);
 	n.light_dot_normal = dot_prod(n.lightv, comp.normal_v);
 	if (n.light_dot_normal < 0)
-		no_light_case(&n);
+		return (n.ambient_c);
+	in_light_case(&n, light, comp);
+	return (add_fcolor(add_fcolor(n.ambient_c, n.diffuse_c), n.specular_c));
+}
+
+t_fcolor	eng_lighting42(t_computation comp, t_light light)
+{
+	t_lighting_norm	n;
+
+	init_lighting_norm_strukt(&n);
+	t_fcolor check = mult_fcolor(comp.color_at, light.intensity);
+
+	if (comp.obj->material.pattern)
+		n.effective_color = pat_color_at(*(comp.obj),
+				*(comp.obj->material.pattern), comp.over_point);
 	else
-		in_light_case(&n, light, comp);
+		n.effective_color = mult_fcolor((comp.obj->material.fcolor),
+				light.intensity);
+	print_fcolor("check: ", check);
+	print_fcolor("n.effective: ", n.effective_color);
+	ft_assert(eq_fcolor(check, n.effective_color), __FILE__, __LINE__, "color dosnt match");
+	n.light_direction = sub_t(light.origin, comp.over_point);
+	n.lightv = norm(new_vec(n.light_direction.x, n.light_direction.y, \
+		n.light_direction.z));
+	n.lightv = norm(new_vec(n.light_direction.x, n.light_direction.y,
+				n.light_direction.z));
+	n.ambient_c = fcolor_black();
+	n.light_dot_normal = dot_prod(n.lightv, comp.normal_v);
+	if (n.light_dot_normal < 0)
+		return (n.ambient_c);
+	in_light_case(&n, light, comp);
 	return (add_fcolor(add_fcolor(n.ambient_c, n.diffuse_c), n.specular_c));
 }
 
