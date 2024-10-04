@@ -1,9 +1,12 @@
 NAME := miniRT
 CC := cc
-CFLAGS := -Wall -Wextra -DFSAN -fsanitize=address -g
+#when running 'make' add "SHADOWS=HARD" for hard shadows
+SHADOWS := SMOOTH
+SHADOWS_FLAG := -D$(SHADOWS)_SHADOWS
+CFLAGS := -Wall -Wextra -DFSAN $(SHADOWS_FLAG) -fsanitize=address -g
 #CFLAGS := -Wall -Wextra -g
 # FLAGS_SPEED := -Wall -Wextra -O3 -march=native-flto -DNDBUG=1
-FLAGS_SPEED := -Wall -Wextra -g -O3 -march=native -DNDBUG=1
+FLAGS_SPEED := -Wall -Wextra -g -O3 -march=native -DNDBUG=1 $(SHADOWS_FLAG)
 #-Werror
 #-O3
 # -Werror
@@ -195,6 +198,7 @@ ffclean: fclean
 re: fclean
 	@make all
 
+	exit(0);
 rre: ffclean
 	@make all
 
@@ -206,7 +210,7 @@ refast: fclean fast
 
 #to create a performece profile on linux
 prof: fclean
-	@make CFLAGS="-march=native -Ofast -mavx2 -DNDEBUG=1 -g -pg" CC=gcc
+	@make CFLAGS="$(FLAGS_SPEED) -g -pg" CC=gcc
 
 ###utils
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c

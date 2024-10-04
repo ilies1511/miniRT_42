@@ -82,14 +82,14 @@ static void add_objs(t_world *world)
 	
 
 	eng_add_obj_to_world(world, (t_obj *)&light_1);
-	eng_add_obj_to_world(world, (t_obj *)&light_2);
+	//eng_add_obj_to_world(world, (t_obj *)&light_2);
 	eng_add_obj_to_world(world, (t_obj *)&sph1);
 	eng_add_obj_to_world(world, (t_obj *)&sph2);
 	eng_add_obj_to_world(world, (t_obj *)&back);
 	eng_add_obj_to_world(world, (t_obj *)&bot);
-	eng_add_obj_to_world(world, (t_obj *)&cyl);
-	eng_add_obj_to_world(world, (t_obj *)&cyl2);
-	//eng_add_obj_to_world(world, (t_obj *)&cone);
+	//eng_add_obj_to_world(world, (t_obj *)&cyl);
+	//eng_add_obj_to_world(world, (t_obj *)&cyl2);
+	eng_add_obj_to_world(world, (t_obj *)&cone);
 	//eng_add_obj_to_world(world, (t_obj *)&test);
 }
 

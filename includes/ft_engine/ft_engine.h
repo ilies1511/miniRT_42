@@ -9,7 +9,7 @@
 # include <math.h>
 
 # ifndef REFLECTION_COUNT
-#  define REFLECTION_COUNT 8
+#  define REFLECTION_COUNT 2
 # endif
 
 # ifndef REFRACTION_COUNT
@@ -19,6 +19,19 @@
 # ifndef ERROR_BUF_LEN
 #  define ERROR_BUF_LEN 50
 # endif
+
+// in case the user compiled with 'make SHADOWS=SOFT' instead of
+// 'make SHADOWS=SMOOTH'
+# ifdef SOFT_SHADOWS
+#  undef SOFT_SHADOWS
+#  define SMOOTH_SHADOWS
+# endif //SOFT_SHADOWS
+
+# ifndef HARD_SHADOWS
+#  ifndef SMOOTH_SHADOWS
+#   define SMOOTH_SHADOWS
+#  endif //SMOOTH_SHADOWS
+# endif //HARD_SHADOWS
 
 typedef struct s_main		t_main;
 typedef struct s_obj		t_obj;
@@ -217,6 +230,9 @@ typedef struct s_light
 	t_point			origin;
 	t_fcolor		intensity;
 	double			radius;
+	bool			spot_light;
+	t_vec			direct;
+	double			angle;
 }	t_light;
 
 typedef struct s_world
@@ -265,6 +281,8 @@ t_fcolor		eng_color_at(t_world world, t_ray ray,
 bool			test_eng_color_at(void);
 
 t_light			eng_point_light(t_fcolor intensity, t_point position);
+t_light			eng_spot_light(t_fcolor intensity, t_point position,
+					t_vec direction, double angle);
 
 // hooks.c
 void			close_handler(void *main_data);

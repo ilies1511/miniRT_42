@@ -19,6 +19,8 @@
 //	return (out);
 //}
 
+#ifdef SMOOTH_SHADOWS
+
 t_light	eng_randomly_offset_light(t_light in)
 {
 	t_light		out = in;
@@ -36,6 +38,19 @@ t_light	eng_randomly_offset_light(t_light in)
 	out.origin = add_t(out.origin, offset);
 	return (out);
 }
+#elif HARD_SHADOWS
+
+t_light	eng_randomly_offset_light(t_light in)
+{
+	return (in);
+}
+#else
+
+t_light	eng_randomly_offset_light(t_light in)
+{
+	ft_assert(0, "neither SMOOTH_SHADOWS nor HARD_SHADOWS defined");
+}
+#endif
 
 t_fcolor	eng_shade_hit(t_world world, t_computation comp,
 	size_t remaining_reflects)

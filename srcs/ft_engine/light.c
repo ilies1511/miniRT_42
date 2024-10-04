@@ -73,5 +73,22 @@ t_light	eng_point_light(t_fcolor intensity, t_point position)
 	light.origin = position;
 	light.base_obj.type = OBJ_LIGHT;
 	light.radius = 1;
+	light.spot_light = false;
+	return (light);
+}
+
+t_light			eng_spot_light(t_fcolor intensity, t_point position,
+		t_vec direction, double angle)
+{
+	t_light	light;
+
+	light.base_obj = eng_new_obj();
+	light.intensity = intensity;
+	light.origin = position;
+	light.base_obj.type = OBJ_LIGHT;
+	light.radius = 1;
+	light.spot_light = true;
+	light.direct = direction;
+	light.angle = angle;
 	return (light);
 }
