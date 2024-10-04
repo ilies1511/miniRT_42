@@ -115,12 +115,12 @@ static void add_objs(t_world *world)
 	cyl.min = -0.5;
 	cyl.max = 2;
 	cyl.closed = true;
-	//cyl.base_obj.material.transparency = 1.0;
-	//cyl.base_obj.material.refractive_index = 1.5;
-	//cyl.base_obj.material.reflective = 0.3;
-	//cyl.base_obj.material.transparency = 1;
-	//cyl.base_obj.material.refractive_index = 1.333;
-	cyl.base_obj.material = eng_dark_tree_stump();
+	cyl.base_obj.material.transparency = 1.0;
+	cyl.base_obj.material.refractive_index = 1.5;
+	cyl.base_obj.material.reflective = 0.3;
+	cyl.base_obj.material.transparency = 1;
+	cyl.base_obj.material.refractive_index = 1.333;
+	//cyl.base_obj.material = eng_dark_tree_stump();
 
 	//cyl.base_obj.material.pattern = pat_square3d_pattern(new_fcolor(0.5, 0.5, 0, 1), new_fcolor(0, 1, 1, 1));
 	eng_set_transform((t_obj *)&cyl, mtx_translate(2, 0, -2));
@@ -217,7 +217,7 @@ static void add_objs(t_world *world)
 	(void)light2;
 }
 
-void	sphere_test_10(void *main_data)
+void	sphere_test10(void *main_data)
 {
 	t_main			*m_data = (t_main *)main_data;
 	t_canvas		canvas = m_data->engine.canvas;
