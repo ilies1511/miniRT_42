@@ -4,7 +4,7 @@
 #include <ft_reflection.h>
 #include <ft_refraction.h>
 
-//t_light	eng_randomly_offset_light(t_light in)
+//t_light	adjust_light(t_light in)
 //{
 //	t_light	out;
 //	t_vec	offset;
@@ -21,57 +21,76 @@
 
 #ifdef SMOOTH_SHADOWS
 
-t_light	eng_randomly_offset_light(t_light in)
+static t_light	adjust_light(t_light light)
 {
-	t_light		out = in;
-	double		phi = ft_rand() * 2 * M_PI;
-	double 		costheta = ft_rand() * 2 - 1;
-	double 		u = ft_rand();
-	double		theta = acos(costheta);
-	double 		r = in.radius * cbrt(u);
+	double	phi;
+	double	costheta;
+	double	theta;
+	double	r;
+	t_vec	offset;
 
-	t_vec offset = new_vec(
-		r * sin(theta) * cos(phi),
-		r * sin(theta) * sin(phi),
-		r * cos(theta)
-	);
-	out.origin = add_t(out.origin, offset);
-	return (out);
+	phi = ft_rand() * 2 * M_PI;
+	costheta = ft_rand() * 2 - 1;
+	theta = acos(costheta);
+	r = light.radius * cbrt(ft_rand());
+	offset = new_vec(r * sin(theta) * cos(phi), r * sin(theta) * sin(phi),
+			r * cos(theta));
+	light.origin = add_t(light.origin, offset);
+	return (light);
 }
 #elif HARD_SHADOWS
 
-t_light	eng_randomly_offset_light(t_light in)
+static t_light	adjust_light(t_light light)
 {
-	return (in);
+	return (light);
 }
 #else
 
-t_light	eng_randomly_offset_light(t_light in)
+t_light	adjust_light(t_light in)
 {
-	ft_assert(0, "neither SMOOTH_SHADOWS nor HARD_SHADOWS defined");
+	ft_assert(0, __FILE__,
+		__LINE__, "neither SMOOTH_SHADOWS nor HARD_SHADOWS defined");
+	__builtin_unreachable();
 }
-#endif
+#endif // SOFT_SHADOWS HARD_SHADWOS
+
+static inline bool	in_light_fov(t_light light, t_point point)
+{
+	t_vec	ray_direct;
+	double	cosine;
+
+	if (light.type == POINT_LIGHT)
+		return (true);
+	if (eq_t(light.origin, point))
+		return (true);
+	ray_direct = norm(sub_t(light.origin, point));
+	cosine = dot_prod(ray_direct, light.direct);
+	if (fabs(cosine) > light.cosine_range)
+		return (true);
+	return (false);
+}
 
 t_fcolor	eng_shade_hit(t_world world, t_computation comp,
 	size_t remaining_reflects)
 {
-	size_t		i;
+	int			i;
 	t_fcolor	color;
 	t_fcolor	surface;
 	bool		in_shadow;
 	t_fcolor	reflected;
 	t_fcolor	refracted;
-	t_light		modified_light;
+	t_light		light;
 	double		reflactance;
 
 	color = new_fcolor(0, 0, 0, 0);
-	i = 0;
-	while (i < world.light_count)
+	i = -1;
+	while (++i < (int)world.light_count)
 	{
-		// modified_light = world.lights[i];//for boolen shadows use this line
-		modified_light = eng_randomly_offset_light(world.lights[i]);//for smooth shadows use this line
-		in_shadow = eng_is_shadowed(world, comp.over_point, modified_light);
-		surface = add_fcolor(color, eng_lighting(comp, modified_light,
+		light = adjust_light(world.lights[i]);
+		if (!in_light_fov(light, comp.point))
+			continue ;
+		in_shadow = eng_is_shadowed(world, comp.over_point, light);
+		surface = add_fcolor(color, eng_lighting(comp, light,
 					in_shadow));
 		reflected = ref_reflected_color(world, comp, remaining_reflects);
 		refracted = refracted_color(world, comp, remaining_reflects);
@@ -84,7 +103,6 @@ t_fcolor	eng_shade_hit(t_world world, t_computation comp,
 		color = add_fcolor(color, surface);
 		color = add_fcolor(color, reflected);
 		color = add_fcolor(color, refracted);
-		i++;
 	}
 	return (color);
 }

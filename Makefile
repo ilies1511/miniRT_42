@@ -198,7 +198,6 @@ ffclean: fclean
 re: fclean
 	@make all
 
-	exit(0);
 rre: ffclean
 	@make all
 

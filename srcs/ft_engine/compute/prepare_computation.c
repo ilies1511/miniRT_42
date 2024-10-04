@@ -2,6 +2,7 @@
 #include <libft.h>
 #include <ft_floats.h>
 #include <ft_reflection.h>
+#include <ft_patterns.h>
 
 t_point	mult_p_scalar(t_point point, double scale)
 {
@@ -34,6 +35,11 @@ t_computation	eng_prepare_computation(t_intersc hit, t_ray ray,
 	comp.over_point = add_t(comp.point, mult_v(comp.normal_v, (EPSILON)));
 	comp.under_point = sub_t(comp.point, mult_v(comp.normal_v, (EPSILON)));
 	comp.reflection = ref_reflect(ray.direct, comp.normal_v);
+	if (comp.obj->material.pattern)
+		comp.color_at = pat_color_at(*(comp.obj),
+				*(comp.obj->material.pattern), comp.over_point);
+	else
+		comp.color_at = (comp.obj->material.fcolor);
 
 	t_list		*containers;
 	size_t		i;

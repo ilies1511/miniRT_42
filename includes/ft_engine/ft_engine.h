@@ -9,11 +9,7 @@
 # include <math.h>
 
 # ifndef REFLECTION_COUNT
-#  define REFLECTION_COUNT 2
-# endif
-
-# ifndef REFRACTION_COUNT
-#  define REFRACTION_COUNT 10
+#  define REFLECTION_COUNT 15
 # endif
 
 # ifndef ERROR_BUF_LEN
@@ -22,6 +18,8 @@
 
 // in case the user compiled with 'make SHADOWS=SOFT' instead of
 // 'make SHADOWS=SMOOTH'
+//#define HARD_SHADOWS
+
 # ifdef SOFT_SHADOWS
 #  undef SOFT_SHADOWS
 #  define SMOOTH_SHADOWS
@@ -31,6 +29,10 @@
 #  ifndef SMOOTH_SHADOWS
 #   define SMOOTH_SHADOWS
 #  endif //SMOOTH_SHADOWS
+# endif //HARD_SHADOWS
+
+# ifdef HARD_SHDOWS
+#  undef SMOOTH_SHADOWS
 # endif //HARD_SHADOWS
 
 typedef struct s_main		t_main;
@@ -224,15 +226,21 @@ typedef struct s_ray
 	t_vec			direct;
 }	t_ray;
 
+typedef enum e_light_type
+{
+	POINT_LIGHT,
+	SPOT_LIGHT,
+}	t_light_type;
+
 typedef struct s_light
 {
 	t_obj			base_obj;
 	t_point			origin;
 	t_fcolor		intensity;
 	double			radius;
-	bool			spot_light;
+	t_light_type	type;
 	t_vec			direct;
-	double			angle;
+	double			cosine_range;
 }	t_light;
 
 typedef struct s_world
@@ -252,17 +260,18 @@ typedef struct s_engine
 
 typedef struct s_computation
 {
-	double	t;
-	t_obj	*obj;
-	t_point	point;
-	t_point	over_point;
-	t_point	under_point;
-	t_vec	eye_v;
-	t_vec	normal_v;
-	bool	inside;
-	t_vec	reflection;
-	double	n1;
-	double	n2;
+	double		t;
+	t_obj		*obj;
+	t_point		point;
+	t_point		over_point;
+	t_point		under_point;
+	t_vec		eye_v;
+	t_vec		normal_v;
+	bool		inside;
+	t_vec		reflection;
+	double		n1;
+	double		n2;
+	t_fcolor	color_at;
 }	t_computation;
 
 t_obj			test_shape(void);
@@ -282,7 +291,7 @@ bool			test_eng_color_at(void);
 
 t_light			eng_point_light(t_fcolor intensity, t_point position);
 t_light			eng_spot_light(t_fcolor intensity, t_point position,
-					t_vec direction, double angle);
+					t_point look_at, double fov_360);
 
 // hooks.c
 void			close_handler(void *main_data);

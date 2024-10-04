@@ -35,6 +35,10 @@ static void	no_light_case(t_lighting_norm *n)
 	n->specular_c = new_fcolor(0, 0, 0, 1);
 }
 
+t_fcolor	eng_ambient(t_fcolor color, double ambient_scalar)
+{
+}
+
 //Improved Light Function: bool in_shadow,
 //which will make sure the pixel in question will not be fully lighten up
 t_fcolor	eng_lighting(t_computation comp, t_light light, bool in_shadow)
@@ -42,25 +46,20 @@ t_fcolor	eng_lighting(t_computation comp, t_light light, bool in_shadow)
 	t_lighting_norm	n;
 
 	init_lighting_norm_strukt(&n);
-	if (!(comp.obj->material.pattern))
-		n.effective_color = mult_fcolor((comp.obj->material.fcolor),
-				light.intensity);
-	else
-		n.effective_color = pat_color_at(*(comp.obj),
-				*(comp.obj->material.pattern), comp.over_point);
+	n.effective_color = mult_fcolor(comp.color_at, light.intensity);
 	n.light_direction = sub_t(light.origin, comp.over_point);
 	n.lightv = norm(new_vec(n.light_direction.x, n.light_direction.y, \
 		n.light_direction.z));
 	n.lightv = norm(new_vec(n.light_direction.x, n.light_direction.y,
 				n.light_direction.z));
 	n.ambient_c = scale_fcolor(n.effective_color, comp.obj->material.ambient);
+	if (in_shadow)
+		return (n.ambient_c);
 	n.light_dot_normal = dot_prod(n.lightv, comp.normal_v);
 	if (n.light_dot_normal < 0)
 		no_light_case(&n);
 	else
 		in_light_case(&n, light, comp);
-	if (in_shadow)
-		return (n.ambient_c);
 	return (add_fcolor(add_fcolor(n.ambient_c, n.diffuse_c), n.specular_c));
 }
 
@@ -73,22 +72,25 @@ t_light	eng_point_light(t_fcolor intensity, t_point position)
 	light.origin = position;
 	light.base_obj.type = OBJ_LIGHT;
 	light.radius = 1;
-	light.spot_light = false;
+	light.type = POINT_LIGHT;
 	return (light);
 }
 
 t_light			eng_spot_light(t_fcolor intensity, t_point position,
-		t_vec direction, double angle)
+		t_point look_at, double fov_360)
 {
 	t_light	light;
+	double	rad_angle;
 
 	light.base_obj = eng_new_obj();
 	light.intensity = intensity;
 	light.origin = position;
 	light.base_obj.type = OBJ_LIGHT;
 	light.radius = 1;
-	light.spot_light = true;
-	light.direct = direction;
-	light.angle = angle;
+	light.type = SPOT_LIGHT;
+	light.direct = sub_t(look_at, position);
+	light.direct = norm(light.direct);
+	rad_angle = fov_360 / 180 * M_PI / 2;
+	light.cosine_range = cos(rad_angle);
 	return (light);
 }
