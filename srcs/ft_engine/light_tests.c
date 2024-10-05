@@ -15,6 +15,7 @@ bool	test_light_with_surface_shadow()
 	comp.normal_v = new_vec(0, 0, -1);
 	comp.obj->material = eng_new_material();
 	comp.over_point = new_point(0, 0, 0);
+	comp.color_at = comp.obj->material.fcolor;
 	t_fcolor	expected = new_fcolor(1.9, 1.9, 1.9, 1);
 	t_fcolor	actual = eng_lighting(comp, light, false);
 
@@ -40,12 +41,13 @@ bool	test_eng_lighting(void)
 	t_light			light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(0, 0, -10));
 
 	//eng_prepare_computation();
-	comp.obj = ft_malloc(sizeof(t_obj));
+	comp.obj = (t_obj_ptr) ft_malloc(sizeof(t_obj));
 	*(comp.obj) = eng_new_obj();
 	comp.obj->material = eng_new_material();
 	comp.over_point = new_point(0, 0, 0);
 	comp.eye_v = new_vec(0, 0, -1);
 	comp.normal_v = new_vec(0, 0, -1);
+	comp.color_at = comp.obj->material.fcolor;
 	t_fcolor	expected = new_fcolor(1.9, 1.9, 1.9, 1);
 	t_fcolor	actual = eng_lighting(comp, light, false);
 	if (!eq_fcolor(expected, actual))

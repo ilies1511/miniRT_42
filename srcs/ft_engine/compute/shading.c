@@ -18,7 +18,6 @@
 //	out.origin = add_t(out.origin, offset);
 //	return (out);
 //}
-
 #ifdef SMOOTH_SHADOWS
 
 static t_light	adjust_light(t_light light)
@@ -122,8 +121,8 @@ t_fcolor	eng_shade_hit42(t_world world, t_computation comp,
 	t_fcolor	refracted;
 	t_light		light;
 	double		reflactance;
-
-	world.ambient42 = scale_fcolor(new_fcolor(1, 1, 1, 1), 0.2);
+	
+	world.ambient42 = scale_fcolor(new_fcolor(1, 1, 1, 1), 0.2);//TODO: this has to come from parser
 	color = eng_ambient42(world, comp.color_at);
 	i = -1;
 	while (++i < (int)world.light_count)

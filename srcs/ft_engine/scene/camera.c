@@ -2,8 +2,6 @@
 #include <ft_matrix.h>
 #include <main.h>
 
-// later we can change the arguments so we can for example
-// enforce an aspect ratio set as macro and/or a width set by a macro
 t_camera	eng_new_camera(size_t width, size_t height, double fov_x)
 {
 	t_camera	camera;

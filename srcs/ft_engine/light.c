@@ -43,12 +43,8 @@ t_fcolor	eng_lighting(t_computation comp, t_light light, bool in_shadow)
 	t_lighting_norm	n;
 
 	init_lighting_norm_strukt(&n);
-	if (comp.obj->material.pattern)
-		n.effective_color = pat_color_at(*(comp.obj),
-				*(comp.obj->material.pattern), comp.over_point);
-	else
-		n.effective_color = mult_fcolor((comp.obj->material.fcolor),
-				light.intensity);
+	t_fcolor check = mult_fcolor(comp.color_at, light.intensity);
+	n.effective_color = mult_fcolor(comp.color_at, light.intensity);
 	n.light_direction = sub_t(light.origin, comp.over_point);
 	n.lightv = norm(new_vec(n.light_direction.x, n.light_direction.y, \
 		n.light_direction.z));
@@ -69,15 +65,7 @@ t_fcolor	eng_lighting42(t_computation comp, t_light light)
 	t_lighting_norm	n;
 
 	init_lighting_norm_strukt(&n);
-	t_fcolor check = mult_fcolor(comp.color_at, light.intensity);
-
-	if (comp.obj->material.pattern)
-		n.effective_color = pat_color_at(*(comp.obj),
-				*(comp.obj->material.pattern), comp.over_point);
-	else
-		n.effective_color = mult_fcolor((comp.obj->material.fcolor),
-				light.intensity);
-	ft_assert(eq_fcolor(check, n.effective_color), __FILE__, __LINE__, "color dosnt match");
+	n.effective_color = mult_fcolor(comp.color_at, light.intensity);
 	n.light_direction = sub_t(light.origin, comp.over_point);
 	n.lightv = norm(new_vec(n.light_direction.x, n.light_direction.y, \
 		n.light_direction.z));

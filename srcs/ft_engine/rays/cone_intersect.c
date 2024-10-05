@@ -112,17 +112,14 @@ static void	cal_intesects(t_cone_norm *n)
 static void	add_intersects(t_cone_norm *n, t_intersc_arr *intersecs, t_ray ray,
 			t_cone *cone)
 {
-	// printf("In add_intersects: PRE add Intersecs Count: %d\n", intersecs->count);
 	if (n->t0 > n->t1)
 		swap_double(n);
 	n->y0 = ray.origin.y + n->t0 * ray.direct.y;
 	if (cone->min < n->y0 && n->y0 < cone->max)
 		eng_add_intersc(intersecs, (t_obj_ptr)cone, n->t0);
-	// printf("In add_intersects: POST1 add Intersecs Count: %d\n", intersecs->count);
 	n->y1 = ray.origin.y + n->t1 * ray.direct.y;
 	if (cone->min < n->y1 && n->y1 < cone->max)
 		eng_add_intersc(intersecs, (t_obj_ptr)cone, n->t1);
-	// printf("In add_intersects: POST2 add Intersecs Count: %d\n", intersecs->count);
 	// eng_intersc_ray_cone_caps(intersecs, ray, cone);
 }
 

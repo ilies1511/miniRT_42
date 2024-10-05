@@ -9,7 +9,7 @@
 # include <math.h>
 
 # ifndef REFLECTION_COUNT
-#  define REFLECTION_COUNT 0
+#  define REFLECTION_COUNT 15
 # endif
 
 # ifndef ERROR_BUF_LEN
@@ -347,8 +347,7 @@ t_point			eng_ray_pos(t_ray ray, double time);
 bool			eng_eq_ray(t_ray r1, t_ray r2);
 
 // Compute Normal
-//t_vec			eng_normal_at(t_obj_ptr object, t_point intersec_point);
-t_vec	eng_normal_at(t_obj_ptr object, t_point intersec_point);
+t_vec			eng_normal_at(t_obj_ptr object, t_point intersec_point);
 
 int				test_normal_at(void);
 
