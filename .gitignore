@@ -70,3 +70,4 @@ libft/
 .vscode/
 subject.pdf
 .DS_Store
+*.tmp

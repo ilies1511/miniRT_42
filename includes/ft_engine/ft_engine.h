@@ -122,6 +122,7 @@ typedef enum e_obj_type
 	OBJ_LIGHT,
 	OBJ_CAMERA,
 	OBJ_PATTERN,
+	OBJ_BUMP,
 	OBJ_COUNT,
 }	t_obj_type;
 
@@ -135,6 +136,18 @@ typedef struct s_obj
 	t_obj_type	type;
 	t_material	material;
 }	__attribute__((may_alias)) t_obj;
+
+typedef enum e_bump_type
+{
+	BUMP_DEFAULT = 0,
+	BUMP_WAVE,
+}	t_bump_type;
+
+typedef struct s_bump
+{
+	t_obj			base_obj;
+	t_bump_type	type;
+}	__attribute__((may_alias)) t_bump;
 
 typedef enum e_pattern_type
 {
