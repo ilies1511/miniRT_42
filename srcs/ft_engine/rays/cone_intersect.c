@@ -115,7 +115,7 @@ static void	add_intersects(t_cone_norm *n, t_intersc_arr *intersecs, t_ray ray,
 {
 	// printf("In add_intersects: PRE add Intersecs Count: %d\n", intersecs->count);
 	if (n->t0 > n->t1)
-		swap_double(&n);
+		swap_double(n);
 	n->y0 = ray.origin.y + n->t0 * ray.direct.y;
 	if (cone->min < n->y0 && n->y0 < cone->max)
 		eng_add_intersc(intersecs, (t_obj *)cone, n->t0);

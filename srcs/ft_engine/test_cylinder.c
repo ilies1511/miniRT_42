@@ -18,12 +18,12 @@ bool	test_normal_cylinde2(void)
 	cylinder.max = 2;
 	cylinder.min = 2;
 	cylinder.closed = true;
-	n = eng_normal_at(&cylinder, new_point(0, 1, 0));
-	n2 = eng_normal_at(&cylinder, new_point(0.5, 1, 0));
-	n3 = eng_normal_at(&cylinder, new_point(0, 1, 0.5));
-	n4 = eng_normal_at(&cylinder, new_point(0, 2, 0));
-	n5 = eng_normal_at(&cylinder, new_point(0.5, 2, 0));
-	n6  = eng_normal_at(&cylinder, new_point(0, 2, 0.5));
+	n = eng_normal_at((t_obj *)&cylinder, new_point(0, 1, 0));
+	n2 = eng_normal_at((t_obj *)&cylinder, new_point(0.5, 1, 0));
+	n3 = eng_normal_at((t_obj *)&cylinder, new_point(0, 1, 0.5));
+	n4 = eng_normal_at((t_obj *)&cylinder, new_point(0, 2, 0));
+	n5 = eng_normal_at((t_obj *)&cylinder, new_point(0.5, 2, 0));
+	n6  = eng_normal_at((t_obj *)&cylinder, new_point(0, 2, 0.5));
 	if (!eq_t(n, new_vec(0, -1, 0)))
 	{
 		printf("normal_cylinder: %s %d\n", __FILE__, __LINE__);

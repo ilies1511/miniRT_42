@@ -20,7 +20,7 @@ bool	test_normal_cone(void)
 	// 	print_t(2, new_vec(0, 0, 0));
 	// 	result = false;
 	// }
-	ist = eng_normal_at(&cone, new_point(1, 1, 1));
+	ist = eng_normal_at((t_obj *)&cone, new_point(1, 1, 1));
 	if (!eq_t(ist,  norm(new_vec(1, -sqrtl(2), 1))))
 	{
 		printf("TEST2 normal_at_cone --> %s LINE: %d\n", __FILE__, __LINE__);
