@@ -134,7 +134,7 @@ typedef struct s_obj
 	t_matrix	inverse;
 	t_obj_type	type;
 	t_material	material;
-}	t_obj;
+}	__attribute__((may_alias)) t_obj;
 
 typedef enum e_pattern_type
 {
@@ -151,9 +151,9 @@ typedef struct s_pattern
 	t_pattern_type	type;
 	t_fcolor		*colors;
 	size_t			color_count;
-}	t_pattern;
+}	__attribute__((may_alias)) t_pattern;
 
-t_obj			*eng_alloc_shape(t_obj_type type);
+t_obj_ptr			eng_alloc_shape(t_obj_type type);
 
 /*
  * width/height in pixels
@@ -168,19 +168,19 @@ typedef struct s_camera
 	double	pixel_size;
 	double	half_wall_width;
 	double	half_wall_height;
-}	t_camera;
+}	__attribute__((may_alias)) t_camera;
 
 typedef struct s_sphere
 {
 	t_obj		base_obj;
 	t_point		origin;
 	double		rad;
-}	t_sphere;
+}	__attribute__((may_alias))t_sphere;
 
 typedef struct s_plane
 {
 	t_obj		base_obj;
-}	t_plane;
+}	__attribute__((may_alias))t_plane;
 
 t_plane			eng_new_plane(void);
 
@@ -192,7 +192,7 @@ typedef struct s_cone
 	double		min;
 	double		max;
 	bool		closed;
-}				t_cone;
+}				__attribute__((may_alias))t_cone;
 
 t_cone		eng_new_cone(void);
 
@@ -204,14 +204,14 @@ typedef struct s_cylinder
 	double		min;
 	double		max;
 	bool		closed;
-}				t_cylinder;
+}				__attribute__((may_alias))t_cylinder;
 
 t_cylinder		eng_new_cylinder(void);
 
 typedef struct s_intersc
 {
 	double		t;
-	t_obj		*obj;
+	t_obj_ptr	obj;
 }	t_intersc;
 
 typedef struct s_intersc_arr
@@ -225,7 +225,7 @@ typedef struct s_ray
 	t_obj			base_obj;
 	t_point			origin;
 	t_vec			direct;
-}	t_ray;
+}	__attribute__((may_alias))t_ray;
 
 typedef enum e_light_type
 {
@@ -242,11 +242,11 @@ typedef struct s_light
 	t_light_type	type;
 	t_vec			direct;
 	double			cosine_range;
-}	t_light;
+}	__attribute__((may_alias))t_light;
 
 typedef struct s_world
 {
-	t_obj		**objs;
+	t_obj_ptr	*objs;
 	size_t		obj_count;
 	t_light		*lights;
 	size_t		light_count;
@@ -263,7 +263,7 @@ typedef struct s_engine
 typedef struct s_computation
 {
 	double		t;
-	t_obj		*obj;
+	t_obj_ptr	obj;
 	t_point		point;
 	t_point		over_point;
 	t_point		under_point;
@@ -311,9 +311,9 @@ t_cylinder		eng_new_cylinder(void);
 
 // ft_engine/rays/intersect.c
 void			eng_intersc_ray(t_intersc_arr *interscs, t_ray ray,
-					t_obj *obj);
+					t_obj_ptr obj);
 void			eng_sort_intersc(t_intersc_arr *interscs);
-t_intersc		eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, double t);
+t_intersc		eng_add_intersc(t_intersc_arr *interscs, t_obj_ptr obj, double t);
 t_intersc_arr	eng_new_intersc_arr(void);
 void			eng_ray_intersc_world(t_ray ray, t_world world,
 					t_intersc_arr *interscs);
@@ -347,8 +347,8 @@ t_point			eng_ray_pos(t_ray ray, double time);
 bool			eng_eq_ray(t_ray r1, t_ray r2);
 
 // Compute Normal
-//t_vec			eng_normal_at(t_obj *object, t_point intersec_point);
-t_vec	eng_normal_at(t_obj *restrict object, t_point intersec_point);
+//t_vec			eng_normal_at(t_obj_ptr object, t_point intersec_point);
+t_vec	eng_normal_at(t_obj_ptr object, t_point intersec_point);
 
 int				test_normal_at(void);
 
@@ -359,18 +359,18 @@ bool			test_eng_ray_hit(void);
 bool			test_eng_ray_intersc_world(void);
 
 //ft_engine/objs/set_transform.c
-void			eng_set_transform(t_obj *obj, t_matrix transform);
-void			eng_ray_set_objs_inverse(t_ray *ray, t_obj *obj);
+void			eng_set_transform(t_obj_ptr obj, t_matrix transform);
+void			eng_ray_set_objs_inverse(t_ray *ray, t_obj_ptr obj);
 
 //ft_engine/objs/transform.c
-void			eng_transform(t_obj *in, t_obj *ret);
+void			eng_transform(t_obj_ptr in, t_obj_ptr ret);
 
 //ft_engine/objs/test.c
 bool			test_eng_trasform(void);
 bool			test_transformation_matrices(void);
 
 //ft_engine/world/add_obj_to_world.c
-void			eng_add_obj_to_world(t_world *world, t_obj *obj);
+void			eng_add_obj_to_world(t_world *world, t_obj_ptr obj);
 
 //ft_engine/world/default_world.c
 t_world			eng_default_world(void);

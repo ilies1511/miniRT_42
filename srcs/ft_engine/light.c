@@ -29,11 +29,11 @@ static void	in_light_case(t_lighting_norm *n, t_light light, t_computation comp)
 	}
 }
 
-static void	no_light_case(t_lighting_norm *n)
-{
-	n->diffuse_c = new_fcolor(0, 0, 0, 1);
-	n->specular_c = new_fcolor(0, 0, 0, 1);
-}
+//static void	no_light_case(t_lighting_norm *n)
+//{
+//	n->diffuse_c = new_fcolor(0, 0, 0, 1);
+//	n->specular_c = new_fcolor(0, 0, 0, 1);
+//}
 
 // good lighting but that dosnt do what subject does
 //Improved Light Function: bool in_shadow,
@@ -77,8 +77,6 @@ t_fcolor	eng_lighting42(t_computation comp, t_light light)
 	else
 		n.effective_color = mult_fcolor((comp.obj->material.fcolor),
 				light.intensity);
-	print_fcolor("check: ", check);
-	print_fcolor("n.effective: ", n.effective_color);
 	ft_assert(eq_fcolor(check, n.effective_color), __FILE__, __LINE__, "color dosnt match");
 	n.light_direction = sub_t(light.origin, comp.over_point);
 	n.lightv = norm(new_vec(n.light_direction.x, n.light_direction.y, \

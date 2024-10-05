@@ -12,7 +12,7 @@ bool	test_eng_trasform(void)
 	ray_base = eng_new_ray(new_point(1, 2, 3), new_vec(0, 1, 0));
 	ray_base.base_obj.transform = mtx_translate(3, 4, 5);
 	expected = eng_new_ray(new_point(4, 6, 8), new_vec(0, 1, 0));
-	eng_transform((t_obj *)&ray_base, (t_obj *)&actual);
+	eng_transform((t_obj_ptr)&ray_base, (t_obj_ptr)&actual);
 	if (!eng_eq_ray(actual, expected))
 	{
 		ret = false;
@@ -22,7 +22,7 @@ bool	test_eng_trasform(void)
 	ray_base = eng_new_ray(new_point(1, 2, 3), new_vec(0, 1, 0));
 	ray_base.base_obj.transform = mtx_scale(2, 3, 4);
 	expected = eng_new_ray(new_point(2, 6, 12), new_vec(0, 3, 0));
-	eng_transform((t_obj *)&ray_base, (t_obj *)&actual);
+	eng_transform((t_obj_ptr)&ray_base, (t_obj_ptr)&actual);
 	if (!eng_eq_ray(actual, expected))
 	{
 		ret = false;
@@ -51,7 +51,7 @@ bool	test_transformation_matrices(void)
 	}
 
 	transform = mtx_translate(2, 3, 4);
-	eng_set_transform((t_obj *) &sph, transform);
+	eng_set_transform((t_obj_ptr) &sph, transform);
 	if (!mtx_eq(sph.base_obj.transform, transform)
 		|| !mtx_eq(sph.base_obj.inverse, mtx_inverse(transform))
 	)
@@ -62,8 +62,8 @@ bool	test_transformation_matrices(void)
 
 	ray = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
-	eng_set_transform((t_obj *)&sph, mtx_scale(2, 2, 2));
-	eng_intersc_ray(&interscs, ray, (t_obj *)&sph);
+	eng_set_transform((t_obj_ptr)&sph, mtx_scale(2, 2, 2));
+	eng_intersc_ray(&interscs, ray, (t_obj_ptr)&sph);
 	eng_sort_intersc(&interscs);
 	if (interscs.count != 2)
 	{
@@ -87,7 +87,7 @@ bool	test_transformation_matrices(void)
 	ray = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
 	eng_set_transform((void *)&sph, mtx_translate(5, 0, 0));
-	eng_intersc_ray(&interscs, ray, (t_obj *) &sph);
+	eng_intersc_ray(&interscs, ray, (t_obj_ptr) &sph);
 	if (interscs.count != 0)
 	{
 		ret = false;

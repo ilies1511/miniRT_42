@@ -75,18 +75,18 @@ static void add_objs(t_world *world)
 	t_sphere	test = eng_new_sphere();
 
 	sph1.base_obj.material.reflective = 0.5;
-	eng_set_transform((t_obj *)&sph1, mtx_translate(-6, 3, 0));
-	eng_set_transform((t_obj *)&sph1, mtx_scale(3, 3, 3));
+	eng_set_transform((t_obj_ptr)&sph1, mtx_translate(-6, 3, 0));
+	eng_set_transform((t_obj_ptr)&sph1, mtx_scale(3, 3, 3));
 
 	sph2.base_obj.material.refractive_index = 1.00029;
 	sph2.base_obj.material.reflective = 0.5;
 	sph2.base_obj.material.transparency = 1.0;
-	eng_set_transform((t_obj *)&sph2, mtx_translate(-6, 3, 0));
+	eng_set_transform((t_obj_ptr)&sph2, mtx_translate(-6, 3, 0));
 
 	back.base_obj.material.pattern = pat_checker3d_pattern(fcolor_white(), fcolor_black());
 	//back.base_obj.material = material123();
-	eng_set_transform((t_obj *)&back, mtx_rotation_x(M_PI_2));
-	eng_set_transform((t_obj *)&back, mtx_translate(0, 0, 10));
+	eng_set_transform((t_obj_ptr)&back, mtx_rotation_x(M_PI_2));
+	eng_set_transform((t_obj_ptr)&back, mtx_translate(0, 0, 10));
 
 	//bot.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
 	//bot.base_obj.material.shininess = 0;
@@ -94,52 +94,53 @@ static void add_objs(t_world *world)
 	//bot.base_obj.material.ambient = 0;
 	bot.base_obj.material.reflective = 0.2;
 	bot.base_obj.material.pattern = pat_checker2d_pattern(new_fcolor(1, 0, 0, 1), new_fcolor(0,0,1, 1));
-	eng_set_transform((t_obj *)&bot, mtx_translate(0, 0, 4));
+	eng_set_transform((t_obj_ptr)&bot, mtx_translate(0, 0, 4));
 
 	behind.base_obj.material = eng_blue_sky();
-	eng_set_transform((t_obj *)&behind, mtx_translate(0, 0, -100));
-	eng_set_transform((t_obj *)&behind, mtx_rotation_x(M_PI_2));
+	eng_set_transform((t_obj_ptr)&behind, mtx_translate(0, 0, -100));
+	eng_set_transform((t_obj_ptr)&behind, mtx_rotation_x(M_PI_2));
 
 	cyl.base_obj.material = eng_new_material_polished_metal();
 	//cyl.base_obj.material.fcolor = new_fcolor(0, 1, 0, 1);
-	eng_set_transform((t_obj *)&cyl, mtx_scale(3, 3, 3));
+	eng_set_transform((t_obj_ptr)&cyl, mtx_scale(3, 3, 3));
 	cyl.max = 5;
-	eng_set_transform((t_obj *)&cyl, mtx_translate(4, 0, -6));
+	eng_set_transform((t_obj_ptr)&cyl, mtx_translate(4, 0, -6));
 
 	cyl2.base_obj.material = eng_new_material_polished_metal();
 	//cyl2.base_obj.material.fcolor = new_fcolor(0, 1, 0, 1);
-	eng_set_transform((t_obj *)&cyl2, mtx_scale(3, 3, 3));
+	eng_set_transform((t_obj_ptr)&cyl2, mtx_scale(3, 3, 3));
 	cyl2.max = 1.5;
-	eng_set_transform((t_obj *)&cyl2, mtx_translate(1, 0, -9));
+	eng_set_transform((t_obj_ptr)&cyl2, mtx_translate(1, 0, -9));
 
 
 	cone.min = 0;
 	cone.max = 2;
 	cone.closed = true;
 	cone.origin = new_point(0, 20, 0);
-	eng_set_transform((t_obj *)&cone, mtx_scale(3, 3, 3));
-	//eng_set_transform((t_obj *)&cone , mtx_translate(0, -6, 15));
-	//eng_set_transform((t_obj *)&cone , mtx_rotation_z(M_PI_2));
-	//eng_set_transform((t_obj *)&cone , mtx_rotation_y(M_PI_2));
+	eng_set_transform((t_obj_ptr)&cone, mtx_scale(3, 3, 3));
+	//eng_set_transform((t_obj_ptr)&cone , mtx_translate(0, -6, 15));
+	//eng_set_transform((t_obj_ptr)&cone , mtx_rotation_z(M_PI_2));
+	//eng_set_transform((t_obj_ptr)&cone , mtx_rotation_y(M_PI_2));
 
-	//eng_set_transform((t_obj *)&cone , mtx_rotation_z(M_PI_2));
-	//eng_set_transform((t_obj *)&cone , mtx_rotation_x(M_PI));
-	//eng_set_transform((t_obj *)&cone , mtx_scale(0.1, 0.1, 0.1));
+	//eng_set_transform((t_obj_ptr)&cone , mtx_rotation_z(M_PI_2));
+	//eng_set_transform((t_obj_ptr)&cone , mtx_rotation_x(M_PI));
+	//eng_set_transform((t_obj_ptr)&cone , mtx_scale(0.1, 0.1, 0.1));
 
-	eng_set_transform((t_obj *)&test, mtx_translate(0, 2, 15));
+	eng_set_transform((t_obj_ptr)&test, mtx_translate(0, 2, 15));
 	
 
-	eng_add_obj_to_world(world, (t_obj *)&light_1);
-	//eng_add_obj_to_world(world, (t_obj *)&light_2);
-	eng_add_obj_to_world(world, (t_obj *)&sph1);
-	eng_add_obj_to_world(world, (t_obj *)&sph2);
-	eng_add_obj_to_world(world, (t_obj *)&back);
-	eng_add_obj_to_world(world, (t_obj *)&bot);
-	eng_add_obj_to_world(world, (t_obj *)&cyl);
-	eng_add_obj_to_world(world, (t_obj *)&cyl2);
-	eng_add_obj_to_world(world, (t_obj *)&behind);
-	//eng_add_obj_to_world(world, (t_obj *)&cone);
-	//eng_add_obj_to_world(world, (t_obj *)&test);
+	eng_add_obj_to_world(world, (t_obj_ptr)&light_1);
+	//eng_add_obj_to_world(world, (t_obj_ptr)&light_2);
+	eng_add_obj_to_world(world, (t_obj_ptr)&sph1);
+	eng_add_obj_to_world(world, (t_obj_ptr)&sph2);
+	eng_add_obj_to_world(world, (t_obj_ptr)&back);
+	eng_add_obj_to_world(world, (t_obj_ptr)&bot);
+	eng_add_obj_to_world(world, (t_obj_ptr)&cyl);
+	eng_add_obj_to_world(world, (t_obj_ptr)&cyl2);
+	eng_add_obj_to_world(world, (t_obj_ptr)&behind);
+	//eng_add_obj_to_world(world, (t_obj_ptr)&cone);
+	//eng_add_obj_to_world(world, (t_obj_ptr)&test);
+	(void)light_2;
 }
 
 void	sphere_test(void *main_data)
@@ -150,9 +151,9 @@ void	sphere_test(void *main_data)
 	t_world			*world;
 
 	camera = eng_new_camera(WIDTH, HEIGHT, M_PI / 3);
-	eng_set_transform((t_obj *)&camera, sc_transforme_view(new_point(0, 10, -70),
+	eng_set_transform((t_obj_ptr)&camera, sc_transforme_view(new_point(0, 10, -70),
 			new_point(0, 0, 0), new_vec(0, 1, 0)));
-	//eng_set_transform((t_obj *)&camera, sc_transforme_view(new_point(0, 20, -20),
+	//eng_set_transform((t_obj_ptr)&camera, sc_transforme_view(new_point(0, 20, -20),
 	//		new_point(0, 0, 0), new_vec(0, 1, 1)));
 	static bool first = true;
 	world = &m_data->engine.world;

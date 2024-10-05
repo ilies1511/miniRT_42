@@ -64,8 +64,8 @@
 // 		first = false;
 // 		sph = eng_new_sphere();
 // 		camera = eng_new_camera(fov_x, new_point(0, 0, -5), 10);
-// 		eng_set_transform((t_obj *)&sph, mtx_translate(-1, 0, 0));
-// 		eng_set_transform((t_obj *)&camera, mtx_rotation_y(M_PI_4 / 16));
+// 		eng_set_transform((t_obj_ptr)&sph, mtx_translate(-1, 0, 0));
+// 		eng_set_transform((t_obj_ptr)&camera, mtx_rotation_y(M_PI_4 / 16));
 // 	}
 // 	t_fcolor color = new_fcolor(1, 0, 0, 1);
 
@@ -74,9 +74,9 @@
 // 	//print_camera(&camert);
 // 	//*** extra: for shading
 // 	t_sphere transformed;
-// 	eng_transform((t_obj *)&sph, (t_obj *)&transformed);
+// 	eng_transform((t_obj_ptr)&sph, (t_obj_ptr)&transformed);
 // 	//*** end extra
-// 	eng_transform((t_obj *)&camera, NULL);
+// 	eng_transform((t_obj_ptr)&camera, NULL);
 // 	for (size_t y = 0; y < canvas.height; y++)
 // 	{
 // 		for (size_t x = 0; x < canvas.width; x++)
@@ -84,14 +84,14 @@
 // 			t_point	wall_hit = pixel_to_wall(&camera, x, y);
 // 			t_ray	camera_ray = eng_new_ray(camera.p, norm(sub_t(wall_hit, camera.p)));
 // 			camera_ray.direct = norm(camera_ray.direct);
-// 			eng_intersc_ray(&interscs, camera_ray, (t_obj *)&sph);
+// 			eng_intersc_ray(&interscs, camera_ray, (t_obj_ptr)&sph);
 // 			eng_sort_intersc(&interscs);
 // 			t_intersc	*intersc = eng_ray_hit(&interscs);
 // 			if (intersc)
 // 			{
 // 				//*** extra: for shading
 // 				t_point hit = eng_ray_pos(camera_ray, intersc->t);
-// 				t_vec surface_normal = eng_normal_at((t_obj *) &transformed, hit);
+// 				t_vec surface_normal = eng_normal_at((t_obj_ptr) &transformed, hit);
 // 				double	dot = dot_prod(surface_normal, camera_ray.direct);
 // 				color = scale_fcolor(color, fabs(dot));
 // 				///*** end extra

@@ -21,8 +21,8 @@ static void	eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray ray,
 	if (discriminant < 0)
 		return ;
 	sqrt_discriminant = sqrt(discriminant);
-	eng_add_intersc(interscs, (t_obj *)sph, (-b + sqrt_discriminant) / (2 * a));
-	eng_add_intersc(interscs, (t_obj *)sph, (-b - sqrt_discriminant) / (2 * a));
+	eng_add_intersc(interscs, (t_obj_ptr)sph, (-b + sqrt_discriminant) / (2 * a));
+	eng_add_intersc(interscs, (t_obj_ptr)sph, (-b - sqrt_discriminant) / (2 * a));
 }
 
 // assumes the plane to be the xz plane (normal == 0, 1, 0) at y = 0
@@ -34,13 +34,13 @@ static void	eng_intersc_ray_plane(t_intersc_arr *interscs, t_ray ray,
 	if (fabsl(ray.direct.y) < (EPSILON))
 		return ;
 	t = -ray.origin.y / ray.direct.y;
-	eng_add_intersc(interscs, (t_obj *)plane, t);
+	eng_add_intersc(interscs, (t_obj_ptr)plane, t);
 }
 
-void	eng_intersc_ray(t_intersc_arr *interscs, t_ray ray, t_obj *obj)
+void	eng_intersc_ray(t_intersc_arr *interscs, t_ray ray, t_obj_ptr obj)
 {
 	ray.base_obj.transform = obj->inverse;
-	eng_transform((t_obj *)&ray, (t_obj *)&ray);
+	eng_transform((t_obj_ptr)&ray, (t_obj_ptr)&ray);
 	if (obj->type == OBJ_SPHERE)
 		eng_intersc_ray_sphere(interscs, ray, (t_sphere *)obj);
 	else if (obj->type == OBJ_PLANE)

@@ -24,10 +24,10 @@ void	eng_intersc_ray_cylinder_caps(t_intersc_arr *intersecs, t_ray ray,
 		return ;
 	t = (cylinder->min - ray.origin.y) / ray.direct.y;
 	if (check_cap(ray, t))
-		eng_add_intersc(intersecs, (t_obj *)cylinder, t);
+		eng_add_intersc(intersecs, (t_obj_ptr)cylinder, t);
 	t2 = (cylinder->max - ray.origin.y) / ray.direct.y;
 	if (check_cap(ray, t2))
-		eng_add_intersc(intersecs, (t_obj *)cylinder, t2);
+		eng_add_intersc(intersecs, (t_obj_ptr)cylinder, t2);
 }
 
 static void	swap_double(t_cylinder_norm *n)
@@ -78,9 +78,9 @@ void	eng_intersc_ray_cylinder(t_intersc_arr *intersecs, t_ray ray,
 		swap_double(&n);
 	n.y0 = ray.origin.y + n.t0 * ray.direct.y;
 	if (cylinder->min < n.y0 && n.y0 < cylinder->max)
-		eng_add_intersc(intersecs, (t_obj *)cylinder, n.t0);
+		eng_add_intersc(intersecs, (t_obj_ptr)cylinder, n.t0);
 	n.y1 = ray.origin.y + n.t1 * ray.direct.y;
 	if (cylinder->min < n.y1 && n.y1 < cylinder->max)
-		eng_add_intersc(intersecs, (t_obj *)cylinder, n.t1);
+		eng_add_intersc(intersecs, (t_obj_ptr)cylinder, n.t1);
 	eng_intersc_ray_cylinder_caps(intersecs, ray, cylinder);
 }

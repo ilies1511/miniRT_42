@@ -14,22 +14,22 @@ bool	test_prepare_comp_n1_n2(void)
 	t_computation	comp;
 
 	sph1 = eng_new_glass_sphere();
-	eng_set_transform((t_obj *)&sph1, mtx_scale(2, 2, 2));
+	eng_set_transform((t_obj_ptr)&sph1, mtx_scale(2, 2, 2));
 	sph1.base_obj.material.refractive_index = 1.5;
 	sph2 = eng_new_glass_sphere();
-	eng_set_transform((t_obj *)&sph2, mtx_translate(0, 0, -0.25));
+	eng_set_transform((t_obj_ptr)&sph2, mtx_translate(0, 0, -0.25));
 	sph2.base_obj.material.refractive_index = 2.0;
 	sph3 = eng_new_glass_sphere();
-	eng_set_transform((t_obj *)&sph3, mtx_translate(0, 0, 0.25));
+	eng_set_transform((t_obj_ptr)&sph3, mtx_translate(0, 0, 0.25));
 	sph3.base_obj.material.refractive_index = 2.5;
 	ray = eng_new_ray(new_point(0, 0, -4), new_vec(0, 0, 1));
 	t_intersc		buff[] = {
-		{.obj = (t_obj *)&sph1, .t=2},
-		{.obj = (t_obj *)&sph2, .t=2.75},
-		{.obj = (t_obj *)&sph3, .t=3.25},
-		{.obj = (t_obj *)&sph2, .t=4.75},
-		{.obj = (t_obj *)&sph3, .t=5.25},
-		{.obj = (t_obj *)&sph1, .t=6},
+		{.obj = (t_obj_ptr)&sph1, .t=2},
+		{.obj = (t_obj_ptr)&sph2, .t=2.75},
+		{.obj = (t_obj_ptr)&sph3, .t=3.25},
+		{.obj = (t_obj_ptr)&sph2, .t=4.75},
+		{.obj = (t_obj_ptr)&sph3, .t=5.25},
+		{.obj = (t_obj_ptr)&sph1, .t=6},
 	};
 	t_intersc_arr	intersc_arr = eng_new_intersc_arr();
 	dyn_arr_resize((void **)&intersc_arr.arr);
@@ -93,9 +93,9 @@ bool	test_prepare_comp_underpoint(void)
 
 	ray = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
 	sph = eng_new_glass_sphere();
-	eng_set_transform((t_obj *)&sph, mtx_translate(0, 0, 1));
+	eng_set_transform((t_obj_ptr)&sph, mtx_translate(0, 0, 1));
 	intersc.t = 5;
-	intersc.obj = (t_obj *)&sph;
+	intersc.obj = (t_obj_ptr)&sph;
 	interscs.count = 1;
 	interscs.arr = interscs_buff;
 	interscs.arr[0] = intersc;
@@ -127,7 +127,7 @@ bool	test_refracted_color(void)
 {
 	bool			ret = true;
 	t_world			world = eng_default_world();
-	t_obj			*obj = world.objs[0];
+	t_obj_ptr		obj = world.objs[0];
 	t_ray			ray = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
 	t_intersc_arr	interscs;
 	t_intersc		interscs_buffer[2];
@@ -157,7 +157,7 @@ bool	test_refracted_color_total_reflect(void)
 {
 	bool			ret = true;
 	t_world			world = eng_default_world();
-	t_obj			*obj = world.objs[0];
+	t_obj_ptr		obj = world.objs[0];
 	obj->material.transparency = 1;
 	obj->material.refractive_index = 1.5;
 	t_ray			ray = eng_new_ray(new_point(0, 0, sqrt(2) / 2), new_vec(0, 1, 0));
@@ -191,21 +191,21 @@ bool	test_shade_hit_with_transparent_material(void)
 	t_world world = eng_default_world();
 
 	t_plane floor = eng_new_plane();
-	eng_set_transform((t_obj *)&floor, mtx_translate(0, -1, 0));
+	eng_set_transform((t_obj_ptr)&floor, mtx_translate(0, -1, 0));
 	floor.base_obj.material.transparency = 0.5;
 	floor.base_obj.material.refractive_index = 1.5;
-	eng_add_obj_to_world(&world, (t_obj *)&floor);
+	eng_add_obj_to_world(&world, (t_obj_ptr)&floor);
 
 	t_sphere	ball = eng_new_sphere();
-	eng_set_transform((t_obj *)&ball, mtx_translate(0, -3.5, -0.5));
+	eng_set_transform((t_obj_ptr)&ball, mtx_translate(0, -3.5, -0.5));
 	ball.base_obj.material.fcolor = new_fcolor(1, 0, 0, 1);
 	ball.base_obj.material.ambient = 0.5;
-	eng_add_obj_to_world(&world, (t_obj *)&ball);
+	eng_add_obj_to_world(&world, (t_obj_ptr)&ball);
 
 	t_ray ray = eng_new_ray(new_point(0, 0, -3), new_vec(0, -sqrt(2) / 2, sqrt(2) / 2));
 
 	t_intersc_arr xs;
-	t_intersc xs_buffer[1] = {{.obj = (t_obj *)&floor, .t = sqrt(2)}};
+	t_intersc xs_buffer[1] = {{.obj = (t_obj_ptr)&floor, .t = sqrt(2)}};
 	xs.count = 1;
 	xs.arr = xs_buffer;
 

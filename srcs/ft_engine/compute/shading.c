@@ -201,7 +201,6 @@ size_t	eng_put_pixel(t_canvas canvas, size_t x, size_t y, t_fcolor color)
 	static t_fcolor	mem_sum[HEIGHT][WIDTH];
 	static bool		first = true;
 	static size_t	iter_count = 0;
-	t_fcolor		prev_sum;
 
 	if (first)
 	{

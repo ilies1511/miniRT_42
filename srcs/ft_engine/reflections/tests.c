@@ -38,7 +38,7 @@ bool	test_ref_reflect_color_none(void)
 {
 	bool			ret = true;
 	t_world			world;
-	t_obj			*obj;
+	t_obj_ptr		obj;
 	t_ray			ray;
 	t_intersc		intersc;
 	t_computation	comp;
@@ -79,7 +79,7 @@ bool	test_ref_reflect_color(void)
 	t_computation	comp;
 	t_fcolor		actual;
 	t_fcolor		expect;
-	t_obj			*obj;
+	t_obj_ptr		obj;
 	t_intersc_arr	interscs = eng_new_intersc_arr();
 	dyn_arr_resize((void **)&interscs.arr);
 	interscs.count = 1;
@@ -87,8 +87,8 @@ bool	test_ref_reflect_color(void)
 	world = eng_default_world();
 	plane = eng_new_plane();
 	plane.base_obj.material.reflective = 0.5;
-	eng_set_transform((t_obj *)&plane, mtx_translate(0, -1, 0));
-	eng_add_obj_to_world(&world, (t_obj *)&plane);
+	eng_set_transform((t_obj_ptr)&plane, mtx_translate(0, -1, 0));
+	eng_add_obj_to_world(&world, (t_obj_ptr)&plane);
 	obj = world.objs[world.obj_count - 1];
 	ray = eng_new_ray(new_point(0, 0, -3), new_vec(0, -sqrt(2) / 2, sqrt(2) / 2));
 
@@ -118,7 +118,7 @@ bool	test_ref_with_shade_hit(void)
 	t_computation	comp;
 	t_fcolor		actual;
 	t_fcolor		expect;
-	t_obj			*obj;
+	t_obj_ptr		obj;
 	t_intersc_arr	interscs = eng_new_intersc_arr();
 	dyn_arr_resize((void **)&interscs.arr);
 	interscs.count = 1;
@@ -126,8 +126,8 @@ bool	test_ref_with_shade_hit(void)
 	world = eng_default_world();
 	plane = eng_new_plane();
 	plane.base_obj.material.reflective = 0.5;
-	eng_set_transform((t_obj *)&plane, mtx_translate(0, -1, 0));
-	eng_add_obj_to_world(&world, (t_obj *)&plane);
+	eng_set_transform((t_obj_ptr)&plane, mtx_translate(0, -1, 0));
+	eng_add_obj_to_world(&world, (t_obj_ptr)&plane);
 	obj = world.objs[world.obj_count - 1];
 	ray = eng_new_ray(new_point(0, 0, -3), new_vec(0, -sqrt(2) / 2, sqrt(2) / 2));
 
@@ -160,15 +160,15 @@ bool	test_ref_infinite_recursion(void)
 
 	world = eng_new_world();
 	light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(0, 0, 0));
-	eng_add_obj_to_world(&world, (t_obj *)&light);
+	eng_add_obj_to_world(&world, (t_obj_ptr)&light);
 	lower = eng_new_plane();
 	lower.base_obj.material.reflective = 1.0;
-	eng_set_transform((t_obj *)&lower, mtx_translate(0, -1, 0));
-	eng_add_obj_to_world(&world, (t_obj *)&lower);
+	eng_set_transform((t_obj_ptr)&lower, mtx_translate(0, -1, 0));
+	eng_add_obj_to_world(&world, (t_obj_ptr)&lower);
 	upper = eng_new_plane();
 	upper.base_obj.material.reflective = 1.0;
-	eng_set_transform((t_obj *)&upper, mtx_translate(0, 1, 0));
-	eng_add_obj_to_world(&world, (t_obj *)&upper);
+	eng_set_transform((t_obj_ptr)&upper, mtx_translate(0, 1, 0));
+	eng_add_obj_to_world(&world, (t_obj_ptr)&upper);
 	ray = eng_new_ray(new_point(0, 0, 0), new_vec(0, 1, 0));
 	printf("testing for infinit recursion, crashes on error..\n");
 	eng_color_at(world, ray, 10);

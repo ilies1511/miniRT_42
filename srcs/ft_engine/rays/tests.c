@@ -61,7 +61,7 @@ bool	test_eng_intersc_ray_sphere(void)
 	t_intersc_arr	interscs;
 
 	interscs = eng_new_intersc_arr();
-	eng_intersc_ray(&interscs, ray, (t_obj *)&sph);
+	eng_intersc_ray(&interscs, ray, (t_obj_ptr)&sph);
 	eng_sort_intersc(&interscs);
 	if (interscs.count != 2)
 	{
@@ -98,7 +98,7 @@ bool	test_eng_intersc_ray_sphere(void)
 
 	ray = eng_new_ray(new_point(0, 1, -5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
-	eng_intersc_ray(&interscs, ray, (t_obj *)&sph);
+	eng_intersc_ray(&interscs, ray, (t_obj_ptr)&sph);
 	eng_sort_intersc(&interscs);
 	if (interscs.count != 2)
 	{
@@ -135,7 +135,7 @@ bool	test_eng_intersc_ray_sphere(void)
 
 	ray = eng_new_ray(new_point(0, 2, -5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
-	eng_intersc_ray(&interscs, ray, (t_obj *)&sph);
+	eng_intersc_ray(&interscs, ray, (t_obj_ptr)&sph);
 	eng_sort_intersc(&interscs);
 	if (interscs.count != 0)
 	{
@@ -148,7 +148,7 @@ bool	test_eng_intersc_ray_sphere(void)
 
 	ray = eng_new_ray(new_point(0, 0, 0), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
-	eng_intersc_ray(&interscs, ray, (t_obj *)&sph);
+	eng_intersc_ray(&interscs, ray, (t_obj_ptr)&sph);
 	eng_sort_intersc(&interscs);
 	if (interscs.count != 2)
 	{
@@ -185,7 +185,7 @@ bool	test_eng_intersc_ray_sphere(void)
 
 	ray = eng_new_ray(new_point(0, 0, 5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
-	eng_intersc_ray(&interscs, ray, (t_obj *)&sph);
+	eng_intersc_ray(&interscs, ray, (t_obj_ptr)&sph);
 	eng_sort_intersc(&interscs);
 	if (interscs.count != 2)
 	{
@@ -231,8 +231,8 @@ bool	test_eng_ray_hit(void)
 	t_intersc		expected_hit;
 
 	interscs = eng_new_intersc_arr();
-	expected_hit = eng_add_intersc(&interscs, (t_obj *)&sph, 1);
-	eng_add_intersc(&interscs, (t_obj *)&sph, 2);
+	expected_hit = eng_add_intersc(&interscs, (t_obj_ptr)&sph, 1);
+	eng_add_intersc(&interscs, (t_obj_ptr)&sph, 2);
 	eng_sort_intersc(&interscs);
 	actual_hit = eng_ray_hit(&interscs);
 	if (actual_hit->t != expected_hit.t || actual_hit->obj != expected_hit.obj)
@@ -243,8 +243,8 @@ bool	test_eng_ray_hit(void)
 	eng_free_intersc_arr(&interscs);
 
 	interscs = eng_new_intersc_arr();
-	eng_add_intersc(&interscs, (t_obj *)&sph, -1);
-	expected_hit = eng_add_intersc(&interscs, (t_obj *)&sph, 1);
+	eng_add_intersc(&interscs, (t_obj_ptr)&sph, -1);
+	expected_hit = eng_add_intersc(&interscs, (t_obj_ptr)&sph, 1);
 	eng_sort_intersc(&interscs);
 	actual_hit = eng_ray_hit(&interscs);
 	if (actual_hit->t != expected_hit.t || actual_hit->obj != expected_hit.obj)
@@ -255,8 +255,8 @@ bool	test_eng_ray_hit(void)
 	eng_free_intersc_arr(&interscs);
 
 	interscs = eng_new_intersc_arr();
-	eng_add_intersc(&interscs, (t_obj *)&sph, -2);
-	eng_add_intersc(&interscs, (t_obj *)&sph, -1);
+	eng_add_intersc(&interscs, (t_obj_ptr)&sph, -2);
+	eng_add_intersc(&interscs, (t_obj_ptr)&sph, -1);
 	eng_sort_intersc(&interscs);
 	actual_hit = eng_ray_hit(&interscs);
 	if (actual_hit)
@@ -266,10 +266,10 @@ bool	test_eng_ray_hit(void)
 	}
 	eng_free_intersc_arr(&interscs);
 	interscs = eng_new_intersc_arr();
-	eng_add_intersc(&interscs, (t_obj *)&sph, 5);
-	eng_add_intersc(&interscs, (t_obj *)&sph, 7);
-	eng_add_intersc(&interscs, (t_obj *)&sph, -3);
-	expected_hit = eng_add_intersc(&interscs, (t_obj *)&sph, 2);
+	eng_add_intersc(&interscs, (t_obj_ptr)&sph, 5);
+	eng_add_intersc(&interscs, (t_obj_ptr)&sph, 7);
+	eng_add_intersc(&interscs, (t_obj_ptr)&sph, -3);
+	expected_hit = eng_add_intersc(&interscs, (t_obj_ptr)&sph, 2);
 	eng_sort_intersc(&interscs);
 	actual_hit = eng_ray_hit(&interscs);
 	if (actual_hit->t != expected_hit.t || actual_hit->obj != expected_hit.obj)

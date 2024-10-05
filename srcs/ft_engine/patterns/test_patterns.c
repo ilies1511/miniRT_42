@@ -107,7 +107,7 @@ bool	test_stripe_obj(void)
 {
 	bool		ret = true;
 	t_sphere	sph = eng_new_sphere();
-	eng_set_transform((t_obj *)&sph, mtx_scale(2, 2, 2));
+	eng_set_transform((t_obj_ptr)&sph, mtx_scale(2, 2, 2));
 	t_pattern	*pat = pat_stripe_pattern(fcolor_white(), fcolor_black());
 	sph.base_obj.material.pattern = pat;
 	t_fcolor	actual = pat_color_at(sph.base_obj, *pat, new_point(1.5, 0, 0));
@@ -122,7 +122,7 @@ bool	test_stripe_obj(void)
 
 	sph = eng_new_sphere();
 	pat = pat_stripe_pattern(fcolor_white(), fcolor_black());
-	eng_set_transform((t_obj *)pat, mtx_scale(2, 2, 2));
+	eng_set_transform((t_obj_ptr)pat, mtx_scale(2, 2, 2));
 	sph.base_obj.material.pattern = pat;
 	actual = pat_color_at(sph.base_obj, *pat, new_point(1.5, 0, 0));
 	expect = fcolor_white();
@@ -135,9 +135,9 @@ bool	test_stripe_obj(void)
 	}
 
 	sph = eng_new_sphere();
-	eng_set_transform((t_obj *)&sph, mtx_scale(2, 2, 2));
+	eng_set_transform((t_obj_ptr)&sph, mtx_scale(2, 2, 2));
 	pat = pat_stripe_pattern(fcolor_white(), fcolor_black());
-	eng_set_transform((t_obj *)pat, mtx_translate(0.5, 0, 0));
+	eng_set_transform((t_obj_ptr)pat, mtx_translate(0.5, 0, 0));
 	sph.base_obj.material.pattern = pat;
 	actual = pat_color_at(sph.base_obj, *pat, new_point(2.5, 0, 0));
 	expect = fcolor_white();

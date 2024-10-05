@@ -17,7 +17,7 @@ void	sphere_test_v1(void *main_data)
 		first = false;
 		sph = eng_new_sphere();
 	}
-	//eng_set_transform((t_obj *)&sph, mtx_scale(1.1, 1, 1));
+	//eng_set_transform((t_obj_ptr)&sph, mtx_scale(1.1, 1, 1));
 	ray_base = eng_new_ray(new_point(0, 0, -4), new_vec(0, 0, 1));
 	t_intersc_arr	interscs = eng_new_intersc_arr();
 
@@ -35,12 +35,12 @@ void	sphere_test_v1(void *main_data)
 			t_ray	ray = ray_base;
 			double	cur_x_angle = base_x_angle - fov_x / 2 + (double)x / m_data->engine.canvas.width * fov_x;
 			cur_x_angle = fmod(cur_x_angle, 2 * M_PI);
-			eng_set_transform((t_obj *)&ray, mtx_rotation_x(cur_x_angle));
+			eng_set_transform((t_obj_ptr)&ray, mtx_rotation_x(cur_x_angle));
 			double	cur_y_angle = base_y_angle - fov_y / 2 + (double)y / m_data->engine.canvas.height * fov_y;
 			cur_y_angle = fmod(cur_y_angle, 2 * M_PI);
-			eng_set_transform((t_obj *)&ray, mtx_rotation_y(cur_y_angle));
+			eng_set_transform((t_obj_ptr)&ray, mtx_rotation_y(cur_y_angle));
 			ray.direct = mtx_mult_mt(ray.base_obj.transform, ray.direct);
-			eng_intersc_ray(&interscs, ray, (t_obj *) &sph);
+			eng_intersc_ray(&interscs, ray, (t_obj_ptr) &sph);
 			t_intersc	*intersc = eng_ray_hit(&interscs);
 			if (intersc)
 			{

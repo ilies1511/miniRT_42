@@ -9,7 +9,7 @@ static void	add_light_to_world(t_world *world, t_light *light)
 		ft_error("Error: malloc failed", __FILE__, __LINE__, 1);
 }
 
-static void	add_shape_to_world(t_world *world, t_obj *obj_data, size_t obj_size)
+static void	add_shape_to_world(t_world *world, t_obj_ptr obj_data, size_t obj_size)
 {
 	t_obj	*new;
 
@@ -21,18 +21,18 @@ static void	add_shape_to_world(t_world *world, t_obj *obj_data, size_t obj_size)
 		ft_error("Error: malloc failed", __FILE__, __LINE__, 1);
 }
 
-void	eng_add_obj_to_world(t_world *world, t_obj *obj)
+void	eng_add_obj_to_world(t_world *world, t_obj_ptr obj)
 {
 	if (obj->type == OBJ_LIGHT)
 		add_light_to_world(world, (t_light *)obj);
 	else if (obj->type == OBJ_SPHERE)
-		add_shape_to_world(world, (t_obj *)obj, sizeof(t_sphere));
+		add_shape_to_world(world, (t_obj_ptr)obj, sizeof(t_sphere));
 	else if (obj->type == OBJ_PLANE)
-		add_shape_to_world(world, (t_obj *)obj, sizeof(t_plane));
+		add_shape_to_world(world, (t_obj_ptr)obj, sizeof(t_plane));
 	else if (obj->type == OBJ_CYLINDER)
-		add_shape_to_world(world, (t_obj *)obj, sizeof(t_cylinder));
+		add_shape_to_world(world, (t_obj_ptr)obj, sizeof(t_cylinder));
 	else if (obj->type == OBJ_CONE)
-		add_shape_to_world(world, (t_obj *)obj, sizeof(t_cone));
+		add_shape_to_world(world, (t_obj_ptr)obj, sizeof(t_cone));
 	else
 	{
 		printf("type: %u\n", obj->type);

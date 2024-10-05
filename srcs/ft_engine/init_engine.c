@@ -9,7 +9,7 @@ t_world	eng_new_world(void)
 	ft_bzero(&world, sizeof world);
 	world.lights = gc_dyn_arr_init(sizeof(t_light), 0);
 	world.light_count = 0;
-	world.objs = gc_dyn_arr_init(sizeof(t_obj *), 0);
+	world.objs = gc_dyn_arr_init(sizeof(t_obj_ptr), 0);
 	world.obj_count = 0;
 	world.ambient42 = fcolor_black();
 	return (world);

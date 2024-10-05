@@ -18,12 +18,12 @@ bool	test_normal_cylinde2(void)
 	cylinder.max = 2;
 	cylinder.min = 2;
 	cylinder.closed = true;
-	n = eng_normal_at(&cylinder, new_point(0, 1, 0));
-	n2 = eng_normal_at(&cylinder, new_point(0.5, 1, 0));
-	n3 = eng_normal_at(&cylinder, new_point(0, 1, 0.5));
-	n4 = eng_normal_at(&cylinder, new_point(0, 2, 0));
-	n5 = eng_normal_at(&cylinder, new_point(0.5, 2, 0));
-	n6  = eng_normal_at(&cylinder, new_point(0, 2, 0.5));
+	n = eng_normal_at((t_obj_ptr) &cylinder, new_point(0, 1, 0));
+	n2 = eng_normal_at((t_obj_ptr) &cylinder, new_point(0.5, 1, 0));
+	n3 = eng_normal_at((t_obj_ptr) &cylinder, new_point(0, 1, 0.5));
+	n4 = eng_normal_at((t_obj_ptr) &cylinder, new_point(0, 2, 0));
+	n5 = eng_normal_at((t_obj_ptr) &cylinder, new_point(0.5, 2, 0));
+	n6  = eng_normal_at((t_obj_ptr) &cylinder, new_point(0, 2, 0.5));
 	if (!eq_t(n, new_vec(0, -1, 0)))
 	{
 		printf("normal_cylinder: %s %d\n", __FILE__, __LINE__);
@@ -255,7 +255,6 @@ bool	test_cylinder_hits(void)
 	t_ray			ray;
 	t_ray			ray2;
 	t_ray			ray3;
-	t_vec			direction;
 	t_intersc_arr	intersecs;
 	t_intersc_arr	intersecs2;
 	t_intersc_arr	intersecs3;
@@ -271,9 +270,9 @@ bool	test_cylinder_hits(void)
 	ray.direct = norm(ray.direct);
 	ray2.direct = norm(ray2.direct);
 	ray3.direct = norm(ray3.direct);
-	eng_intersc_ray(&intersecs, ray, &cylinder);
-	eng_intersc_ray(&intersecs2, ray2, &cylinder);
-	eng_intersc_ray(&intersecs3, ray3, &cylinder);
+	eng_intersc_ray(&intersecs, ray, (t_obj_ptr) &cylinder);
+	eng_intersc_ray(&intersecs2, ray2, (t_obj_ptr) &cylinder);
+	eng_intersc_ray(&intersecs3, ray3, (t_obj_ptr) &cylinder);
 	// printf("intersecs.count: %zu\n", intersecs.count);
 	// printf("intersecs2.count: %zu\n", intersecs2.count);
 	// printf("intersecs3.count: %zu\n", intersecs3.count);
@@ -285,15 +284,15 @@ bool	test_cylinder_hits(void)
 	if ((intersecs.arr[0].t != 5) || (intersecs.arr[1].t != 5))
 	{
 		printf("%s Line %d\n", __FILE__, __LINE__);
-		printf("TEST 1:\nMY t1 : %lf vs. OG: %lf\nMY t2: %lf vs. OG: %lf\n", intersecs.arr[0].t, 5, \
-		intersecs.arr[1].t, 5);
+		printf("TEST 1:\nMY t1 : %lf vs. OG: %lf\nMY t2: %lf vs. OG: %lf\n", intersecs.arr[0].t, 5.0, \
+		intersecs.arr[1].t, 5.0);
 		result = false;
 	}
 	if ((intersecs2.arr[0].t != 4) || (intersecs2.arr[1].t != 6))
 	{
 		printf("%s Line %d\n", __FILE__, __LINE__);
 		printf("TEST 2:\nMY t1: %lf vs. OG: %lf\nMY t2: %lf vs. OG: %lf\n", \
-			intersecs2.arr[0].t, 4, intersecs2.arr[1].t, 6);
+			intersecs2.arr[0].t, 4.0, intersecs2.arr[1].t, 6.0);
 		result = false;
 	}
 	if ((!eq_f(intersecs3.arr[0].t, 6.80769)) || (!eq_f(intersecs3.arr[1].t, 7.08872)))
@@ -318,7 +317,6 @@ bool	test_cylinder_no_hits(void)
 	t_ray			ray;
 	t_ray			ray2;
 	t_ray			ray3;
-	t_vec			direction;
 	t_intersc_arr	intersecs;
 	t_intersc_arr	intersecs2;
 	t_intersc_arr	intersecs3;
@@ -344,7 +342,7 @@ bool	test_cylinder_no_hits(void)
 	{
 		printf("%s Line: %d", __FILE__, __LINE__);
 		printf("intersecs.count should be 0\n");
-		printf("RAY1 Intersecs Count: %d\nRAY2 Intersecs Count: %d\nRAY3 Intersecs Count: %d\n", \
+		printf("RAY1 Intersecs Count: %lu\nRAY2 Intersecs Count: %lu\nRAY3 Intersecs Count: %lu\n", \
 			intersecs.count, intersecs2.count, intersecs3.count);
 		result = false;
 	}

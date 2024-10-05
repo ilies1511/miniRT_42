@@ -36,14 +36,14 @@ void	eng_intersc_ray_cone_caps(t_intersc_arr *intersecs, t_ray ray,
 		return ;
 	t = (cone->min - ray.origin.y) / ray.direct.y;
 	if (check_cap_cone(ray, t, cone->max))
-		eng_add_intersc(intersecs, (t_obj *)cone, t);
+		eng_add_intersc(intersecs, (t_obj_ptr)cone, t);
 	//TODO: CHeck again
 	if (intersecs->count % 2 == 0)
 	{
 		t2 = (cone->max - ray.origin.y) / ray.direct.y;
 		if (check_cap_cone(ray, t2, cone->max))
 		{
-			intersecs->arr[intersecs->count - 2].obj = (t_obj *)&cone;
+			intersecs->arr[intersecs->count - 2].obj = (t_obj_ptr)&cone;
 			intersecs->arr[intersecs->count - 2].t = t2;
 		}
 		return ;
@@ -51,7 +51,7 @@ void	eng_intersc_ray_cone_caps(t_intersc_arr *intersecs, t_ray ray,
 	// printf("In eng_intersc_ray_cone_caps: POST1 add: %d\n", intersecs->count);
 	t2 = (cone->max - ray.origin.y) / ray.direct.y;
 	if (check_cap_cone(ray, t2, cone->max))
-		eng_add_intersc(intersecs, (t_obj *)cone, t2);
+		eng_add_intersc(intersecs, (t_obj_ptr)cone, t2);
 	// printf("In eng_intersc_ray_cone_caps: POST2 add: %d\n", intersecs->count);
 }
 
@@ -80,8 +80,7 @@ static void	cal_disc_sqrt(t_cone_norm *n)
 		n->sqrt_discriminant = 0;
 }
 
-static void	cal_abc(t_cone_norm *n, t_intersc_arr *intersecs, t_ray ray,
-			t_cone *cone)
+static void	cal_abc(t_cone_norm *n, t_ray ray)
 {
 	n->a = (ray.direct.x * ray.direct.x) - (ray.direct.y * ray.direct.y) + \
 			(ray.direct.z * ray.direct.z);
@@ -115,14 +114,14 @@ static void	add_intersects(t_cone_norm *n, t_intersc_arr *intersecs, t_ray ray,
 {
 	// printf("In add_intersects: PRE add Intersecs Count: %d\n", intersecs->count);
 	if (n->t0 > n->t1)
-		swap_double(&n);
+		swap_double(n);
 	n->y0 = ray.origin.y + n->t0 * ray.direct.y;
 	if (cone->min < n->y0 && n->y0 < cone->max)
-		eng_add_intersc(intersecs, (t_obj *)cone, n->t0);
+		eng_add_intersc(intersecs, (t_obj_ptr)cone, n->t0);
 	// printf("In add_intersects: POST1 add Intersecs Count: %d\n", intersecs->count);
 	n->y1 = ray.origin.y + n->t1 * ray.direct.y;
 	if (cone->min < n->y1 && n->y1 < cone->max)
-		eng_add_intersc(intersecs, (t_obj *)cone, n->t1);
+		eng_add_intersc(intersecs, (t_obj_ptr)cone, n->t1);
 	// printf("In add_intersects: POST2 add Intersecs Count: %d\n", intersecs->count);
 	// eng_intersc_ray_cone_caps(intersecs, ray, cone);
 }
@@ -133,7 +132,7 @@ void	eng_intersc_ray_cone(t_intersc_arr *intersecs, t_ray ray,
 	t_cone_norm	n;
 
 	init_cone_norm(&n);
-	cal_abc(&n, intersecs, ray, cone);
+	cal_abc(&n, ray);
 	if (eq_f(n.a, 0) && eq_f(n.b, 0))
 		return ;
 		// return (eng_intersc_ray_cone_caps(intersecs, ray, cone));

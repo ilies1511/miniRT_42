@@ -37,9 +37,11 @@ t_vec	compute_normal_cylinder(t_cylinder *cylinder, t_point object_point)
 
 t_vec	compute_normal_cone(t_cone *cone, t_point object_point)
 {
-	double	distance;
-	double	y;
+	//double	distance;
+	//double	y;
 
+	(void)cone;
+	(void)object_point;
 	return (new_vec(0, 1, 0));
 	////TODO: 2fix casea
 	//if (eq_t(object_point, new_point(0, 0, 0)))
@@ -61,7 +63,7 @@ t_vec	compute_normal_cone(t_cone *cone, t_point object_point)
 	//}
 }
 
-static t_vec	normal_at_iterate_types(t_obj *object, t_point point_obj_space)
+static t_vec	normal_at_iterate_types(t_obj_ptr object, t_point point_obj_space)
 {
 	if (object->type == OBJ_SPHERE)
 		return (compute_normal_sphere(point_obj_space));
@@ -78,13 +80,17 @@ static t_vec	normal_at_iterate_types(t_obj *object, t_point point_obj_space)
 	}
 }
 
-t_vec	eng_normal_at(t_obj *restrict object, t_point intersec_point)
+t_vec	eng_normal_at(t_obj_ptr restrict object, t_point intersec_point)
 {
 	t_point		point_obj_space;
 	t_vec		normal_obj_space;
 	t_vec		normal_world_space;
+	volatile t_matrix_type	type1;
+	volatile t_matrix_type	type2;
 
 	printf("%u\n", object->type);
+	type1 = object->transform.type;
+	type2 = object->transform.type;
 	point_obj_space = mtx_mult_mt(object->inverse, intersec_point);
 	normal_obj_space = normal_at_iterate_types(object, point_obj_space);
 	normal_world_space = mtx_mult_mt(mtx_transpose(object->inverse), \

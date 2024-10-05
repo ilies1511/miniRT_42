@@ -26,7 +26,7 @@ void	parse_camera(t_main *m_data, char *line,
 	fov = str_to_float(line);
 	m_data->engine.camera = eng_new_camera(m_data->engine.canvas.width,
 			m_data->engine.canvas.height, fov);
-	eng_set_transform((t_obj *)&m_data->engine.camera, sc_transforme_view(
+	eng_set_transform((t_obj_ptr)&m_data->engine.camera, sc_transforme_view(
 			origin, to, up));
 }
 
@@ -51,7 +51,7 @@ void	parse_light(t_main *m_data, char *line,
 	str_to_fcolor(line, &color, &line);
 	color = scale_fcolor(color, scalar);
 	light = eng_point_light(color, origin);
-	eng_add_obj_to_world(&m_data->engine.world, (t_obj *)&light);
+	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr)&light);
 }
 
 void	parse_plane(t_main *m_data, char *line,
@@ -77,10 +77,10 @@ void	parse_plane(t_main *m_data, char *line,
 	{
 		rot = cross_prod(norm(new_vec(0, 1, 0)), normal);
 		angle = acos(dot_prod(norm(new_vec(0, 1, 0)), normal));
-		eng_set_transform((t_obj *)&plane, mtx_rotation_axis_angle(rot, angle));
+		eng_set_transform((t_obj_ptr)&plane, mtx_rotation_axis_angle(rot, angle));
 	}
-	eng_set_transform((t_obj *)&plane, mtx_translate(p.x, p.y, p.z));
-	eng_add_obj_to_world(&m_data->engine.world, (t_obj *)&plane);
+	eng_set_transform((t_obj_ptr)&plane, mtx_translate(p.x, p.y, p.z));
+	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr)&plane);
 }
 
 void	parse_sphere(t_main *m_data, char *line,
@@ -106,7 +106,7 @@ void	parse_sphere(t_main *m_data, char *line,
 	fcolor = new_fcolor(0, 0, 0, 1);
 	str_to_fcolor(line, &fcolor, &line);
 	sph.base_obj.material.fcolor = fcolor;
-	eng_set_transform((t_obj *)&sph, mtx_scale(diameter / 2, diameter / 2,
+	eng_set_transform((t_obj_ptr)&sph, mtx_scale(diameter / 2, diameter / 2,
 			diameter / 2));
-	eng_add_obj_to_world(&m_data->engine.world, (t_obj *)&sph);
+	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr)&sph);
 }

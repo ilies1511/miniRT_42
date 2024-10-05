@@ -13,57 +13,57 @@ static void add_objs(t_world *world)
 	t_sphere	sph_left;
 
 	sph_right = eng_new_sphere();
-	eng_set_transform((t_obj *)&sph_right, mtx_translate(1.5, 0.5, -0.5));
-	eng_set_transform((t_obj *)&sph_right, mtx_scale(0.5, 0.5, 0.5));
+	eng_set_transform((t_obj_ptr)&sph_right, mtx_translate(1.5, 0.5, -0.5));
+	eng_set_transform((t_obj_ptr)&sph_right, mtx_scale(0.5, 0.5, 0.5));
 	sph_right.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
 	sph_right.base_obj.material.diffuse = 0.7;
 	sph_right.base_obj.material.specular = 0.3;
-	eng_add_obj_to_world(world, (t_obj *)&sph_right);
+	eng_add_obj_to_world(world, (t_obj_ptr)&sph_right);
 
 	sph_mid = eng_new_sphere();
-	eng_set_transform((t_obj *)&sph_mid , mtx_translate(-0.5, 1, 0.5));
+	eng_set_transform((t_obj_ptr)&sph_mid , mtx_translate(-0.5, 1, 0.5));
 	sph_mid.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
 	sph_mid.base_obj.material.diffuse = 0.7;
 	sph_mid.base_obj.material.specular = 0.3;
-	eng_add_obj_to_world(world, (t_obj *)&sph_mid);
+	eng_add_obj_to_world(world, (t_obj_ptr)&sph_mid);
 
 	sph_left = eng_new_sphere();
-	eng_set_transform((t_obj *)&sph_left, mtx_translate(-1.5, 0.33, -0.75));
-	eng_set_transform((t_obj *)&sph_left, mtx_scale(0.33, 0.33, 0.33));
+	eng_set_transform((t_obj_ptr)&sph_left, mtx_translate(-1.5, 0.33, -0.75));
+	eng_set_transform((t_obj_ptr)&sph_left, mtx_scale(0.33, 0.33, 0.33));
 	sph_left.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
 	sph_left.base_obj.material.diffuse = 0.7;
 	// sph_left.base_obj.material.shininess = 500;
 	sph_left.base_obj.material.specular = 0.3;
-	eng_add_obj_to_world(world, (t_obj *)&sph_left);
+	eng_add_obj_to_world(world, (t_obj_ptr)&sph_left);
 
 	ceil = eng_new_plane();
 	ceil.base_obj.material.fcolor = new_fcolor(0, 0, 1, 1);
-	eng_add_obj_to_world(world, (t_obj *)&ceil);
+	eng_add_obj_to_world(world, (t_obj_ptr)&ceil);
 
 
 	top = eng_new_plane();
 	top.base_obj.material.fcolor = new_fcolor(1, 0, 0, 1);
 	//***why is this buggy***
-	eng_set_transform((t_obj *)&top, mtx_rotation_x(M_PI_2));
-	eng_set_transform((t_obj *)&top, mtx_translate(0, 0, 4));
+	eng_set_transform((t_obj_ptr)&top, mtx_rotation_x(M_PI_2));
+	eng_set_transform((t_obj_ptr)&top, mtx_translate(0, 0, 4));
 	//***but this not ***
-	//eng_set_transform((t_obj *)&top, mtx_translate(0, 0, 4));
-	//eng_set_transform((t_obj *)&top, mtx_rotation_x(M_PI_2));
+	//eng_set_transform((t_obj_ptr)&top, mtx_translate(0, 0, 4));
+	//eng_set_transform((t_obj_ptr)&top, mtx_rotation_x(M_PI_2));
 	//*******************
-	eng_add_obj_to_world(world, (t_obj *)&top);
+	eng_add_obj_to_world(world, (t_obj_ptr)&top);
 
 	left_top = eng_new_plane();
 	left_top.base_obj.material.fcolor = new_fcolor(0, 1, 0, 1);
-	eng_set_transform((t_obj *)&left_top, mtx_rotation_x(M_PI_2));
-	eng_set_transform((t_obj *)&left_top, mtx_rotation_y(M_PI + M_PI_2 + M_PI_4));
-	eng_set_transform((t_obj *)&left_top, mtx_translate(-5, 0, 0));
-	//eng_add_obj_to_world(world, (t_obj *)&left_top);
+	eng_set_transform((t_obj_ptr)&left_top, mtx_rotation_x(M_PI_2));
+	eng_set_transform((t_obj_ptr)&left_top, mtx_rotation_y(M_PI + M_PI_2 + M_PI_4));
+	eng_set_transform((t_obj_ptr)&left_top, mtx_translate(-5, 0, 0));
+	//eng_add_obj_to_world(world, (t_obj_ptr)&left_top);
 
 	light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(0, 5, 0.000001));
-	eng_add_obj_to_world(world, (t_obj *)&light);
+	eng_add_obj_to_world(world, (t_obj_ptr)&light);
 
 	//light2 = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(-2, 10, 0));
-	//eng_add_obj_to_world(world, (t_obj *)&light2);
+	//eng_add_obj_to_world(world, (t_obj_ptr)&light2);
 	(void)light2;
 }
 
@@ -75,7 +75,7 @@ void	sphere_test_v9(void *main_data)
 	t_world			*world;
 
 	camera = eng_new_camera(WIDTH, HEIGHT, M_PI / 3);
-	eng_set_transform((t_obj *)&camera, sc_transforme_view(new_point(5, 5, -5),
+	eng_set_transform((t_obj_ptr)&camera, sc_transforme_view(new_point(5, 5, -5),
 			new_point(0, 0, 0), new_vec(0.3, 0.3, 0.3)));
 	static bool first = true;
 	world = &m_data->engine.world;

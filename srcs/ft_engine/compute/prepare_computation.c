@@ -56,7 +56,7 @@ t_computation	eng_prepare_computation(t_intersc hit, t_ray ray,
 			if (!containers)
 				comp.n1 = 1.0;
 			else
-				comp.n1 = ((t_obj *)(ft_lstlast(containers)->content))->material.refractive_index;
+				comp.n1 = ((t_obj_ptr)(ft_lstlast(containers)->content))->material.refractive_index;
 		}
 		t_list *last = NULL;
 		t_list	*cur = containers;
@@ -98,7 +98,7 @@ t_computation	eng_prepare_computation(t_intersc hit, t_ray ray,
 			if (!containers)
 				comp.n2 = 1.0;
 			else
-				comp.n2 = ((t_obj *)(ft_lstlast(containers)->content))->material.refractive_index;
+				comp.n2 = ((t_obj_ptr)(ft_lstlast(containers)->content))->material.refractive_index;
 		}
 		i++;
 	}

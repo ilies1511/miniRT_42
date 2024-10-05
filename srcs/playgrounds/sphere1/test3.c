@@ -10,39 +10,39 @@
 //	t_point			light_position;
 //
 //	sph = eng_new_sphere();
-//	eng_set_transform((t_obj *)&sph, mtx_translate(-5, 0, 0));
+//	eng_set_transform((t_obj_ptr)&sph, mtx_translate(-5, 0, 0));
 //	sph.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
-//	eng_add_obj_to_world(world, (t_obj *)&sph);
+//	eng_add_obj_to_world(world, (t_obj_ptr)&sph);
 //
 //	sph = eng_new_sphere();
-//	eng_set_transform((t_obj *)&sph, mtx_translate(-1, 3, 2));
+//	eng_set_transform((t_obj_ptr)&sph, mtx_translate(-1, 3, 2));
 //	sph.base_obj.material.fcolor = new_fcolor(0, 0, 1, 1);
-//	eng_add_obj_to_world(world, (t_obj *)&sph);
+//	eng_add_obj_to_world(world, (t_obj_ptr)&sph);
 //
 //	sph = eng_new_sphere();
-//	eng_set_transform((t_obj *)&sph, mtx_translate(7, 0, 3));
+//	eng_set_transform((t_obj_ptr)&sph, mtx_translate(7, 0, 3));
 //	sph.base_obj.material.fcolor = new_fcolor(0, 0, 1, 1);
-//	eng_add_obj_to_world(world, (t_obj *)&sph);
+//	eng_add_obj_to_world(world, (t_obj_ptr)&sph);
 //
 //	sph = eng_new_sphere();
-//	eng_set_transform((t_obj *)&sph, mtx_translate(-1, -3, 7));
+//	eng_set_transform((t_obj_ptr)&sph, mtx_translate(-1, -3, 7));
 //	sph.base_obj.material.fcolor = new_fcolor(3, 2, 1, 1);
-//	eng_add_obj_to_world(world, (t_obj *)&sph);
+//	eng_add_obj_to_world(world, (t_obj_ptr)&sph);
 //
 //	sph = eng_new_sphere();
-//	eng_set_transform((t_obj *)&sph, mtx_translate(3, -2, 5));
+//	eng_set_transform((t_obj_ptr)&sph, mtx_translate(3, -2, 5));
 //	sph.base_obj.material.fcolor = new_fcolor(0, 2, 1, 1);
-//	eng_add_obj_to_world(world, (t_obj *)&sph);
+//	eng_add_obj_to_world(world, (t_obj_ptr)&sph);
 //
 //	light_position = new_point(0, 0, -10);
 //	intensity = new_fcolor(3, 1, 4, 1);
 //	light = eng_point_light(intensity, light_position);
-//	eng_add_obj_to_world(world, (t_obj *)&light);
+//	eng_add_obj_to_world(world, (t_obj_ptr)&light);
 //
 //	light_position = new_point(10, 10, -10);
 //	intensity = new_fcolor(1, 4, 1, 1);
 //	light = eng_point_light(intensity, light_position);
-//	eng_add_obj_to_world(world, (t_obj *)&light);
+//	eng_add_obj_to_world(world, (t_obj_ptr)&light);
 //}
 //
 //void	sphere_test(void *main_data)
@@ -64,10 +64,10 @@
 //		add_objs(world);
 //	}
 //	camera = eng_new_camera(WIDTH, HEIGHT, M_PI_2);
-//	eng_set_transform((t_obj *)&camera, mtx_translate(0, 0, -10));
-//	eng_set_transform((t_obj *)&camera, mtx_rotation_x(angle_x1));
-//	eng_set_transform((t_obj *)&camera, mtx_rotation_y(angle_y1));
-//	eng_set_transform((t_obj *)&camera, mtx_rotation_z(angle_z1));
+//	eng_set_transform((t_obj_ptr)&camera, mtx_translate(0, 0, -10));
+//	eng_set_transform((t_obj_ptr)&camera, mtx_rotation_x(angle_x1));
+//	eng_set_transform((t_obj_ptr)&camera, mtx_rotation_y(angle_y1));
+//	eng_set_transform((t_obj_ptr)&camera, mtx_rotation_z(angle_z1));
 //	eng_render(camera , *world, canvas);
 //	for (int i = 0; i < 5; i++)
 //	{

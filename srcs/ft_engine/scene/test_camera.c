@@ -107,7 +107,7 @@ bool test_eng_ray_for_pixel(void)
 	t_matrix rotation = mtx_rotation_y(M_PI / 4);
 	t_matrix translation = mtx_translate(0, -2, 5);
 	t_matrix transform = mtx_mult_mm(rotation, translation);
-	eng_set_transform((t_obj *)&c, transform);
+	eng_set_transform((t_obj_ptr)&c, transform);
 	r = eng_ray_for_pixel(c, 100, 50);
 	expected_origin = new_point(0, 2, -5);
 	expected_direction = new_vec(sqrt(2) / 2, 0, -sqrt(2) / 2);

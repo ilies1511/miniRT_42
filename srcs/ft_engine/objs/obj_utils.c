@@ -6,9 +6,9 @@ bool	eng_is_shape(t_obj_type type)
 	return (type == OBJ_SPHERE || type == OBJ_PLANE || type == OBJ_CYLINDER);
 }
 
-t_obj	*eng_alloc_shape(t_obj_type type)
+t_obj_ptr	eng_alloc_shape(t_obj_type type)
 {
-	t_obj	*shape;
+	t_obj_ptr	shape;
 	char	buf[ERROR_BUF_LEN];
 
 	if (type == OBJ_SPHERE)

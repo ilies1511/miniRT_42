@@ -11,7 +11,7 @@ bool	test_prepare_computation(void)
 	bool		ret = true;
 	t_ray		ray = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
 	t_sphere	sph = eng_new_sphere();
-	t_intersc	intersc = {.t=4, .obj = (t_obj *)&sph};
+	t_intersc	intersc = {.t=4, .obj = (t_obj_ptr)&sph};
 	t_computation	expect;
 	ft_bzero(&expect, sizeof expect);
 	expect.t = intersc.t;
@@ -63,7 +63,7 @@ bool	test_prepare_computation(void)
 	ray = eng_new_ray(new_point(0, 0, -5), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
 	intersc.t = 4;
-	intersc.obj = (t_obj *)&sph;
+	intersc.obj = (t_obj_ptr)&sph;
 	interscs.arr[0] = intersc;
 	actual = eng_prepare_computation(intersc, ray, interscs);
 	if (actual.inside != false)
@@ -75,7 +75,7 @@ bool	test_prepare_computation(void)
 	ray = eng_new_ray(new_point(0, 0, 0), new_vec(0, 0, 1));
 	sph = eng_new_sphere();
 	intersc.t = 1;
-	intersc.obj = (t_obj *)&sph;
+	intersc.obj = (t_obj_ptr)&sph;
 	interscs.arr[0] = intersc;
 	actual = eng_prepare_computation(intersc, ray, interscs);
 	if (!eq_t(actual.point, new_point(0, 0, 1)))
@@ -108,7 +108,7 @@ bool	test_prepare_computation(void)
 	t_plane plane = eng_new_plane();
 	ray = eng_new_ray(new_point(0, 1, -1), new_vec(0, -sqrt(2) / 2, sqrt(2) / 2));
 	intersc.t = sqrt(2);
-	intersc.obj = (t_obj *)&plane;
+	intersc.obj = (t_obj_ptr)&plane;
 	interscs.arr[0] = intersc;
 	actual = eng_prepare_computation(intersc, ray, interscs);
 	if (!eq_t(actual.reflection, new_vec(0, sqrt(2) / 2, sqrt(2) / 2)))

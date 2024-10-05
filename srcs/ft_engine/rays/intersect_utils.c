@@ -12,7 +12,7 @@ void	eng_sort_intersc(t_intersc_arr *interscs)
 	ft_sort(interscs->arr, sizeof(t_intersc), interscs->count, swap_intersc);
 }
 
-t_intersc	eng_add_intersc(t_intersc_arr *interscs, t_obj *obj, double t)
+t_intersc	eng_add_intersc(t_intersc_arr *interscs, t_obj_ptr obj, double t)
 {
 	t_intersc		intersc;
 
