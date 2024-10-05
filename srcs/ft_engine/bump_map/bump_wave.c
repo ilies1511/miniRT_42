@@ -74,7 +74,7 @@ t_vec bump_wave_normal_at(t_bump bump, t_point point, t_vec base_normal)
 
     // Normalize the perturbed normal
     //perturbed_normal = norm(perturbed_normal);
-	//perturbed_normal = mtx_mult_mt(mtx_rotation_x(-M_PI_4 * 2), perturbed_normal);
+	//perturbed_normal = mtx_mult_mt(mtx_rotation_x(-M_PI_4), perturbed_normal);
 	//perturbed_normal = mult_v(perturbed_normal, -1.0);
 	perturbed_normal = norm(perturbed_normal);
 	//print_t(2, perturbed_normal);

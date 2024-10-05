@@ -76,7 +76,7 @@ t_material	eng_water(void)
 	mat.diffuse = 0.9;
 	mat.specular = 0.9;
 	mat.shininess = 200;
-	mat.reflective = 1;
+	mat.reflective = 0.5;
 	mat.transparency = 0.2;
 	mat.refractive_index = 1.333;
 	return (mat);
@@ -158,7 +158,7 @@ t_light sun_light = eng_point_light(
 	
 	t_plane		sky = eng_new_plane();
 	sky.base_obj.material = eng_blue_sky();
-	eng_set_transform((t_obj_ptr)&sky, mtx_translate(0, 20000, 0));
+	eng_set_transform((t_obj_ptr)&sky, mtx_translate(0, 9999, 0));
 
 
 	eng_add_obj_to_world(world, (t_obj_ptr)&sun_light);

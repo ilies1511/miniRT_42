@@ -4,7 +4,7 @@
 #include <ft_reflection.h>
 #include <ft_refraction.h>
 
-#define SMOOTH_SHADOWS
+//#define SMOOTH_SHADOWS
 #define TESr
 //t_light	adjust_light(t_light in)
 //{
