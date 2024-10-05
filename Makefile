@@ -85,7 +85,7 @@ SRC_FILES_ENGINE := \
 	ft_engine/patterns/checker_pattern.c \
 	ft_engine/patterns/square_pattern.c \
 	ft_engine/patterns/test_patterns.c \
-	ft_engine/bump_map/bump_1.c \
+	ft_engine/bump_map/bump_wave.c \
 	ft_engine/bump_map/bump.c \
 	ft_engine/bump_map/test_bump.c
 

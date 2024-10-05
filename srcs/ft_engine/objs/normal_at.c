@@ -2,6 +2,7 @@
 #include <ft_engine.h>
 #include <libft.h>
 #include <ft_floats.h>
+#include <ft_bump_map.h>
 
 /*
 	use case: unit circle sphere (sphere that was not tranformed yet)
@@ -88,5 +89,7 @@ t_vec	eng_normal_at(t_obj_ptr object, t_point intersec_point)
 	normal_world_space = mtx_mult_mt(mtx_transpose(object->inverse), \
 		normal_obj_space);
 	normal_world_space.w = 0;
+	if (object->material.bump)
+		normal_world_space = bump_normal_at(*object, *object->material.bump, intersec_point, normal_world_space);
 	return (norm(normal_world_space));
 }

@@ -16,5 +16,6 @@ t_material	eng_new_material(void)
 	mat.reflective = 0.0;
 	mat.transparency = 0.0;
 	mat.refractive_index = 1;
+	mat.bump = NULL;
 	return (mat);
 }

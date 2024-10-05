@@ -39,6 +39,7 @@ typedef struct s_main		t_main;
 typedef struct s_obj		t_obj;
 typedef t_obj *				t_obj_ptr __attribute__((may_alias));
 typedef struct s_pattern	t_pattern;
+typedef struct s_bump		t_bump;
 typedef struct s_canvas
 {
 	size_t		width;
@@ -106,6 +107,7 @@ typedef struct s_material
 	double		reflective;
 	double		transparency;
 	double		refractive_index;
+	t_bump		*bump;
 }	t_material;
 
 t_material		eng_new_material(void);

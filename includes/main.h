@@ -26,6 +26,7 @@
 # include <parser_42.h>
 # include <garbage_collector.h>
 # include <ft_patterns.h>
+# include <ft_bump_map.h>
 # include <ft_reflection.h>
 # include <ft_refraction.h>
 // for development but not allowed functions
