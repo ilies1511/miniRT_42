@@ -5,7 +5,7 @@
 #include <ft_refraction.h>
 
 #define SMOOTH_SHADOWS
-#define TEST
+#define TESr
 //t_light	adjust_light(t_light in)
 //{
 //	t_light	out;

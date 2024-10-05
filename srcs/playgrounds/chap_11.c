@@ -13,7 +13,7 @@ t_material	eng_new_material_polished_metal(void)
 	mat.diffuse = 0.1;
 	mat.specular = 0.9;
 	mat.shininess = 300;
-	mat.reflective = 1.0;
+	mat.reflective = 0.3;
 	mat.transparency = 0.0;
 	mat.refractive_index = 1.52;
 	return (mat);
@@ -42,9 +42,13 @@ t_material	eng_blue_sky(void)
 {
 	t_material	mat;
 
-	mat.fcolor.r = 0.53;
-	mat.fcolor.g = 0.81;
-	mat.fcolor.b = 0.92;
+	mat.fcolor.r = 4.0 / 255;
+	mat.fcolor.g = 100.0 / 255;
+	mat.fcolor.b = 280.0 / 255;
+	//mat.fcolor.r = 0.2;
+	//mat.fcolor.g = 0;
+	//mat.fcolor.b = 1;
+
 	mat.fcolor.a = 1;
 	mat.pattern = NULL;
 	mat.ambient = 1.0;
@@ -52,8 +56,8 @@ t_material	eng_blue_sky(void)
 	mat.specular = 0.0;
 	mat.shininess = 0;
 	mat.reflective = 0.0;
-	mat.transparency = 0.5;
-	mat.refractive_index = 1.00029;
+	mat.transparency = 1;
+	mat.refractive_index = 1.000;
 	return (mat);
 }
 
@@ -67,13 +71,13 @@ t_material	eng_water(void)
 	mat.fcolor.a = 1;
 	mat.pattern = NULL;
 	mat.bump = bump_wave();
-	// mat.bump = NULL;
+	//mat.bump = NULL;
 	mat.ambient = 0.1;
 	mat.diffuse = 0.9;
 	mat.specular = 0.9;
 	mat.shininess = 200;
-	mat.reflective = 0.4;
-	mat.transparency = 1.0;
+	mat.reflective = 1;
+	mat.transparency = 0.2;
 	mat.refractive_index = 1.333;
 	return (mat);
 }
@@ -132,24 +136,25 @@ static void add_objs(t_world *world)
 
 t_light sun_light = eng_point_light(
     new_fcolor(1.0, 0.9, 0.6, 1),   // Warm, bright sunlight color
-    new_point(0, 10000, -10000)       // High and behind the camera to simulate the angle of sunlight
+    new_point(0, 10000, 60000)       // High and behind the camera to simulate the angle of sunlight
 );
+
+	sun_light.radius = 100;
 	t_plane	water = eng_new_plane();
 
 	water.base_obj.material = eng_water();
 	
-	water.base_obj.material.reflective = 0.6;
-	water.base_obj.material.transparency = 0.7;
-	water.base_obj.material.refractive_index = 1.33; // Approximate for water
+	//water.base_obj.material.reflective = 0.6;
+	//water.base_obj.material.transparency = 0.7;
+	//water.base_obj.material.refractive_index = 1.33; // Approximate for water
 	eng_set_transform((t_obj_ptr)&water, mtx_translate(0, 0, 0));  // At horizon level
 
 	t_plane floor = eng_new_plane();
 	floor.base_obj.material = eng_sand();
-	floor.base_obj.material.pattern = pat_checker2d_pattern(
-	    new_fcolor(0.18, 0.31, 0.31, 1), floor.base_obj.material.fcolor);
+	//floor.base_obj.material.pattern = pat_checker2d_pattern(
+	//    new_fcolor(0.18, 0.31, 0.31, 1), floor.base_obj.material.fcolor);
 	eng_set_transform((t_obj_ptr)&floor, mtx_translate(0, -40, 0));  // Below the water level
 	
-
 	
 	t_plane		sky = eng_new_plane();
 	sky.base_obj.material = eng_blue_sky();
@@ -175,7 +180,7 @@ void	sphere_test(void *main_data)
 //			new_point(0, 0, 0), new_vec(0, 1, 0)));
 
 eng_set_transform((t_obj_ptr)&camera, sc_transforme_view(
-    new_point(0, 5, -30),  // Slightly elevated to provide a better view of the horizon
+    new_point(0, 5, -300),  // Slightly elevated to provide a better view of the horizo
     new_point(0, 0, 10),   // Looking slightly downwards towards the horizon
     new_vec(0, 1, 0)       // Keeping the 'up' vector to maintain vertical orientation
 ));

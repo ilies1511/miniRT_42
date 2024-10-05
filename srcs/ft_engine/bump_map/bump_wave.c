@@ -13,167 +13,71 @@ t_bump	*bump_wave(void)
 	return (bump);
 }
 
-//t_vec bump_wave_normal_at(t_bump bump, t_point point, t_vec base_normal)
-//{
-//    t_vec z_axis;
-//    t_vec rotation_axis;
-//    t_matrix rotation_matrix;
-//    double angle;
-//
-//    // Initialize z_axis as (0, 0, 1)
-//    z_axis = new_vec(0, 0, 1);
-//
-//    // Check if base_normal is equal to z_axis
-//    if (eq_t(base_normal, z_axis))
-//	{
-//        // TODO: Handle the special case where the base normal is aligned with z-axis
-//        return base_normal;
-//    }
-//
-//    // Compute the rotation axis as the cross product of base_normal and z_axis
-//    rotation_axis = cross_prod(base_normal, z_axis);
-//
-//    // Compute the angle of rotation based on the sine of point.z
-//    double interval = 10.0;  // Spatial period of the waves
-//    double amplitude = 0.5 * M_PI;  // Max rotation of 0.25 PI radians
-//    angle = amplitude * sin((2 * M_PI / interval) * point.z);
-//
-//    // Create a rotation matrix to rotate around the rotation axis by the computed angle
-//    rotation_matrix = mtx_rotation_axis_angle(rotation_axis, angle);
-//
-//    // Return the rotated base normal
-//    return mtx_mult_mt(rotation_matrix, base_normal);
-//
-//    (void)bump;  // Avoid unused parameter warning
-//}
+t_vec bump_wave_normal_at(t_bump bump, t_point point, t_vec base_normal)
+{
+    // Wave parameters
+    const int NUM_WAVES = 5; // Number of wave components
+    //double amplitudes[NUM_WAVES]  = {1.0, 0.5, 0.3, 0.2, 0.1};
+    double amplitudes[NUM_WAVES]  = {0.01, 0.05, 0.03, 0.02, 0.01};
+    double wavelengths[NUM_WAVES] = {30.0, 15.0, 10.0, 5.0, 2.5};
+    double speeds[NUM_WAVES]      = {1.0, 1.5, 2.0, 2.5, 3.0};
+    double directions[NUM_WAVES][2] = {
+        {1.0, 0.0},
+        {0.7, 0.7},
+        {0.0, 1.0},
+        {-0.7, 0.7},
+        {-1.0, 0.0}
+    };
+    double phases[NUM_WAVES] = {0.0, 1.0, 2.0, 3.0, 4.0};
+    double time = 0.0; // Set time to zero for static waves
 
-// Function to compute the wave normal at an intersection point
+    // Initialize partial derivatives
+    double d_dx = 0.0;
+    double d_dy = 0.0;
+    double d_dz = 0.0;
 
-t_vec compute_wave_normal(t_point intersection_point, t_vec normal) {
-    double x = intersection_point.x;
-    double z = intersection_point.z;
+    double x = point.x;
+    double z = point.z;
 
-    // Wave parameters for multiple waves
-    double amplitudes[] = {1.0, 0.5};
-    double frequencies[] = {1.0, 2.0};
-    double phases[] = {0.0, M_PI / 4};
-
-    double dW_dx = 0.0;
-    double dW_dz = 0.0;
-
-    // Sum the gradients of multiple wave functions
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < NUM_WAVES; i++)
+    {
         double amplitude = amplitudes[i];
-        double frequency = frequencies[i];
+        double wavelength = wavelengths[i];
+        double speed = speeds[i];
         double phase = phases[i];
+        double k = 2.0 * M_PI / wavelength; // Wave number
+        double omega = k * speed;           // Angular frequency
+        double dir_x = directions[i][0];
+        double dir_z = directions[i][1];
 
-        dW_dx += amplitude * frequency * cos(frequency * x + phase) * sin(frequency * z + phase);
-        //dW_dz +t amplitude * frequency * sin(frequency * x + phase) * cos(frequency * z + phase);
+        // Normalize direction vector
+        double dir_length = sqrt(dir_x * dir_x + dir_z * dir_z);
+        dir_x /= dir_length;
+        dir_z /= dir_length;
+
+        double dot = k * (dir_x * x + dir_z * z) - omega * time + phase;
+        double cos_dot = cos(dot);
+        double sin_dot = sin(dot);
+
+        // Accumulate partial derivatives
+        d_dx += amplitude * k * dir_x * cos_dot;
+        d_dy += amplitude * k * sin_dot;
+        d_dz += amplitude * k * dir_z * cos_dot;
     }
 
     // Compute the perturbed normal
-    normal.x = -dW_dx;
-    normal.y = 1.0;
-    normal.z = -dW_dz;
+    t_vec perturbed_normal;
+    perturbed_normal.x = -d_dx;
+    perturbed_normal.y = base_normal.y - d_dy; // base_normal.y should be 1.0 for a flat plane
+    perturbed_normal.z = -d_dz;
+    perturbed_normal.w = 0.0; // Since it's a vector
 
-    // Normalize the normal vector
-   return( norm(normal));
+    // Normalize the perturbed normal
+    //perturbed_normal = norm(perturbed_normal);
+	//perturbed_normal = mtx_mult_mt(mtx_rotation_x(-M_PI_4 * 2), perturbed_normal);
+	//perturbed_normal = mult_v(perturbed_normal, -1.0);
+	perturbed_normal = norm(perturbed_normal);
+	//print_t(2, perturbed_normal);
+    return (perturbed_normal);
 }
 
-// Function to create a realistic ocean wave normal
-t_vec bump_wave_normal_at(t_bump bump, t_point point, t_vec base_normal) {
-	return (compute_wave_normal(point, base_normal));
-    t_vec z_axis;
-    t_vec rotation_axis;
-    t_matrix rotation_matrix;
-    double angle_x, angle_z;
-
-    // Initialize z_axis as (0, 0, 1)
-    z_axis = new_vec(0, 0, 1);
-
-    // Check if base_normal is equal to z_axis
-    if (eq_t(base_normal, z_axis)) {
-        // TODO: Handle the special case where the base normal is aligned with z-axis
-        return base_normal;
-    }
-
-    // Compute the rotation axis as the cross product of base_normal and z_axis
-    rotation_axis = cross_prod(base_normal, z_axis);
-
-    // Compute the angle of rotation based on the sum of sine waves in both x and z directions
-    double interval_x = 15.0;  // Spatial period of the waves along x-axis
-    double interval_z = 20.0;  // Spatial period of the waves along z-axis
-    double amplitude = 0.1 * M_PI;  // Max rotation of 0.1 PI radians
-
-    // Compute angles for rotation based on sine waves for both x and z directions
-    angle_x = amplitude * sin((2 * M_PI / interval_x) * point.x);
-    angle_z = amplitude * sin((2 * M_PI / interval_z) * point.z);
-
-    // Combine the angles for more realistic wave behavior
-    double combined_angle = angle_x + angle_z;
-
-    // Create a rotation matrix to rotate around the rotation axis by the computed combined angle
-    rotation_matrix = mtx_rotation_axis_angle(rotation_axis, combined_angle);
-
-    // Return the rotated base normal
-    return mtx_mult_mt(rotation_matrix, base_normal);
-}
-
-
-
-t_vec	bump_wave_normal_at1(t_bump bump, t_point point, t_vec base_normal)
-{
-	t_vec		z_axis;
-	t_vec		rotation_axis;
-	t_matrix	rotation_matrix;
-	double		angle;
-
-	z_axis = new_vec(0, 0, 1);
-	if (eq_t(base_normal, z_axis))
-	{
-		//TODO: what to do here
-		return (base_normal);
-	}
-	rotation_axis = cross_prod(base_normal, z_axis);
-	// angle = sin(point.z);
-
-	/*
-	2pi - 1.75 pi
-	1.75pi - 2pi
-	0pi-0.25pi
-	0.25pi-0pi
-	*/
-	double intervall = 10.0;
-	double rem = fmod(point.z, intervall);
-	angle = (((rem / intervall) * M_PI * 2) / 4) - (0.25 * M_PI);
-	rotation_matrix = mtx_rotation_axis_angle(rotation_axis, angle);
-	rotation_matrix = mtx_rotation_x(angle);
-
-	double interval = 10.0;  // The spatial period of the waves
-	double amplitude = 0.25 * M_PI;  // Max rotation of 0.25 PI radians
-	angle = amplitude * sin((2 * M_PI / interval) * point.z);
-	return (mtx_mult_mt(rotation_matrix, base_normal));
-	(void)bump;
-}
-
-// Function to compute wave influence based on position
-double waveFunction(double position)
-{
-    return sin(position);
-}
-
-// Function to compute the perturbed normal at a point on the ocean surface
-t_vec bump_wave_normal_at2(t_bump bump, t_vec normal, t_vec point) {
-    // Adjust the strength of the wave effect
-    double amplitude = 0.4;  // This controls the height of the waves
-
-    // Compute wave effects based on the x or z position
-    double waveX = amplitude * waveFunction(point.x);
-    double waveZ = amplitude * waveFunction(point.z);
-
-    // Create a new vector from the original normal, perturbed by the wave functions
-    t_vec newNormal = { normal.x + waveX, normal.y, normal.z + waveZ , .w=0};
-
-    // Normalize the result to ensure it's a valid normal
-    return norm(newNormal);
-}
