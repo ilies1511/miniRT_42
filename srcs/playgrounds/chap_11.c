@@ -100,31 +100,94 @@ t_material	eng_sand(void)
 	return (mat);
 }
 
+//static void add_objs(t_world *world)
+//{
+//	// t_light	light_1 = eng_point_light(new_fcolor(253.0 / 255, 251.0 / 255, 211.0/255, 1),
+//	// 	new_point(0, 5000, 50000));
+//	t_light	light_1 = eng_point_light(new_fcolor(253.0 / 255, 251.0 / 255, 211.0/255, 1),
+//		new_point(0, 5000, 5000));
+//	t_plane		water = eng_new_plane();
+//	t_plane		floor = eng_new_plane();
+//	t_plane		sky = eng_new_plane();
+//
+//	// bot.base_obj.material.reflective = 0.2;
+//	water.base_obj.material = eng_water();
+//	//bot.base_obj.material.pattern = pat_checker2d_pattern(new_fcolor(1, 0, 0, 1), new_fcolor(0,0,1, 1));
+//
+//	sky.base_obj.material = eng_blue_sky();
+//	eng_set_transform((t_obj_ptr)&sky, mtx_translate(0, 50, 0));
+//
+//	//floor.base_obj.material.fcolor = new_fcolor(48.0 / 255, 213 / 255.0, 200 / 255.0, 1);
+//	floor.base_obj.material = eng_sand();
+//	eng_set_transform((t_obj_ptr)&floor, mtx_translate(0, -40, 0));
+//
+//	eng_add_obj_to_world(world, (t_obj_ptr)&light_1);
+//	eng_add_obj_to_world(world, (t_obj_ptr)&water);
+//	//eng_add_obj_to_world(world, (t_obj_ptr)&sky);
+//	eng_add_obj_to_world(world, (t_obj_ptr)&floor);
+//}
+
 static void add_objs(t_world *world)
 {
-	// t_light	light_1 = eng_point_light(new_fcolor(253.0 / 255, 251.0 / 255, 211.0/255, 1),
-	// 	new_point(0, 5000, 50000));
-	t_light	light_1 = eng_point_light(new_fcolor(253.0 / 255, 251.0 / 255, 211.0/255, 1),
-		new_point(0, 49, 100));
-	t_plane		water = eng_new_plane();
-	t_plane		floor = eng_new_plane();
-	t_plane		sky = eng_new_plane();
 
-	// bot.base_obj.material.reflective = 0.2;
+t_light sun_light = eng_point_light(
+    new_fcolor(1.0, 0.9, 0.6, 1),   // Warm, bright sunlight color
+    new_point(0, 10000, -10000)       // High and behind the camera to simulate the angle of sunlight
+);
+	t_plane	water = eng_new_plane();
+
 	water.base_obj.material = eng_water();
-	//bot.base_obj.material.pattern = pat_checker2d_pattern(new_fcolor(1, 0, 0, 1), new_fcolor(0,0,1, 1));
+	
+	water.base_obj.material.reflective = 0.6;
+	water.base_obj.material.transparency = 0.7;
+	water.base_obj.material.refractive_index = 1.33; // Approximate for water
+	eng_set_transform((t_obj_ptr)&water, mtx_translate(0, 0, 0));  // At horizon level
 
-	sky.base_obj.material = eng_blue_sky();
-	eng_set_transform((t_obj_ptr)&sky, mtx_translate(0, 50, 0));
-
-	//floor.base_obj.material.fcolor = new_fcolor(48.0 / 255, 213 / 255.0, 200 / 255.0, 1);
+	t_plane floor = eng_new_plane();
 	floor.base_obj.material = eng_sand();
-	eng_set_transform((t_obj_ptr)&floor, mtx_translate(0, -20, 0));
+	floor.base_obj.material.pattern = pat_checker2d_pattern(
+	    new_fcolor(0.18, 0.31, 0.31, 1), floor.base_obj.material.fcolor);
+	eng_set_transform((t_obj_ptr)&floor, mtx_translate(0, -40, 0));  // Below the water level
+	
 
-	eng_add_obj_to_world(world, (t_obj_ptr)&light_1);
+	
+	t_plane		sky = eng_new_plane();
+	sky.base_obj.material = eng_blue_sky();
+	eng_set_transform((t_obj_ptr)&sky, mtx_translate(0, 20000, 0));
+
+
+	eng_add_obj_to_world(world, (t_obj_ptr)&sun_light);
 	eng_add_obj_to_world(world, (t_obj_ptr)&water);
 	eng_add_obj_to_world(world, (t_obj_ptr)&sky);
 	eng_add_obj_to_world(world, (t_obj_ptr)&floor);
+
+}
+
+void	sphere_test(void *main_data)
+{
+	t_main			*m_data = (t_main *)main_data;
+	t_canvas		canvas = m_data->engine.canvas;
+	t_camera		camera;
+	t_world			*world;
+
+	camera = eng_new_camera(WIDTH, HEIGHT, M_PI / 3);
+//	eng_set_transform((t_obj_ptr)&camera, sc_transforme_view(new_point(0, 2, -30),
+//			new_point(0, 0, 0), new_vec(0, 1, 0)));
+
+eng_set_transform((t_obj_ptr)&camera, sc_transforme_view(
+    new_point(0, 5, -30),  // Slightly elevated to provide a better view of the horizon
+    new_point(0, 0, 10),   // Looking slightly downwards towards the horizon
+    new_vec(0, 1, 0)       // Keeping the 'up' vector to maintain vertical orientation
+));
+	static bool first = true;
+	world = &m_data->engine.world;
+	if (first)
+	{
+		first = false;
+		add_objs(world);
+	}
+	eng_render(camera, *world, canvas);
+	//store_as_plain_ppm(m_data, "123123.ppm");
 }
 
 static void add_objs2(t_world *world)
@@ -166,7 +229,7 @@ static void add_objs2(t_world *world)
 	bot.base_obj.material.pattern = pat_checker2d_pattern(new_fcolor(1, 0, 0, 1), new_fcolor(0,0,1, 1));
 	eng_set_transform((t_obj_ptr)&bot, mtx_translate(0, 0, 4));
 
-	behind.base_obj.material = eng_blue_sky();
+	//behind.base_obj.material = eng_blue_sky();
 	eng_set_transform((t_obj_ptr)&behind, mtx_translate(0, 0, -100));
 	eng_set_transform((t_obj_ptr)&behind, mtx_rotation_x(M_PI_2));
 
@@ -211,29 +274,4 @@ static void add_objs2(t_world *world)
 	//eng_add_obj_to_world(world, (t_obj_ptr)&cone);
 	//eng_add_obj_to_world(world, (t_obj_ptr)&test);
 	(void)light_2;
-}
-
-void	sphere_test(void *main_data)
-{
-	t_main			*m_data = (t_main *)main_data;
-	t_canvas		canvas = m_data->engine.canvas;
-	t_camera		camera;
-	t_world			*world;
-
-	camera = eng_new_camera(WIDTH, HEIGHT, M_PI / 3);
-	// eng_set_transform((t_obj_ptr)&camera, sc_transforme_view(new_point(0, 10, -70),
-	// 		new_point(0, 0, 0), new_vec(0, 1, 0)));
-	eng_set_transform((t_obj_ptr)&camera, sc_transforme_view(new_point(0, 5, -70),
-			new_point(20, 0, 0), new_vec(0, 1, 0)));
-	//eng_set_transform((t_obj_ptr)&camera, sc_transforme_view(new_point(0, 20, -20),
-	//		new_point(0, 0, 0), new_vec(0, 1, 1)));
-	static bool first = true;
-	world = &m_data->engine.world;
-	if (first)
-	{
-		first = false;
-		add_objs(world);
-	}
-	eng_render(camera, *world, canvas);
-	//store_as_plain_ppm(m_data, "123123.ppm");
 }
