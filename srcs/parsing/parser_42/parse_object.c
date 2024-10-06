@@ -13,7 +13,7 @@ void	parse_ambient(t_main *m_data, char *line)
 	while (line && !ft_iswhitespace(*line))
 		line++;
 	str_to_fcolor(line, &color, &line);
-	m_data->engine.world.ambient42 = scale_fcolor(color, scalear);;
+	m_data->engine.world.ambient42 = scale_fcolor(color, scalear);
 }
 
 //note: up not mentioned in subject so it's fixed to (0, 1, 0)
@@ -21,18 +21,21 @@ void	parse_camera(t_main *m_data, char *line,
 			size_t mem_points[PARSER_MEM_SIZE])
 {
 	t_point	origin;
-	t_point	to;
+	t_vec	direct;
 	t_vec	up;
 	double	fov;
+	t_point	to;
 
 	up = new_vec(0, 1, 0);
-	line++;
-	str_to_tuple(line, &origin, &line, 1.0);
+	str_to_tuple(++line, &origin, &line, 1.0);
 	parser_inc_mem(mem_points, origin);
-	str_to_tuple(line, &to, &line, 1.0);
+	str_to_tuple(line, &direct, &line, 0.0);
+	direct = norm(direct);
+	if (eq_t(direct, up))
+		up = new_vec(0, 0, 1);
+	to = add_t(direct, origin);
 	parser_inc_mem(mem_points, to);
-	while (ft_iswhitespace(*line))
-		line++;
+	skip_whitespace(&line);
 	if (!ft_isdigit(*line) && *line != '-')
 		parser_error("parsing error", __FILE__, __LINE__, 100);
 	fov = str_to_float(line);

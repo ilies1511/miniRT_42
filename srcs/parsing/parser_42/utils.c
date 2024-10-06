@@ -36,6 +36,9 @@ void	str_to_tuple(char *str, t_tuple *ret, char **str_ptr, double w)
 	while (*str && ft_iswhitespace(*str))
 		str++;
 	*str_ptr = str;
+	if (eq_f(w, 0.0) && eq_f(ret->x, 0.0) && eq_f(ret->y, 0.0)
+		&& eq_f(ret->z, 0.0))
+		parser_error("vector can't be len 0", __FILE__, __LINE__, 100);
 }
 
 void	str_to_fcolor(char *str, t_fcolor *ret, char **str_ptr)

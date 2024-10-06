@@ -42,6 +42,7 @@ void	parser(t_main *m_data, char *path)
 
 	if (!valid_file_extension(path))
 		parser_error("Invalid file extension", __FILE__, __LINE__, errno);
+	m_data->engine.world.ambient42 = scale_fcolor(fcolor_white(), 0.2);
 	ft_bzero(mem_points, sizeof mem_points);
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
