@@ -9,7 +9,7 @@
 # include <math.h>
 
 # ifndef REFLECTION_COUNT
-#  define REFLECTION_COUNT 7
+# define REFLECTION_COUNT 2
 # endif
 
 # ifndef ERROR_BUF_LEN
@@ -131,13 +131,13 @@ typedef enum e_obj_type
 const char		*eng_type_to_str(t_obj_type type, char buf[ERROR_BUF_LEN]);
 bool			eng_is_shape(t_obj_type type);
 
-typedef struct s_obj
+typedef struct	s_obj
 {
 	t_matrix	transform;
 	t_matrix	inverse;
 	t_obj_type	type;
 	t_material	material;
-}	__attribute__((may_alias)) t_obj;
+}	__attribute__((may_alias))	t_obj;
 
 typedef enum e_bump_type
 {
@@ -145,10 +145,10 @@ typedef enum e_bump_type
 	BUMP_WAVE,
 }	t_bump_type;
 
-typedef struct s_bump
+typedef struct	s_bump
 {
 	t_obj			base_obj;
-	t_bump_type	type;
+	t_bump_type		type;
 }	__attribute__((may_alias)) t_bump;
 
 typedef enum e_pattern_type
@@ -160,7 +160,7 @@ typedef enum e_pattern_type
 	PAT_SQUARE_3D
 }	t_pattern_type;
 
-typedef struct s_pattern
+typedef struct	s_pattern
 {
 	t_obj			base_obj;
 	t_pattern_type	type;
@@ -174,7 +174,7 @@ t_obj_ptr			eng_alloc_shape(t_obj_type type);
  * width/height in pixels
  a pixel_size: distance a signle pixel covers in 3d space
 */
-typedef struct s_camera
+typedef struct	s_camera
 {
 	t_obj	base_obj;
 	double	fov_x;
@@ -185,21 +185,21 @@ typedef struct s_camera
 	double	half_wall_height;
 }	__attribute__((may_alias)) t_camera;
 
-typedef struct s_sphere
+typedef struct	s_sphere
 {
 	t_obj		base_obj;
 	t_point		origin;
 	double		rad;
 }	__attribute__((may_alias))t_sphere;
 
-typedef struct s_plane
+typedef struct	s_plane
 {
 	t_obj		base_obj;
 }	__attribute__((may_alias))t_plane;
 
 t_plane			eng_new_plane(void);
 
-typedef struct s_cone
+typedef struct	s_cone
 {
 	t_obj		base_obj;
 	t_point		origin;
@@ -211,7 +211,7 @@ typedef struct s_cone
 
 t_cone		eng_new_cone(void);
 
-typedef struct s_cylinder
+typedef struct	s_cylinder
 {
 	t_obj		base_obj;
 	t_point		origin;
@@ -229,7 +229,7 @@ typedef struct s_intersc
 	t_obj_ptr	obj;
 }	t_intersc;
 
-typedef struct s_intersc_arr
+typedef struct	s_intersc_arr
 {
 	size_t		count;
 	t_intersc	*arr;
@@ -241,6 +241,17 @@ typedef struct s_ray
 	t_point			origin;
 	t_vec			direct;
 }	__attribute__((may_alias))t_ray;
+
+typedef struct s_refracted_color_norm
+{
+	double		cos_vecs;
+	double		ratio;
+	double		sin_sqr;
+	double		cos_val;
+	t_vec		direct;
+	t_ray		refract;
+	t_fcolor	color;
+}			t_refracted_color_norm;
 
 typedef enum e_light_type
 {
@@ -328,14 +339,27 @@ t_cylinder		eng_new_cylinder(void);
 void			eng_intersc_ray(t_intersc_arr *interscs, t_ray ray,
 					t_obj_ptr obj);
 void			eng_sort_intersc(t_intersc_arr *interscs);
-t_intersc		eng_add_intersc(t_intersc_arr *interscs, t_obj_ptr obj, double t);
+t_intersc		eng_add_intersc(t_intersc_arr *interscs, t_obj_ptr obj, \
+					double t);
 t_intersc_arr	eng_new_intersc_arr(void);
 void			eng_ray_intersc_world(t_ray ray, t_world world,
 					t_intersc_arr *interscs);
 void			eng_intersc_ray_cylinder(t_intersc_arr *intersecs, t_ray ray,
 					t_cylinder *cylinder);
+//Intersect Ray-Cone
 void			eng_intersc_ray_cone(t_intersc_arr *intersecs, t_ray ray,
 					t_cone *cone);
+void			add_intersects(t_cone_norm *n, t_intersc_arr *intersecs, \
+					t_ray ray, t_cone *cone);
+void			swap_double_co(t_cone_norm *n);
+void			cal_intesects(t_cone_norm *n);
+void			cal_abc(t_cone_norm *n, t_ray ray);
+void			cal_disc_sqrt(t_cone_norm *n);
+void			eng_intersc_ray_cone_caps(t_intersc_arr *intersecs, t_ray ray, \
+						t_cone *cone);
+bool			check_cap_cone(t_ray ray, double t, double y);
+//End Cone
+
 bool			test_cone_intersect(void);
 bool			test_intersec_cone_caps(void);
 bool			test_normal_cone(void);
@@ -350,6 +374,13 @@ bool			test_truncated_cylinder(void);
 bool			test_capped_cylinder(void);
 bool			test_closed_capped_cylinder(void);
 bool			test_normal_cylinde2(void);
+
+//Normal_at_types
+t_vec			compute_normal_sphere(t_point object_point);
+t_vec			compute_normal_plane(t_point object_point);
+t_vec			compute_normal_cylinder(t_cylinder *cylinder, \
+					t_point object_point);
+t_vec			compute_normal_cone(t_cone *cone, t_point object_point);
 
 //cleanup
 void			eng_free_intersc_arr(t_intersc_arr *interscs);

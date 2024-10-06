@@ -43,4 +43,3 @@ int	test_gc_init(void)
 	upper[i] = '\0';
 	return (1);
 }
-

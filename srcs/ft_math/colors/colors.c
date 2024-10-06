@@ -2,17 +2,6 @@
 #include <ft_floats.h>
 #include <ft_colors.h>
 
-t_fcolor	mult_fcolor(t_fcolor a, t_fcolor b)
-{
-	t_fcolor	new_color;
-
-	new_color.r = a.r * b.r;
-	new_color.g = a.g * b.g;
-	new_color.b = a.b * b.b;
-	new_color.a = 1.0;
-	return (new_color);
-}
-
 t_fcolor	add_fcolor(t_fcolor a, t_fcolor b)
 {
 	t_fcolor	sum;

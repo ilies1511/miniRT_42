@@ -3,14 +3,16 @@
 
 bool	eng_is_shape(t_obj_type type)
 {
-	return (type == OBJ_SPHERE || type == OBJ_PLANE || type == OBJ_CYLINDER);
+	return (type == OBJ_SPHERE || type == OBJ_PLANE \
+		|| type == OBJ_CYLINDER || type == OBJ_CONE);
 }
 
 t_obj_ptr	eng_alloc_shape(t_obj_type type)
 {
 	t_obj_ptr	shape;
-	char	buf[ERROR_BUF_LEN];
+	char		buf[ERROR_BUF_LEN];
 
+	shape = NULL;
 	if (type == OBJ_SPHERE)
 		shape = ft_malloc(sizeof(t_sphere));
 	else if (type == OBJ_PLANE)
@@ -22,8 +24,7 @@ t_obj_ptr	eng_alloc_shape(t_obj_type type)
 	else
 	{
 		ft_fprintf(2, "invlid shape: %s\n", eng_type_to_str(type, buf));
-		ft_assert(0, __FILE__, __LINE__, "eng_alloc_shape:invalid shape type");
-		__builtin_unreachable();
+		ft_error("eng_alloc_shape: invalid shape type", __FILE__, __LINE__, 1);
 	}
 	if (!shape)
 		ft_error("Error: malloc failed", __FILE__, __LINE__, 1);
@@ -33,6 +34,8 @@ t_obj_ptr	eng_alloc_shape(t_obj_type type)
 		*(t_plane *)shape = eng_new_plane();
 	else if (type == OBJ_CYLINDER)
 		*(t_cylinder *)shape = eng_new_cylinder();
+	else if (type == OBJ_CONE)
+		*(t_cone *)shape = eng_new_cone();
 	return (shape);
 }
 
@@ -54,11 +57,14 @@ const char	*eng_type_to_str(t_obj_type type, char buf[ERROR_BUF_LEN])
 		type_str = "OBJ_CAMERA";
 	else if (type == OBJ_CONE)
 		type_str = "OBJ_CONE";
+	else if (type == OBJ_CYLINDER)
+		type_str = "OBJ_CYLINDER";
 	else
 	{
-		ft_assert(0, __FILE__, __LINE__,
-			"eng_type_to_str: unknow type");
-		__builtin_unreachable();
+		// ft_assert(0, __FILE__, __LINE__, \
+		// 	"eng_type_to_str: unknow type");
+		// __builtin_unreachable();
+		ft_error("eng_alloc_shape: invalid shape type", __FILE__, __LINE__, 1);
 	}
 	ft_assert(ft_strlen(type_str) < ERROR_BUF_LEN, __FILE__, __LINE__,
 		"eng_type_to_str: type as string is longer that ERROR_BUF_LEN");

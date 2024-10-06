@@ -41,9 +41,10 @@ static void	in_light_case(t_lighting_norm *n, t_light light, t_computation comp)
 t_fcolor	eng_lighting(t_computation comp, t_light light, bool in_shadow)
 {
 	t_lighting_norm	n;
+	t_fcolor		check;
 
 	init_lighting_norm_strukt(&n);
-	t_fcolor check = mult_fcolor(comp.color_at, light.intensity);
+	check = mult_fcolor(comp.color_at, light.intensity);
 	n.effective_color = mult_fcolor(comp.color_at, light.intensity);
 	n.light_direction = sub_t(light.origin, comp.over_point);
 	n.lightv = norm(new_vec(n.light_direction.x, n.light_direction.y, \
@@ -89,24 +90,5 @@ t_light	eng_point_light(t_fcolor intensity, t_point position)
 	light.base_obj.type = OBJ_LIGHT;
 	light.radius = 1;
 	light.type = POINT_LIGHT;
-	return (light);
-}
-
-t_light			eng_spot_light(t_fcolor intensity, t_point position,
-		t_point look_at, double fov_360)
-{
-	t_light	light;
-	double	rad_angle;
-
-	light.base_obj = eng_new_obj();
-	light.intensity = intensity;
-	light.origin = position;
-	light.base_obj.type = OBJ_LIGHT;
-	light.radius = 1;
-	light.type = SPOT_LIGHT;
-	light.direct = sub_t(look_at, position);
-	light.direct = norm(light.direct);
-	rad_angle = fov_360 / 180 * M_PI / 2;
-	light.cosine_range = cos(rad_angle);
 	return (light);
 }

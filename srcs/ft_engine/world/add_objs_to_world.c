@@ -9,7 +9,8 @@ static void	add_light_to_world(t_world *world, t_light *light)
 		ft_error("Error: malloc failed", __FILE__, __LINE__, 1);
 }
 
-static void	add_shape_to_world(t_world *world, t_obj_ptr obj_data, size_t obj_size)
+static void	add_shape_to_world(t_world *world, t_obj_ptr obj_data, \
+		size_t obj_size)
 {
 	t_obj_ptr	new;
 
