@@ -9,25 +9,30 @@
 
 typedef struct s_bump_norm
 {
-	double		wavelength[5];
-	double		amplitude[5];
-	double		directions[5][2];
-	double		phases[5];
-	double		cos_dot;
-	double		sin_dot;
-	int			i;
 	double		x;
-	double		z;
-	double		k;
-	double		dir_x;
-	double		dir_z;
+	int			i;
+	double		time;
 	double		d_dx;
 	double		d_dy;
 	double		d_dz;
-	t_vec		perturbed_normal;
-	double		dot;
+	double		z;
+	double		amplitude;
+	double		wavelength;
+	double		speed;
+	double		phase;
+	double		k;
+	double		omega;
+	double		dir_x;
+	double		dir_z;
 	double		dir_length;
+	double		dot;
+	double		cos_dot;
+	double		sin_dot;
+	t_vec		perturbed_normal;
 	const int	num_waves;
+	double		amplitudes[6];
+	double		wavelengths[6];
+	double		directions[6][2];
 }				t_bump_norm;
 
 //Source Files
