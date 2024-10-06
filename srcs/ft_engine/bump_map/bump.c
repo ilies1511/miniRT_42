@@ -10,6 +10,7 @@ t_bump	*bump_new_bump(void)
 	bump = ft_malloc(sizeof(t_bump));
 	if (!bump)
 		ft_error("Malloc failed", __FILE__, __LINE__, 1);
+	printf("%p\n", bump);
 	bump->base_obj = eng_new_obj();
 	bump->base_obj.type = OBJ_BUMP;
 	bump->type = BUMP_DEFAULT;

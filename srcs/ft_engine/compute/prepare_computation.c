@@ -25,6 +25,7 @@ t_computation	eng_prepare_computation(t_intersc hit, t_ray ray,
 	comp.color_at = (hit.obj->material.fcolor);
 	comp.point = eng_ray_pos(ray, comp.t);
 	comp.eye_v = negate_v(ray.direct);
+
 	comp.normal_v = eng_normal_at(comp.obj, comp.point);
 	if (dot_prod(comp.normal_v, comp.eye_v) < 0)
 	{

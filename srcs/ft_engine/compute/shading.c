@@ -150,7 +150,7 @@ t_fcolor	eng_shade_hit42(t_world world, t_computation comp,
 
 //if this ifdef block is moved the 'test' rule in the make file needs
 //to be changed accordingly
-#ifdef TEST
+#ifdef AMBIENT_CUSTOM
 
 t_fcolor	eng_color_at(t_world world, t_ray ray, size_t remaining_reflects)
 {
@@ -172,7 +172,7 @@ t_fcolor	eng_color_at(t_world world, t_ray ray, size_t remaining_reflects)
 	eng_free_intersc_arr(&interscs);
 	return (color);
 }
-#else
+#elif AMBIENT_42
 
 t_fcolor	eng_color_at(t_world world, t_ray ray, size_t remaining_reflects)
 {
@@ -194,7 +194,12 @@ t_fcolor	eng_color_at(t_world world, t_ray ray, size_t remaining_reflects)
 	eng_free_intersc_arr(&interscs);
 	return (color);
 }
-#endif //TEST
+
+#else
+
+# error "ambient macro not defined!"
+
+#endif //AMBIENT
 
 size_t	eng_put_pixel(t_canvas canvas, size_t x, size_t y, t_fcolor color)
 {

@@ -2,13 +2,13 @@ NAME := miniRT
 CC := cc
 #when running 'make' add "SHADOWS=HARD" for hard shadows
 SHADOWS := HARD
-TEST_FLAG :=
+#when running 'make' add "AMBIENT=CUSTOM" for diffrent ambient light
+AMBIENT := 42
+AMBIENT_FLAG := -DAMBIENT_$(AMBIENT)
 SHADOWS_FLAG := -D$(SHADOWS)_SHADOWS
-CFLAGS := -Wall -Wextra -DFSAN $(SHADOWS_FLAG) -fsanitize=address -g -O0 $(TEST_FLAG)
-#CFLAGS := -Wall -Wextra -g
-# FLAGS_SPEED := -Wall -Wextra -Ofast -march=native-flto -DNDBUG=1
-FLAGS_SPEED := -Wall -Wextra -g -Ofast -march=native -DNDBUG=1 $(TEST_FLAG) $(SHADOWS_FLAG)
-
+CFLAGS_DEBUG := -Wall -Wextra -DFSAN $(SHADOWS_FLAG) -fsanitize=address -g -O0 $(AMBIENT_FLAG)
+FLAGS_SPEED := -Wall -Wextra -g -Ofast -march=native -DNDBUG=1 $(SHADOWS_FLAG) $(AMBIENT_FLAG)
+CFLAGS := $(FLAGS_SPEED)
 #-Werror
 #-O3
 # -Werror
@@ -169,20 +169,21 @@ YELLOW	=	\033[33m
 CYAN	=	\033[0;36m
 CLEAR	=	\033[0m
 
-.PHONY: clone_mlx42 all clean fclean ffclean test
+.PHONY: clone_mlx42 all clean fclean ffclean test redebug
 
-all: $(NAME) test
+all: $(NAME)
 
 $(NAME): mlx $(LIBFT) $(OBJECTS)
-	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJECTS) $(LIBFT) -o $(NAME) $(MLX_FLAGS)
+	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJECTS) $(LIBFT) -o $(NAME) $(MLX_FLAGS) $(CFLAGS)
 	@echo "$(GREEN)$(NAME) compiled!$(CLEAR)"
 
-test: mlx $(LIBFT)
-	rm -f $(OBJ_DIR)ft_engine/compute/shading.o
-	make $(NAME_TEST) CFLAGS="$(CFLAGS) -DTEST" SRC_MAIN="$(SRC_TEST_MAIN)" NAME=$(NAME_TEST)
+debug: 
+	make CFLAGS="$(CFLAGS_DEBUG)"
 
-#test_no_assert:
-#	@make SRC_MAIN=$(SRC_TEST_MAIN) CFLAGS="-DNO_ASSERT=1 $(CFLAGS)" NAME=tests.out
+redebug: fclean debug
+
+test: clean mlx libft
+	make $(NAME_TEST) AMBIENT="CUSTOM" SHADOWS="HARD" SRC_MAIN="$(SRC_TEST_MAIN)" NAME=$(NAME_TEST)
 
 clean:
 	@rm -f $(OBJECTS)
@@ -208,12 +209,6 @@ re: fclean
 
 rre: ffclean
 	@make all
-
-#to optimize for speed without debugging info
-fast:
-	@make CFLAGS="$(FLAGS_SPEED)"
-
-refast: fclean fast
 
 #to create a performece profile on linux
 prof: fclean
