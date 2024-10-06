@@ -238,5 +238,5 @@ eng_set_transform((t_obj_ptr)&camera, sc_transforme_view(
 		add_objs(world);
 	}
 	eng_render(camera, *world, canvas);
-	store_as_plain_ppm(m_data, "ocean1.ppm");
+	//store_as_plain_ppm(m_data, "asd.ppm");
 }

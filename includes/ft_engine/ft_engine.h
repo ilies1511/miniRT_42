@@ -8,8 +8,9 @@
 # include <stdio.h>
 # include <math.h>
 
+
 # ifndef REFLECTION_COUNT
-#  define REFLECTION_COUNT 12
+#  error "REFLECTION_COUNT not defined by makefile"
 # endif
 
 # ifndef ERROR_BUF_LEN

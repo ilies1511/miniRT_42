@@ -5,9 +5,11 @@ SHADOWS := HARD
 #when running 'make' add "AMBIENT=CUSTOM" for diffrent ambient light
 AMBIENT := 42
 AMBIENT_FLAG := -DAMBIENT_$(AMBIENT)
+REFLECTIONS = 3
+REFLECTION_FLAG = "-DREFLECTION_COUNT=$(REFLECTIONS)"
 SHADOWS_FLAG := -D$(SHADOWS)_SHADOWS
-CFLAGS_DEBUG := -Wall -Wextra -DFSAN $(SHADOWS_FLAG) -fsanitize=address -g -O0 $(AMBIENT_FLAG)
-FLAGS_SPEED := -Wall -Wextra -g -Ofast -march=native -DNDBUG=1 $(SHADOWS_FLAG) $(AMBIENT_FLAG)
+CFLAGS_DEBUG := -Wall -Wextra -DFSAN $(SHADOWS_FLAG) -fsanitize=address -g -O0 $(AMBIENT_FLAG) $(REFLECTION_FLAG)
+FLAGS_SPEED := -Wall -Wextra -g -Ofast -march=native -DNDBUG=1 $(SHADOWS_FLAG) $(AMBIENT_FLAG) $(REFLECTION_FLAG)
 CFLAGS := $(FLAGS_SPEED)
 #-Werror
 #-O3
