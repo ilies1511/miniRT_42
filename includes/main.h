@@ -35,11 +35,13 @@
 # include <time.h>//used for tests to init rand()
 
 # ifndef FOV_X
-#  define FOV_X (60.0 / 360.0 * 2 * M_PI)
+//#  define FOV_X (60.0 / 360.0 * 2 * M_PI)
+#  define FOV_X 1.0471975512
 # endif
 
 # ifndef FOV_Y
-#  define FOV_Y (60.0 / 360.0 * 2 * M_PI)
+//#  define FOV_Y (60.0 / 360.0 * 2 * M_PI)
+#  define FOV_X 1.0471975512
 # endif
 
 # ifndef ASPECT_RATIO

@@ -6,7 +6,8 @@
 # include <ft_colors.h>
 # include <ft_engine.h>
 
-t_fcolor	refracted_color(t_world world, t_computation comp, size_t remaining);
+t_fcolor	refracted_color(t_world world, t_computation comp,
+				size_t remaining);
 double		ref_schlick(t_computation comp);
 
 bool		test_prepare_comp_n1_n2(void);

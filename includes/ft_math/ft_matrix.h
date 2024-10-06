@@ -68,8 +68,7 @@ struct s_skew
 	double	zx;
 	double	zy;
 };
-t_matrix	mtx_skew(struct s_skew);
-// end TODO
+t_matrix	mtx_skew(struct s_skew para);
 
 // matrix_rotation.c
 // t_matrix	mtx_pitch(double theta);
