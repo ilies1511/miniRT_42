@@ -4,8 +4,6 @@
 #include <ft_reflection.h>
 #include <ft_refraction.h>
 
-//#define TEST
-//#define SMOOTH_SHADOWS
 //t_light	adjust_light(t_light in)
 //{
 //	t_light	out;
@@ -20,6 +18,11 @@
 //	out.origin = add_t(out.origin, offset);
 //	return (out);
 //}
+
+// # define SMOOTH_SHADOWS
+# define TEST
+# define HARD
+
 #ifdef SMOOTH_SHADOWS
 
 static t_light	adjust_light(t_light light)

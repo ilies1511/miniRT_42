@@ -5,6 +5,8 @@
 /*
 	Addition of two tuples
 */
+#ifndef NDBUG
+
 t_tuple	add_t(t_tuple a, t_tuple b)
 {
 	t_tuple	sum;
@@ -13,15 +15,27 @@ t_tuple	add_t(t_tuple a, t_tuple b)
 	sum.y = a.y + b.y;
 	sum.z = a.z + b.z;
 	sum.w = a.w + b.w;
-#ifndef NDBUG
-		ft_assert(less_eq_f(sum.w , 1.0), __FILE__, __LINE__,
-			"sum of 2 tuples is > 1.0, added 2 points?");
-#else
 	if (sum.w + (EPSILON) > 1.0)
 		__builtin_unreachable();
-#endif
+
 	return (sum);
 }
+#else
+
+t_tuple	add_t(t_tuple a, t_tuple b)
+{
+	t_tuple	sum;
+
+	sum.x = a.x + b.x;
+	sum.y = a.y + b.y;
+	sum.z = a.z + b.z;
+	sum.w = a.w + b.w;
+	if (sum.w + (EPSILON) > 1.0)
+		__builtin_unreachable();
+
+	return (sum);
+}
+#endif
 
 /*
 	Subtraction of two tuples

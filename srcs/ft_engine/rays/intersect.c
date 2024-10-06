@@ -21,8 +21,10 @@ static void	eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray ray,
 	if (discriminant < 0)
 		return ;
 	sqrt_discriminant = sqrt(discriminant);
-	eng_add_intersc(interscs, (t_obj_ptr)sph, (-b + sqrt_discriminant) / (2 * a));
-	eng_add_intersc(interscs, (t_obj_ptr)sph, (-b - sqrt_discriminant) / (2 * a));
+	eng_add_intersc(interscs, (t_obj_ptr)sph, \
+		(-b + sqrt_discriminant) / (2 * a));
+	eng_add_intersc(interscs, (t_obj_ptr)sph, \
+		(-b - sqrt_discriminant) / (2 * a));
 }
 
 // assumes the plane to be the xz plane (normal == 0, 1, 0) at y = 0

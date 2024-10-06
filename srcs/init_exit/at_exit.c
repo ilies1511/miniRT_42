@@ -1,5 +1,12 @@
 #include <main.h>
 
+// #ifdef NDBUG
+
+
+// #else
+
+// #endif
+
 // zero out static vars to detect leaks with fsan or valgrind
 // leaks detected by valgrind from mlx_init():
 // ==40446==    still reachable: 309,526 bytes in 3,127 blocks
@@ -16,8 +23,8 @@ noreturn void	main_cleanup(t_main *m_data, uint8_t exit_stat)
 	get_next_line(-1, true);
 	if (m_data->cleanup_data.fd)
 		close(m_data->cleanup_data.fd);
-	bzero(m_data, sizeof * m_data);
-	bzero(get_gc(), sizeof(t_garbage_collector));
+	ft_bzero(m_data, sizeof * m_data);
+	ft_bzero(get_gc(), sizeof(t_garbage_collector));
 	exit(exit_stat);
 }
 //system("leaks miniRT");
