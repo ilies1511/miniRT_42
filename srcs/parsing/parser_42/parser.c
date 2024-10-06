@@ -22,6 +22,17 @@ void	parse_line(t_main *m_data, char *line,
 		parse_cylinder(m_data, line, mem_points);
 }
 
+bool	valid_file_extension(char *path)
+{
+	size_t	len;
+
+	len = ft_strlen(path);
+	if (len < 3)
+		return (false);
+	path += len - 3;
+	return (!ft_strcmp(path, ".rt"));
+}
+
 //TODO: validate path file type
 void	parser(t_main *m_data, char *path)
 {
@@ -29,6 +40,8 @@ void	parser(t_main *m_data, char *path)
 	int		fd;
 	size_t	mem_points[PARSER_MEM_SIZE];
 
+	if (!valid_file_extension(path))
+		parser_error("Invalid file extension", __FILE__, __LINE__, errno);
 	ft_bzero(mem_points, sizeof mem_points);
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
