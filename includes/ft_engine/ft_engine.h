@@ -9,7 +9,7 @@
 # include <math.h>
 
 # ifndef REFLECTION_COUNT
-#  define REFLECTION_COUNT 7
+# define REFLECTION_COUNT 2
 # endif
 
 # ifndef ERROR_BUF_LEN
@@ -242,6 +242,17 @@ typedef struct s_ray
 	t_vec			direct;
 }	__attribute__((may_alias))t_ray;
 
+typedef struct s_refracted_color_norm
+{
+	double		cos_vecs;
+	double		ratio;
+	double		sin_sqr;
+	double		cos_val;
+	t_vec		direct;
+	t_ray		refract;
+	t_fcolor	color;
+}			t_refracted_color_norm;
+
 typedef enum e_light_type
 {
 	POINT_LIGHT,
@@ -328,14 +339,27 @@ t_cylinder		eng_new_cylinder(void);
 void			eng_intersc_ray(t_intersc_arr *interscs, t_ray ray,
 					t_obj_ptr obj);
 void			eng_sort_intersc(t_intersc_arr *interscs);
-t_intersc		eng_add_intersc(t_intersc_arr *interscs, t_obj_ptr obj, double t);
+t_intersc		eng_add_intersc(t_intersc_arr *interscs, t_obj_ptr obj, \
+					double t);
 t_intersc_arr	eng_new_intersc_arr(void);
 void			eng_ray_intersc_world(t_ray ray, t_world world,
 					t_intersc_arr *interscs);
 void			eng_intersc_ray_cylinder(t_intersc_arr *intersecs, t_ray ray,
 					t_cylinder *cylinder);
+//Intersect Ray-Cone
 void			eng_intersc_ray_cone(t_intersc_arr *intersecs, t_ray ray,
 					t_cone *cone);
+void			add_intersects(t_cone_norm *n, t_intersc_arr *intersecs, \
+					t_ray ray, t_cone *cone);
+void			swap_double_co(t_cone_norm *n);
+void			cal_intesects(t_cone_norm *n);
+void			cal_abc(t_cone_norm *n, t_ray ray);
+void			cal_disc_sqrt(t_cone_norm *n);
+void			eng_intersc_ray_cone_caps(t_intersc_arr *intersecs, t_ray ray, \
+						t_cone *cone);
+bool			check_cap_cone(t_ray ray, double t, double y);
+//End Cone
+
 bool			test_cone_intersect(void);
 bool			test_intersec_cone_caps(void);
 bool			test_normal_cone(void);
@@ -350,6 +374,13 @@ bool			test_truncated_cylinder(void);
 bool			test_capped_cylinder(void);
 bool			test_closed_capped_cylinder(void);
 bool			test_normal_cylinde2(void);
+
+//Normal_at_types
+t_vec			compute_normal_sphere(t_point object_point);
+t_vec			compute_normal_plane(t_point object_point);
+t_vec			compute_normal_cylinder(t_cylinder *cylinder, \
+					t_point object_point);
+t_vec			compute_normal_cone(t_cone *cone, t_point object_point);
 
 //cleanup
 void			eng_free_intersc_arr(t_intersc_arr *interscs);
