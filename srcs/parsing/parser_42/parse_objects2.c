@@ -9,6 +9,8 @@ static void	set_transform_cylinder(t_cylinder *cyl, t_vec axis, double radius,
 	t_matrix	scaleing_radius;
 	t_matrix	translation;
 	t_matrix	transformation;
+	t_vec		rot;
+	double		angle;
 
 	rotation = mtx_new_ident(MAT4X4);
 	scaleing_radius = mtx_scale(radius, 1, radius);
@@ -18,9 +20,8 @@ static void	set_transform_cylinder(t_cylinder *cyl, t_vec axis, double radius,
 		rotation = mtx_rotation_x(M_PI);
 	else if (!eq_t(norm(new_vec(0, 1, 0)), axis))
 	{
-		t_vec rot;
 		rot = cross_prod(norm(new_vec(0, 1, 0)), axis);
-		double angle = acos(dot_prod(norm(new_vec(0, 1, 0)), axis));
+		angle = acos(dot_prod(norm(new_vec(0, 1, 0)), axis));
 		rotation = mtx_rotation_axis_angle(rot, angle);
 	}
 	transformation = mtx_mult_mm(transformation, translation);

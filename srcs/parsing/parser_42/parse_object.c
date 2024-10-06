@@ -26,14 +26,13 @@ void	parse_camera(t_main *m_data, char *line,
 	double	fov;
 	t_point	to;
 
-	up = new_vec(0, 1, 0);
+	up = norm(new_vec(0, 1, 0));
 	str_to_tuple(++line, &origin, &line, 1.0);
 	parser_inc_mem(mem_points, origin);
 	str_to_tuple(line, &direct, &line, 0.0);
-	direct = norm(direct);
-	if (eq_t(direct, up))
-		up = new_vec(0, 0, 1);
-	to = add_t(direct, origin);
+	to = add_t(origin, norm(direct));
+	if (eq_t(norm(direct), up))
+		up = norm(new_vec(0, 0, 1));
 	parser_inc_mem(mem_points, to);
 	skip_whitespace(&line);
 	if (!ft_isdigit(*line) && *line != '-')
@@ -44,7 +43,7 @@ void	parse_camera(t_main *m_data, char *line,
 	if (eq_t(origin, to))
 		parser_error("camera orgin and camera look at can not be eaqual",
 			__FILE__, __LINE__, 100);
-	eng_set_transform((t_obj_ptr)&m_data->engine.camera, sc_transforme_view(
+	eng_set_transform((t_obj_ptr) & m_data->engine.camera, sc_transforme_view(
 			origin, to, up));
 }
 
@@ -67,7 +66,7 @@ void	parse_light(t_main *m_data, char *line,
 	str_to_fcolor(line, &color, &line);
 	color = scale_fcolor(color, scalar);
 	light = eng_point_light(color, origin);
-	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr)&light);
+	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr) & light);
 }
 
 void	parse_plane(t_main *m_data, char *line,
@@ -90,10 +89,11 @@ void	parse_plane(t_main *m_data, char *line,
 	{
 		rot = cross_prod(norm(new_vec(0, 1, 0)), normal);
 		angle = acos(dot_prod(norm(new_vec(0, 1, 0)), normal));
-		eng_set_transform((t_obj_ptr)&plane, mtx_rotation_axis_angle(rot, angle));
+		eng_set_transform((t_obj_ptr) & plane,
+			mtx_rotation_axis_angle(rot, angle));
 	}
-	eng_set_transform((t_obj_ptr)&plane, mtx_translate(p.x, p.y, p.z));
-	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr)&plane);
+	eng_set_transform((t_obj_ptr) & plane, mtx_translate(p.x, p.y, p.z));
+	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr) & plane);
 }
 
 void	parse_sphere(t_main *m_data, char *line,
@@ -114,9 +114,9 @@ void	parse_sphere(t_main *m_data, char *line,
 	skip_float(&line);
 	str_to_fcolor(line, &fcolor, &line);
 	sph.base_obj.material.fcolor = fcolor;
-	eng_set_transform((t_obj_ptr)&sph, mtx_translate(origin.x, origin.y,
+	eng_set_transform((t_obj_ptr) & sph, mtx_translate(origin.x, origin.y,
 			origin.z));
-	eng_set_transform((t_obj_ptr)&sph, mtx_scale(diameter / 2, diameter / 2,
+	eng_set_transform((t_obj_ptr) & sph, mtx_scale(diameter / 2, diameter / 2,
 			diameter / 2));
-	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr)&sph);
+	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr) & sph);
 }
