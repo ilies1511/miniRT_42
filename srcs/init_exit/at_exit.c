@@ -1,12 +1,5 @@
 #include <main.h>
 
-// #ifdef NDBUG
-
-
-// #else
-
-// #endif
-
 // zero out static vars to detect leaks with fsan or valgrind
 // leaks detected by valgrind from mlx_init():
 // ==40446==    still reachable: 309,526 bytes in 3,127 blocks

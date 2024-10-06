@@ -74,4 +74,3 @@ t_garbage_collector	*gc_init_garbage_collector(void)
 	gc->size = 0;
 	return (gc);
 }
-

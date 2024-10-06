@@ -15,7 +15,6 @@ void	main_loop(void *main_data)
 	t_main	*m_data;
 
 	m_data = (t_main *)main_data;
-	//reset_canvas(&m_data->engine.canvas);
 	if (m_data->ac == 1)
 		sphere_test(m_data);
 	else
