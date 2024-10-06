@@ -69,7 +69,6 @@ SRC_FILES_ENGINE := \
 	ft_engine/refraction/refraction.c \
 	ft_engine/refraction/tests.c \
 	ft_engine/refraction/fresnel.c \
-	ft_engine/refraction/test_fresnel.c \
 	ft_engine/material.c \
 	ft_engine/objs/normal_at.c \
 	ft_engine/objs/normal_at_types.c \
