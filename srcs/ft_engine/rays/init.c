@@ -3,6 +3,7 @@
 #include <libft.h>
 
 #ifdef NDBUG
+
 t_ray	eng_new_ray(t_point origin, t_vec direct)
 {
 	t_ray	ray;
@@ -18,6 +19,7 @@ t_ray	eng_new_ray(t_point origin, t_vec direct)
 t_ray	eng_new_ray(t_point origin, t_vec direct)
 {
 	t_ray	ray;
+
 	ft_assert(is_point(origin), __FILE__, __LINE__, "Error: eng_new_ray: \
 			origin is not a point");
 	ft_assert(is_vec(direct), __FILE__, __LINE__, "Error: eng_new_ray: \
@@ -49,52 +51,4 @@ t_sphere	eng_new_glass_sphere(void)
 	sph.base_obj.material.transparency = 1.0;
 	sph.base_obj.material.refractive_index = 1.5;
 	return (sph);
-}
-
-//sph.origin = new_point(0, 0, 0);
-//sph.rad = 1;
-t_sphere	eng_new_sphere(void)
-{
-	t_sphere	sph;
-
-	sph.base_obj = eng_new_obj();
-	sph.base_obj.type = OBJ_SPHERE;
-	return (sph);
-}
-
-t_plane	eng_new_plane(void)
-{
-	t_plane	plane;
-
-	plane.base_obj = eng_new_obj();
-	plane.base_obj.type = OBJ_PLANE;
-	return (plane);
-}
-
-//cone.rad = 1;
-//cone.origin = new_point(0, 0, 0);
-t_cone	eng_new_cone(void)
-{
-	t_cone	cone;
-
-	cone.base_obj = eng_new_obj();
-	cone.base_obj.type = OBJ_CONE;
-	cone.max = INFINITY;
-	cone.min = -INFINITY;
-	cone.closed = false;
-	return (cone);
-}
-
-//cylinder.rad = 1;
-//cylinder.origin = new_point(0, 0, 0);
-t_cylinder	eng_new_cylinder(void)
-{
-	t_cylinder	cylinder;
-
-	cylinder.base_obj = eng_new_obj();
-	cylinder.base_obj.type = OBJ_CYLINDER;
-	cylinder.max = INFINITY;
-	cylinder.min = -INFINITY;
-	cylinder.closed = false;
-	return (cylinder);
 }
