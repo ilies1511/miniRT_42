@@ -171,15 +171,20 @@ YELLOW	=	\033[33m
 CYAN	=	\033[0;36m
 CLEAR	=	\033[0m
 
-.PHONY: clone_mlx42 all clean fclean ffclean test redebug
+.PHONY: clone_mlx42 all clean fclean ffclean test redebug print_vars
 
 all: $(NAME)
 
-$(NAME): mlx $(LIBFT) $(OBJECTS)
+$(NAME): print_vars mlx $(LIBFT) $(OBJECTS)
 	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJECTS) $(LIBFT) -o $(NAME) $(MLX_FLAGS) $(CFLAGS)
 	@echo "$(GREEN)$(NAME) compiled!$(CLEAR)"
 
-debug: 
+print_vars:
+	@echo "$(YELLOW)REFLECTIONS: $(CLEAR)$(GREEN)$(REFLECTIONS) $(CLEAR)$(YELLOW)'(any positive number)' $(CLEAR)"
+	@echo "$(YELLOW)SHADOWS: $(CLEAR)$(GREEN)$(SHADOWS) $(CLEAR)$(YELLOW)'(SMOOTH or HARD)' $(CLEAR)"
+	@echo "$(YELLOW)AMBIENT: $(CLEAR)$(GREEN)$(AMBIENT) $(CLEAR)$(YELLOW)'(42 or CUSTOM)' $(CLEAR)"
+
+debug:
 	make CFLAGS="$(CFLAGS_DEBUG)"
 
 redebug: fclean debug
