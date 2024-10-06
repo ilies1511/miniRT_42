@@ -33,6 +33,8 @@ t_obj_ptr	eng_alloc_shape(t_obj_type type)
 		*(t_plane *)shape = eng_new_plane();
 	else if (type == OBJ_CYLINDER)
 		*(t_cylinder *)shape = eng_new_cylinder();
+	else if (type == OBJ_CONE)
+		*(t_cone *)shape = eng_new_cone();
 	return (shape);
 }
 

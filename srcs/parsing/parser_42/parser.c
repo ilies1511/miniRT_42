@@ -3,24 +3,13 @@
 #include <parser_42.h>
 #include <libft.h>
 
-void	parse_ambient(t_main *m_data, char *line)
-{
-	while (line && !ft_isdigit(*line))
-		line++;
-}
-
 void	parse_line(t_main *m_data, char *line,
 			size_t mem_points[PARSER_MEM_SIZE])
 {
 	while (ft_iswhitespace(*line))
 		line++;
 	if (*line == 'A')
-	{
 		parse_ambient(m_data, line);
-		//TODO: needs small refactor of t_material and eng_lighting
-		//will break a bunch of tests thus should be done in the end
-		//should not be hard
-	}
 	else if (*line == 'C')
 		parse_camera(m_data, line, mem_points);
 	else if (*line == 'L')
@@ -30,9 +19,7 @@ void	parse_line(t_main *m_data, char *line,
 	else if (line[0] == 's' && line[1] == 'p')
 		parse_sphere(m_data, line, mem_points);
 	else if (line[0] == 'c' && line[1] == 'y')
-	{
-		//TODO:
-	}
+		parse_cylinder(m_data, line, mem_points);
 }
 
 //TODO: validate path file type
@@ -45,7 +32,7 @@ void	parser(t_main *m_data, char *path)
 	ft_bzero(mem_points, sizeof mem_points);
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
-		ft_error("Can not open file", __FILE__, __LINE__, errno);
+		parser_error("Can not open file", __FILE__, __LINE__, errno);
 	m_data->cleanup_data.fd = fd;
 	line = get_next_line(fd, false);
 	while (line)
@@ -58,4 +45,3 @@ void	parser(t_main *m_data, char *path)
 	m_data->cleanup_data.fd = 0;
 	get_next_line(fd, true);
 }
-//eng_print_world(m_data->engine.world);

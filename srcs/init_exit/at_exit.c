@@ -3,7 +3,7 @@
 // zero out static vars to detect leaks with fsan or valgrind
 // leaks detected by valgrind from mlx_init():
 // ==40446==    still reachable: 309,526 bytes in 3,127 blocks
-void	main_cleanup(t_main *m_data, uint8_t exit_stat)
+noreturn void	main_cleanup(t_main *m_data, uint8_t exit_stat)
 {
 	if (m_data->mlx)
 	{
@@ -22,7 +22,7 @@ void	main_cleanup(t_main *m_data, uint8_t exit_stat)
 }
 //system("leaks miniRT");
 
-void	ft_error(char *msg, char *file, int line, uint8_t exit_stat)
+noreturn void	ft_error(char *msg, char *file, int line, uint8_t exit_stat)
 {
 	t_main	*m_data;
 

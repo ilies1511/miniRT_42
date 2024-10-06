@@ -185,11 +185,11 @@ typedef struct s_camera
 	double	half_wall_height;
 }	__attribute__((may_alias)) t_camera;
 
+//t_point		origin;
+// double		rad;
 typedef struct s_sphere
 {
 	t_obj		base_obj;
-	t_point		origin;
-	double		rad;
 }	__attribute__((may_alias))t_sphere;
 
 typedef struct s_plane
@@ -199,11 +199,12 @@ typedef struct s_plane
 
 t_plane			eng_new_plane(void);
 
+
+//double		rad;
+//t_point		origin;
 typedef struct s_cone
 {
 	t_obj		base_obj;
-	t_point		origin;
-	double		rad;
 	double		min;
 	double		max;
 	bool		closed;
@@ -211,11 +212,11 @@ typedef struct s_cone
 
 t_cone		eng_new_cone(void);
 
+//double		rad;
+//t_point		origin;
 typedef struct s_cylinder
 {
 	t_obj		base_obj;
-	t_point		origin;
-	double		rad;
 	double		min;
 	double		max;
 	bool		closed;

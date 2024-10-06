@@ -261,7 +261,6 @@ static void add_objs2(t_world *world)
 	cone.min = 0;
 	cone.max = 2;
 	cone.closed = true;
-	cone.origin = new_point(0, 20, 0);
 	eng_set_transform((t_obj_ptr)&cone, mtx_scale(3, 3, 3));
 	//eng_set_transform((t_obj_ptr)&cone , mtx_translate(0, -6, 15));
 	//eng_set_transform((t_obj_ptr)&cone , mtx_rotation_z(M_PI_2));
