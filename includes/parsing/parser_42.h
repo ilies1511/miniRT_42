@@ -33,6 +33,16 @@
 #  define PARSER_HASH_SCALAR 1000
 # endif //PARSER_HASH_SCALAR
 
+typedef struct s_trans_cy_norm
+{
+	t_matrix	rotation;
+	t_matrix	scaleing_radius;
+	t_matrix	translation;
+	t_matrix	transformation;
+	t_vec		rot;
+	double		angle;
+}				t_trans_cy_norm;
+
 typedef struct s_main	t_main;
 
 void			parser(t_main *m_data, char *path);
@@ -52,14 +62,15 @@ void			str_to_fcolor(char *str, t_fcolor *ret, char **str_ptr);
 void			str_to_tuple(char *str, t_tuple *ret, char **str_ptr, double w);
 
 size_t			parser_hash_point(t_point point);
-size_t			parser_get_mem_count(size_t mem[PARSER_MEM_SIZE], t_point point);
+size_t			parser_get_mem_count(size_t mem[PARSER_MEM_SIZE], \
+					t_point point);
 void			parser_inc_mem(size_t mem[PARSER_MEM_SIZE], t_point point);
 t_point			handle_point_collision(size_t mem_points[PARSER_MEM_SIZE],
 					t_point point, double obj_modulo_prime);
 void			parse_ambient(t_main *m_data, char *line);
 
 noreturn void	parser_error(char *str, char *file, int line, int exit_stat);
-void	skip_whitespace(char **str);
-void	skip_float(char **str);
+void			skip_whitespace(char **str);
+void			skip_float(char **str);
 
 #endif //PARSER_42_H

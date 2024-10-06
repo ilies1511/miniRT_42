@@ -4,7 +4,8 @@
 #include <ft_floats.h>
 #include <ft_bump_map.h>
 
-static t_vec	normal_at_iterate_types(t_obj_ptr object, t_point point_obj_space)
+static t_vec	normal_at_iterate_types(t_obj_ptr object, \
+		t_point point_obj_space)
 {
 	if (object->type == OBJ_SPHERE)
 		return (compute_normal_sphere(point_obj_space));

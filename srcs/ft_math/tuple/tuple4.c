@@ -5,7 +5,7 @@
 void	print_t(int fd, t_tuple t)
 {
 	(void)fd;
-	fprintf(stdout, "x: %f\ny: %f\nz: %f\nw: %f\n",
-			t.x, t.y, t.z, t.w);
+	fprintf(stdout, "x: %f\ny: %f\nz: %f\nw: %f\n", \
+		t.x, t.y, t.z, t.w);
 }
 

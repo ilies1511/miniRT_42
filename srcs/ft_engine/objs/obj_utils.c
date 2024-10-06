@@ -60,12 +60,7 @@ const char	*eng_type_to_str(t_obj_type type, char buf[ERROR_BUF_LEN])
 	else if (type == OBJ_CYLINDER)
 		type_str = "OBJ_CYLINDER";
 	else
-	{
-		// ft_assert(0, __FILE__, __LINE__, \
-		// 	"eng_type_to_str: unknow type");
-		// __builtin_unreachable();
 		ft_error("eng_alloc_shape: invalid shape type", __FILE__, __LINE__, 1);
-	}
 	ft_assert(ft_strlen(type_str) < ERROR_BUF_LEN, __FILE__, __LINE__,
 		"eng_type_to_str: type as string is longer that ERROR_BUF_LEN");
 	ft_memcpy(buf, type_str, ft_strlen(type_str));

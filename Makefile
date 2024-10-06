@@ -52,6 +52,7 @@ SRC_FILES_ENGINE := \
 	ft_engine/canvas/canvas.c \
 	ft_engine/mlx_interface/hooks.c \
 	ft_engine/rays/init.c \
+	ft_engine/rays/init2.c \
 	ft_engine/rays/cleanup.c \
 	ft_engine/rays/intersect.c \
 	ft_engine/rays/intersect_utils.c \
@@ -92,7 +93,6 @@ SRC_FILES_ENGINE := \
 	ft_engine/patterns/test_patterns.c \
 	ft_engine/bump_map/bump_wave.c \
 	ft_engine/bump_map/bump.c \
-	ft_engine/bump_map/test_bump.c \
 
 SRC_FILES_MATH := \
 	ft_math/ft_rand.c \
