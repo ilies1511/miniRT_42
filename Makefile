@@ -44,6 +44,9 @@ SRC_FILES_ENGINE := \
 	ft_engine/compute/prepare_computation.c \
 	ft_engine/compute/test_prepare_comp.c \
 	ft_engine/compute/shading.c \
+	ft_engine/light/light.c \
+	ft_engine/light/spot_light.c \
+	ft_engine/light/light_tests.c \
 	ft_engine/canvas/canvas.c \
 	ft_engine/mlx_interface/hooks.c \
 	ft_engine/rays/init.c \
@@ -52,6 +55,8 @@ SRC_FILES_ENGINE := \
 	ft_engine/rays/intersect_utils.c \
 	ft_engine/rays/cylinder_intersect.c \
 	ft_engine/rays/cone_intersect.c \
+	ft_engine/rays/cone_intersect_utils.c \
+	ft_engine/rays/cone_caps.c \
 	ft_engine/rays/test_cone.c \
 	ft_engine/rays/ray_hit.c \
 	ft_engine/rays/utils.c \
@@ -65,10 +70,9 @@ SRC_FILES_ENGINE := \
 	ft_engine/refraction/tests.c \
 	ft_engine/refraction/fresnel.c \
 	ft_engine/refraction/test_fresnel.c \
-	ft_engine/light.c \
-	ft_engine/light_tests.c \
 	ft_engine/material.c \
 	ft_engine/objs/normal_at.c \
+	ft_engine/objs/normal_at_types.c \
 	ft_engine/objs/test_normal.c \
 	ft_engine/scene/transformation_view.c \
 	ft_engine/scene/test_scene.c \
@@ -87,7 +91,7 @@ SRC_FILES_ENGINE := \
 	ft_engine/patterns/test_patterns.c \
 	ft_engine/bump_map/bump_wave.c \
 	ft_engine/bump_map/bump.c \
-	ft_engine/bump_map/test_bump.c
+	ft_engine/bump_map/test_bump.c \
 
 SRC_FILES_MATH := \
 	ft_math/ft_rand.c \
