@@ -108,12 +108,11 @@ void	parse_sphere(t_main *m_data, char *line,
 	if (!ft_isdigit(*line))
 		parser_error("parsing error", __FILE__, __LINE__, 100);
 	diameter = str_to_float(line);
-	if (*line == '-')
-		line++;
-	while (line && !ft_iswhitespace(*line))
-		line++;
+	skip_float(&line);
 	str_to_fcolor(line, &fcolor, &line);
 	sph.base_obj.material.fcolor = fcolor;
+	eng_set_transform((t_obj_ptr)&sph, mtx_translate(origin.x, origin.y,
+			origin.z));
 	eng_set_transform((t_obj_ptr)&sph, mtx_scale(diameter / 2, diameter / 2,
 			diameter / 2));
 	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr)&sph);

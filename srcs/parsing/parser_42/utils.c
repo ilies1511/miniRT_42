@@ -64,4 +64,3 @@ void	str_to_fcolor(char *str, t_fcolor *ret, char **str_ptr)
 		str++;
 	*str_ptr = str;
 }
-
