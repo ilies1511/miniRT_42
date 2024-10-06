@@ -7,7 +7,7 @@ SHADOWS_FLAG := -D$(SHADOWS)_SHADOWS
 CFLAGS := -Wall -Wextra -DFSAN $(SHADOWS_FLAG) -fsanitize=address -g -O0 $(TEST_FLAG)
 #CFLAGS := -Wall -Wextra -g
 # FLAGS_SPEED := -Wall -Wextra -Ofast -march=native-flto -DNDBUG=1
-FLAGS_SPEED := -Wall -Wextra -g -O3 -march=native -DNDBUG=1 $(TEST_FLAG) $(SHADOWS_FLAG)
+FLAGS_SPEED := -Wall -Wextra -g -Ofast -march=native -DNDBUG=1 $(TEST_FLAG) $(SHADOWS_FLAG)
 
 #-Werror
 #-O3
@@ -152,7 +152,8 @@ SOURCE_FILES := \
 	playgrounds/chap_6/1.c \
 	playgrounds/chap_9/1.c \
 	playgrounds/chap_10/1.c \
-	playgrounds/chap_11.c
+	playgrounds/chap_11.c \
+	playgrounds/waves1.c
 
 SOURCES = $(addprefix $(SRC_DIR), $(SOURCE_FILES))
 

@@ -9,7 +9,7 @@
 # include <math.h>
 
 # ifndef REFLECTION_COUNT
-#  define REFLECTION_COUNT 7
+#  define REFLECTION_COUNT 12
 # endif
 
 # ifndef ERROR_BUF_LEN

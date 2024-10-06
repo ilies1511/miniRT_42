@@ -1,6 +1,13 @@
 #include <main.h>
 #include <ft_engine.h>
 #include <parser_42.h>
+#include <libft.h>
+
+void	parse_ambient(t_main *m_data, char *line)
+{
+	while (line && !ft_isdigit(*line))
+		line++;
+}
 
 void	parse_line(t_main *m_data, char *line,
 			size_t mem_points[PARSER_MEM_SIZE])
@@ -9,6 +16,7 @@ void	parse_line(t_main *m_data, char *line,
 		line++;
 	if (*line == 'A')
 	{
+		parse_ambient(m_data, line);
 		//TODO: needs small refactor of t_material and eng_lighting
 		//will break a bunch of tests thus should be done in the end
 		//should not be hard
