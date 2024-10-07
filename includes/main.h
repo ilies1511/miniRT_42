@@ -81,6 +81,7 @@ typedef struct s_main
 	t_engine	engine;
 	t_cleanup	cleanup_data;
 	int			ac;
+	bool		has_camera;
 }	t_mait;
 
 typedef enum s_tuple_type
