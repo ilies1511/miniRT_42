@@ -1,24 +1,5 @@
 #include <main.h>
-
-t_material	eng_new_material_polished_metal(void)
-{
-	t_material	mat;
-
-	mat.fcolor.r = 1;
-	mat.fcolor.g = 1;
-	mat.fcolor.b = 1;
-	mat.fcolor.a = 1;
-	mat.pattern = NULL;
-	mat.ambient = 0.05;
-	mat.diffuse = 0.1;
-	mat.specular = 0.9;
-	mat.shininess = 300;
-	mat.reflective = 0.3;
-	mat.transparency = 0.0;
-	mat.refractive_index = 1.52;
-	mat.bump = NULL;
-	return (mat);
-}
+#include <ft_material.h>
 
 t_material	material123(void)
 {
@@ -37,79 +18,6 @@ t_material	material123(void)
 	mat.transparency = 0.0;
 	mat.refractive_index = 1.52;
 
-	mat.bump = NULL;
-	return (mat);
-}
-
-t_material	eng_blue_sky(void)
-{
-	t_material	mat;
-
-	mat.fcolor.r = 4.0 / 255;
-	mat.fcolor.g = 100.0 / 255;
-	mat.fcolor.b = 280.0 / 255;
-	//mat.fcolor.r = 0.2;
-	//mat.fcolor.g = 0;
-	//mat.fcolor.b = 1;
-
-	mat.fcolor.a = 1;
-	mat.pattern = NULL;
-	mat.ambient = 1.3;
-	mat.diffuse = 0.0;
-	mat.specular = 1;
-	mat.shininess = 0;
-	mat.reflective = 0;
-	mat.transparency = 0;
-	mat.refractive_index = 1.000;
-	mat.bump = NULL;
-	return (mat);
-}
-
-t_material	eng_water(void)
-{
-	t_material	mat;
-
-	mat.fcolor.r = 1;
-	mat.fcolor.g = 1;
-	mat.fcolor.b = 1;
-	mat.fcolor.a = 1;
-
-	mat.fcolor.r = 0.2;
-	mat.fcolor.g = 0.5;
-	mat.fcolor.b = 0.7;
-
-	mat.pattern = NULL;
-	mat.bump = bump_wave();
-	//mat.bump = NULL;
-	mat.ambient = 0.1;
-	mat.diffuse = 0.9;
-	mat.specular = 0.9;
-	mat.shininess = 100;
-	mat.reflective = 0.5;
-	mat.transparency = 0.4;
-	mat.refractive_index = 1.333;
-	return (mat);
-}
-
-
-t_material	eng_sand(void)
-{
-	t_material	mat;
-
-	mat.fcolor.r = 0.76;
-	mat.fcolor.g = 0.7;
-	mat.fcolor.b = 0.5;
-	mat.fcolor.a = 1;
-	mat.pattern = NULL;
-	// mat.bump = bump_wave();
-	mat.bump = NULL;
-	mat.ambient = 0.1;
-	mat.diffuse = 0.7;
-	mat.specular = 0.1;
-	mat.shininess = 10;
-	mat.reflective = 0.0;
-	mat.transparency = 0.0;
-	mat.refractive_index = 1.00029;
 	mat.bump = NULL;
 	return (mat);
 }
@@ -148,13 +56,13 @@ t_light sun_light = eng_point_light(
     new_point(0, 100, 20)       // High and behind the camera to simulate the angle of sunlight
 );
 	t_sphere sph_glass = eng_new_glass_sphere();
-	
+
 	eng_set_transform((t_obj_ptr)&sph_glass, mtx_scale(1000, 1000, 1000));
 	sun_light.radius = 1;
 	t_plane	water = eng_new_plane();
 
 	water.base_obj.material = eng_water();
-	
+
 	//water.base_obj.material.reflective = 0.6;
 	//water.base_obj.material.transparency = 0.7;
 	//water.base_obj.material.refractive_index = 1.33; // Approximate for water
@@ -165,8 +73,8 @@ t_light sun_light = eng_point_light(
 	//floor.base_obj.material.pattern = pat_checker2d_pattern(
 	//    new_fcolor(0.18, 0.31, 0.31, 1), floor.base_obj.material.fcolor);
 	eng_set_transform((t_obj_ptr)&floor, mtx_translate(0, -40, 0));  // Below the water level
-	
-	
+
+
 	t_plane		sky = eng_new_plane();
 	sky.base_obj.material = eng_blue_sky();
 	eng_set_transform((t_obj_ptr)&sky, mtx_translate(0, 10000000, 0));

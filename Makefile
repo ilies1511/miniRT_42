@@ -18,7 +18,8 @@ LIBFT_DIR = libft/
 LIBFT 	=	$(LIBFT_DIR)libft.a
 INCLUDES= -I./includes -I./MLX42/include/MLX42 -I./MLX42/include -I./libft \
 		  -I./includes/ft_math -I./includes/ft_engine -I./includes/parsing \
-		  -I./includes/garbage_collector
+		  -I./includes/garbage_collector \
+		  -I./includes/demo
 
 MLX=MLX42/build/libmlx42.a
 #MLX_FLAGS_LINUX=-Iinclude -ldl -lglfw -pthread -lm
@@ -137,6 +138,16 @@ SRC_FILES_GB_COLLECT := \
 	garbage_collector/gb_utils.c \
 	garbage_collector/gc_dyn_arr.c
 
+SRC_FILES_MATERIALS := \
+	materials/landscape.c \
+	materials/metal.c
+
+SRC_FILES_DEMO := \
+	demo_scenes/ocean.c \
+	demo_scenes/ocean_balls.c \
+	demo_scenes/reflection_demo.c \
+	demo_scenes/internal_reflection.c
+
 SRC_FILES_PARSER := \
 	parsing/ppm_parser/store_as_ppm.c \
 	parsing/parser_42/parser.c \
@@ -153,6 +164,8 @@ SOURCE_FILES := \
 	$(SRC_FILES_MATH) \
 	$(SRC_FILES_GB_COLLECT) \
 	$(SRC_FILES_PARSER) \
+	$(SRC_FILES_MATERIALS) \
+	$(SRC_FILES_DEMO) \
 	init_exit/init.c \
 	init_exit/at_exit.c \
 	playgrounds/1/projectile.c \

@@ -8,13 +8,23 @@ void	parse_line(t_main *m_data, char *line,
 {
 	while (ft_iswhitespace(*line))
 		line++;
-	if (*line == 'A')
+	if (!ft_strncmp("OCEAN_BALLS", line, ft_strlen("OCEAN_BALLS")))
+		demo_add_ocean_balls(m_data);
+	else if (!ft_strncmp("OCEAN", line, ft_strlen("OCEAN")))
+		demo_add_ocean(m_data);
+	else if (!ft_strncmp("ONE_PIECE", line, ft_strlen("ONE_PIECE")))
+		reflection_demo(m_data);
+	else if (!ft_strncmp("CHECKER_REFLECTION", line, \
+		ft_strlen("CHECKER_REFLECTION")))
+		internal_reflection_demo(m_data);
+	else if (*line == 'A')
 		parse_ambient(m_data, line);
 	else if (*line == 'C' && m_data->has_camera == true)
 		parser_error("Can not have multiple cameras", __FILE__, __LINE__, 100);
 	else if (*line == 'C')
 	{
 		m_data->has_camera = true;
+
 		parse_camera(m_data, line, mem_points);
 	}
 	else if (*line == 'L')

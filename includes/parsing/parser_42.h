@@ -2,6 +2,7 @@
 # define PARSER_42_H
 
 # include <stdlib.h>
+# include <ft_scene.h>
 # include <stdint.h>
 # include <ft_tuple.h>
 # include <ft_colors.h>

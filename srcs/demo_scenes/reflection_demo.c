@@ -1,7 +1,8 @@
-
 #include <main.h>
+#include <ft_material.h>
+#include <ft_scene.h>
 
-static void add_objs(t_world *world)
+static void	init_world(t_world *world)
 {
 	t_light		light;
 	t_light		light2;
@@ -21,8 +22,6 @@ static void add_objs(t_world *world)
 	cyl.min = -0.5;
 	cyl.max = 2;
 	cyl.closed = true;
-	//cyl.base_obj.material.transparency = 1.0;
-	//cyl.base_obj.material.refractive_index = 1.5;
 	cyl.base_obj.material.reflective = 0.3;
 	//cyl.base_obj.material.transparency = 1;
 	//cyl.base_obj.material.refractive_index = 1.333;
@@ -91,13 +90,9 @@ static void add_objs(t_world *world)
 	top.base_obj.material.fcolor = new_fcolor(1, 1, 1, 1);
 	top.base_obj.material.reflective = 0.3;
 	top.base_obj.material.pattern = pat_checker2d_pattern(new_fcolor(1, 0, 0, 1), new_fcolor(0,0,1, 1));
-	//top.base_obj.material.transparency = 0.1;
 	//***why is this buggy***
 	eng_set_transform((t_obj *)&top, mtx_rotation_x(M_PI_2));
 	eng_set_transform((t_obj *)&top, mtx_translate(0, 0, 4));
-	//***but this not ***
-	//eng_set_transform((t_obj *)&top, mtx_translate(0, 0, 4));
-	//eng_set_transform((t_obj *)&top, mtx_rotation_x(M_PI_2));
 	//*******************
 	eng_add_obj_to_world(world, (t_obj *)&top);
 
@@ -107,37 +102,44 @@ static void add_objs(t_world *world)
 	eng_set_transform((t_obj *)&left_top, mtx_rotation_y(M_PI + M_PI_2 + M_PI_4));
 	eng_set_transform((t_obj *)&left_top, mtx_translate(-5, 0, 0));
 
-	//eng_add_obj_to_world(world, (t_obj *)&left_top);
 
 	light = eng_point_light(new_fcolor(1, 1, 1, 1), new_point(9, 8, -5));
 	light.radius = 0.5;
 	eng_add_obj_to_world(world, (t_obj *)&light);
-
-	//light2 = eng_point_light(new_fcolor(0, 0.7, 0, 1), new_point(-2, 10, -1));
-	//eng_add_obj_to_world(world, (t_obj *)&light2);
-
-	//light3 = eng_point_light(new_fcolor(0, 0, 0.5, 1), new_point(-5, 10, -1));
-	//eng_add_obj_to_world(world, (t_obj *)&light3);
 	(void)light2;
 }
 
-void	sphere_test(void *main_data)
-{
-	t_main			*m_data = (t_main *)main_data;
-	t_canvas		canvas = m_data->engine.canvas;
-	t_camera		camera;
-	t_world			*world;
 
-	camera = eng_new_camera(WIDTH, HEIGHT, M_PI / 3);
-	eng_set_transform((t_obj *)&camera, sc_transforme_view(new_point(5, 5, -5),
+static void	init_camera(t_main *m_data)
+{
+t_camera	*camera;
+
+if (m_data->has_camera)
+	return ;
+camera = &(m_data->engine.camera);
+*(camera) = eng_new_camera(WIDTH, HEIGHT, M_PI / 3);
+	eng_set_transform((t_obj *)camera, sc_transforme_view(new_point(5, 5, -5),
 			new_point(0, 0, 0), new_vec(0.3, 0.3, 0.3)));
-	static bool first = true;
+// 	camera = &(m_data->engine.camera);
+// 	*(camera) = eng_new_camera(m_data->engine.canvas.width, \
+// 		m_data->engine.canvas.height, );
+// 	printf("WIDTH: %lu\nHEIGHT: %lu\n", m_data->engine.canvas.width, m_data->engine.canvas.height);
+// 	eng_set_transform((t_obj_ptr)camera, sc_transforme_view(
+// 	new_point(),
+// 	new_point(),
+// 	new_vec()
+// 	));
+}
+
+void	reflection_demo(void *main_data)
+{
+	t_main		*m_data = (t_main *)main_data;
+	t_canvas	canvas = m_data->engine.canvas;
+	t_world		*world;
+
+
+	init_camera(m_data);
 	world = &m_data->engine.world;
-	if (first)
-	{
-		first = false;
-		add_objs(world);
-	}
-	eng_render(camera, *world, canvas);
+	init_world(world);
 	//store_as_plain_ppm(m_data, "asd.ppm");
 }
