@@ -35,6 +35,10 @@ void	parse_line(t_main *m_data, char *line,
 		parse_sphere(m_data, line, mem_points);
 	else if (line[0] == 'c' && line[1] == 'y')
 		parse_cylinder(m_data, line, mem_points);
+	else if (line[0] == 'c' && line[1] == 'o' && line[2] != 'd')
+		parse_cone(m_data, line, mem_points);
+	else if (line[0] == 'c' && line[1] == 'o' && line[2] == 'd')
+		parse_double_cone(m_data, line, mem_points);
 }
 
 bool	valid_file_extension(char *path)

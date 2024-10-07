@@ -58,6 +58,11 @@ void			parse_sphere(t_main *m_data, char *line,
 					size_t mem_points[PARSER_MEM_SIZE]);
 void			parse_cylinder(t_main *m_data, char *line,
 					size_t mem_points[PARSER_MEM_SIZE]);
+//Cone
+void			parse_cone(t_main *m_data, char *line,
+					size_t mem_points[PARSER_MEM_SIZE]);
+void			parse_double_cone(t_main *m_data, char *line,
+					size_t mem_points[PARSER_MEM_SIZE]);
 
 void			str_to_fcolor(char *str, t_fcolor *ret, char **str_ptr);
 void			str_to_tuple(char *str, t_tuple *ret, char **str_ptr, double w);
@@ -73,5 +78,6 @@ void			parse_ambient(t_main *m_data, char *line);
 noreturn void	parser_error(char *str, char *file, int line, int exit_stat);
 void			skip_whitespace(char **str);
 void			skip_float(char **str);
+
 
 #endif //PARSER_42_H
