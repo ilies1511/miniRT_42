@@ -70,6 +70,7 @@ void	parser(t_main *m_data, char *path)
 	line = get_next_line(fd, false);
 	while (line)
 	{
+		printf("line: %s", line);
 		parse_line(m_data, line, mem_points);
 		free(line);
 		line = get_next_line(fd, false);

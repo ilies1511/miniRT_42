@@ -36,6 +36,7 @@ void	main_init(t_main *m_data, int ac, char *av[])
 {
 	ft_bzero(m_data, sizeof * m_data);
 	m_data->ac = ac;
+	m_data->av = av;
 	m_data->has_camera = false;
 	m_data->mlx = mlx_init(WIDTH, HEIGHT, "miniRT", true);
 	if (!m_data->mlx)

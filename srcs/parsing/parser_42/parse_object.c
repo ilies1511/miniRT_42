@@ -7,6 +7,7 @@ void	parse_ambient(t_main *m_data, char *line)
 	double		scalear;
 	t_fcolor	color;
 
+	return ;
 	while (line && !ft_isdigit(*line))
 		line++;
 	scalear = str_to_float(line);
@@ -41,7 +42,7 @@ void	parse_camera(t_main *m_data, char *line,
 		parser_error("parsing error", __FILE__, __LINE__, 100);
 	fov = str_to_float(line);
 	m_data->engine.camera = eng_new_camera(m_data->engine.canvas.width,
-			m_data->engine.canvas.height, fov);
+			m_data->engine.canvas.height, fov / 180 * M_PI);
 	if (eq_t(origin, to))
 		parser_error("camera orgin and camera look at can not be eaqual",
 			__FILE__, __LINE__, 100);
@@ -70,14 +71,14 @@ void	parse_camera(t_main *m_data, char *line,
 		parser_error("parsing error", __FILE__, __LINE__, 100);
 	fov = str_to_float(line);
 	m_data->engine.camera = eng_new_camera(m_data->engine.canvas.width,
-			m_data->engine.canvas.height, fov);
+			m_data->engine.canvas.height, fov / 180 * M_PI);
 	if (eq_t(origin, to))
 		parser_error("camera orgin and camera look at can not be eaqual",
 			__FILE__, __LINE__, 100);
+	//eng_set_transform((t_obj_ptr) & m_data->engine.camera, sc_transforme_view(
+	//		new_point(0, 5, -5), new_point(0, 0, 0), new_vec(0, 1, 0)));
 	eng_set_transform((t_obj_ptr) & m_data->engine.camera, sc_transforme_view(
-			new_point(0, 5, -5), new_point(0, 0, 0), new_vec(0, 1, 0)));
-	// eng_set_transform((t_obj_ptr) & m_data->engine.camera, sc_transforme_view(
-	// 		origin, to, up));
+			origin, to, up));
 }
 #endif //CAMERA_GOOD
 
@@ -90,9 +91,9 @@ void	parse_light(t_main *m_data, char *line,
 	double		scalar;
 	t_fcolor	color;
 
-light = eng_point_light(new_fcolor(1, 0, 0, 1), new_point(0, 10, -15));
-eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr) & light);
-return ;
+//light = eng_point_light(new_fcolor(1, 0, 0, 1), new_point(0, 10, -15));
+//eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr) & light);
+//return ;
 
 
 	line++;
@@ -121,8 +122,8 @@ void	parse_plane(t_main *m_data, char *line,
 
 	line += 2;
 	plane = eng_new_plane();
-eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr) & plane);
-return ;
+//eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr) & plane);
+//return ;
 	str_to_tuple(line, &p, &line, 1.0);
 	print_t(1, p);
 	p = handle_point_collision(mem_points, p, PARSER_OFFSET_PLANE);

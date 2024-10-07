@@ -133,4 +133,8 @@ void	eng_render(t_camera camera, t_world world, t_canvas canvas)
 		printf("iter %lu: %f%%\n", iter, ((double)y) / canvas.height * 100);
 		y++;
 	}
+	t_main	*m_data = get_m_data();
+
+	if (m_data->ac > 2)
+		store_as_plain_ppm(m_data, m_data->av[2]);
 }

@@ -81,6 +81,7 @@ typedef struct s_main
 	t_engine	engine;
 	t_cleanup	cleanup_data;
 	int			ac;
+	char		**av;
 	bool		has_camera;
 }	t_mait;
 
