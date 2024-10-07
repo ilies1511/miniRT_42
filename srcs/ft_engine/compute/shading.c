@@ -19,10 +19,6 @@
 //	return (out);
 //}
 
-// # define SMOOTH_SHADOWS
-# define TEST
-# define HARD
-
 #ifdef SMOOTH_SHADOWS
 
 static t_light	adjust_light(t_light light)
@@ -79,76 +75,69 @@ t_fcolor	eng_ambient42(t_world world, t_fcolor color_at)
 	return (mult_fcolor(world.ambient42, color_at));
 }
 
-t_fcolor	eng_shade_hit(t_world world, t_computation comp,
-	size_t remaining_reflects)
+static void calculate_color(t_shade_hit_norm *n)
 {
-	int			i;
-	t_fcolor	color;
-	t_fcolor	surface;
-	bool		in_shadow;
-	t_fcolor	reflected;
-	t_fcolor	refracted;
-	t_light		light;
-	double		reflactance;
-
-	color = fcolor_black();
-	i = -1;
-	while (++i < (int)world.light_count)
-	{
-		light = adjust_light(world.lights[i]);
-		if (!in_light_fov(light, comp.point))
-			in_shadow = true;
-		else
-			in_shadow = eng_is_shadowed(world, comp.over_point, light);
-		surface = eng_lighting(comp, light, in_shadow);
-		reflected = ref_reflected_color(world, comp, remaining_reflects);
-		refracted = refracted_color(world, comp, remaining_reflects);
-		if (comp.obj->material.reflective > 0 && comp.obj->material.transparency > 0)
-		{
-			reflactance = ref_schlick(comp);
-			reflected = scale_fcolor(reflected, reflactance);
-			refracted = scale_fcolor(refracted, 1.0 - reflactance);
-		}
-		color = add_fcolor(color, surface);
-		color = add_fcolor(color, reflected);
-		color = add_fcolor(color, refracted);
-	}
-	return (color);
+	n->color = add_fcolor(n->color, n->surface);
+	n->color = add_fcolor(n->color, n->reflected);
+	n->color = add_fcolor(n->color, n->refracted);
 }
 
-t_fcolor	eng_shade_hit42(t_world world, t_computation comp,
+t_fcolor	eng_shade_hit(t_world world, t_computation comp, \
 	size_t remaining_reflects)
 {
-	int			i;
-	t_fcolor	color;
-	t_fcolor	surface;
-	t_fcolor	reflected;
-	t_fcolor	refracted;
-	t_light		light;
-	double		reflactance;
+	t_shade_hit_norm	n;
 
-	color = eng_ambient42(world, comp.color_at);
-	i = -1;
-	while (++i < (int)world.light_count)
+	n.color = fcolor_black();
+	n.i = -1;
+	while (++n.i < (int)world.light_count)
 	{
-		light = adjust_light(world.lights[i]);
-		if (in_light_fov(light, comp.point) && !eng_is_shadowed(world, comp.over_point, light))
-			surface = eng_lighting42(comp, light);
+		n.light = adjust_light(world.lights[n.i]);
+		if (!in_light_fov(n.light, comp.point))
+			n.in_shadow = true;
 		else
-			surface = fcolor_black();
-		reflected = ref_reflected_color(world, comp, remaining_reflects);
-		refracted = refracted_color(world, comp, remaining_reflects);
-		if (comp.obj->material.reflective > 0 && comp.obj->material.transparency > 0)
+			n.in_shadow = eng_is_shadowed(world, comp.over_point, n.light);
+		n.surface = eng_lighting(comp, n.light, n.in_shadow);
+		n.reflected = ref_reflected_color(world, comp, remaining_reflects);
+		n.refracted = refracted_color(world, comp, remaining_reflects);
+		if (comp.obj->material.reflective > 0 \
+				&& comp.obj->material.transparency > 0)
 		{
-			reflactance = ref_schlick(comp);
-			reflected = scale_fcolor(reflected, reflactance);
-			refracted = scale_fcolor(refracted, 1.0 - reflactance);
+			n.reflactance = ref_schlick(comp);
+			n.reflected = scale_fcolor(n.reflected, n.reflactance);
+			n.refracted = scale_fcolor(n.refracted, 1.0 - n.reflactance);
 		}
-		color = add_fcolor(color, surface);
-		color = add_fcolor(color, reflected);
-		color = add_fcolor(color, refracted);
+		calculate_color(&n);
 	}
-	return (color);
+	return (n.color);
+}
+
+t_fcolor	eng_shade_hit42(t_world world, t_computation comp, \
+	size_t remaining_reflects)
+{
+	t_shade_hit_norm	n;
+
+	n.color = eng_ambient42(world, comp.color_at);
+	n.i = -1;
+	while (++n.i < (int)world.light_count)
+	{
+		n.light = adjust_light(world.lights[n.i]);
+		if (in_light_fov(n.light, comp.point) && !eng_is_shadowed(world, \
+			comp.over_point, n.light))
+			n.surface = eng_lighting42(comp, n.light);
+		else
+			n.surface = fcolor_black();
+		n.reflected = ref_reflected_color(world, comp, remaining_reflects);
+		n.refracted = refracted_color(world, comp, remaining_reflects);
+		if (comp.obj->material.reflective > 0 \
+			&& comp.obj->material.transparency > 0)
+		{
+			n.reflactance = ref_schlick(comp);
+			n.reflected = scale_fcolor(n.reflected, n.reflactance);
+			n.refracted = scale_fcolor(n.refracted, 1.0 - n.reflactance);
+		}
+		calculate_color(&n);
+	}
+	return (n.color);
 }
 
 //if this ifdef block is moved the 'test' rule in the make file needs

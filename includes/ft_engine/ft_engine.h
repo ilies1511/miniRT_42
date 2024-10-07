@@ -264,6 +264,18 @@ typedef struct s_light
 	double			cosine_range;
 } __attribute__((may_alias))	t_light;
 
+typedef struct s_shade_hit_norm
+{
+	int			i;
+	t_fcolor	color;
+	t_fcolor	surface;
+	t_fcolor	reflected;
+	t_fcolor	refracted;
+	t_light		light;
+	double		reflactance;
+	bool		in_shadow;
+}				t_shade_hit_norm;
+
 typedef struct s_world
 {
 	t_obj_ptr	*objs;

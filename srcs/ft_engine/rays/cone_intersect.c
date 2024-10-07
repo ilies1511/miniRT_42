@@ -19,6 +19,7 @@ static void	init_cone_norm(t_cone_norm *n)
 	n->t1 = 0;
 }
 
+// Optional: return (eng_intersc_ray_cone_caps(intersecs, ray, cone));
 void	eng_intersc_ray_cone(t_intersc_arr *intersecs, t_ray ray,
 			t_cone *cone)
 {
@@ -28,7 +29,6 @@ void	eng_intersc_ray_cone(t_intersc_arr *intersecs, t_ray ray,
 	cal_abc(&n, ray);
 	if (eq_f(n.a, 0) && eq_f(n.b, 0))
 		return ;
-		// return (eng_intersc_ray_cone_caps(intersecs, ray, cone));
 	n.disc = (n.b * n.b) - (4 * n.a * n.c);
 	if (n.disc < 0 - EPSILON)
 		return ;

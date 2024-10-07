@@ -52,3 +52,23 @@ t_sphere	eng_new_glass_sphere(void)
 	sph.base_obj.material.refractive_index = 1.5;
 	return (sph);
 }
+
+//sph.origin = new_point(0, 0, 0);
+//sph.rad = 1;
+t_sphere	eng_new_sphere(void)
+{
+	t_sphere	sph;
+
+	sph.base_obj = eng_new_obj();
+	sph.base_obj.type = OBJ_SPHERE;
+	return (sph);
+}
+
+t_plane	eng_new_plane(void)
+{
+	t_plane	plane;
+
+	plane.base_obj = eng_new_obj();
+	plane.base_obj.type = OBJ_PLANE;
+	return (plane);
+}

@@ -93,7 +93,6 @@ SRC_FILES_ENGINE := \
 	ft_engine/patterns/test_patterns.c \
 	ft_engine/bump_map/bump_wave.c \
 	ft_engine/bump_map/bump.c \
-	ft_engine/bump_map/test_bump.c \
 
 SRC_FILES_MATH := \
 	ft_math/ft_rand.c \

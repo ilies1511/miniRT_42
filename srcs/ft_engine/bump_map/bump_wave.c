@@ -45,6 +45,7 @@ static void	norm_koordinates(t_bump_norm *n)
 	n->dir_z = n->dir_z / n->dir_length;
 }
 
+// t_bump_norm		n = {.num_waves = 5};
 t_vec	bump_wave_normal_at(t_bump bump, t_point point, t_vec base_normal)
 {
 	const int		num_waves = 5;
@@ -68,8 +69,6 @@ t_vec	bump_wave_normal_at(t_bump bump, t_point point, t_vec base_normal)
 		n.d_dz += n.amplitude * n.k * n.dir_z * n.cos_dot;
 	}
 	n.perturbed_normal = norm(new_vec(-n.d_dx, \
-				base_normal.y - n.d_dy, -n.d_dz));
-	// perturbed_normal = mtx_mult_mt(mtx_rotation_x(-M_PI_4), perturbed_normal);
-	// perturbed_normal = mult_v(perturbed_normal, -1.0);
+		base_normal.y - n.d_dy, -n.d_dz));
 	return (n.perturbed_normal);
 }

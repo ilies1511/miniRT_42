@@ -5,29 +5,24 @@
 static void	set_transform_cylinder(t_cylinder *cyl, t_vec axis, double radius,
 	t_point center)
 {
-	t_matrix	rotation;
-	t_matrix	scaleing_radius;
-	t_matrix	translation;
-	t_matrix	transformation;
-	t_vec		rot;
-	double		angle;
+	t_trans_cy_norm	n;
 
-	rotation = mtx_new_ident(MAT4X4);
-	scaleing_radius = mtx_scale(radius, 1, radius);
-	translation = mtx_translate(center.x, center.y, center.z);
-	transformation = mtx_new_ident(MAT4X4);
+	n.rotation = mtx_new_ident(MAT4X4);
+	n.scaleing_radius = mtx_scale(radius, 1, radius);
+	n.translation = mtx_translate(center.x, center.y, center.z);
+	n.transformation = mtx_new_ident(MAT4X4);
 	if (eq_t(norm(new_vec(0, -1, 0)), axis))
-		rotation = mtx_rotation_x(M_PI);
+		n.rotation = mtx_rotation_x(M_PI);
 	else if (!eq_t(norm(new_vec(0, 1, 0)), axis))
 	{
-		rot = cross_prod(norm(new_vec(0, 1, 0)), axis);
-		angle = acos(dot_prod(norm(new_vec(0, 1, 0)), axis));
-		rotation = mtx_rotation_axis_angle(rot, angle);
+		n.rot = cross_prod(norm(new_vec(0, 1, 0)), axis);
+		n.angle = acos(dot_prod(norm(new_vec(0, 1, 0)), axis));
+		n.rotation = mtx_rotation_axis_angle(n.rot, n.angle);
 	}
-	transformation = mtx_mult_mm(transformation, translation);
-	transformation = mtx_mult_mm(transformation, rotation);
-	transformation = mtx_mult_mm(transformation, scaleing_radius);
-	eng_set_transform((t_obj_ptr)cyl, transformation);
+	n.transformation = mtx_mult_mm(n.transformation, n.translation);
+	n.transformation = mtx_mult_mm(n.transformation, n.rotation);
+	n.transformation = mtx_mult_mm(n.transformation, n.scaleing_radius);
+	eng_set_transform((t_obj_ptr)cyl, n.transformation);
 }
 
 void	parse_cylinder(t_main *m_data, char *line,
@@ -56,5 +51,5 @@ void	parse_cylinder(t_main *m_data, char *line,
 	skip_float(&line);
 	str_to_fcolor(line, &cyl.base_obj.material.fcolor, &line);
 	set_transform_cylinder(&cyl, axis, radius, center);
-	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr)&cyl);
+	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr) & cyl);
 }

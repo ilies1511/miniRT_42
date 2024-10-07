@@ -42,7 +42,7 @@ static void	eng_intersc_ray_plane(t_intersc_arr *interscs, t_ray ray,
 void	eng_intersc_ray(t_intersc_arr *interscs, t_ray ray, t_obj_ptr obj)
 {
 	ray.base_obj.transform = obj->inverse;
-	eng_transform((t_obj_ptr)&ray, (t_obj_ptr)&ray);
+	eng_transform((t_obj_ptr) & ray, (t_obj_ptr) & ray);
 	if (obj->type == OBJ_SPHERE)
 		eng_intersc_ray_sphere(interscs, ray, (t_sphere *)obj);
 	else if (obj->type == OBJ_PLANE)

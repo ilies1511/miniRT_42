@@ -9,7 +9,7 @@
 */
 t_vec	compute_normal_sphere(t_point object_point)
 {
-	t_point		object_normal;
+	t_point	object_normal;
 
 	object_normal = sub_t(object_point, new_point(0, 0, 0));
 	return (object_normal);
@@ -42,12 +42,10 @@ t_vec	compute_normal_cone(t_cone *cone, t_point object_point)
 	double	distance;
 	double	y;
 
-	//TODO: 2fix casea
 	if (eq_t(object_point, new_point(0, 0, 0)))
 		return (norm(new_vec(0, 1, 0)));
 	distance = (object_point.x * object_point.x) + \
 		(object_point.z * object_point.z);
-	//TODO: something here causes undefiend behaivior where depending of the compiler flags diffrent tests start failing
 	if (distance < 1 && object_point.y >= cone->max - (EPSILON))
 		return (new_vec(0, 1, 0));
 	else if (distance < 1 && object_point.y <= cone->min + (EPSILON))

@@ -14,7 +14,7 @@ t_point	eng_ray_pos(t_ray ray, double time)
 // returns -1 if there was no hit
 t_intersc	*eng_ray_hit(t_intersc_arr *interscs)
 {
-	size_t			i;
+	size_t	i;
 
 	i = 0;
 	while (i < interscs->count && interscs->arr[i].t < 0)

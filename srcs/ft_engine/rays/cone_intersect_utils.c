@@ -32,7 +32,6 @@ void	cal_intesects(t_cone_norm *n)
 	{
 		n->t0 = -n->c / (2 * n->b);
 		n->t1 = n->t0;
-		// n->t1 = INFINITY; // oder bool
 	}
 	else
 		ft_assert(false, __FILE__, __LINE__, \
@@ -47,7 +46,10 @@ void	swap_double_co(t_cone_norm *n)
 	n->t0 = n->t1;
 	n->t1 = temp;
 }
-
+/*
+Optional(cap intersects) at very endeng_intersc_ray_cone_caps
+(intersecs, ray, cone);
+*/
 void	add_intersects(t_cone_norm *n, t_intersc_arr *intersecs, t_ray ray,
 			t_cone *cone)
 {
@@ -59,5 +61,4 @@ void	add_intersects(t_cone_norm *n, t_intersc_arr *intersecs, t_ray ray,
 	n->y1 = ray.origin.y + n->t1 * ray.direct.y;
 	if (cone->min < n->y1 && n->y1 < cone->max)
 		eng_add_intersc(intersecs, (t_obj_ptr)cone, n->t1);
-	// eng_intersc_ray_cone_caps(intersecs, ray, cone);
 }
