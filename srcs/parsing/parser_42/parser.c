@@ -10,8 +10,13 @@ void	parse_line(t_main *m_data, char *line,
 		line++;
 	if (*line == 'A')
 		parse_ambient(m_data, line);
+	else if (*line == 'C' && m_data->has_camera == true)
+		parser_error("Can not have multiple cameras", __FILE__, __LINE__, 100);
 	else if (*line == 'C')
+	{
+		m_data->has_camera = true;
 		parse_camera(m_data, line, mem_points);
+	}
 	else if (*line == 'L')
 		parse_light(m_data, line, mem_points);
 	else if (line[0] == 'p' && line[1] == 'l')
@@ -41,7 +46,7 @@ void	parser(t_main *m_data, char *path)
 	size_t	mem_points[PARSER_MEM_SIZE];
 
 	if (!valid_file_extension(path))
-		parser_error("Invalid file extension", __FILE__, __LINE__, errno);
+		parser_error("Invalid file extension", __FILE__, __LINE__, 100);
 	m_data->engine.world.ambient42 = scale_fcolor(fcolor_white(), 0.2);
 	ft_bzero(mem_points, sizeof mem_points);
 	fd = open(path, O_RDONLY);
