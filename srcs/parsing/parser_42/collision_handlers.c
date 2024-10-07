@@ -36,6 +36,7 @@ t_point	handle_point_collision(size_t mem_points[PARSER_MEM_SIZE],
 {
 	double	collision_offset;
 
+	return (point);
 	collision_offset = obj_modulo_prime
 		* parser_get_mem_count(mem_points, point);
 	parser_inc_mem(mem_points, point);

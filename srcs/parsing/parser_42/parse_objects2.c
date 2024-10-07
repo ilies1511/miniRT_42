@@ -74,6 +74,7 @@ static void	set_transform_cone(t_cone *cone, t_vec axis, double radius,
 	n.transformation = mtx_mult_mm(n.transformation, n.translation);
 	n.transformation = mtx_mult_mm(n.transformation, n.rotation);
 	n.transformation = mtx_mult_mm(n.transformation, n.scaleing_radius);
+
 	eng_set_transform((t_obj_ptr)cone, n.transformation);
 }
 
