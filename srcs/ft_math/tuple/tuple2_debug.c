@@ -13,10 +13,9 @@ t_tuple	add_t(t_tuple a, t_tuple b)
 	sum.z = a.z + b.z;
 	sum.w = a.w + b.w;
 	if (sum.w - (EPSILON) > 1.0)
-	{
-		printf("%.15lf\n", sum.w);
 		ft_assert(0, __FILE__, __LINE__, "add_t: w off");
-	}
+	if (sum.w + (EPSILON) < 0.0)
+		ft_assert(0, __FILE__, __LINE__, "add_t: w off");
 	return (sum);
 }
 
@@ -30,6 +29,8 @@ t_tuple	sub_t(t_tuple a, t_tuple b)
 	dif.w = a.w - b.w;
 	ft_assert(greater_eq_f(dif.w, 0.0), __FILE__, __LINE__,
 		"dif of 2 tuples is < 0.0, subtracted a point from a vector?");
+	if (dif.w - (EPSILON) > 1.0)
+		ft_assert(0, __FILE__, __LINE__, "sub_t: w off");
 	if (dif.w + (EPSILON) < 0.0)
 		ft_assert(0, __FILE__, __LINE__, "sub_t: w off");
 	return (dif);
@@ -43,6 +44,10 @@ t_vec	negate_v(t_vec v)
 	t_vec	neg;
 	t_tuple	dif;
 
+	if (v.w - (EPSILON) > 0.0)
+		ft_assert(0, __FILE__, __LINE__, "w off");
+	if (v.w + (EPSILON) < 0.0)
+		ft_assert(0, __FILE__, __LINE__, "w off");
 	ft_assert(is_vec(v), __FILE__, __LINE__, "negating a none vector");
 	neg.x = -v.x;
 	neg.y = -v.y;
@@ -68,6 +73,10 @@ t_vec	mult_v(t_vec v, double scalar)
 	prod.z = v.z * scalar;
 	prod.w = v.w * scalar;
 	ft_assert(scalar != INFINITY, __FILE__, __LINE__, "multiplied by infinity");
+	if (prod.w - (EPSILON) > 0.0)
+		ft_assert(0, __FILE__, __LINE__, "w off");
+	if (prod.w + (EPSILON) < 0.0)
+		ft_assert(0, __FILE__, __LINE__, "w off");
 	return (prod);
 }
 
@@ -84,6 +93,10 @@ t_vec	div_v(t_vec v, double scalar)
 	quot.y = v.y / scalar;
 	quot.z = v.z / scalar;
 	quot.w = v.w / scalar;
+	if (quot.w - (EPSILON) > 0.0)
+		ft_assert(0, __FILE__, __LINE__, "w off");
+	if (quot.w + (EPSILON) < 0.0)
+		ft_assert(0, __FILE__, __LINE__, "w off");
 	return (quot);
 }
 #endif //n NDBUG
