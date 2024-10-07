@@ -16,6 +16,7 @@ t_material	eng_new_material_polished_metal(void)
 	mat.reflective = 0.3;
 	mat.transparency = 0.0;
 	mat.refractive_index = 1.52;
+	mat.bump = NULL;
 	return (mat);
 }
 
@@ -35,6 +36,8 @@ t_material	material123(void)
 	mat.reflective = 0.9;
 	mat.transparency = 0.0;
 	mat.refractive_index = 1.52;
+
+	mat.bump = NULL;
 	return (mat);
 }
 
@@ -58,6 +61,7 @@ t_material	eng_blue_sky(void)
 	mat.reflective = 0;
 	mat.transparency = 0;
 	mat.refractive_index = 1.000;
+	mat.bump = NULL;
 	return (mat);
 }
 
@@ -106,6 +110,7 @@ t_material	eng_sand(void)
 	mat.reflective = 0.0;
 	mat.transparency = 0.0;
 	mat.refractive_index = 1.00029;
+	mat.bump = NULL;
 	return (mat);
 }
 

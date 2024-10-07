@@ -12,8 +12,11 @@ t_tuple	add_t(t_tuple a, t_tuple b)
 	sum.y = a.y + b.y;
 	sum.z = a.z + b.z;
 	sum.w = a.w + b.w;
-	if (sum.w + (EPSILON) > 1.0)
-		__builtin_unreachable();
+	if (sum.w - (EPSILON) > 1.0)
+	{
+		printf("%.15lf\n", sum.w);
+		ft_assert(0, __FILE__, __LINE__, "add_t: w off");
+	}
 	return (sum);
 }
 
@@ -28,7 +31,7 @@ t_tuple	sub_t(t_tuple a, t_tuple b)
 	ft_assert(greater_eq_f(dif.w, 0.0), __FILE__, __LINE__,
 		"dif of 2 tuples is < 0.0, subtracted a point from a vector?");
 	if (dif.w + (EPSILON) < 0.0)
-		__builtin_unreachable();
+		ft_assert(0, __FILE__, __LINE__, "sub_t: w off");
 	return (dif);
 }
 

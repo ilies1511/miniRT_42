@@ -15,7 +15,7 @@ t_tuple	add_t(t_tuple a, t_tuple b)
 	sum.y = a.y + b.y;
 	sum.z = a.z + b.z;
 	sum.w = a.w + b.w;
-	if (sum.w + (EPSILON) > 1.0)
+	if (sum.w - (EPSILON) > 1.0)
 		__builtin_unreachable();
 	return (sum);
 }
