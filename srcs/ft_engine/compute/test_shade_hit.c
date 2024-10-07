@@ -123,6 +123,20 @@ bool	test_shading_outside_intersection(void)
 	return (ret);
 }
 
+static t_fcolor	eng_pixel_at(t_canvas canvas, size_t x, size_t y, size_t width)
+{
+	t_uintcolor	uint;
+	t_fcolor	ret;
+
+	ret = new_fcolor(0, 0, 0, 0);
+	uint = canvas.pixels[y * width + x];
+	ret.a = ((double)uint.argb.a) / 0xFF;
+	ret.r = ((double)uint.argb.r) / 0xFF;
+	ret.g = ((double)uint.argb.g) / 0xFF;
+	ret.b = ((double)uint.argb.b) / 0xFF;
+	return (ret);
+}
+
 bool	test_eng_render(void)
 {
 	bool	ret = true;

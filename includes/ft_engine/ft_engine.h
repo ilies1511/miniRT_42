@@ -315,6 +315,12 @@ t_computation	eng_prepare_computation(t_intersc hit, t_ray ray,
 bool			test_prepare_computation(void);
 
 //compute/shading.c
+void			calculate_color(t_shade_hit_norm *n);
+bool			in_light_fov(t_light light, t_point point);
+t_light			adjust_light(t_light light);
+t_fcolor		eng_ambient42(t_world world, t_fcolor color_at);
+t_fcolor		eng_shade_hit42(t_world world, t_computation comp, \
+					size_t remaining_reflects);
 t_fcolor		eng_shade_hit(t_world world, t_computation comp,
 					size_t remaining_reflects);
 bool			test_shade_hit(void);
@@ -464,8 +470,6 @@ bool			test_eng_ray_for_pixel(void);
 size_t			eng_put_pixel(t_canvas canvas, size_t x, size_t y,
 					t_fcolor color);
 void			eng_render(t_camera camera, t_world world, t_canvas canvas);
-t_fcolor		eng_pixel_at(t_canvas canvas, size_t x, size_t y,
-					size_t width);
 bool			test_eng_render(void);
 
 // Transformation view
