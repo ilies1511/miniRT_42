@@ -1,0 +1,15 @@
+TYPE = PLANE
+# Default ORIGIN: 0,0,0
+ORIGIN = 0,0,0
+NORMAL = 0,0,1
+# Optional MATERIAL block
+MATERIAL
+{
+	R = 0
+	G = 255
+	B = 0
+    AMBIENT = 0.1
+    DIFFUSE = 0.9
+    SPECULAR = 0.5
+    SHININESS = 200.0
+}

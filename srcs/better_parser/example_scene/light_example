@@ -1,0 +1,17 @@
+TYPE = LIGHT
+
+#defualt radius: 1.0
+RADIUS = 1.0
+#set FOV to create a spotlight
+#default is point light (like 360 FOV)
+FOV = 60
+#FOV = 360 will set a normal point light
+FOV = 360
+#defult rgb: 0xFFFFFF
+R = 255
+G = 255
+G = 255
+#default: 0,101,0
+ORIGIN = 4,7,-2
+#define LOOK_AT point for spot light(0,0,0) would be default:
+#LOOK_AT = 0,0,0

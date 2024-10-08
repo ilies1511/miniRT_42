@@ -1,0 +1,11 @@
+TYPE	=	CAMERA
+#'TYPE' has to be the first word in object files
+#keywards have to be the first strcmp match after possible whitespace
+#any none matches are ignored
+	FOV		=	60.0
+#tuple can not include whitespace right now once any number starts
+	TO		=	0.1,0.1,0.1
+#not specified values have a default value
+#example UP = 0,1,0
+
+	ORIGIN = 0,5,-5.5
