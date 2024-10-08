@@ -79,5 +79,7 @@ noreturn void	parser_error(char *str, char *file, int line, int exit_stat);
 void			skip_whitespace(char **str);
 void			skip_float(char **str);
 
+//better parser
+void	better_parser(t_main *m_data, char *setup_file);
 
 #endif //PARSER_42_H

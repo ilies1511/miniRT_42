@@ -16,6 +16,8 @@ noreturn void	main_cleanup(t_main *m_data, uint8_t exit_stat)
 	get_next_line(-1, true);
 	if (m_data->cleanup_data.fd)
 		close(m_data->cleanup_data.fd);
+	if (m_data->cleanup_data.fd2)
+		close(m_data->cleanup_data.fd2);
 	ft_bzero(m_data, sizeof * m_data);
 	ft_bzero(get_gc(), sizeof(t_garbage_collector));
 	exit(exit_stat);

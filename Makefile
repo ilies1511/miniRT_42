@@ -159,6 +159,9 @@ SRC_FILES_PARSER := \
 	parsing/parser_42/parse_objects2.c \
 	parsing/parser_42/collision_handlers.c
 
+#BETTER_PARSER := \
+#	 better_parser/p_main.c \
+
 
 SOURCE_FILES := \
 	$(SRC_MAIN)\
@@ -202,9 +205,9 @@ $(NAME): print_vars mlx $(LIBFT) $(OBJECTS)
 
 print_vars:
 	@echo "$(YELLOW)REFLECTIONS: $(CLEAR)$(GREEN)$(REFLECTIONS) $(CLEAR)$(YELLOW)(any integer >= 0) $(CLEAR)"
-	@echo "$(YELLOW)SHADOWS: $(CLEAR)$(GREEN)$(SHADOWS) $(CLEAR)$(YELLOW)('SMOOTH\' or 'HARD') $(CLEAR)"
-	@echo "$(YELLOW)AMBIENT: $(CLEAR)$(GREEN)$(AMBIENT) $(CLEAR)$(YELLOW)('42' or 'CUSTOM') $(CLEAR)"
-	@echo "$(YELLOW)CAMERA: $(CLEAR)$(GREEN)$(CAMERA) $(CLEAR)$(YELLOW)('42' or 'GOOD') $(CLEAR)"
+	@echo "$(YELLOW)SHADOWS: $(CLEAR)$(GREEN)'$(SHADOWS)' $(CLEAR)$(YELLOW)('SMOOTH\' or 'HARD') $(CLEAR)"
+	@echo "$(YELLOW)AMBIENT: $(CLEAR)$(GREEN)'$(AMBIENT)' $(CLEAR)$(YELLOW)('42' or 'CUSTOM') $(CLEAR)"
+	@echo "$(YELLOW)CAMERA: $(CLEAR)$(GREEN)'$(CAMERA)' $(CLEAR)$(YELLOW)('42' or 'GOOD') $(CLEAR)"
 
 debug:
 	make CFLAGS="$(CFLAGS_DEBUG)"

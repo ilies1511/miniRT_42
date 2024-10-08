@@ -72,6 +72,7 @@ typedef struct s_cleanup
 {
 	mlx_image_t	*mlx_img;
 	int			fd;
+	int			fd2;
 }	t_cleanup;
 
 // ac(argument count) can be removed later

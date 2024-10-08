@@ -3,7 +3,7 @@
 #include <parser_42.h>
 #include <libft.h>
 
-void	parse_line(t_main *m_data, char *line,
+static void	parse_line(t_main *m_data, char *line,
 			size_t mem_points[PARSER_MEM_SIZE])
 {
 	while (ft_iswhitespace(*line))
@@ -24,7 +24,6 @@ void	parse_line(t_main *m_data, char *line,
 	else if (*line == 'C')
 	{
 		m_data->has_camera = true;
-
 		parse_camera(m_data, line, mem_points);
 	}
 	else if (*line == 'L')
@@ -52,7 +51,6 @@ bool	valid_file_extension(char *path)
 	return (!ft_strcmp(path, ".rt"));
 }
 
-//TODO: validate path file type
 void	parser(t_main *m_data, char *path)
 {
 	char	*line;
@@ -70,7 +68,6 @@ void	parser(t_main *m_data, char *path)
 	line = get_next_line(fd, false);
 	while (line)
 	{
-		printf("line: %s", line);
 		parse_line(m_data, line, mem_points);
 		free(line);
 		line = get_next_line(fd, false);
