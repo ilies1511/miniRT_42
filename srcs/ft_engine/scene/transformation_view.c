@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   transformation_view.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: frapp <frapp@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/09 22:34:14 by frapp             #+#    #+#             */
+/*   Updated: 2024/10/09 22:34:15 by frapp            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <ft_engine.h>
 #include <main.h>
 
@@ -24,4 +36,4 @@ t_matrix	sc_transforme_view(t_point from, t_point to, t_vec up)
 	orientation.m[2][1] = -forward.y;
 	orientation.m[2][2] = -forward.z;
 	return (mtx_mult_mm(orientation, mtx_translate(-from.x, -from.y, -from.z)));
-}
+}˙

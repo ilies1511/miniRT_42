@@ -27,7 +27,7 @@ bool	test_normal_cylinde2(void)
 	if (!eq_t(n, new_vec(0, -1, 0)))
 	{
 		printf("normal_cylinder: %s %d\n", __FILE__, __LINE__);
-		result = false;
+		result = false;˙
 	}
 	if (!eq_t(n2, new_vec(0, -1, 0)))
 	{
