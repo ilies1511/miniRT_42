@@ -40,33 +40,19 @@ t_matrix	mtx_get_rdm_m(t_matrix_type type);
 t_tuple		mtx_mult_mt(t_matrix m, t_tuple tup);
 t_matrix	mtx_mult_mm(t_matrix ma, t_matrix mb);
 
-// matrix_mult_tests.c
-bool		test_mtx_mult_mt(void);
-bool		test_mtx_mult_mm(void);
-
 // matrix_determinant.c
 t_matrix	mtx_sub_matrix(t_matrix m, int remove_row, int remove_col);
 double		mtx_det(t_matrix m);
 double		mtx_cofactor(t_matrix m, int row, int col);
 
-// matrix_determinant_tests.c
-bool		test_mtx_sub_matrix(void);
-bool		test_mtx_cofactor(void);
-bool		test_mtx_det(void);
-
 // Matrix minor
 double		mtx_minor(t_matrix m, int row, int col);
-int			test_mtx_minor(void);
-
 // matrix_inverse.c
 t_matrix	mtx_inverse(t_matrix m);
-// test_mtx_inverse.c
-bool		test_mtx_inverse(void);
 
 // matrix_translate_scaling.c
 t_matrix	mtx_translate(double x, double y, double z);
 t_matrix	mtx_translate_izi(t_tuple tuple);
-int			test_matrix_translate(void);
 
 t_matrix	mtx_scale(double x, double y, double z);
 
@@ -91,23 +77,17 @@ t_matrix	mtx_rotation_y(double theta);
 t_matrix	mtx_rotation_z(double theta);
 t_matrix	mtx_rotation_axis_angle(t_vec axis, double angle);
 
-// test_mix.c
-bool		test_matrix_mult_inverse(void);
 
 // matrix_debug.c
 void		mtx_print(t_fd fd, t_matrix m);
 bool		mtx_eq(t_matrix ma, t_matrix mb);
 bool		mtx_eq_roughly(t_matrix ma, t_matrix mb);
 
-// matrix_other_tests.c
-bool		test_mtx_eq(void);
 
 // Matrix Transpose
 t_matrix	mtx_transpose(t_matrix m);
-int			test_mtx_transpose(void);
 
 // Matrix Scaling
 t_matrix	mtx_scale_izi(t_tuple tuple);
-int			test_mtx_scaling(void);
 
 #endif // FT_MATRIX_H

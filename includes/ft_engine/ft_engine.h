@@ -320,11 +320,9 @@ typedef struct s_computation
 	t_fcolor	color_at;
 }	t_computation;
 
-t_obj			test_shape(void);
 
 t_computation	eng_prepare_computation(t_intersc hit, t_ray ray,
 					t_intersc_arr interscs);
-bool			test_prepare_computation(void);
 
 //compute/shading.c
 void			calculate_color(t_shade_hit_norm *n);
@@ -335,11 +333,8 @@ t_fcolor		eng_shade_hit42(t_world world, t_computation comp, \
 					size_t remaining_reflects);
 t_fcolor		eng_shade_hit(t_world world, t_computation comp,
 					size_t remaining_reflects);
-bool			test_shade_hit(void);
-bool			test_shading_outside_intersection(void);
 t_fcolor		eng_color_at(t_world world, t_ray ray,
 					size_t remaining_reflects);
-bool			test_eng_color_at(void);
 
 t_light			eng_point_light(t_fcolor intensity, t_point position);
 t_light			eng_spot_light(t_fcolor intensity, t_point position,
@@ -385,20 +380,9 @@ void			eng_intersc_ray_cone_caps(t_intersc_arr *intersecs, t_ray ray, \
 bool			check_cap_cone(t_ray ray, double t, double y);
 //End Cone
 
-bool			test_cone_intersect(void);
-bool			test_intersec_cone_caps(void);
-bool			test_normal_cone(void);
 t_vec			compute_normal_cone(t_cone *cone, t_point object_point);
 t_vec			compute_normal_cylinder(t_cylinder *cylinder,
 					t_point object_point);
-bool			test_parallel(void);
-bool			test_cylinder_no_hits(void);
-bool			test_cylinder_hits(void);
-bool			test_normal_at_cylinder(void);
-bool			test_truncated_cylinder(void);
-bool			test_capped_cylinder(void);
-bool			test_closed_capped_cylinder(void);
-bool			test_normal_cylinde2(void);
 
 //Normal_at_types
 t_vec			compute_normal_sphere(t_point object_point);
@@ -420,24 +404,12 @@ bool			eng_eq_ray(t_ray r1, t_ray r2);
 // Compute Normal
 t_vec			eng_normal_at(t_obj_ptr object, t_point intersec_point);
 
-int				test_normal_at(void);
-
-// ft_engine/rays/test.c
-bool			test_eng_ray_pos(void);
-bool			test_eng_intersc_ray_sphere(void);
-bool			test_eng_ray_hit(void);
-bool			test_eng_ray_intersc_world(void);
-
 //ft_engine/objs/set_transform.c
 void			eng_set_transform(t_obj_ptr obj, t_matrix transform);
 void			eng_ray_set_objs_inverse(t_ray *ray, t_obj_ptr obj);
 
 //ft_engine/objs/transform.c
 void			eng_transform(t_obj_ptr in, t_obj_ptr ret);
-
-//ft_engine/objs/test.c
-bool			test_eng_trasform(void);
-bool			test_transformation_matrices(void);
 
 //ft_engine/world/add_obj_to_world.c
 void			eng_add_obj_to_world(t_world *world, t_obj_ptr obj);
@@ -459,15 +431,9 @@ t_fcolor		eng_lighting42(t_computation comp, t_light light);
 //				bool in_shadow);
 // t_fcolor	eng_lighting(t_obj obj, t_computation *comp, t_light light,
 //				bool in_shadow);
-bool			test_light_with_surface_shadow(void);
-bool			test_eng_lighting(void);
 
 //Shadow
 bool			eng_is_shadowed(t_world world, t_point point, t_light light);
-bool			test_shadow(void);
-bool			test2_shadow(void);
-bool			test3_shadow(void);
-bool			test4_shadow(void);
 
 // init_engine.c
 t_world			eng_new_world(void);
@@ -476,20 +442,12 @@ void			cleanup_engine(t_engine *engine);
 
 //camera.c
 t_camera		eng_new_camera(size_t width, size_t height, double fov_x);
-bool			test_eng_new_camera(void);
 t_ray			eng_ray_for_pixel(t_camera camera, size_t x, size_t y);
-bool			test_eng_ray_for_pixel(void);
 
 size_t			eng_put_pixel(t_canvas canvas, size_t x, size_t y,
 					t_fcolor color);
 void			eng_render(t_camera camera, t_world world, t_canvas canvas);
-bool			test_eng_render(void);
 
 // Transformation view
 t_matrix		sc_transforme_view(t_point from, t_point to, t_vec up);
-bool			test_transformation_view_default(void);
-bool			test_transformation_view_z(void);
-bool			test_transformation_view_world(void);
-bool			test_transformation_view_mixed(void);
-
 #endif //FT_ENGINE_H

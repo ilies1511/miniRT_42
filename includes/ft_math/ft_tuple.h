@@ -45,10 +45,8 @@ bool	eq_t(t_tuple a, t_tuple b);
 t_tuple	add_t(t_tuple a, t_tuple b);
 
 t_tuple	sub_t(t_tuple a, t_tuple b);
-// tests to verify add_t adn sub_t with special focus on w
 
 t_vec	negate_v(t_vec v);
-//negate_t test
 
 t_vec	mult_v(t_vec v, double scalar);
 t_vec	div_v(t_vec v, double scalar);
@@ -62,13 +60,10 @@ t_vec	norm(t_vec v);
 double	dot_prod(t_vec a, t_vec b);
 t_vec	cross_prod(t_vec a, t_vec b);
 
-//******tests**********
 
 void	print_t(int fd, t_tuple t);
 
 t_tuple	get_rdm_tuple(void);
-bool	is_point_test(void);
-bool	is_vec_test(void);
 
 //Comapare Points
 int		p_compareifequal(t_point a, t_point b);

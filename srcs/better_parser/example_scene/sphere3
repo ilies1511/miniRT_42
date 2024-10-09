@@ -1,9 +1,0 @@
-TYPE=SPHERE
-ORIGIN	=	5,1,-1
-RADIUS	=	1
-MATERIAL
-{
-	R = 0
-	G = 0
-	B = 255
-}

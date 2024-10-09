@@ -45,8 +45,6 @@ t_fcolor	eng_shade_hit42(t_world world, t_computation comp, \
 	return (n.color);
 }
 
-//if this ifdef block is moved the 'test' rule in the make file needs
-//to be changed accordingly
 #ifdef AMBIENT_CUSTOM
 
 t_fcolor	eng_color_at(t_world world, t_ray ray, size_t remaining_reflects)

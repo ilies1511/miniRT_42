@@ -127,24 +127,6 @@ void	eng_ray_intersc_world(t_ray ray, t_world world, t_intersc_arr *interscs)
 	eng_sort_intersc(interscs);
 }
 
-//TODO: only needed for tests to pass, can be removed to fix norm when tests
-//get removed
-void	eng_intersc_ray(t_intersc_arr *interscs, t_ray ray, t_obj_ptr obj)
-{
-	ray.origin = mtx_mult_mt_inline(obj->inverse, ray.origin);
-	ray.direct = mtx_mult_mt_inline(obj->inverse, ray.direct);
-	if (obj->type == OBJ_SPHERE)
-		eng_intersc_ray_sphere(interscs, ray, (t_sphere *)obj);
-	else if (obj->type == OBJ_PLANE)
-		eng_intersc_ray_plane(interscs, ray, (t_plane *)obj);
-	else if (obj->type == OBJ_CYLINDER)
-		eng_intersc_ray_cylinder(interscs, ray, (t_cylinder *)obj);
-	else if (obj->type == OBJ_CONE)
-		eng_intersc_ray_cone(interscs, ray, (t_cone *)obj);
-	else
-		ft_assert(0, __FILE__, __LINE__, "eng_intersc_ray: invalid obj type");
-}
-
 /*
  * Changed since inlining the math OPs gives major speed ups
  * not possible with original vesion and 42 norm duo too many functions per file

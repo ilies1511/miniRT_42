@@ -45,10 +45,4 @@ t_fcolor	pat_square3d_at(t_pattern pat, t_point point);
  * more complex:
 	* jutter pattern (perlin or simplex noise)
 */
-//tests
-bool		test_stripe_pattern(void);
-bool		test_stripe_lighting(void);
-bool		test_stripe_obj(void);
-bool		test_checkers_pattern(void);
-
 #endif //FT_PATTERNS_H

@@ -39,7 +39,6 @@ endif
 SRC_DIR = srcs/
 
 SRC_MAIN = main.c
-SRC_TEST_MAIN := main_tests.c
 
 SRC_FILES_ENGINE := \
 	ft_engine/init_engine.c \
@@ -47,12 +46,10 @@ SRC_FILES_ENGINE := \
 	ft_engine/world/default_world.c \
 	ft_engine/world/print_world.c \
 	ft_engine/compute/prepare_computation.c \
-	ft_engine/compute/test_prepare_comp.c \
 	ft_engine/compute/shading.c \
 	ft_engine/compute/render.c \
 	ft_engine/light/light.c \
 	ft_engine/light/spot_light.c \
-	ft_engine/light/light_tests.c \
 	ft_engine/canvas/canvas.c \
 	ft_engine/mlx_interface/hooks.c \
 	ft_engine/rays/init.c \
@@ -64,37 +61,24 @@ SRC_FILES_ENGINE := \
 	ft_engine/rays/cone_intersect.c \
 	ft_engine/rays/cone_intersect_utils.c \
 	ft_engine/rays/cone_caps.c \
-	ft_engine/rays/test_cone.c \
 	ft_engine/rays/ray_hit.c \
 	ft_engine/rays/utils.c \
-	ft_engine/rays/tests.c \
 	ft_engine/objs/transform.c \
 	ft_engine/objs/set_transform.c \
-	ft_engine/objs/test.c \
 	ft_engine/reflections/reflect.c \
-	ft_engine/reflections/tests.c \
 	ft_engine/refraction/refraction.c \
-	ft_engine/refraction/tests.c \
 	ft_engine/refraction/fresnel.c \
 	ft_engine/material.c \
 	ft_engine/objs/normal_at.c \
 	ft_engine/objs/normal_at_types.c \
-	ft_engine/objs/test_normal.c \
 	ft_engine/scene/transformation_view.c \
-	ft_engine/scene/test_scene.c \
 	ft_engine/scene/camera.c \
-	ft_engine/scene/test_camera.c \
 	ft_engine/shadow/shadow.c \
-	ft_engine/shadow/test_shadow.c \
 	ft_engine/objs/obj_utils.c \
-	ft_engine/objs/test_shape.c \
-	ft_engine/compute/test_shade_hit.c \
-	ft_engine/test_cylinder.c \
 	ft_engine/patterns/patterns.c \
 	ft_engine/patterns/stripe_pattern.c \
 	ft_engine/patterns/checker_pattern.c \
 	ft_engine/patterns/square_pattern.c \
-	ft_engine/patterns/test_patterns.c \
 	ft_engine/bump_map/bump_wave.c \
 	ft_engine/bump_map/bump.c \
 
@@ -109,9 +93,6 @@ SRC_FILES_MATH := \
 	ft_math/tuple/tuple3.c \
 	ft_math/tuple/tuple3_debug.c \
 	ft_math/tuple/tuple4.c \
-	ft_math/tuple/tuple_tests1.c \
-	ft_math/tuple/tuple_tests2.c \
-	ft_math/tuple/tuple_tests3.c \
 	ft_math/general/ft_floats.c \
 	ft_math/general/max_min_i.c \
 	ft_math/matrix/matrix_rotation.c \
@@ -119,19 +100,10 @@ SRC_FILES_MATH := \
 	ft_math/matrix/matrix_init.c \
 	ft_math/matrix/matrix_mult.c \
 	ft_math/matrix/matrix_determinant.c \
-	ft_math/matrix/matrix_determinant_tests.c \
-	ft_math/matrix/matrix_mult_tests.c \
-	ft_math/matrix/matrix_other_tests.c \
 	ft_math/matrix/matrix_debug.c \
 	ft_math/matrix/matrix_transpose.c \
-	ft_math/matrix/test_mtx_transpose.c \
-	ft_math/matrix/test_mtx_minor.c \
 	ft_math/matrix/matrix_inverse.c \
-	ft_math/matrix/test_mtx_inverse.c \
-	ft_math/matrix/test_mix.c \
-	ft_math/matrix/test_matrix_translation.c \
 	ft_math/matrix/matrix_scaling.c \
-	ft_math/matrix/test_mtx_scaling.c \
 	ft_math/matrix/matrix_shearing.c
 
 SRC_FILES_GB_COLLECT := \
@@ -181,14 +153,12 @@ SOURCES = $(addprefix $(SRC_DIR), $(SOURCE_FILES))
 OBJ_DIR = o_files/
 OBJECTS=$(SOURCE_FILES:%.c=$(OBJ_DIR)%.o)
 
-NAME_TEST=tests.out
-
 GREEN	=	\033[0;32m
 YELLOW	=	\033[33m
 CYAN	=	\033[0;36m
 CLEAR	=	\033[0m
 
-.PHONY: clone_mlx42 all clean fclean ffclean test redebug print_vars
+.PHONY: clone_mlx42 all clean fclean ffclean redebug print_vars
 
 all: $(NAME)
 
@@ -207,12 +177,9 @@ debug:
 
 redebug: fclean debug
 
-test: clean mlx libft
-	make $(NAME_TEST) AMBIENT="CUSTOM" SHADOWS="HARD" SRC_MAIN="$(SRC_TEST_MAIN)" NAME=$(NAME_TEST)
 
 clean:
 	@rm -f $(OBJECTS)
-	@rm -f $(SRC_TEST_MAIN:%c=$(OBJ_DIR)%o)
 	@rm -f $(SRC_MAIN:%c=$(OBJ_DIR)%o)
 
 #@if [ -d $(OBJ_DIR) ]; then rmdir $(OBJ_DIR); fi
@@ -220,7 +187,7 @@ clean:
 	@echo "$(CYAN)object files cleaned$(CLEAR)"
 
 fclean: clean
-	@rm -f $(NAME) $(NAME_TEST)
+	@rm -f $(NAME)
 	@if [ -d $(LIBFT_DIR) ]; then cd libft && make fclean; fi
 	@echo "$(CYAN)miniRT fclean$(CLEAR)"
 
