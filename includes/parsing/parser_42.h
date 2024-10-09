@@ -63,7 +63,8 @@ void			parse_cone(t_main *m_data, char *line,
 					size_t mem_points[PARSER_MEM_SIZE]);
 void			parse_double_cone(t_main *m_data, char *line,
 					size_t mem_points[PARSER_MEM_SIZE]);
-
+void			parse_spot_light(t_main *m_data, char *line,
+					size_t mem_points[PARSER_MEM_SIZE]);
 void			str_to_fcolor(char *str, t_fcolor *ret, char **str_ptr);
 void			str_to_tuple(char *str, t_tuple *ret, char **str_ptr, double w);
 

@@ -104,6 +104,31 @@ void	parse_light(t_main *m_data, char *line,
 	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr) & light);
 }
 
+void	parse_spot_light(t_main *m_data, char *line,
+			size_t mem_points[PARSER_MEM_SIZE])
+{
+	t_light		light;
+	t_point		origin;
+	t_point		look_at;
+	double		scalar;
+	t_fcolor	color;
+
+	line++;
+	str_to_tuple(line, &origin, &line, 1.0);
+	origin = handle_point_collision(mem_points, origin, PARSER_OFFSET_LIGHT);
+	if (!ft_isdigit(*line) && *line != '-')
+		parser_error("parsing error", __FILE__, __LINE__, 100);
+	scalar = str_to_float(line);
+	while (line && !ft_iswhitespace(*line))
+		line++;
+	str_to_fcolor(line, &color, &line);
+	color = scale_fcolor(color, scalar);
+	str_to_tuple(line, &look_at, &line, 1.0);
+	look_at = handle_point_collision(mem_points, look_at, PARSER_OFFSET_LIGHT);
+	light = eng_spot_light(color, origin, look_at, 20.0);
+	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr) & light);
+}
+
 void	parse_plane(t_main *m_data, char *line,
 			size_t mem_points[PARSER_MEM_SIZE])
 {
