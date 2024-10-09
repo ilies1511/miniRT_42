@@ -15,13 +15,8 @@ void	main_loop(void *main_data)
 	t_main	*m_data;
 
 	m_data = (t_main *)main_data;
-	if (m_data->ac == 1)
-		sphere_test(m_data);
-	else
-	{
-		eng_render(m_data->engine.camera, m_data->engine.world,
-			m_data->engine.canvas);
-	}
+	eng_render(m_data->engine.camera, m_data->engine.world,
+		m_data->engine.canvas);
 }
 
 void	init_hooks(t_main *m_data)

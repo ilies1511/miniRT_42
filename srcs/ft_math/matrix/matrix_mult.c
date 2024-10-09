@@ -25,6 +25,8 @@ static inline double	kahan_sum_inline(double *nbs, size_t count)
 	return (sum);
 }
 
+#ifndef NDBUG
+
 // using kahan sum to reduce floating point addition errors
 t_tuple	mtx_mult_mt(t_matrix m, t_tuple tup)
 {
@@ -50,6 +52,31 @@ t_tuple	mtx_mult_mt(t_matrix m, t_tuple tup)
 	}
 	return (res);
 }
+#else
+// using kahan sum to reduce floating point addition errors
+t_tuple	mtx_mult_mt(t_matrix m, t_tuple tup)
+{
+	t_tuple	res;
+	double	tmp[4];
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+		{
+			tmp[j] = m.m[i][j] * tup.arr[j];
+			j++;
+		}
+		res.arr[i] = kahan_sum_inline(tmp, 4);
+		i++;
+	}
+	return (res);
+}
+
+#endif //n NDBUG
 
 t_matrix	mtx_mult_mm(t_matrix ma, t_matrix mb)
 {
