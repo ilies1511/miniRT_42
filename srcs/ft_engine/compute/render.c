@@ -101,8 +101,11 @@ size_t	eng_put_pixel(t_canvas canvas, size_t x, size_t y, t_fcolor color)
 	{
 		iter_count++;
 	}
-	mem_sum[y][x] = add_fcolor(mem_sum[y][x], color);
-	color = div_fcolor(mem_sum[y][x], iter_count);
+	if (y < HEIGHT && x < WIDTH)
+	{
+		mem_sum[y][x] = add_fcolor(mem_sum[y][x], color);
+		color = div_fcolor(mem_sum[y][x], iter_count);
+	}
 	((t_uintcolor *)canvas.pixels)[y * canvas.width + x] = fcolor_to_uintcolor(
 			color);
 	return (iter_count);

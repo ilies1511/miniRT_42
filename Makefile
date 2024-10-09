@@ -147,6 +147,7 @@ SRC_FILES_MATERIALS := \
 SRC_FILES_DEMO := \
 	demo_scenes/ocean.c \
 	demo_scenes/ocean_balls.c \
+	demo_scenes/inner_sphere.c \
 	demo_scenes/reflection_demo.c \
 	demo_scenes/one_piece.c \
 	demo_scenes/internal_reflection.c

@@ -40,6 +40,8 @@ void	parse_camera(t_main *m_data, char *line,
 	if (!ft_isdigit(*line) && *line != '-')
 		parser_error("parsing error", __FILE__, __LINE__, 100);
 	fov = str_to_float(line);
+	if (fov > 170 || fov < 1)
+		parser_error("Error: fov out of range", __FILE__, __LINE__, 100);
 	m_data->engine.camera = eng_new_camera(m_data->engine.canvas.width,
 			m_data->engine.canvas.height, fov / 180 * M_PI);
 	if (eq_t(origin, to))

@@ -10,5 +10,4 @@ void	demo_add_ocean_balls(void *main_data);
 void	reflection_demo(void *main_data);
 void	internal_reflection_demo(void *main_data);
 void	one_piece(void *main_data);
-
 #endif
