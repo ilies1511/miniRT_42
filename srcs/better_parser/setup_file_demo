@@ -1,9 +1,0 @@
-srcs/better_parser/example_scene/camera_example
-srcs/better_parser/example_scene/sphere_example
-srcs/better_parser/example_scene/light_example
-srcs/better_parser/example_scene/plane_example
-srcs/better_parser/example_scene/ambient_example
-srcs/better_parser/example_scene/sphere2
-srcs/better_parser/example_scene/sphere3
-srcs/better_parser/example_scene/back_plane
-srcs/better_parser/example_scene/left_plane

@@ -6,15 +6,15 @@
 /*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:33:05 by iziane            #+#    #+#             */
-/*   Updated: 2024/10/09 22:33:06 by iziane           ###   ########.fr       */
+/*   Updated: 2024/10/09 22:45:25 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_SCENE_H
-#define FT_SCENE_H
+# define FT_SCENE_H
 
 //Includes
-#include <ft_engine.h>
+# include <ft_engine.h>
 
 //Function Prototpyes
 void	demo_add_ocean(void *main_data);

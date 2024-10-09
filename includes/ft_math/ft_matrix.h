@@ -6,7 +6,7 @@
 /*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:34:09 by iziane            #+#    #+#             */
-/*   Updated: 2024/10/09 22:34:12 by iziane           ###   ########.fr       */
+/*   Updated: 2024/10/09 22:46:16 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_matrix
 {
 	double			m[4][4] __attribute__((aligned(16)));
 	t_matrix_type	type;
-}	t_matrix;
+}					t_matrix;
 
 // matrix_init.c
 t_matrix	mtx_new_ident(t_matrix_type type);
@@ -56,17 +56,14 @@ bool		test_mtx_det(void);
 
 // Matrix minor
 double		mtx_minor(t_matrix m, int row, int col);
-int			test_mtx_minor(void);
 
 // matrix_inverse.c
 t_matrix	mtx_inverse(t_matrix m);
 // test_mtx_inverse.c
-bool		test_mtx_inverse(void);
 
 // matrix_translate_scaling.c
 t_matrix	mtx_translate(double x, double y, double z);
 t_matrix	mtx_translate_izi(t_tuple tuple);
-int			test_matrix_translate(void);
 
 t_matrix	mtx_scale(double x, double y, double z);
 
@@ -92,7 +89,6 @@ t_matrix	mtx_rotation_z(double theta);
 t_matrix	mtx_rotation_axis_angle(t_vec axis, double angle);
 
 // test_mix.c
-bool		test_matrix_mult_inverse(void);
 
 // matrix_debug.c
 void		mtx_print(t_fd fd, t_matrix m);
@@ -104,10 +100,8 @@ bool		test_mtx_eq(void);
 
 // Matrix Transpose
 t_matrix	mtx_transpose(t_matrix m);
-int			test_mtx_transpose(void);
 
 // Matrix Scaling
 t_matrix	mtx_scale_izi(t_tuple tuple);
-int			test_mtx_scaling(void);
 
 #endif // FT_MATRIX_H
