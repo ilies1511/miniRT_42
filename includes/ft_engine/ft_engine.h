@@ -320,7 +320,6 @@ typedef struct s_computation
 	t_fcolor	color_at;
 }	t_computation;
 
-
 t_computation	eng_prepare_computation(t_intersc hit, t_ray ray,
 					t_intersc_arr interscs);
 

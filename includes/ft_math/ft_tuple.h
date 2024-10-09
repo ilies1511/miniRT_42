@@ -60,7 +60,6 @@ t_vec	norm(t_vec v);
 double	dot_prod(t_vec a, t_vec b);
 t_vec	cross_prod(t_vec a, t_vec b);
 
-
 void	print_t(int fd, t_tuple t);
 
 t_tuple	get_rdm_tuple(void);

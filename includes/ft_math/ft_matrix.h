@@ -26,11 +26,14 @@ typedef enum e_matrix_type
 }	t_matrix_type;
 
 //mat[row][col] indexed no matter the type
+//WTF NORMINITTE
 typedef struct s_matrix
 {
-	double			m[4][4] __attribute__((aligned(16)));
+	__attribute__(
+		(
+			aligned (16))) double			m[4][4];
 	t_matrix_type	type;
-}					t_matrix;
+}	t_matrix;
 
 // matrix_init.c
 t_matrix	mtx_new_ident(t_matrix_type type);
@@ -77,12 +80,10 @@ t_matrix	mtx_rotation_y(double theta);
 t_matrix	mtx_rotation_z(double theta);
 t_matrix	mtx_rotation_axis_angle(t_vec axis, double angle);
 
-
 // matrix_debug.c
 void		mtx_print(t_fd fd, t_matrix m);
 bool		mtx_eq(t_matrix ma, t_matrix mb);
 bool		mtx_eq_roughly(t_matrix ma, t_matrix mb);
-
 
 // Matrix Transpose
 t_matrix	mtx_transpose(t_matrix m);
