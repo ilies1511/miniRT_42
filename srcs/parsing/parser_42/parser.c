@@ -42,6 +42,8 @@ static void	parse_line(t_main *m_data, char *line,
 		demo_add_ocean(m_data);
 	else if (!ft_strncmp("ONE_PIECE", line, ft_strlen("ONE_PIECE")))
 		reflection_demo(m_data);
+	else if (!ft_strncmp("INNER_SPHERE", line, ft_strlen("INNER_SPHERE")))
+		inner_sphere_demo(m_data);
 	else if (!ft_strncmp("CHECKER_REFLECTION", line, \
 		ft_strlen("CHECKER_REFLECTION")))
 		internal_reflection_demo(m_data);
