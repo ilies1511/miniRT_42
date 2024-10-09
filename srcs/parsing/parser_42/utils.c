@@ -4,6 +4,8 @@
 
 static void	skip_value(char **str)
 {
+	if (!*str)
+		return ;
 	if (**str == '-')
 		(*str)++;
 	while (**str && **str != ',')

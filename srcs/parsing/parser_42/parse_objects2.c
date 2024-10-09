@@ -2,7 +2,7 @@
 #include <ft_engine.h>
 #include <parser_42.h>
 
-static void	set_transform_cylinder(t_cylinder *cyl, t_vec axis, double radius,
+static void	set_transform_cyl_cone(t_obj_ptr obj, t_vec axis, double radius,
 	t_point center)
 {
 	t_trans_cy_norm	n;
@@ -15,14 +15,14 @@ static void	set_transform_cylinder(t_cylinder *cyl, t_vec axis, double radius,
 		n.rotation = mtx_rotation_x(M_PI);
 	else if (!eq_t(norm(new_vec(0, 1, 0)), axis))
 	{
-		n.rot = cross_prod(norm(new_vec(0, 1, 0)), axis);
+		n.rot_axis = cross_prod(norm(new_vec(0, 1, 0)), axis);
 		n.angle = acos(dot_prod(norm(new_vec(0, 1, 0)), axis));
-		n.rotation = mtx_rotation_axis_angle(n.rot, n.angle);
+		n.rotation = mtx_rotation_axis_angle(n.rot_axis, n.angle);
 	}
 	n.transformation = mtx_mult_mm(n.transformation, n.translation);
 	n.transformation = mtx_mult_mm(n.transformation, n.rotation);
 	n.transformation = mtx_mult_mm(n.transformation, n.scaleing_radius);
-	eng_set_transform((t_obj_ptr)cyl, n.transformation);
+	eng_set_transform(obj, n.transformation);
 }
 
 void	parse_cylinder(t_main *m_data, char *line,
@@ -50,32 +50,8 @@ void	parse_cylinder(t_main *m_data, char *line,
 	cyl.min = -height / 2;
 	skip_float(&line);
 	str_to_fcolor(line, &cyl.base_obj.material.fcolor, &line);
-	set_transform_cylinder(&cyl, axis, radius, center);
+	set_transform_cyl_cone((t_obj_ptr) & cyl, axis, radius, center);
 	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr) & cyl);
-}
-
-static void	set_transform_cone(t_cone *cone, t_vec axis, double radius,
-	t_point center)
-{
-	t_trans_cy_norm	n;
-
-	n.rotation = mtx_new_ident(MAT4X4);
-	n.scaleing_radius = mtx_scale(radius, 1, radius);
-	n.translation = mtx_translate(center.x, center.y, center.z);
-	n.transformation = mtx_new_ident(MAT4X4);
-	if (eq_t(norm(new_vec(0, -1, 0)), axis))
-		n.rotation = mtx_rotation_x(M_PI);
-	else if (!eq_t(norm(new_vec(0, 1, 0)), axis))
-	{
-		n.rot = cross_prod(norm(new_vec(0, 1, 0)), axis);
-		n.angle = acos(dot_prod(norm(new_vec(0, 1, 0)), axis));
-		n.rotation = mtx_rotation_axis_angle(n.rot, n.angle);
-	}
-	n.transformation = mtx_mult_mm(n.transformation, n.translation);
-	n.transformation = mtx_mult_mm(n.transformation, n.rotation);
-	n.transformation = mtx_mult_mm(n.transformation, n.scaleing_radius);
-
-	eng_set_transform((t_obj_ptr)cone, n.transformation);
 }
 
 void	parse_cone(t_main *m_data, char *line,
@@ -103,7 +79,7 @@ void	parse_cone(t_main *m_data, char *line,
 	cone.min = 0;
 	skip_float(&line);
 	str_to_fcolor(line, &cone.base_obj.material.fcolor, &line);
-	set_transform_cone(&cone, axis, radius, center);
+	set_transform_cyl_cone((t_obj_ptr) & cone, axis, radius, center);
 	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr) & cone);
 }
 
@@ -132,6 +108,31 @@ void	parse_double_cone(t_main *m_data, char *line,
 	cone.min = -height / 2;
 	skip_float(&line);
 	str_to_fcolor(line, &cone.base_obj.material.fcolor, &line);
-	set_transform_cone(&cone, axis, radius, center);
+	set_transform_cyl_cone((t_obj_ptr) & cone, axis, radius, center);
 	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr) & cone);
+}
+
+void	parse_sphere(t_main *m_data, char *line,
+			size_t mem_points[PARSER_MEM_SIZE])
+{
+	t_sphere	sph;
+	t_point		origin;
+	double		diameter;
+	t_fcolor	fcolor;
+
+	line += 2;
+	sph = eng_new_sphere();
+	str_to_tuple(line, &origin, &line, 1.0);
+	origin = handle_point_collision(mem_points, origin, PARSER_OFFSET_PLANE);
+	if (!ft_isdigit(*line))
+		parser_error("parsing error", __FILE__, __LINE__, 100);
+	diameter = str_to_float(line);
+	skip_float(&line);
+	str_to_fcolor(line, &fcolor, &line);
+	sph.base_obj.material.fcolor = fcolor;
+	eng_set_transform((t_obj_ptr) & sph, mtx_translate(origin.x, origin.y,
+			origin.z));
+	eng_set_transform((t_obj_ptr) & sph, mtx_scale(diameter / 2, diameter / 2,
+			diameter / 2));
+	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr) & sph);
 }

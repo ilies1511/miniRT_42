@@ -35,8 +35,12 @@ t_point	handle_point_collision(size_t mem_points[PARSER_MEM_SIZE],
 			t_point point, double obj_modulo_prime)
 {
 	double	collision_offset;
+	t_tuple	quick_fix_offset;
 
-	return (point);
+	quick_fix_offset = new_vec(obj_modulo_prime, obj_modulo_prime,
+			obj_modulo_prime);
+	quick_fix_offset = mult_v(quick_fix_offset, -EPSILON);
+	return (add_t(point, quick_fix_offset));
 	collision_offset = obj_modulo_prime
 		* parser_get_mem_count(mem_points, point);
 	parser_inc_mem(mem_points, point);
