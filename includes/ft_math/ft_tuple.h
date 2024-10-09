@@ -12,9 +12,9 @@ typedef union u_tuple
 		double	y;
 		double	z;
 		double	w;
-	};
+	}__attribute__((aligned(16)));
 	double		arr[4];
-}__attribute__((packed))	t_tuple;
+}	t_tuple;
 
 typedef t_tuple	t_vec;
 typedef t_tuple	t_point;

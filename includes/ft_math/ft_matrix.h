@@ -16,7 +16,7 @@ typedef enum e_matrix_type
 //mat[row][col] indexed no matter the type
 typedef struct s_matrix
 {
-	double			m[4][4];
+	double			m[4][4] __attribute__((aligned(16)));
 	t_matrix_type	type;
 }	t_matrix;
 

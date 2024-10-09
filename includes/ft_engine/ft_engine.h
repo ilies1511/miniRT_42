@@ -358,6 +358,7 @@ void			eng_ray_intersc_world(t_ray ray, t_world world,
 					t_intersc_arr *interscs);
 void			eng_intersc_ray_cylinder(t_intersc_arr *intersecs, t_ray ray,
 					t_cylinder *cylinder);
+
 //Intersect Ray-Cone
 void			eng_intersc_ray_cone(t_intersc_arr *intersecs, t_ray ray,
 					t_cone *cone);

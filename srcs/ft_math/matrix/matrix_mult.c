@@ -57,9 +57,9 @@ t_tuple	mtx_mult_mt(t_matrix m, t_tuple tup)
 t_tuple	mtx_mult_mt(t_matrix m, t_tuple tup)
 {
 	t_tuple	res;
-	double	tmp[4];
-	int		i;
-	int		j;
+	double	tmp[4] __attribute((aligned(16)));
+	uint8_t	j;
+	uint8_t	i;
 
 	i = 0;
 	while (i < 4)
