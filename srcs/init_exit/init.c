@@ -49,6 +49,7 @@ void	main_init(t_main *m_data, int ac, char *av[])
 	m_data->mlx = mlx_init(WIDTH, HEIGHT, "miniRT", true);
 	if (!m_data->mlx)
 	{
+		printf("%s", mlx_strerror(mlx_errno));
 		ft_error("an mlx_init function call failed failed",
 			__FILE__, __LINE__, 1);
 	}

@@ -258,9 +258,15 @@ mlx: clone_mlx
 		echo "$(GREEN) lib_MLX compiled!$(CLEAR)"; \
 	fi
 
+
+
+
 clone_mlx:
 	@if [ ! -d "MLX42" ]; then \
-		git clone https://github.com/codam-coding-college/MLX42.git; \
+		git clone https://github.com/codam-coding-college/MLX42.git --no-checkout; \
+		cd MLX42; \
+		git checkout 5d14c832a05a88dd219dd6dc05a5bbf1b577ae0c; \
+		cd .. ;\
 	fi
 
 $(LIBFT): $(LIBFT_DIR)
