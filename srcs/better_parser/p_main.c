@@ -49,7 +49,7 @@ bool parse_radius(t_vec *radius, char *key, char *value)
 	if (!ft_strncmp("RADIUS_X", key, ft_strlen("RADIUS_X")))
 		radius->x = str_to_float(value);
 	else if (!ft_strncmp("RADIUS_Y", key, ft_strlen("RADIUS_Y")))
-		radius->y = str_to_float(value);	
+		radius->y = str_to_float(value);
 	else if (!ft_strncmp("RADIUS_Z", key, ft_strlen("RADIUS_Y")))
 		radius->z = str_to_float(value);
 	else if (!ft_strncmp("RADIUS", key, ft_strlen("RADIUS")))
