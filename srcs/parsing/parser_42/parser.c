@@ -79,6 +79,8 @@ void	parser(t_main *m_data, char *path)
 		free(line);
 		line = get_next_line(fd, false);
 	}
+	if (!m_data->has_camera)
+		parser_error("Needs Camera", __FILE__, __LINE__, 100);
 	close(fd);
 	m_data->cleanup_data.fd = 0;
 	get_next_line(fd, true);
