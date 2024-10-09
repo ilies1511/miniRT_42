@@ -175,15 +175,6 @@ SOURCE_FILES := \
 	$(SRC_FILES_DEMO) \
 	init_exit/init.c \
 	init_exit/at_exit.c \
-	playgrounds/1/projectile.c \
-	playgrounds/sphere1/test.c \
-	playgrounds/sphere1/test2.c \
-	playgrounds/sphere1/test3.c \
-	playgrounds/chap_6/1.c \
-	playgrounds/chap_9/1.c \
-	playgrounds/chap_10/1.c \
-	playgrounds/chap_11.c \
-	playgrounds/waves1.c
 
 SOURCES = $(addprefix $(SRC_DIR), $(SOURCE_FILES))
 
