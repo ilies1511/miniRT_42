@@ -41,6 +41,8 @@ static void	parse_line(t_main *m_data, char *line,
 	else if (!ft_strncmp("OCEAN", line, ft_strlen("OCEAN")))
 		demo_add_ocean(m_data);
 	else if (!ft_strncmp("ONE_PIECE", line, ft_strlen("ONE_PIECE")))
+		one_piece(m_data);
+	else if (!ft_strncmp("NICE", line, ft_strlen("NICE")))
 		reflection_demo(m_data);
 	else if (!ft_strncmp("CHECKER_REFLECTION", line, \
 		ft_strlen("CHECKER_REFLECTION")))
