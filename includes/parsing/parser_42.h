@@ -40,7 +40,7 @@ typedef struct s_trans_cy_norm
 	t_matrix	scaleing_radius;
 	t_matrix	translation;
 	t_matrix	transformation;
-	t_vec		rot;
+	t_vec		rot_axis;
 	double		angle;
 }				t_trans_cy_norm;
 

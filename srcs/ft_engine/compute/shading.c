@@ -106,4 +106,3 @@ t_fcolor	eng_shade_hit(t_world world, t_computation comp, \
 	}
 	return (n.color);
 }
-

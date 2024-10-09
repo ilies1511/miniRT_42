@@ -117,14 +117,12 @@ void	eng_render(t_camera camera, t_world world, t_canvas canvas)
 	size_t		iter;
 
 	y = 0;
-	// printf("render\n");
+	iter = 0;
 	while (y < camera.height)
 	{
 		x = 0;
-		// printf("row\n");
 		while (x < camera.width)
 		{
-			// printf("pixel\n");
 			ray = eng_ray_for_pixel(camera, x, y);
 			color = eng_color_at(world, ray, REFLECTION_COUNT);
 			iter = eng_put_pixel(canvas, x, y, color);
