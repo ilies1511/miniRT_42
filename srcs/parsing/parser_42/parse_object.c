@@ -64,6 +64,7 @@ void	parse_camera(t_main *m_data, char *line,
 	str_to_tuple(++line, &origin, &line, 1.0);
 	parser_inc_mem(mem_points, origin);
 	str_to_tuple(line, &to, &line, 1.0);
+	direct = norm(sub_t(to, origin));
 	if (eq_t(norm(direct), up) || eq_t(norm(direct), norm(new_vec(0, -1, 0))))
 		up = norm(new_vec(0, 0, 1));
 	parser_inc_mem(mem_points, to);
