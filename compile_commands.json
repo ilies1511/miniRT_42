@@ -5,8 +5,8 @@
       "-c",
       "CMakeCCompilerId.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/3.28.3/CompilerIdC",
-    "file": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c"
+    "directory": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/3.28.3/CompilerIdC",
+    "file": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c"
   },
   {
     "arguments": [
@@ -14,8 +14,8 @@
       "-c",
       "CMakeCXXCompilerId.cpp"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/3.28.3/CompilerIdCXX",
-    "file": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/3.28.3/CompilerIdCXX/CMakeCXXCompilerId.cpp"
+    "directory": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/3.28.3/CompilerIdCXX",
+    "file": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/3.28.3/CompilerIdCXX/CMakeCXXCompilerId.cpp"
   },
   {
     "arguments": [
@@ -23,12 +23,12 @@
       "-v",
       "-c",
       "-o",
-      "CMakeFiles/cmTC_c0dfe.dir/CMakeCCompilerABI.c.o",
+      "CMakeFiles/cmTC_cc8cc.dir/CMakeCCompilerABI.c.o",
       "/usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/CMakeScratch/TryCompile-gkBQoH",
+    "directory": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/CMakeScratch/TryCompile-VXAdhI",
     "file": "/usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/CMakeScratch/TryCompile-gkBQoH/CMakeFiles/cmTC_c0dfe.dir/CMakeCCompilerABI.c.o"
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/CMakeScratch/TryCompile-VXAdhI/CMakeFiles/cmTC_cc8cc.dir/CMakeCCompilerABI.c.o"
   },
   {
     "arguments": [
@@ -36,40 +36,12 @@
       "-v",
       "-c",
       "-o",
-      "CMakeFiles/cmTC_f1135.dir/CMakeCXXCompilerABI.cpp.o",
+      "CMakeFiles/cmTC_ae449.dir/CMakeCXXCompilerABI.cpp.o",
       "/usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/CMakeScratch/TryCompile-Na5LV5",
+    "directory": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/CMakeScratch/TryCompile-6xvpE1",
     "file": "/usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/CMakeScratch/TryCompile-Na5LV5/CMakeFiles/cmTC_f1135.dir/CMakeCXXCompilerABI.cpp.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I/home/fabi/42/miniRT/MLX42/include",
-      "-std=c11",
-      "-fPIC",
-      "-D",
-      "LODEPNG_NO_COMPILE_ENCODER",
-      "-D",
-      "LODEPNG_NO_COMPILE_ANCILLARY_CHUNKS",
-      "-Wextra",
-      "-Wall",
-      "-Werror",
-      "-Wunreachable-code",
-      "-Wno-char-subscripts",
-      "-Wno-sign-compare",
-      "-Wno-unused-parameter",
-      "-Wno-missing-field-initializers",
-      "-g",
-      "-c",
-      "-o",
-      "CMakeFiles/mlx42.dir/src/mlx_images.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/src/mlx_images.c"
-    ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/src/mlx_images.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_images.c.o"
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/CMakeScratch/TryCompile-6xvpE1/CMakeFiles/cmTC_ae449.dir/CMakeCXXCompilerABI.cpp.o"
   },
   {
     "arguments": [
@@ -93,39 +65,11 @@
       "-c",
       "-o",
       "CMakeFiles/mlx42.dir/src/mlx_exit.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/src/mlx_exit.c"
+      "/home/fabi/42/miniRT/MLX42/src/mlx_exit.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/src/mlx_exit.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_exit.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I/home/fabi/42/miniRT/MLX42/include",
-      "-std=c11",
-      "-fPIC",
-      "-D",
-      "LODEPNG_NO_COMPILE_ENCODER",
-      "-D",
-      "LODEPNG_NO_COMPILE_ANCILLARY_CHUNKS",
-      "-Wextra",
-      "-Wall",
-      "-Werror",
-      "-Wunreachable-code",
-      "-Wno-char-subscripts",
-      "-Wno-sign-compare",
-      "-Wno-unused-parameter",
-      "-Wno-missing-field-initializers",
-      "-g",
-      "-c",
-      "-o",
-      "CMakeFiles/mlx42.dir/src/mlx_cursor.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/src/mlx_cursor.c"
-    ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/src/mlx_cursor.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_cursor.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/mlx_exit.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_exit.c.o"
   },
   {
     "arguments": [
@@ -149,11 +93,11 @@
       "-c",
       "-o",
       "CMakeFiles/mlx42.dir/src/mlx_init.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/src/mlx_init.c"
+      "/home/fabi/42/miniRT/MLX42/src/mlx_init.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/src/mlx_init.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_init.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/mlx_init.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_init.c.o"
   },
   {
     "arguments": [
@@ -176,12 +120,40 @@
       "-g",
       "-c",
       "-o",
-      "CMakeFiles/mlx42.dir/src/mlx_loop.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/src/mlx_loop.c"
+      "CMakeFiles/mlx42.dir/src/mlx_cursor.c.o",
+      "/home/fabi/42/miniRT/MLX42/src/mlx_cursor.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/src/mlx_loop.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_loop.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/mlx_cursor.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_cursor.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I/home/fabi/42/miniRT/MLX42/include",
+      "-std=c11",
+      "-fPIC",
+      "-D",
+      "LODEPNG_NO_COMPILE_ENCODER",
+      "-D",
+      "LODEPNG_NO_COMPILE_ANCILLARY_CHUNKS",
+      "-Wextra",
+      "-Wall",
+      "-Werror",
+      "-Wunreachable-code",
+      "-Wno-char-subscripts",
+      "-Wno-sign-compare",
+      "-Wno-unused-parameter",
+      "-Wno-missing-field-initializers",
+      "-g",
+      "-c",
+      "-o",
+      "CMakeFiles/mlx42.dir/src/mlx_images.c.o",
+      "/home/fabi/42/miniRT/MLX42/src/mlx_images.c"
+    ],
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/mlx_images.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_images.c.o"
   },
   {
     "arguments": [
@@ -205,11 +177,39 @@
       "-c",
       "-o",
       "CMakeFiles/mlx42.dir/src/mlx_keys.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/src/mlx_keys.c"
+      "/home/fabi/42/miniRT/MLX42/src/mlx_keys.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/src/mlx_keys.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_keys.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/mlx_keys.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_keys.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I/home/fabi/42/miniRT/MLX42/include",
+      "-std=c11",
+      "-fPIC",
+      "-D",
+      "LODEPNG_NO_COMPILE_ENCODER",
+      "-D",
+      "LODEPNG_NO_COMPILE_ANCILLARY_CHUNKS",
+      "-Wextra",
+      "-Wall",
+      "-Werror",
+      "-Wunreachable-code",
+      "-Wno-char-subscripts",
+      "-Wno-sign-compare",
+      "-Wno-unused-parameter",
+      "-Wno-missing-field-initializers",
+      "-g",
+      "-c",
+      "-o",
+      "CMakeFiles/mlx42.dir/src/mlx_loop.c.o",
+      "/home/fabi/42/miniRT/MLX42/src/mlx_loop.c"
+    ],
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/mlx_loop.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_loop.c.o"
   },
   {
     "arguments": [
@@ -233,11 +233,11 @@
       "-c",
       "-o",
       "CMakeFiles/mlx42.dir/src/mlx_monitor.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/src/mlx_monitor.c"
+      "/home/fabi/42/miniRT/MLX42/src/mlx_monitor.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/src/mlx_monitor.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_monitor.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/mlx_monitor.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_monitor.c.o"
   },
   {
     "arguments": [
@@ -261,11 +261,11 @@
       "-c",
       "-o",
       "CMakeFiles/mlx42.dir/src/mlx_mouse.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/src/mlx_mouse.c"
+      "/home/fabi/42/miniRT/MLX42/src/mlx_mouse.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/src/mlx_mouse.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_mouse.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/mlx_mouse.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_mouse.c.o"
   },
   {
     "arguments": [
@@ -289,11 +289,11 @@
       "-c",
       "-o",
       "CMakeFiles/mlx42.dir/src/mlx_put_pixel.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/src/mlx_put_pixel.c"
+      "/home/fabi/42/miniRT/MLX42/src/mlx_put_pixel.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/src/mlx_put_pixel.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_put_pixel.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/mlx_put_pixel.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_put_pixel.c.o"
   },
   {
     "arguments": [
@@ -317,11 +317,11 @@
       "-c",
       "-o",
       "CMakeFiles/mlx42.dir/src/mlx_window.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/src/mlx_window.c"
+      "/home/fabi/42/miniRT/MLX42/src/mlx_window.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/src/mlx_window.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_window.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/mlx_window.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/mlx_window.c.o"
   },
   {
     "arguments": [
@@ -345,11 +345,11 @@
       "-c",
       "-o",
       "CMakeFiles/mlx42.dir/src/utils/mlx_error.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/src/utils/mlx_error.c"
+      "/home/fabi/42/miniRT/MLX42/src/utils/mlx_error.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/src/utils/mlx_error.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/utils/mlx_error.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/utils/mlx_error.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/utils/mlx_error.c.o"
   },
   {
     "arguments": [
@@ -373,11 +373,11 @@
       "-c",
       "-o",
       "CMakeFiles/mlx42.dir/src/utils/mlx_list.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/src/utils/mlx_list.c"
+      "/home/fabi/42/miniRT/MLX42/src/utils/mlx_list.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/src/utils/mlx_list.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/utils/mlx_list.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/utils/mlx_list.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/utils/mlx_list.c.o"
   },
   {
     "arguments": [
@@ -401,39 +401,11 @@
       "-c",
       "-o",
       "CMakeFiles/mlx42.dir/src/utils/mlx_utils.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/src/utils/mlx_utils.c"
+      "/home/fabi/42/miniRT/MLX42/src/utils/mlx_utils.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/src/utils/mlx_utils.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/utils/mlx_utils.c.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-I/home/fabi/42/miniRT/MLX42/include",
-      "-std=c11",
-      "-fPIC",
-      "-D",
-      "LODEPNG_NO_COMPILE_ENCODER",
-      "-D",
-      "LODEPNG_NO_COMPILE_ANCILLARY_CHUNKS",
-      "-Wextra",
-      "-Wall",
-      "-Werror",
-      "-Wunreachable-code",
-      "-Wno-char-subscripts",
-      "-Wno-sign-compare",
-      "-Wno-unused-parameter",
-      "-Wno-missing-field-initializers",
-      "-g",
-      "-c",
-      "-o",
-      "CMakeFiles/mlx42.dir/src/font/mlx_font.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/src/font/mlx_font.c"
-    ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/src/font/mlx_font.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/font/mlx_font.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/utils/mlx_utils.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/utils/mlx_utils.c.o"
   },
   {
     "arguments": [
@@ -457,11 +429,39 @@
       "-c",
       "-o",
       "CMakeFiles/mlx42.dir/src/utils/mlx_compare.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/src/utils/mlx_compare.c"
+      "/home/fabi/42/miniRT/MLX42/src/utils/mlx_compare.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/src/utils/mlx_compare.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/utils/mlx_compare.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/utils/mlx_compare.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/utils/mlx_compare.c.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-I/home/fabi/42/miniRT/MLX42/include",
+      "-std=c11",
+      "-fPIC",
+      "-D",
+      "LODEPNG_NO_COMPILE_ENCODER",
+      "-D",
+      "LODEPNG_NO_COMPILE_ANCILLARY_CHUNKS",
+      "-Wextra",
+      "-Wall",
+      "-Werror",
+      "-Wunreachable-code",
+      "-Wno-char-subscripts",
+      "-Wno-sign-compare",
+      "-Wno-unused-parameter",
+      "-Wno-missing-field-initializers",
+      "-g",
+      "-c",
+      "-o",
+      "CMakeFiles/mlx42.dir/src/font/mlx_font.c.o",
+      "/home/fabi/42/miniRT/MLX42/src/font/mlx_font.c"
+    ],
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/font/mlx_font.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/font/mlx_font.c.o"
   },
   {
     "arguments": [
@@ -485,11 +485,11 @@
       "-c",
       "-o",
       "CMakeFiles/mlx42.dir/src/textures/mlx_png.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/src/textures/mlx_png.c"
+      "/home/fabi/42/miniRT/MLX42/src/textures/mlx_png.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/src/textures/mlx_png.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/textures/mlx_png.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/textures/mlx_png.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/textures/mlx_png.c.o"
   },
   {
     "arguments": [
@@ -513,11 +513,11 @@
       "-c",
       "-o",
       "CMakeFiles/mlx42.dir/src/textures/mlx_texture.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/src/textures/mlx_texture.c"
+      "/home/fabi/42/miniRT/MLX42/src/textures/mlx_texture.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/src/textures/mlx_texture.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/textures/mlx_texture.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/textures/mlx_texture.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/textures/mlx_texture.c.o"
   },
   {
     "arguments": [
@@ -541,11 +541,11 @@
       "-c",
       "-o",
       "CMakeFiles/mlx42.dir/src/textures/mlx_xpm42.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/src/textures/mlx_xpm42.c"
+      "/home/fabi/42/miniRT/MLX42/src/textures/mlx_xpm42.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/src/textures/mlx_xpm42.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/textures/mlx_xpm42.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/src/textures/mlx_xpm42.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/src/textures/mlx_xpm42.c.o"
   },
   {
     "arguments": [
@@ -569,11 +569,11 @@
       "-c",
       "-o",
       "CMakeFiles/mlx42.dir/lib/png/lodepng.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/lib/png/lodepng.c"
+      "/home/fabi/42/miniRT/MLX42/lib/png/lodepng.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/lib/png/lodepng.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/lib/png/lodepng.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/lib/png/lodepng.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/lib/png/lodepng.c.o"
   },
   {
     "arguments": [
@@ -597,11 +597,11 @@
       "-c",
       "-o",
       "CMakeFiles/mlx42.dir/lib/glad/glad.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/lib/glad/glad.c"
+      "/home/fabi/42/miniRT/MLX42/lib/glad/glad.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/lib/glad/glad.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/lib/glad/glad.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/lib/glad/glad.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/lib/glad/glad.c.o"
   },
   {
     "arguments": [
@@ -625,11 +625,11 @@
       "-c",
       "-o",
       "CMakeFiles/mlx42.dir/mlx_vert_shader.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/build/mlx_vert_shader.c"
+      "/home/fabi/42/miniRT/MLX42/build/mlx_vert_shader.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/build/mlx_vert_shader.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/mlx_vert_shader.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/build/mlx_vert_shader.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/mlx_vert_shader.c.o"
   },
   {
     "arguments": [
@@ -653,11 +653,11 @@
       "-c",
       "-o",
       "CMakeFiles/mlx42.dir/mlx_frag_shader.c.o",
-      "/Users/frapp/projects/miniRT/MLX42/build/mlx_frag_shader.c"
+      "/home/fabi/42/miniRT/MLX42/build/mlx_frag_shader.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/MLX42/build",
-    "file": "/Users/frapp/projects/miniRT/MLX42/build/mlx_frag_shader.c",
-    "output": "/Users/frapp/projects/miniRT/MLX42/build/CMakeFiles/mlx42.dir/mlx_frag_shader.c.o"
+    "directory": "/home/fabi/42/miniRT/MLX42/build",
+    "file": "/home/fabi/42/miniRT/MLX42/build/mlx_frag_shader.c",
+    "output": "/home/fabi/42/miniRT/MLX42/build/CMakeFiles/mlx42.dir/mlx_frag_shader.c.o"
   },
   {
     "arguments": [
@@ -671,14 +671,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_isalpha.o",
       "ft_isalpha.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_isalpha.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_isalpha.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_isalpha.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_isalpha.o"
   },
   {
     "arguments": [
@@ -692,14 +693,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_isdigit.o",
       "ft_isdigit.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_isdigit.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_isdigit.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_isdigit.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_isdigit.o"
   },
   {
     "arguments": [
@@ -713,14 +715,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_isalnum.o",
       "ft_isalnum.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_isalnum.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_isalnum.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_isalnum.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_isalnum.o"
   },
   {
     "arguments": [
@@ -734,14 +737,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_isascii.o",
       "ft_isascii.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_isascii.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_isascii.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_isascii.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_isascii.o"
   },
   {
     "arguments": [
@@ -755,14 +759,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_isprint.o",
       "ft_isprint.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_isprint.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_isprint.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_isprint.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_isprint.o"
   },
   {
     "arguments": [
@@ -776,14 +781,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_strlen.o",
       "ft_strlen.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_strlen.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_strlen.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_strlen.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_strlen.o"
   },
   {
     "arguments": [
@@ -797,14 +803,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_memset.o",
       "ft_memset.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_memset.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_memset.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_memset.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_memset.o"
   },
   {
     "arguments": [
@@ -818,14 +825,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_bzero.o",
       "ft_bzero.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_bzero.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_bzero.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_bzero.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_bzero.o"
   },
   {
     "arguments": [
@@ -839,14 +847,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_memcpy.o",
       "ft_memcpy.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_memcpy.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_memcpy.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_memcpy.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_memcpy.o"
   },
   {
     "arguments": [
@@ -860,14 +869,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_memmove.o",
       "ft_memmove.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_memmove.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_memmove.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_memmove.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_memmove.o"
   },
   {
     "arguments": [
@@ -881,14 +891,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_strlcpy.o",
       "ft_strlcpy.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_strlcpy.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_strlcpy.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_strlcpy.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_strlcpy.o"
   },
   {
     "arguments": [
@@ -902,14 +913,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_strlcat.o",
       "ft_strlcat.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_strlcat.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_strlcat.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_strlcat.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_strlcat.o"
   },
   {
     "arguments": [
@@ -923,14 +935,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_toupper.o",
       "ft_toupper.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_toupper.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_toupper.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_toupper.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_toupper.o"
   },
   {
     "arguments": [
@@ -944,14 +957,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_tolower.o",
       "ft_tolower.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_tolower.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_tolower.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_tolower.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_tolower.o"
   },
   {
     "arguments": [
@@ -965,14 +979,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_strchr.o",
       "ft_strchr.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_strchr.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_strchr.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_strchr.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_strchr.o"
   },
   {
     "arguments": [
@@ -986,14 +1001,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_strrchr.o",
       "ft_strrchr.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_strrchr.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_strrchr.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_strrchr.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_strrchr.o"
   },
   {
     "arguments": [
@@ -1007,14 +1023,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_strncmp.o",
       "ft_strncmp.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_strncmp.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_strncmp.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_strncmp.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_strncmp.o"
   },
   {
     "arguments": [
@@ -1028,14 +1045,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_memchr.o",
       "ft_memchr.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_memchr.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_memchr.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_memchr.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_memchr.o"
   },
   {
     "arguments": [
@@ -1049,14 +1067,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_memcmp.o",
       "ft_memcmp.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_memcmp.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_memcmp.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_memcmp.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_memcmp.o"
   },
   {
     "arguments": [
@@ -1070,14 +1089,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_strnstr.o",
       "ft_strnstr.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_strnstr.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_strnstr.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_strnstr.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_strnstr.o"
   },
   {
     "arguments": [
@@ -1091,14 +1111,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_atoi.o",
       "ft_atoi.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_atoi.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_atoi.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_atoi.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_atoi.o"
   },
   {
     "arguments": [
@@ -1112,14 +1133,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_calloc.o",
       "ft_calloc.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_calloc.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_calloc.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_calloc.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_calloc.o"
   },
   {
     "arguments": [
@@ -1133,14 +1155,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_strdup.o",
       "ft_strdup.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_strdup.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_strdup.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_strdup.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_strdup.o"
   },
   {
     "arguments": [
@@ -1154,14 +1177,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_substr.o",
       "ft_substr.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_substr.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_substr.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_substr.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_substr.o"
   },
   {
     "arguments": [
@@ -1175,14 +1199,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_strjoin.o",
       "ft_strjoin.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_strjoin.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_strjoin.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_strjoin.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_strjoin.o"
   },
   {
     "arguments": [
@@ -1196,14 +1221,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_strtrim.o",
       "ft_strtrim.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_strtrim.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_strtrim.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_strtrim.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_strtrim.o"
   },
   {
     "arguments": [
@@ -1217,14 +1243,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_split.o",
       "ft_split.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_split.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_split.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_split.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_split.o"
   },
   {
     "arguments": [
@@ -1238,14 +1265,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_itoa.o",
       "ft_itoa.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_itoa.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_itoa.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_itoa.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_itoa.o"
   },
   {
     "arguments": [
@@ -1259,14 +1287,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_strmapi.o",
       "ft_strmapi.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_strmapi.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_strmapi.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_strmapi.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_strmapi.o"
   },
   {
     "arguments": [
@@ -1280,14 +1309,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_striteri.o",
       "ft_striteri.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_striteri.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_striteri.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_striteri.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_striteri.o"
   },
   {
     "arguments": [
@@ -1301,14 +1331,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_putnbr_fd.o",
       "ft_putnbr_fd.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_putnbr_fd.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_putnbr_fd.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_putnbr_fd.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_putnbr_fd.o"
   },
   {
     "arguments": [
@@ -1322,14 +1353,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_lstnew_bonus.o",
       "ft_lstnew_bonus.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_lstnew_bonus.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_lstnew_bonus.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_lstnew_bonus.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_lstnew_bonus.o"
   },
   {
     "arguments": [
@@ -1343,14 +1375,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_lstadd_front_bonus.o",
       "ft_lstadd_front_bonus.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_lstadd_front_bonus.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_lstadd_front_bonus.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_lstadd_front_bonus.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_lstadd_front_bonus.o"
   },
   {
     "arguments": [
@@ -1364,14 +1397,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_lstsize_bonus.o",
       "ft_lstsize_bonus.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_lstsize_bonus.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_lstsize_bonus.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_lstsize_bonus.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_lstsize_bonus.o"
   },
   {
     "arguments": [
@@ -1385,14 +1419,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_lstlast_bonus.o",
       "ft_lstlast_bonus.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_lstlast_bonus.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_lstlast_bonus.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_lstlast_bonus.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_lstlast_bonus.o"
   },
   {
     "arguments": [
@@ -1406,14 +1441,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_lstadd_back_bonus.o",
       "ft_lstadd_back_bonus.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_lstadd_back_bonus.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_lstadd_back_bonus.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_lstadd_back_bonus.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_lstadd_back_bonus.o"
   },
   {
     "arguments": [
@@ -1427,14 +1463,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_lstdelone_bonus.o",
       "ft_lstdelone_bonus.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_lstdelone_bonus.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_lstdelone_bonus.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_lstdelone_bonus.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_lstdelone_bonus.o"
   },
   {
     "arguments": [
@@ -1448,14 +1485,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_lstclear_bonus.o",
       "ft_lstclear_bonus.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_lstclear_bonus.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_lstclear_bonus.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_lstclear_bonus.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_lstclear_bonus.o"
   },
   {
     "arguments": [
@@ -1469,14 +1507,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_lstiter_bonus.o",
       "ft_lstiter_bonus.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_lstiter_bonus.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_lstiter_bonus.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_lstiter_bonus.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_lstiter_bonus.o"
   },
   {
     "arguments": [
@@ -1490,14 +1529,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_lstmap_bonus.o",
       "ft_lstmap_bonus.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_lstmap_bonus.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_lstmap_bonus.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_lstmap_bonus.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_lstmap_bonus.o"
   },
   {
     "arguments": [
@@ -1511,14 +1551,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_lst_dummy_delete.o",
       "ft_lst_dummy_delete.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_lst_dummy_delete.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_lst_dummy_delete.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_lst_dummy_delete.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_lst_dummy_delete.o"
   },
   {
     "arguments": [
@@ -1532,14 +1573,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_list_del_node.o",
       "ft_list_del_node.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_list_del_node.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_list_del_node.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_list_del_node.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_list_del_node.o"
   },
   {
     "arguments": [
@@ -1553,14 +1595,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/get_next_line_utils.o",
       "get_next_line_utils.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/get_next_line_utils.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/get_next_line_utils.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/get_next_line_utils.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/get_next_line_utils.o"
   },
   {
     "arguments": [
@@ -1574,14 +1617,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/get_next_line.o",
       "get_next_line.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/get_next_line.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/get_next_line.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/get_next_line.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/get_next_line.o"
   },
   {
     "arguments": [
@@ -1595,14 +1639,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_printf/ft_printf.o",
       "ft_printf/ft_printf.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_printf/ft_printf.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_printf/ft_printf.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_printf/ft_printf.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_printf/ft_printf.o"
   },
   {
     "arguments": [
@@ -1616,14 +1661,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_printf/ft_printf_pattern1.o",
       "ft_printf/ft_printf_pattern1.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_printf/ft_printf_pattern1.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_printf/ft_printf_pattern1.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_printf/ft_printf_pattern1.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_printf/ft_printf_pattern1.o"
   },
   {
     "arguments": [
@@ -1637,14 +1683,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_printf/ft_printf_format_nbs.o",
       "ft_printf/ft_printf_format_nbs.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_printf/ft_printf_format_nbs.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_printf/ft_printf_format_nbs.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_printf/ft_printf_format_nbs.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_printf/ft_printf_format_nbs.o"
   },
   {
     "arguments": [
@@ -1658,14 +1705,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_powint.o",
       "ft_powint.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_powint.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_powint.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_powint.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_powint.o"
   },
   {
     "arguments": [
@@ -1679,14 +1727,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_realloc_copy_until_zeroed.o",
       "ft_realloc_copy_until_zeroed.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_realloc_copy_until_zeroed.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_realloc_copy_until_zeroed.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_realloc_copy_until_zeroed.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_realloc_copy_until_zeroed.o"
   },
   {
     "arguments": [
@@ -1700,14 +1749,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_strarr_size.o",
       "ft_strarr_size.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_strarr_size.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_strarr_size.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_strarr_size.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_strarr_size.o"
   },
   {
     "arguments": [
@@ -1721,14 +1771,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_free_2darr.o",
       "ft_free_2darr.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_free_2darr.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_free_2darr.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_free_2darr.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_free_2darr.o"
   },
   {
     "arguments": [
@@ -1742,14 +1793,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_strjoin_free_s1.o",
       "ft_strjoin_free_s1.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_strjoin_free_s1.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_strjoin_free_s1.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_strjoin_free_s1.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_strjoin_free_s1.o"
   },
   {
     "arguments": [
@@ -1763,14 +1815,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_strjoin_free_both.o",
       "ft_strjoin_free_both.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_strjoin_free_both.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_strjoin_free_both.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_strjoin_free_both.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_strjoin_free_both.o"
   },
   {
     "arguments": [
@@ -1784,14 +1837,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_split_wildcards.o",
       "ft_split_wildcards.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_split_wildcards.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_split_wildcards.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_split_wildcards.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_split_wildcards.o"
   },
   {
     "arguments": [
@@ -1805,14 +1859,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_split_fn.o",
       "ft_split_fn.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_split_fn.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_split_fn.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_split_fn.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_split_fn.o"
   },
   {
     "arguments": [
@@ -1826,14 +1881,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_iswhitespace.o",
       "ft_iswhitespace.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_iswhitespace.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_iswhitespace.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_iswhitespace.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_iswhitespace.o"
   },
   {
     "arguments": [
@@ -1847,14 +1903,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/arr_append.o",
       "arr_append.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/arr_append.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/arr_append.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/arr_append.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/arr_append.o"
   },
   {
     "arguments": [
@@ -1868,14 +1925,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_free.o",
       "ft_free.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_free.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_free.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_free.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_free.o"
   },
   {
     "arguments": [
@@ -1889,14 +1947,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_dynamic_arr.o",
       "ft_dynamic_arr.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_dynamic_arr.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_dynamic_arr.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_dynamic_arr.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_dynamic_arr.o"
   },
   {
     "arguments": [
@@ -1910,14 +1969,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_dynamic_arr2.o",
       "ft_dynamic_arr2.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_dynamic_arr2.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_dynamic_arr2.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_dynamic_arr2.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_dynamic_arr2.o"
   },
   {
     "arguments": [
@@ -1931,14 +1991,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_queue.o",
       "ft_queue.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_queue.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_queue.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_queue.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_queue.o"
   },
   {
     "arguments": [
@@ -1952,14 +2013,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_assert.o",
       "ft_assert.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_assert.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_assert.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_assert.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_assert.o"
   },
   {
     "arguments": [
@@ -1973,14 +2035,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_free_2d.o",
       "ft_free_2d.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_free_2d.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_free_2d.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_free_2d.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_free_2d.o"
   },
   {
     "arguments": [
@@ -1994,14 +2057,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_count_word.o",
       "ft_count_word.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_count_word.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_count_word.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_count_word.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_count_word.o"
   },
   {
     "arguments": [
@@ -2015,14 +2079,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/atod.o",
       "atod.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/atod.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/atod.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/atod.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/atod.o"
   },
   {
     "arguments": [
@@ -2036,14 +2101,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_put_float.o",
       "ft_put_float.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_put_float.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_put_float.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_put_float.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_put_float.o"
   },
   {
     "arguments": [
@@ -2057,14 +2123,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_str_to_float.o",
       "ft_str_to_float.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_str_to_float.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_str_to_float.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_str_to_float.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_str_to_float.o"
   },
   {
     "arguments": [
@@ -2078,14 +2145,15 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-c",
       "-o",
       "obj/ft_sort.o",
       "ft_sort.c"
     ],
-    "directory": "/Users/frapp/projects/miniRT/libft",
-    "file": "/Users/frapp/projects/miniRT/libft/ft_sort.c",
-    "output": "/Users/frapp/projects/miniRT/libft/obj/ft_sort.o"
+    "directory": "/home/fabi/42/miniRT/libft",
+    "file": "/home/fabi/42/miniRT/libft/ft_sort.c",
+    "output": "/home/fabi/42/miniRT/libft/obj/ft_sort.o"
   },
   {
     "arguments": [
@@ -2099,6 +2167,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2107,14 +2176,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/main.o",
       "srcs/main.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/main.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/main.o"
+    "file": "/home/fabi/42/miniRT/srcs/main.c",
+    "output": "/home/fabi/42/miniRT/o_files/main.o"
   },
   {
     "arguments": [
@@ -2128,6 +2198,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2136,14 +2207,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/init_engine.o",
       "srcs/ft_engine/init_engine.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/init_engine.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/init_engine.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/init_engine.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/init_engine.o"
   },
   {
     "arguments": [
@@ -2157,6 +2229,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2165,14 +2238,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/world/add_objs_to_world.o",
       "srcs/ft_engine/world/add_objs_to_world.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/world/add_objs_to_world.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/world/add_objs_to_world.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/world/add_objs_to_world.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/world/add_objs_to_world.o"
   },
   {
     "arguments": [
@@ -2186,6 +2260,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2194,14 +2269,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/world/default_world.o",
       "srcs/ft_engine/world/default_world.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/world/default_world.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/world/default_world.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/world/default_world.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/world/default_world.o"
   },
   {
     "arguments": [
@@ -2215,6 +2291,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2223,14 +2300,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/world/print_world.o",
       "srcs/ft_engine/world/print_world.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/world/print_world.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/world/print_world.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/world/print_world.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/world/print_world.o"
   },
   {
     "arguments": [
@@ -2244,6 +2322,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2252,14 +2331,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/compute/prepare_computation.o",
       "srcs/ft_engine/compute/prepare_computation.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/compute/prepare_computation.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/compute/prepare_computation.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/compute/prepare_computation.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/compute/prepare_computation.o"
   },
   {
     "arguments": [
@@ -2273,6 +2353,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2281,14 +2362,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/compute/test_prepare_comp.o",
       "srcs/ft_engine/compute/test_prepare_comp.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/compute/test_prepare_comp.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/compute/test_prepare_comp.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/compute/test_prepare_comp.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/compute/test_prepare_comp.o"
   },
   {
     "arguments": [
@@ -2302,6 +2384,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2310,14 +2393,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/compute/shading.o",
       "srcs/ft_engine/compute/shading.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/compute/shading.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/compute/shading.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/compute/shading.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/compute/shading.o"
   },
   {
     "arguments": [
@@ -2331,6 +2415,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2339,14 +2424,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/compute/render.o",
       "srcs/ft_engine/compute/render.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/compute/render.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/compute/render.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/compute/render.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/compute/render.o"
   },
   {
     "arguments": [
@@ -2360,6 +2446,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2368,14 +2455,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/light/light.o",
       "srcs/ft_engine/light/light.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/light/light.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/light/light.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/light/light.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/light/light.o"
   },
   {
     "arguments": [
@@ -2389,6 +2477,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2397,14 +2486,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/light/spot_light.o",
       "srcs/ft_engine/light/spot_light.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/light/spot_light.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/light/spot_light.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/light/spot_light.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/light/spot_light.o"
   },
   {
     "arguments": [
@@ -2418,6 +2508,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2426,14 +2517,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/light/light_tests.o",
       "srcs/ft_engine/light/light_tests.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/light/light_tests.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/light/light_tests.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/light/light_tests.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/light/light_tests.o"
   },
   {
     "arguments": [
@@ -2447,6 +2539,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2455,14 +2548,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/canvas/canvas.o",
       "srcs/ft_engine/canvas/canvas.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/canvas/canvas.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/canvas/canvas.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/canvas/canvas.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/canvas/canvas.o"
   },
   {
     "arguments": [
@@ -2476,6 +2570,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2484,14 +2579,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/mlx_interface/hooks.o",
       "srcs/ft_engine/mlx_interface/hooks.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/mlx_interface/hooks.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/mlx_interface/hooks.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/mlx_interface/hooks.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/mlx_interface/hooks.o"
   },
   {
     "arguments": [
@@ -2505,6 +2601,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2513,14 +2610,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/rays/init.o",
       "srcs/ft_engine/rays/init.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/rays/init.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/rays/init.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/rays/init.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/rays/init.o"
   },
   {
     "arguments": [
@@ -2534,6 +2632,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2542,14 +2641,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/rays/init2.o",
       "srcs/ft_engine/rays/init2.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/rays/init2.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/rays/init2.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/rays/init2.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/rays/init2.o"
   },
   {
     "arguments": [
@@ -2563,6 +2663,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2571,14 +2672,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/rays/cleanup.o",
       "srcs/ft_engine/rays/cleanup.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/rays/cleanup.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/rays/cleanup.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/rays/cleanup.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/rays/cleanup.o"
   },
   {
     "arguments": [
@@ -2592,6 +2694,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2600,14 +2703,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/rays/intersect.o",
       "srcs/ft_engine/rays/intersect.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/rays/intersect.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/rays/intersect.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/rays/intersect.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/rays/intersect.o"
   },
   {
     "arguments": [
@@ -2621,6 +2725,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2629,14 +2734,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/rays/intersect_utils.o",
       "srcs/ft_engine/rays/intersect_utils.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/rays/intersect_utils.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/rays/intersect_utils.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/rays/intersect_utils.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/rays/intersect_utils.o"
   },
   {
     "arguments": [
@@ -2650,6 +2756,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2658,14 +2765,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/rays/cylinder_intersect.o",
       "srcs/ft_engine/rays/cylinder_intersect.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/rays/cylinder_intersect.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/rays/cylinder_intersect.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/rays/cylinder_intersect.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/rays/cylinder_intersect.o"
   },
   {
     "arguments": [
@@ -2679,6 +2787,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2687,14 +2796,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/rays/cone_intersect.o",
       "srcs/ft_engine/rays/cone_intersect.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/rays/cone_intersect.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/rays/cone_intersect.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/rays/cone_intersect.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/rays/cone_intersect.o"
   },
   {
     "arguments": [
@@ -2708,6 +2818,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2716,14 +2827,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/rays/cone_intersect_utils.o",
       "srcs/ft_engine/rays/cone_intersect_utils.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/rays/cone_intersect_utils.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/rays/cone_intersect_utils.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/rays/cone_intersect_utils.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/rays/cone_intersect_utils.o"
   },
   {
     "arguments": [
@@ -2737,6 +2849,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2745,14 +2858,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/rays/cone_caps.o",
       "srcs/ft_engine/rays/cone_caps.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/rays/cone_caps.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/rays/cone_caps.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/rays/cone_caps.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/rays/cone_caps.o"
   },
   {
     "arguments": [
@@ -2766,6 +2880,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2774,14 +2889,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/rays/test_cone.o",
       "srcs/ft_engine/rays/test_cone.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/rays/test_cone.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/rays/test_cone.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/rays/test_cone.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/rays/test_cone.o"
   },
   {
     "arguments": [
@@ -2795,6 +2911,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2803,14 +2920,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/rays/ray_hit.o",
       "srcs/ft_engine/rays/ray_hit.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/rays/ray_hit.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/rays/ray_hit.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/rays/ray_hit.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/rays/ray_hit.o"
   },
   {
     "arguments": [
@@ -2824,6 +2942,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2832,14 +2951,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/rays/utils.o",
       "srcs/ft_engine/rays/utils.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/rays/utils.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/rays/utils.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/rays/utils.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/rays/utils.o"
   },
   {
     "arguments": [
@@ -2853,6 +2973,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2861,14 +2982,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/rays/tests.o",
       "srcs/ft_engine/rays/tests.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/rays/tests.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/rays/tests.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/rays/tests.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/rays/tests.o"
   },
   {
     "arguments": [
@@ -2882,6 +3004,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2890,14 +3013,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/objs/transform.o",
       "srcs/ft_engine/objs/transform.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/objs/transform.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/objs/transform.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/objs/transform.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/objs/transform.o"
   },
   {
     "arguments": [
@@ -2911,6 +3035,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2919,14 +3044,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/objs/set_transform.o",
       "srcs/ft_engine/objs/set_transform.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/objs/set_transform.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/objs/set_transform.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/objs/set_transform.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/objs/set_transform.o"
   },
   {
     "arguments": [
@@ -2940,6 +3066,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2948,14 +3075,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/objs/test.o",
       "srcs/ft_engine/objs/test.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/objs/test.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/objs/test.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/objs/test.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/objs/test.o"
   },
   {
     "arguments": [
@@ -2969,6 +3097,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -2977,14 +3106,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/reflections/reflect.o",
       "srcs/ft_engine/reflections/reflect.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/reflections/reflect.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/reflections/reflect.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/reflections/reflect.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/reflections/reflect.o"
   },
   {
     "arguments": [
@@ -2998,6 +3128,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3006,14 +3137,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/reflections/tests.o",
       "srcs/ft_engine/reflections/tests.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/reflections/tests.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/reflections/tests.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/reflections/tests.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/reflections/tests.o"
   },
   {
     "arguments": [
@@ -3027,6 +3159,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3035,14 +3168,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/refraction/refraction.o",
       "srcs/ft_engine/refraction/refraction.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/refraction/refraction.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/refraction/refraction.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/refraction/refraction.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/refraction/refraction.o"
   },
   {
     "arguments": [
@@ -3056,6 +3190,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3064,14 +3199,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/refraction/tests.o",
       "srcs/ft_engine/refraction/tests.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/refraction/tests.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/refraction/tests.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/refraction/tests.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/refraction/tests.o"
   },
   {
     "arguments": [
@@ -3085,6 +3221,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3093,14 +3230,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/refraction/fresnel.o",
       "srcs/ft_engine/refraction/fresnel.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/refraction/fresnel.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/refraction/fresnel.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/refraction/fresnel.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/refraction/fresnel.o"
   },
   {
     "arguments": [
@@ -3114,6 +3252,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3122,14 +3261,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/material.o",
       "srcs/ft_engine/material.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/material.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/material.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/material.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/material.o"
   },
   {
     "arguments": [
@@ -3143,6 +3283,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3151,14 +3292,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/objs/normal_at.o",
       "srcs/ft_engine/objs/normal_at.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/objs/normal_at.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/objs/normal_at.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/objs/normal_at.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/objs/normal_at.o"
   },
   {
     "arguments": [
@@ -3172,6 +3314,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3180,14 +3323,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/objs/normal_at_types.o",
       "srcs/ft_engine/objs/normal_at_types.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/objs/normal_at_types.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/objs/normal_at_types.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/objs/normal_at_types.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/objs/normal_at_types.o"
   },
   {
     "arguments": [
@@ -3201,6 +3345,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3209,14 +3354,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/objs/test_normal.o",
       "srcs/ft_engine/objs/test_normal.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/objs/test_normal.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/objs/test_normal.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/objs/test_normal.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/objs/test_normal.o"
   },
   {
     "arguments": [
@@ -3230,6 +3376,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3238,14 +3385,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/scene/transformation_view.o",
       "srcs/ft_engine/scene/transformation_view.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/scene/transformation_view.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/scene/transformation_view.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/scene/transformation_view.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/scene/transformation_view.o"
   },
   {
     "arguments": [
@@ -3259,6 +3407,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3267,14 +3416,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/scene/test_scene.o",
       "srcs/ft_engine/scene/test_scene.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/scene/test_scene.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/scene/test_scene.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/scene/test_scene.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/scene/test_scene.o"
   },
   {
     "arguments": [
@@ -3288,6 +3438,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3296,14 +3447,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/scene/camera.o",
       "srcs/ft_engine/scene/camera.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/scene/camera.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/scene/camera.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/scene/camera.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/scene/camera.o"
   },
   {
     "arguments": [
@@ -3317,6 +3469,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3325,14 +3478,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/scene/test_camera.o",
       "srcs/ft_engine/scene/test_camera.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/scene/test_camera.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/scene/test_camera.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/scene/test_camera.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/scene/test_camera.o"
   },
   {
     "arguments": [
@@ -3346,6 +3500,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3354,14 +3509,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/shadow/shadow.o",
       "srcs/ft_engine/shadow/shadow.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/shadow/shadow.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/shadow/shadow.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/shadow/shadow.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/shadow/shadow.o"
   },
   {
     "arguments": [
@@ -3375,6 +3531,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3383,14 +3540,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/shadow/test_shadow.o",
       "srcs/ft_engine/shadow/test_shadow.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/shadow/test_shadow.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/shadow/test_shadow.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/shadow/test_shadow.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/shadow/test_shadow.o"
   },
   {
     "arguments": [
@@ -3404,6 +3562,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3412,14 +3571,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/objs/obj_utils.o",
       "srcs/ft_engine/objs/obj_utils.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/objs/obj_utils.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/objs/obj_utils.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/objs/obj_utils.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/objs/obj_utils.o"
   },
   {
     "arguments": [
@@ -3433,6 +3593,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3441,14 +3602,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/objs/test_shape.o",
       "srcs/ft_engine/objs/test_shape.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/objs/test_shape.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/objs/test_shape.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/objs/test_shape.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/objs/test_shape.o"
   },
   {
     "arguments": [
@@ -3462,6 +3624,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3470,14 +3633,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/compute/test_shade_hit.o",
       "srcs/ft_engine/compute/test_shade_hit.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/compute/test_shade_hit.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/compute/test_shade_hit.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/compute/test_shade_hit.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/compute/test_shade_hit.o"
   },
   {
     "arguments": [
@@ -3491,6 +3655,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3499,14 +3664,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/test_cylinder.o",
       "srcs/ft_engine/test_cylinder.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/test_cylinder.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/test_cylinder.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/test_cylinder.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/test_cylinder.o"
   },
   {
     "arguments": [
@@ -3520,6 +3686,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3528,14 +3695,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/patterns/patterns.o",
       "srcs/ft_engine/patterns/patterns.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/patterns/patterns.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/patterns/patterns.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/patterns/patterns.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/patterns/patterns.o"
   },
   {
     "arguments": [
@@ -3549,6 +3717,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3557,14 +3726,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/patterns/stripe_pattern.o",
       "srcs/ft_engine/patterns/stripe_pattern.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/patterns/stripe_pattern.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/patterns/stripe_pattern.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/patterns/stripe_pattern.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/patterns/stripe_pattern.o"
   },
   {
     "arguments": [
@@ -3578,6 +3748,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3586,14 +3757,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/patterns/checker_pattern.o",
       "srcs/ft_engine/patterns/checker_pattern.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/patterns/checker_pattern.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/patterns/checker_pattern.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/patterns/checker_pattern.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/patterns/checker_pattern.o"
   },
   {
     "arguments": [
@@ -3607,6 +3779,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3615,14 +3788,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/patterns/square_pattern.o",
       "srcs/ft_engine/patterns/square_pattern.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/patterns/square_pattern.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/patterns/square_pattern.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/patterns/square_pattern.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/patterns/square_pattern.o"
   },
   {
     "arguments": [
@@ -3636,6 +3810,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3644,14 +3819,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/patterns/test_patterns.o",
       "srcs/ft_engine/patterns/test_patterns.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/patterns/test_patterns.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/patterns/test_patterns.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/patterns/test_patterns.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/patterns/test_patterns.o"
   },
   {
     "arguments": [
@@ -3665,6 +3841,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3673,14 +3850,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/bump_map/bump_wave.o",
       "srcs/ft_engine/bump_map/bump_wave.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/bump_map/bump_wave.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/bump_map/bump_wave.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/bump_map/bump_wave.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/bump_map/bump_wave.o"
   },
   {
     "arguments": [
@@ -3694,6 +3872,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3702,14 +3881,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_engine/bump_map/bump.o",
       "srcs/ft_engine/bump_map/bump.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_engine/bump_map/bump.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_engine/bump_map/bump.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_engine/bump_map/bump.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_engine/bump_map/bump.o"
   },
   {
     "arguments": [
@@ -3723,6 +3903,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3731,14 +3912,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/ft_rand.o",
       "srcs/ft_math/ft_rand.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/ft_rand.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/ft_rand.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/ft_rand.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/ft_rand.o"
   },
   {
     "arguments": [
@@ -3752,6 +3934,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3760,14 +3943,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/colors/color_utils.o",
       "srcs/ft_math/colors/color_utils.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/colors/color_utils.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/colors/color_utils.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/colors/color_utils.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/colors/color_utils.o"
   },
   {
     "arguments": [
@@ -3781,6 +3965,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3789,14 +3974,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/colors/colors.o",
       "srcs/ft_math/colors/colors.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/colors/colors.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/colors/colors.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/colors/colors.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/colors/colors.o"
   },
   {
     "arguments": [
@@ -3810,6 +3996,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3818,14 +4005,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/colors/init_colors.o",
       "srcs/ft_math/colors/init_colors.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/colors/init_colors.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/colors/init_colors.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/colors/init_colors.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/colors/init_colors.o"
   },
   {
     "arguments": [
@@ -3839,6 +4027,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3847,14 +4036,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/tuple/tuple1.o",
       "srcs/ft_math/tuple/tuple1.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/tuple/tuple1.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/tuple/tuple1.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/tuple/tuple1.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/tuple/tuple1.o"
   },
   {
     "arguments": [
@@ -3868,6 +4058,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3876,14 +4067,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/tuple/tuple2.o",
       "srcs/ft_math/tuple/tuple2.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/tuple/tuple2.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/tuple/tuple2.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/tuple/tuple2.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/tuple/tuple2.o"
   },
   {
     "arguments": [
@@ -3897,6 +4089,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3905,14 +4098,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/tuple/tuple2_debug.o",
       "srcs/ft_math/tuple/tuple2_debug.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/tuple/tuple2_debug.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/tuple/tuple2_debug.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/tuple/tuple2_debug.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/tuple/tuple2_debug.o"
   },
   {
     "arguments": [
@@ -3926,6 +4120,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3934,14 +4129,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/tuple/tuple3.o",
       "srcs/ft_math/tuple/tuple3.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/tuple/tuple3.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/tuple/tuple3.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/tuple/tuple3.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/tuple/tuple3.o"
   },
   {
     "arguments": [
@@ -3955,6 +4151,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3963,14 +4160,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/tuple/tuple3_debug.o",
       "srcs/ft_math/tuple/tuple3_debug.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/tuple/tuple3_debug.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/tuple/tuple3_debug.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/tuple/tuple3_debug.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/tuple/tuple3_debug.o"
   },
   {
     "arguments": [
@@ -3984,6 +4182,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -3992,14 +4191,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/tuple/tuple4.o",
       "srcs/ft_math/tuple/tuple4.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/tuple/tuple4.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/tuple/tuple4.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/tuple/tuple4.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/tuple/tuple4.o"
   },
   {
     "arguments": [
@@ -4013,6 +4213,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4021,14 +4222,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/tuple/tuple_tests1.o",
       "srcs/ft_math/tuple/tuple_tests1.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/tuple/tuple_tests1.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/tuple/tuple_tests1.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/tuple/tuple_tests1.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/tuple/tuple_tests1.o"
   },
   {
     "arguments": [
@@ -4042,6 +4244,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4050,14 +4253,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/tuple/tuple_tests2.o",
       "srcs/ft_math/tuple/tuple_tests2.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/tuple/tuple_tests2.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/tuple/tuple_tests2.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/tuple/tuple_tests2.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/tuple/tuple_tests2.o"
   },
   {
     "arguments": [
@@ -4071,6 +4275,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4079,14 +4284,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/tuple/tuple_tests3.o",
       "srcs/ft_math/tuple/tuple_tests3.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/tuple/tuple_tests3.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/tuple/tuple_tests3.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/tuple/tuple_tests3.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/tuple/tuple_tests3.o"
   },
   {
     "arguments": [
@@ -4100,6 +4306,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4108,14 +4315,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/general/ft_floats.o",
       "srcs/ft_math/general/ft_floats.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/general/ft_floats.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/general/ft_floats.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/general/ft_floats.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/general/ft_floats.o"
   },
   {
     "arguments": [
@@ -4129,6 +4337,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4137,14 +4346,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/general/max_min_i.o",
       "srcs/ft_math/general/max_min_i.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/general/max_min_i.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/general/max_min_i.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/general/max_min_i.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/general/max_min_i.o"
   },
   {
     "arguments": [
@@ -4158,6 +4368,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4166,14 +4377,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/matrix_rotation.o",
       "srcs/ft_math/matrix/matrix_rotation.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/matrix_rotation.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/matrix_rotation.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/matrix_rotation.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/matrix_rotation.o"
   },
   {
     "arguments": [
@@ -4187,6 +4399,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4195,14 +4408,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/matrix_translation.o",
       "srcs/ft_math/matrix/matrix_translation.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/matrix_translation.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/matrix_translation.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/matrix_translation.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/matrix_translation.o"
   },
   {
     "arguments": [
@@ -4216,6 +4430,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4224,14 +4439,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/matrix_init.o",
       "srcs/ft_math/matrix/matrix_init.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/matrix_init.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/matrix_init.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/matrix_init.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/matrix_init.o"
   },
   {
     "arguments": [
@@ -4245,6 +4461,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4253,14 +4470,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/matrix_mult.o",
       "srcs/ft_math/matrix/matrix_mult.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/matrix_mult.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/matrix_mult.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/matrix_mult.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/matrix_mult.o"
   },
   {
     "arguments": [
@@ -4274,6 +4492,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4282,14 +4501,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/matrix_determinant.o",
       "srcs/ft_math/matrix/matrix_determinant.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/matrix_determinant.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/matrix_determinant.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/matrix_determinant.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/matrix_determinant.o"
   },
   {
     "arguments": [
@@ -4303,6 +4523,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4311,14 +4532,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/matrix_determinant_tests.o",
       "srcs/ft_math/matrix/matrix_determinant_tests.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/matrix_determinant_tests.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/matrix_determinant_tests.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/matrix_determinant_tests.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/matrix_determinant_tests.o"
   },
   {
     "arguments": [
@@ -4332,6 +4554,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4340,14 +4563,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/matrix_mult_tests.o",
       "srcs/ft_math/matrix/matrix_mult_tests.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/matrix_mult_tests.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/matrix_mult_tests.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/matrix_mult_tests.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/matrix_mult_tests.o"
   },
   {
     "arguments": [
@@ -4361,6 +4585,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4369,14 +4594,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/matrix_other_tests.o",
       "srcs/ft_math/matrix/matrix_other_tests.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/matrix_other_tests.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/matrix_other_tests.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/matrix_other_tests.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/matrix_other_tests.o"
   },
   {
     "arguments": [
@@ -4390,6 +4616,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4398,14 +4625,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/matrix_debug.o",
       "srcs/ft_math/matrix/matrix_debug.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/matrix_debug.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/matrix_debug.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/matrix_debug.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/matrix_debug.o"
   },
   {
     "arguments": [
@@ -4419,6 +4647,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4427,14 +4656,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/matrix_transpose.o",
       "srcs/ft_math/matrix/matrix_transpose.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/matrix_transpose.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/matrix_transpose.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/matrix_transpose.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/matrix_transpose.o"
   },
   {
     "arguments": [
@@ -4448,6 +4678,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4456,14 +4687,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/test_mtx_transpose.o",
       "srcs/ft_math/matrix/test_mtx_transpose.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/test_mtx_transpose.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/test_mtx_transpose.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/test_mtx_transpose.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/test_mtx_transpose.o"
   },
   {
     "arguments": [
@@ -4477,6 +4709,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4485,14 +4718,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/test_mtx_minor.o",
       "srcs/ft_math/matrix/test_mtx_minor.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/test_mtx_minor.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/test_mtx_minor.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/test_mtx_minor.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/test_mtx_minor.o"
   },
   {
     "arguments": [
@@ -4506,6 +4740,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4514,14 +4749,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/matrix_inverse.o",
       "srcs/ft_math/matrix/matrix_inverse.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/matrix_inverse.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/matrix_inverse.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/matrix_inverse.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/matrix_inverse.o"
   },
   {
     "arguments": [
@@ -4535,6 +4771,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4543,14 +4780,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/test_mtx_inverse.o",
       "srcs/ft_math/matrix/test_mtx_inverse.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/test_mtx_inverse.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/test_mtx_inverse.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/test_mtx_inverse.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/test_mtx_inverse.o"
   },
   {
     "arguments": [
@@ -4564,6 +4802,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4572,14 +4811,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/test_mix.o",
       "srcs/ft_math/matrix/test_mix.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/test_mix.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/test_mix.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/test_mix.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/test_mix.o"
   },
   {
     "arguments": [
@@ -4593,6 +4833,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4601,14 +4842,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/test_matrix_translation.o",
       "srcs/ft_math/matrix/test_matrix_translation.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/test_matrix_translation.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/test_matrix_translation.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/test_matrix_translation.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/test_matrix_translation.o"
   },
   {
     "arguments": [
@@ -4622,6 +4864,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4630,14 +4873,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/matrix_scaling.o",
       "srcs/ft_math/matrix/matrix_scaling.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/matrix_scaling.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/matrix_scaling.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/matrix_scaling.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/matrix_scaling.o"
   },
   {
     "arguments": [
@@ -4651,6 +4895,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4659,14 +4904,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/test_mtx_scaling.o",
       "srcs/ft_math/matrix/test_mtx_scaling.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/test_mtx_scaling.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/test_mtx_scaling.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/test_mtx_scaling.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/test_mtx_scaling.o"
   },
   {
     "arguments": [
@@ -4680,6 +4926,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4688,14 +4935,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/ft_math/matrix/matrix_shearing.o",
       "srcs/ft_math/matrix/matrix_shearing.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/ft_math/matrix/matrix_shearing.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/ft_math/matrix/matrix_shearing.o"
+    "file": "/home/fabi/42/miniRT/srcs/ft_math/matrix/matrix_shearing.c",
+    "output": "/home/fabi/42/miniRT/o_files/ft_math/matrix/matrix_shearing.o"
   },
   {
     "arguments": [
@@ -4709,6 +4957,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4717,14 +4966,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/garbage_collector/gb_garbage_collector.o",
       "srcs/garbage_collector/gb_garbage_collector.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/garbage_collector/gb_garbage_collector.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/garbage_collector/gb_garbage_collector.o"
+    "file": "/home/fabi/42/miniRT/srcs/garbage_collector/gb_garbage_collector.c",
+    "output": "/home/fabi/42/miniRT/o_files/garbage_collector/gb_garbage_collector.o"
   },
   {
     "arguments": [
@@ -4738,6 +4988,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4746,14 +4997,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/garbage_collector/test_gc.o",
       "srcs/garbage_collector/test_gc.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/garbage_collector/test_gc.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/garbage_collector/test_gc.o"
+    "file": "/home/fabi/42/miniRT/srcs/garbage_collector/test_gc.c",
+    "output": "/home/fabi/42/miniRT/o_files/garbage_collector/test_gc.o"
   },
   {
     "arguments": [
@@ -4767,6 +5019,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4775,14 +5028,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/garbage_collector/gb_utils.o",
       "srcs/garbage_collector/gb_utils.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/garbage_collector/gb_utils.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/garbage_collector/gb_utils.o"
+    "file": "/home/fabi/42/miniRT/srcs/garbage_collector/gb_utils.c",
+    "output": "/home/fabi/42/miniRT/o_files/garbage_collector/gb_utils.o"
   },
   {
     "arguments": [
@@ -4796,6 +5050,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4804,14 +5059,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/garbage_collector/gc_dyn_arr.o",
       "srcs/garbage_collector/gc_dyn_arr.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/garbage_collector/gc_dyn_arr.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/garbage_collector/gc_dyn_arr.o"
+    "file": "/home/fabi/42/miniRT/srcs/garbage_collector/gc_dyn_arr.c",
+    "output": "/home/fabi/42/miniRT/o_files/garbage_collector/gc_dyn_arr.o"
   },
   {
     "arguments": [
@@ -4825,6 +5081,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4833,14 +5090,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/parsing/ppm_parser/store_as_ppm.o",
       "srcs/parsing/ppm_parser/store_as_ppm.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/parsing/ppm_parser/store_as_ppm.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/parsing/ppm_parser/store_as_ppm.o"
+    "file": "/home/fabi/42/miniRT/srcs/parsing/ppm_parser/store_as_ppm.c",
+    "output": "/home/fabi/42/miniRT/o_files/parsing/ppm_parser/store_as_ppm.o"
   },
   {
     "arguments": [
@@ -4854,6 +5112,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4862,14 +5121,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/parsing/parser_42/parser.o",
       "srcs/parsing/parser_42/parser.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/parsing/parser_42/parser.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/parsing/parser_42/parser.o"
+    "file": "/home/fabi/42/miniRT/srcs/parsing/parser_42/parser.c",
+    "output": "/home/fabi/42/miniRT/o_files/parsing/parser_42/parser.o"
   },
   {
     "arguments": [
@@ -4883,6 +5143,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4891,14 +5152,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/parsing/parser_42/utils.o",
       "srcs/parsing/parser_42/utils.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/parsing/parser_42/utils.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/parsing/parser_42/utils.o"
+    "file": "/home/fabi/42/miniRT/srcs/parsing/parser_42/utils.c",
+    "output": "/home/fabi/42/miniRT/o_files/parsing/parser_42/utils.o"
   },
   {
     "arguments": [
@@ -4912,6 +5174,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4920,14 +5183,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/parsing/parser_42/utils2.o",
       "srcs/parsing/parser_42/utils2.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/parsing/parser_42/utils2.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/parsing/parser_42/utils2.o"
+    "file": "/home/fabi/42/miniRT/srcs/parsing/parser_42/utils2.c",
+    "output": "/home/fabi/42/miniRT/o_files/parsing/parser_42/utils2.o"
   },
   {
     "arguments": [
@@ -4941,6 +5205,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4949,14 +5214,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/parsing/parser_42/parse_object.o",
       "srcs/parsing/parser_42/parse_object.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/parsing/parser_42/parse_object.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/parsing/parser_42/parse_object.o"
+    "file": "/home/fabi/42/miniRT/srcs/parsing/parser_42/parse_object.c",
+    "output": "/home/fabi/42/miniRT/o_files/parsing/parser_42/parse_object.o"
   },
   {
     "arguments": [
@@ -4970,6 +5236,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -4978,14 +5245,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/parsing/parser_42/parse_objects2.o",
       "srcs/parsing/parser_42/parse_objects2.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/parsing/parser_42/parse_objects2.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/parsing/parser_42/parse_objects2.o"
+    "file": "/home/fabi/42/miniRT/srcs/parsing/parser_42/parse_objects2.c",
+    "output": "/home/fabi/42/miniRT/o_files/parsing/parser_42/parse_objects2.o"
   },
   {
     "arguments": [
@@ -4999,6 +5267,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -5007,14 +5276,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/parsing/parser_42/collision_handlers.o",
       "srcs/parsing/parser_42/collision_handlers.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/parsing/parser_42/collision_handlers.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/parsing/parser_42/collision_handlers.o"
+    "file": "/home/fabi/42/miniRT/srcs/parsing/parser_42/collision_handlers.c",
+    "output": "/home/fabi/42/miniRT/o_files/parsing/parser_42/collision_handlers.o"
   },
   {
     "arguments": [
@@ -5028,6 +5298,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -5036,14 +5307,201 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
+      "-c",
+      "-o",
+      "o_files/materials/landscape.o",
+      "srcs/materials/landscape.c"
+    ],
+    "directory": "/home/fabi/42/miniRT",
+    "file": "/home/fabi/42/miniRT/srcs/materials/landscape.c",
+    "output": "/home/fabi/42/miniRT/o_files/materials/landscape.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-Ofast",
+      "-march=native",
+      "-DNDBUG=1",
+      "-DHARD_SHADOWS",
+      "-DAMBIENT_42",
+      "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
+      "-I./includes",
+      "-I./MLX42/include/MLX42",
+      "-I./MLX42/include",
+      "-I./libft",
+      "-I./includes/ft_math",
+      "-I./includes/ft_engine",
+      "-I./includes/parsing",
+      "-I./includes/garbage_collector",
+      "-I./includes/demo",
+      "-c",
+      "-o",
+      "o_files/materials/metal.o",
+      "srcs/materials/metal.c"
+    ],
+    "directory": "/home/fabi/42/miniRT",
+    "file": "/home/fabi/42/miniRT/srcs/materials/metal.c",
+    "output": "/home/fabi/42/miniRT/o_files/materials/metal.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-Ofast",
+      "-march=native",
+      "-DNDBUG=1",
+      "-DHARD_SHADOWS",
+      "-DAMBIENT_42",
+      "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
+      "-I./includes",
+      "-I./MLX42/include/MLX42",
+      "-I./MLX42/include",
+      "-I./libft",
+      "-I./includes/ft_math",
+      "-I./includes/ft_engine",
+      "-I./includes/parsing",
+      "-I./includes/garbage_collector",
+      "-I./includes/demo",
+      "-c",
+      "-o",
+      "o_files/demo_scenes/ocean.o",
+      "srcs/demo_scenes/ocean.c"
+    ],
+    "directory": "/home/fabi/42/miniRT",
+    "file": "/home/fabi/42/miniRT/srcs/demo_scenes/ocean.c",
+    "output": "/home/fabi/42/miniRT/o_files/demo_scenes/ocean.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-Ofast",
+      "-march=native",
+      "-DNDBUG=1",
+      "-DHARD_SHADOWS",
+      "-DAMBIENT_42",
+      "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
+      "-I./includes",
+      "-I./MLX42/include/MLX42",
+      "-I./MLX42/include",
+      "-I./libft",
+      "-I./includes/ft_math",
+      "-I./includes/ft_engine",
+      "-I./includes/parsing",
+      "-I./includes/garbage_collector",
+      "-I./includes/demo",
+      "-c",
+      "-o",
+      "o_files/demo_scenes/ocean_balls.o",
+      "srcs/demo_scenes/ocean_balls.c"
+    ],
+    "directory": "/home/fabi/42/miniRT",
+    "file": "/home/fabi/42/miniRT/srcs/demo_scenes/ocean_balls.c",
+    "output": "/home/fabi/42/miniRT/o_files/demo_scenes/ocean_balls.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-Ofast",
+      "-march=native",
+      "-DNDBUG=1",
+      "-DHARD_SHADOWS",
+      "-DAMBIENT_42",
+      "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
+      "-I./includes",
+      "-I./MLX42/include/MLX42",
+      "-I./MLX42/include",
+      "-I./libft",
+      "-I./includes/ft_math",
+      "-I./includes/ft_engine",
+      "-I./includes/parsing",
+      "-I./includes/garbage_collector",
+      "-I./includes/demo",
+      "-c",
+      "-o",
+      "o_files/demo_scenes/reflection_demo.o",
+      "srcs/demo_scenes/reflection_demo.c"
+    ],
+    "directory": "/home/fabi/42/miniRT",
+    "file": "/home/fabi/42/miniRT/srcs/demo_scenes/reflection_demo.c",
+    "output": "/home/fabi/42/miniRT/o_files/demo_scenes/reflection_demo.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-Ofast",
+      "-march=native",
+      "-DNDBUG=1",
+      "-DHARD_SHADOWS",
+      "-DAMBIENT_42",
+      "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
+      "-I./includes",
+      "-I./MLX42/include/MLX42",
+      "-I./MLX42/include",
+      "-I./libft",
+      "-I./includes/ft_math",
+      "-I./includes/ft_engine",
+      "-I./includes/parsing",
+      "-I./includes/garbage_collector",
+      "-I./includes/demo",
+      "-c",
+      "-o",
+      "o_files/demo_scenes/internal_reflection.o",
+      "srcs/demo_scenes/internal_reflection.c"
+    ],
+    "directory": "/home/fabi/42/miniRT",
+    "file": "/home/fabi/42/miniRT/srcs/demo_scenes/internal_reflection.c",
+    "output": "/home/fabi/42/miniRT/o_files/demo_scenes/internal_reflection.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-Ofast",
+      "-march=native",
+      "-DNDBUG=1",
+      "-DHARD_SHADOWS",
+      "-DAMBIENT_42",
+      "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
+      "-I./includes",
+      "-I./MLX42/include/MLX42",
+      "-I./MLX42/include",
+      "-I./libft",
+      "-I./includes/ft_math",
+      "-I./includes/ft_engine",
+      "-I./includes/parsing",
+      "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/init_exit/init.o",
       "srcs/init_exit/init.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/init_exit/init.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/init_exit/init.o"
+    "file": "/home/fabi/42/miniRT/srcs/init_exit/init.c",
+    "output": "/home/fabi/42/miniRT/o_files/init_exit/init.o"
   },
   {
     "arguments": [
@@ -5057,6 +5515,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -5065,14 +5524,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/init_exit/at_exit.o",
       "srcs/init_exit/at_exit.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/init_exit/at_exit.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/init_exit/at_exit.o"
+    "file": "/home/fabi/42/miniRT/srcs/init_exit/at_exit.c",
+    "output": "/home/fabi/42/miniRT/o_files/init_exit/at_exit.o"
   },
   {
     "arguments": [
@@ -5086,6 +5546,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -5094,14 +5555,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/playgrounds/1/projectile.o",
       "srcs/playgrounds/1/projectile.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/playgrounds/1/projectile.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/playgrounds/1/projectile.o"
+    "file": "/home/fabi/42/miniRT/srcs/playgrounds/1/projectile.c",
+    "output": "/home/fabi/42/miniRT/o_files/playgrounds/1/projectile.o"
   },
   {
     "arguments": [
@@ -5115,6 +5577,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -5123,14 +5586,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/playgrounds/sphere1/test.o",
       "srcs/playgrounds/sphere1/test.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/playgrounds/sphere1/test.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/playgrounds/sphere1/test.o"
+    "file": "/home/fabi/42/miniRT/srcs/playgrounds/sphere1/test.c",
+    "output": "/home/fabi/42/miniRT/o_files/playgrounds/sphere1/test.o"
   },
   {
     "arguments": [
@@ -5144,6 +5608,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -5152,14 +5617,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/playgrounds/sphere1/test2.o",
       "srcs/playgrounds/sphere1/test2.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/playgrounds/sphere1/test2.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/playgrounds/sphere1/test2.o"
+    "file": "/home/fabi/42/miniRT/srcs/playgrounds/sphere1/test2.c",
+    "output": "/home/fabi/42/miniRT/o_files/playgrounds/sphere1/test2.o"
   },
   {
     "arguments": [
@@ -5173,6 +5639,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -5181,14 +5648,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/playgrounds/sphere1/test3.o",
       "srcs/playgrounds/sphere1/test3.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/playgrounds/sphere1/test3.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/playgrounds/sphere1/test3.o"
+    "file": "/home/fabi/42/miniRT/srcs/playgrounds/sphere1/test3.c",
+    "output": "/home/fabi/42/miniRT/o_files/playgrounds/sphere1/test3.o"
   },
   {
     "arguments": [
@@ -5202,6 +5670,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -5210,14 +5679,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/playgrounds/chap_6/1.o",
       "srcs/playgrounds/chap_6/1.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/playgrounds/chap_6/1.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/playgrounds/chap_6/1.o"
+    "file": "/home/fabi/42/miniRT/srcs/playgrounds/chap_6/1.c",
+    "output": "/home/fabi/42/miniRT/o_files/playgrounds/chap_6/1.o"
   },
   {
     "arguments": [
@@ -5231,6 +5701,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -5239,14 +5710,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/playgrounds/chap_9/1.o",
       "srcs/playgrounds/chap_9/1.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/playgrounds/chap_9/1.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/playgrounds/chap_9/1.o"
+    "file": "/home/fabi/42/miniRT/srcs/playgrounds/chap_9/1.c",
+    "output": "/home/fabi/42/miniRT/o_files/playgrounds/chap_9/1.o"
   },
   {
     "arguments": [
@@ -5260,6 +5732,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -5268,14 +5741,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/playgrounds/chap_10/1.o",
       "srcs/playgrounds/chap_10/1.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/playgrounds/chap_10/1.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/playgrounds/chap_10/1.o"
+    "file": "/home/fabi/42/miniRT/srcs/playgrounds/chap_10/1.c",
+    "output": "/home/fabi/42/miniRT/o_files/playgrounds/chap_10/1.o"
   },
   {
     "arguments": [
@@ -5289,6 +5763,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -5297,14 +5772,15 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/playgrounds/chap_11.o",
       "srcs/playgrounds/chap_11.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/playgrounds/chap_11.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/playgrounds/chap_11.o"
+    "file": "/home/fabi/42/miniRT/srcs/playgrounds/chap_11.c",
+    "output": "/home/fabi/42/miniRT/o_files/playgrounds/chap_11.o"
   },
   {
     "arguments": [
@@ -5318,6 +5794,7 @@
       "-DHARD_SHADOWS",
       "-DAMBIENT_42",
       "-DREFLECTION_COUNT=3",
+      "-DCAMERA_42",
       "-I./includes",
       "-I./MLX42/include/MLX42",
       "-I./MLX42/include",
@@ -5326,13 +5803,14 @@
       "-I./includes/ft_engine",
       "-I./includes/parsing",
       "-I./includes/garbage_collector",
+      "-I./includes/demo",
       "-c",
       "-o",
       "o_files/playgrounds/waves1.o",
       "srcs/playgrounds/waves1.c"
     ],
     "directory": "/home/fabi/42/miniRT",
-    "file": "/Users/frapp/projects/miniRT/srcs/playgrounds/waves1.c",
-    "output": "/Users/frapp/projects/miniRT/o_files/playgrounds/waves1.o"
+    "file": "/home/fabi/42/miniRT/srcs/playgrounds/waves1.c",
+    "output": "/home/fabi/42/miniRT/o_files/playgrounds/waves1.o"
   }
 ]
