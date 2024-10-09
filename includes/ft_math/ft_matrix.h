@@ -6,7 +6,7 @@
 /*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:34:09 by iziane            #+#    #+#             */
-/*   Updated: 2024/10/09 22:34:12 by iziane           ###   ########.fr       */
+/*   Updated: 2024/10/09 23:00:23 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_matrix
 {
 	double			m[4][4] __attribute__((aligned(16)));
 	t_matrix_type	type;
-}	t_matrix;
+}					t_matrix;
 
 // matrix_init.c
 t_matrix	mtx_new_ident(t_matrix_type type);

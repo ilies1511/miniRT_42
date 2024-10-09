@@ -6,7 +6,7 @@
 /*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:34:39 by iziane            #+#    #+#             */
-/*   Updated: 2024/10/09 22:34:40 by iziane           ###   ########.fr       */
+/*   Updated: 2024/10/09 22:47:49 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,6 @@ void			skip_whitespace(char **str);
 void			skip_float(char **str);
 
 //better parser
-void	better_parser(t_main *m_data, char *setup_file);
+void			better_parser(t_main *m_data, char *setup_file);
 
 #endif //PARSER_42_H
