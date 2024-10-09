@@ -114,6 +114,7 @@ void	parse_spot_light(t_main *m_data, char *line,
 	t_fcolor	color;
 
 	line++;
+	line++;
 	str_to_tuple(line, &origin, &line, 1.0);
 	origin = handle_point_collision(mem_points, origin, PARSER_OFFSET_LIGHT);
 	if (!ft_isdigit(*line) && *line != '-')
