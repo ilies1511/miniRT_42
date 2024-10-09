@@ -50,8 +50,9 @@ static void	init_camera(t_main *m_data)
 	t_camera	*camera;
 
 	camera = &(m_data->engine.camera);
-	if (m_data->has_camera)
+	if (m_data->camera_type == USER_INPUT)
 		return ;
+	m_data->camera_type = PRESET;
 	*(camera) = eng_new_camera(m_data->engine.canvas.width, \
 		m_data->engine.canvas.height, M_PI / 3);
 	printf("WIDTH: %lu\nHEIGHT: %lu\n", m_data->engine.canvas.width, m_data->engine.canvas.height);

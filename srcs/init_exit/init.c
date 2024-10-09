@@ -31,13 +31,17 @@ void	init_hooks(t_main *m_data)
 	mlx_loop_hook(m_data->mlx, main_loop, m_data);
 }
 
-//can be removed later: m_data->ac
 void	main_init(t_main *m_data, int ac, char *av[])
 {
+	if (ac == 1)
+	{
+		ft_fprintf(2, "Error: .rt file needed\n");
+		exit(22);
+	}
 	ft_bzero(m_data, sizeof * m_data);
 	m_data->ac = ac;
 	m_data->av = av;
-	m_data->has_camera = false;
+	m_data->camera_type = NO_CAMERA;
 	m_data->mlx = mlx_init(WIDTH, HEIGHT, "miniRT", true);
 	if (!m_data->mlx)
 	{

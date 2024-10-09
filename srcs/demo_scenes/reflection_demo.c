@@ -114,8 +114,9 @@ static void	init_camera(t_main *m_data)
 {
 t_camera	*camera;
 
-if (m_data->has_camera)
-	return ;
+	if (m_data->camera_type == USER_INPUT)
+		return ;
+	m_data->camera_type = PRESET;
 camera = &(m_data->engine.camera);
 *(camera) = eng_new_camera(WIDTH, HEIGHT, M_PI / 3);
 	eng_set_transform((t_obj *)camera, sc_transforme_view(new_point(5, 5, -5),

@@ -8,11 +8,11 @@ static void	parse_line2(t_main *m_data, char *line,
 {
 	if (*line == 'A')
 		parse_ambient(m_data, line);
-	else if (*line == 'C' && m_data->has_camera == true)
+	else if (*line == 'C' && m_data->camera_type == USER_INPUT)
 		parser_error("Can not have multiple cameras", __FILE__, __LINE__, 100);
 	else if (*line == 'C')
 	{
-		m_data->has_camera = true;
+		m_data->camera_type = USER_INPUT;
 		parse_camera(m_data, line, mem_points);
 	}
 	else if (*line == 'L')
@@ -79,7 +79,7 @@ void	parser(t_main *m_data, char *path)
 		free(line);
 		line = get_next_line(fd, false);
 	}
-	if (!m_data->has_camera)
+	if (m_data->camera_type == NO_CAMERA)
 		parser_error("Needs Camera", __FILE__, __LINE__, 100);
 	close(fd);
 	m_data->cleanup_data.fd = 0;

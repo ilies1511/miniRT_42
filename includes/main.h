@@ -75,15 +75,22 @@ typedef struct s_cleanup
 	int			fd2;
 }	t_cleanup;
 
+typedef enum e_camera_types
+{
+	NO_CAMERA = 0,
+	PRESET,
+	USER_INPUT,
+}	t_camera_type;
+
 // ac(argument count) can be removed later
 typedef struct s_main
 {
-	mlx_t		*mlx;
-	t_engine	engine;
-	t_cleanup	cleanup_data;
-	int			ac;
-	char		**av;
-	bool		has_camera;
+	mlx_t			*mlx;
+	t_engine		engine;
+	t_cleanup		cleanup_data;
+	int				ac;
+	char			**av;
+	t_camera_type	camera_type;
 }	t_mait;
 
 typedef enum s_tuple_type
