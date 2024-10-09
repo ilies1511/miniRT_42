@@ -10,11 +10,20 @@ t_main	*get_m_data(void)
 	return (&m_data);
 }
 
+void	update_width_height(t_main *m_data)
+{
+	m_data->engine.canvas.width = m_data->cleanup_data.mlx_img->width;
+	m_data->engine.canvas.height = m_data->cleanup_data.mlx_img->height;
+	m_data->engine.camera.width = m_data->cleanup_data.mlx_img->width;
+	m_data->engine.camera.height = m_data->cleanup_data.mlx_img->height;
+}
+
 void	main_loop(void *main_data)
 {
 	t_main	*m_data;
 
 	m_data = (t_main *)main_data;
+	update_width_height(m_data);
 	eng_render(m_data->engine.camera, m_data->engine.world,
 		m_data->engine.canvas);
 }
