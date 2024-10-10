@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frapp <frapp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:35:32 by frapp             #+#    #+#             */
-/*   Updated: 2024/10/09 22:35:35 by frapp            ###   ########.fr       */
+/*   Updated: 2024/10/10 15:53:10 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,13 @@ t_cylinder	eng_new_cylinder(void)
 	cylinder.min = -INFINITY;
 	cylinder.closed = false;
 	return (cylinder);
+}
+
+t_plane	eng_new_plane(void)
+{
+	t_plane	plane;
+
+	plane.base_obj = eng_new_obj();
+	plane.base_obj.type = OBJ_PLANE;
+	return (plane);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cone_intersect_utils.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frapp <frapp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:35:50 by frapp             #+#    #+#             */
-/*   Updated: 2024/10/09 22:35:51 by frapp            ###   ########.fr       */
+/*   Updated: 2024/10/10 15:48:28 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	swap_double_co(t_cone_norm *n)
 	n->t0 = n->t1;
 	n->t1 = temp;
 }
+
 /*
 Optional(cap intersects) at very endeng_intersc_ray_cone_caps
 (intersecs, ray, cone);
