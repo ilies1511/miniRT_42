@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   intersect.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frapp <frapp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:34:57 by frapp             #+#    #+#             */
-/*   Updated: 2024/10/09 22:34:58 by frapp            ###   ########.fr       */
+/*   Updated: 2024/10/10 15:26:43 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ static inline void	eng_intersc_ray_sphere(t_intersc_arr *interscs, t_ray ray,
 	ray.origin.w = 0;
 	a = ray.direct.x * ray.direct.x + ray.direct.y * ray.direct.y
 		+ ray.direct.z * ray.direct.z;
-	b = 2 * (ray.origin.x * ray.direct.x + ray.origin.y * ray.direct.y
+	b = 2 * (ray.origin.x * ray.direct.x + ray.origin.y * ray.direct.y \
 		+ ray.origin.z * ray.direct.z);
-	c = (ray.origin.x * ray.origin.x + ray.origin.y * ray.origin.y
+	c = (ray.origin.x * ray.origin.x + ray.origin.y * ray.origin.y \
 		+ ray.origin.z * ray.origin.z) - 1;
 	discriminant = b * b - 4 * a * c;
 	if (discriminant < 0)
@@ -101,14 +101,14 @@ static inline void	eng_intersc_ray_plane(t_intersc_arr *interscs, t_ray ray,
 
 void	eng_ray_intersc_world(t_ray ray, t_world world, t_intersc_arr *interscs)
 {
-	size_t	i;
+	int		i;
 	t_point	origin;
 	t_vec	direct;
 
-	i = 0;
 	origin = ray.origin;
 	direct = ray.direct;
-	while (i < world.obj_count)
+	i = -1;
+	while (++i < (int)world.obj_count)
 	{
 		ray.origin = mtx_mult_mt_inline(world.objs[i]->inverse, origin);
 		ray.direct = mtx_mult_mt_inline(world.objs[i]->inverse, direct);
@@ -117,12 +117,13 @@ void	eng_ray_intersc_world(t_ray ray, t_world world, t_intersc_arr *interscs)
 		else if (world.objs[i]->type == OBJ_PLANE)
 			eng_intersc_ray_plane(interscs, ray, (t_plane *)world.objs[i]);
 		else if (world.objs[i]->type == OBJ_CYLINDER)
-			eng_intersc_ray_cylinder(interscs, ray, (t_cylinder *)world.objs[i]);
+			eng_intersc_ray_cylinder(interscs, ray, \
+				(t_cylinder *)world.objs[i]);
 		else if (world.objs[i]->type == OBJ_CONE)
 			eng_intersc_ray_cone(interscs, ray, (t_cone *)world.objs[i]);
 		else
-			rt_assert(0, __FILE__, __LINE__, "eng_intersc_ray: invalid obj type");
-		i++;
+			rt_assert(0, __FILE__, __LINE__, \
+				"eng_intersc_ray: invalid obj type");
 	}
 	eng_sort_intersc(interscs);
 }
