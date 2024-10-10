@@ -47,6 +47,7 @@ SRC_FILES_ENGINE := \
 	ft_engine/world/print_world.c \
 	ft_engine/compute/prepare_computation.c \
 	ft_engine/compute/shading.c \
+	ft_engine/compute/shade_hit.c \
 	ft_engine/compute/render.c \
 	ft_engine/light/light.c \
 	ft_engine/light/spot_light.c \

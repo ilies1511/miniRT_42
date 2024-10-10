@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   matrix_mult.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frapp <frapp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:32:55 by frapp             #+#    #+#             */
-/*   Updated: 2024/10/09 22:32:56 by frapp            ###   ########.fr       */
+/*   Updated: 2024/10/10 14:51:37 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,13 @@ t_tuple	mtx_mult_mt(t_matrix m, t_tuple tup)
 	}
 	return (res);
 }
+
 #else
 // using kahan sum to reduce floating point addition errors
 t_tuple	mtx_mult_mt(t_matrix m, t_tuple tup)
 {
 	t_tuple	res;
-	double	tmp[4] __attribute((aligned(16)));
+	double	tmp[4]	__attribute((aligned(16)));
 	uint8_t	j;
 	uint8_t	i;
 
