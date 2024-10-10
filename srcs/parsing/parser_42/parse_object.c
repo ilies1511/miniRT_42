@@ -42,12 +42,10 @@ void	parse_camera(t_main *m_data, char *line,
 
 	up = norm(new_vec(0, 1, 0));
 	str_to_tuple(++line, &origin, &line, 1.0);
-	parser_inc_mem(mem_points, origin);
 	str_to_tuple(line, &direct, &line, 0.0);
 	to = add_t(origin, norm(direct));
 	if (eq_t(norm(direct), up) || eq_t(norm(direct), norm(new_vec(0, -1, 0))))
 		up = norm(new_vec(0, 0, 1));
-	parser_inc_mem(mem_points, to);
 	skip_whitespace(&line);
 	if (!ft_isdigit(*line) && *line != '-')
 		parser_error("parsing error", __FILE__, __LINE__, 100);
@@ -142,31 +140,4 @@ void	parse_spot_light(t_main *m_data, char *line,
 	look_at = handle_point_collision(mem_points, look_at, PARSER_OFFSET_LIGHT);
 	light = eng_spot_light(color, origin, look_at, 20.0);
 	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr) & light);
-}
-
-void	parse_plane(t_main *m_data, char *line,
-			size_t mem_points[PARSER_MEM_SIZE])
-{
-	t_plane		plane;
-	t_point		p;
-	t_vec		normal;
-	t_vec		rot_axis;
-	double		angle;
-
-	line += 2;
-	plane = eng_new_plane();
-	str_to_tuple(line, &p, &line, 1.0);
-	p = handle_point_collision(mem_points, p, PARSER_OFFSET_PLANE);
-	str_to_tuple(line, &normal, &line, 0.0);
-	normal = norm(normal);
-	str_to_fcolor(line, &plane.base_obj.material.fcolor, &line);
-	if (!eq_t(norm(new_vec(0, 1, 0)), normal))
-	{
-		rot_axis = cross_prod(norm(new_vec(0, 1, 0)), normal);
-		angle = acos(dot_prod(norm(new_vec(0, 1, 0)), normal));
-		eng_set_transform((t_obj_ptr) & plane,
-			mtx_rotation_axis_angle(rot_axis, angle));
-	}
-	eng_set_transform((t_obj_ptr) & plane, mtx_translate(p.x, p.y, p.z));
-	eng_add_obj_to_world(&m_data->engine.world, (t_obj_ptr) & plane);
 }

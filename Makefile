@@ -132,6 +132,7 @@ SRC_FILES_PARSER := \
 	parsing/parser_42/utils2.c \
 	parsing/parser_42/parse_object.c \
 	parsing/parser_42/parse_objects2.c \
+	parsing/parser_42/parse_objects3.c \
 	parsing/parser_42/collision_handlers.c
 
 #BETTER_PARSER := \
