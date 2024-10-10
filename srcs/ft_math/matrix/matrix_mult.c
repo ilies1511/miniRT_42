@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <main.h>
 #include <ft_matrix.h>
 #include <libft.h>
 #include <ft_floats.h>
@@ -48,7 +49,7 @@ t_tuple	mtx_mult_mt(t_matrix m, t_tuple tup)
 	int		j;
 
 	ft_bzero(&res, sizeof(res));
-	ft_assert(m.type == MAT4X4, __FILE__, __LINE__,
+	rt_assert(m.type == MAT4X4, __FILE__, __LINE__,
 		"mult_mt: given matrix is not 4x4");
 	i = 0;
 	while (i < 4)
@@ -99,7 +100,7 @@ t_matrix	mtx_mult_mm(t_matrix ma, t_matrix mb)
 	int			k;
 	double		tmp[4];
 
-	ft_assert(ma.type == MAT4X4 && mb.type == MAT4X4, __FILE__, __LINE__,
+	rt_assert(ma.type == MAT4X4 && mb.type == MAT4X4, __FILE__, __LINE__,
 		"Error: matrix multiplication_mm of wrong matrix type");
 	ret.type = MAT4X4;
 	i = -1;

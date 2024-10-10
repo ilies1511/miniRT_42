@@ -124,6 +124,7 @@ void			main_init(t_main *m_data, int ac, char *av[]);
 t_main			*get_m_data(void);
 
 // init_exit/at_exit.c
+void			rt_assert(bool cond, char *file, int line, char *msg);
 noreturn void	main_cleanup(t_main *m_data, uint8_t exit_stat);
 noreturn void	ft_error(char *msg, char *file,
 					int line, uint8_t exit_stat);

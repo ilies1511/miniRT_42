@@ -43,7 +43,7 @@ void	set_transform(t_obj_ptr obj, t_matrix transform)
 	else if (in->type == OBJ_SPHERE)
 		set_transform_sphere((t_sphere *)obj, transform);
 	else
-		ft_assert(0, __FILE__, __LINE__, "Error: eng_transform: Invalid type");
+		rt_assert(0, __FILE__, __LINE__, "Error: eng_transform: Invalid type");
 
 }
 */

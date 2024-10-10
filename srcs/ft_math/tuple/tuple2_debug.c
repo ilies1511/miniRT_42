@@ -25,9 +25,9 @@ t_tuple	add_t(t_tuple a, t_tuple b)
 	sum.z = a.z + b.z;
 	sum.w = a.w + b.w;
 	if (sum.w - (EPSILON) > 1.0)
-		ft_assert(0, __FILE__, __LINE__, "add_t: w off");
+		rt_assert(0, __FILE__, __LINE__, "add_t: w off");
 	if (sum.w + (EPSILON) < 0.0)
-		ft_assert(0, __FILE__, __LINE__, "add_t: w off");
+		rt_assert(0, __FILE__, __LINE__, "add_t: w off");
 	return (sum);
 }
 
@@ -39,12 +39,12 @@ t_tuple	sub_t(t_tuple a, t_tuple b)
 	dif.y = a.y - b.y;
 	dif.z = a.z - b.z;
 	dif.w = a.w - b.w;
-	ft_assert(greater_eq_f(dif.w, 0.0), __FILE__, __LINE__,
+	rt_assert(greater_eq_f(dif.w, 0.0), __FILE__, __LINE__,
 		"dif of 2 tuples is < 0.0, subtracted a point from a vector?");
 	if (dif.w - (EPSILON) > 1.0)
-		ft_assert(0, __FILE__, __LINE__, "sub_t: w off");
+		rt_assert(0, __FILE__, __LINE__, "sub_t: w off");
 	if (dif.w + (EPSILON) < 0.0)
-		ft_assert(0, __FILE__, __LINE__, "sub_t: w off");
+		rt_assert(0, __FILE__, __LINE__, "sub_t: w off");
 	return (dif);
 }
 
@@ -57,16 +57,16 @@ t_vec	negate_v(t_vec v)
 	t_tuple	dif;
 
 	if (v.w - (EPSILON) > 0.0)
-		ft_assert(0, __FILE__, __LINE__, "w off");
+		rt_assert(0, __FILE__, __LINE__, "w off");
 	if (v.w + (EPSILON) < 0.0)
-		ft_assert(0, __FILE__, __LINE__, "w off");
-	ft_assert(is_vec(v), __FILE__, __LINE__, "negating a none vector");
+		rt_assert(0, __FILE__, __LINE__, "w off");
+	rt_assert(is_vec(v), __FILE__, __LINE__, "negating a none vector");
 	neg.x = -v.x;
 	neg.y = -v.y;
 	neg.z = -v.z;
 	neg.w = v.w;
 	dif = add_t(v, neg);
-	ft_assert(eq_f(dif.x, 0.0) && eq_f(dif.y, 0.0) && eq_f(dif.z, 0.0),
+	rt_assert(eq_f(dif.x, 0.0) && eq_f(dif.y, 0.0) && eq_f(dif.z, 0.0),
 		__FILE__, __LINE__,
 		"negation + base != 0, maybe a zero devison somewhere leading to INF?");
 	return (neg);
@@ -79,16 +79,16 @@ t_vec	mult_v(t_vec v, double scalar)
 {
 	t_vec	prod;
 
-	ft_assert(is_vec(v), __FILE__, __LINE__, "multiplying a none vector");
+	rt_assert(is_vec(v), __FILE__, __LINE__, "multiplying a none vector");
 	prod.x = v.x * scalar;
 	prod.y = v.y * scalar;
 	prod.z = v.z * scalar;
 	prod.w = v.w * scalar;
-	ft_assert(scalar != INFINITY, __FILE__, __LINE__, "multiplied by infinity");
+	rt_assert(scalar != INFINITY, __FILE__, __LINE__, "multiplied by infinity");
 	if (prod.w - (EPSILON) > 0.0)
-		ft_assert(0, __FILE__, __LINE__, "w off");
+		rt_assert(0, __FILE__, __LINE__, "w off");
 	if (prod.w + (EPSILON) < 0.0)
-		ft_assert(0, __FILE__, __LINE__, "w off");
+		rt_assert(0, __FILE__, __LINE__, "w off");
 	return (prod);
 }
 
@@ -99,16 +99,16 @@ t_vec	div_v(t_vec v, double scalar)
 {
 	t_vec	quot;
 
-	ft_assert(!eq_f(scalar, 0.0), __FILE__, __LINE__, "zero devision");
-	ft_assert(is_vec(v), __FILE__, __LINE__, "deviding a none vector");
+	rt_assert(!eq_f(scalar, 0.0), __FILE__, __LINE__, "zero devision");
+	rt_assert(is_vec(v), __FILE__, __LINE__, "deviding a none vector");
 	quot.x = v.x / scalar;
 	quot.y = v.y / scalar;
 	quot.z = v.z / scalar;
 	quot.w = v.w / scalar;
 	if (quot.w - (EPSILON) > 0.0)
-		ft_assert(0, __FILE__, __LINE__, "w off");
+		rt_assert(0, __FILE__, __LINE__, "w off");
 	if (quot.w + (EPSILON) < 0.0)
-		ft_assert(0, __FILE__, __LINE__, "w off");
+		rt_assert(0, __FILE__, __LINE__, "w off");
 	return (quot);
 }
 #endif //n NDBUG
