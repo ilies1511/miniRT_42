@@ -6,7 +6,7 @@
 /*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:36:29 by iziane            #+#    #+#             */
-/*   Updated: 2024/10/09 22:36:31 by iziane           ###   ########.fr       */
+/*   Updated: 2024/10/10 16:12:56 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ t_vec	bump_wave_normal_at(t_bump bump, t_point point, t_vec base_normal)
 	const int		num_waves = 5;
 	t_bump_norm		n;
 
+	(void)bump;
 	init_bumpwave_norm(&n, point);
 	n.i = -1;
 	while (++n.i < num_waves)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   transform.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frapp <frapp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:36:23 by frapp             #+#    #+#             */
-/*   Updated: 2024/10/09 22:36:24 by frapp            ###   ########.fr       */
+/*   Updated: 2024/10/10 16:12:27 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	transform_ray(t_ray *in, t_ray *ret)
 //ret->origin = mtx_mult_mt(in->base_obj.transform, in->origin);
 static void	transform_sphere(t_sphere *in, t_sphere *ret)
 {
+	(void)in;
 	*ret = eng_new_sphere();
 }
 
