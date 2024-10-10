@@ -6,7 +6,7 @@
 /*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:34:09 by iziane            #+#    #+#             */
-/*   Updated: 2024/10/09 23:00:23 by iziane           ###   ########.fr       */
+/*   Updated: 2024/10/10 14:25:06 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_matrix	mtx_translate_izi(t_tuple tuple);
 t_matrix	mtx_scale(double x, double y, double z);
 
 // Matrix Skew aka Shearing
-struct s_skew
+typedef struct s_skew
 {
 	double	xy;
 	double	xz;
@@ -68,7 +68,7 @@ struct s_skew
 	double	yz;
 	double	zx;
 	double	zy;
-};
+}			t_skew;
 t_matrix	mtx_skew(struct s_skew para);
 
 // matrix_rotation.c

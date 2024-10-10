@@ -6,7 +6,7 @@
 /*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:35:49 by iziane            #+#    #+#             */
-/*   Updated: 2024/10/09 22:53:46 by iziane           ###   ########.fr       */
+/*   Updated: 2024/10/10 14:31:37 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,39 +15,49 @@
 #include <ft_scene.h>
 #include <ft_colors.h>
 
+static void	init_sphere1(t_sphere *sph1, t_skew skew)
+{
+	eng_set_transform((t_obj_ptr)sph1, mtx_scale(30, 30, 30));
+	sph1->base_obj.material.pattern = \
+		pat_square3d_pattern(new_fcolor(1, 0, 0, 1), new_fcolor(0, 0, 1, 1));
+	sph1->base_obj.material.reflective = 0;
+	sph1->base_obj.material.transparency = 0.9;
+	sph1->base_obj.material.ambient = 0;
+	eng_set_transform((t_obj_ptr) sph1->base_obj.material.pattern, \
+		mtx_scale(0.07, 0.07, 0.07));
+	eng_set_transform((t_obj_ptr) sph1->base_obj.material.pattern, \
+		mtx_skew(skew));
+}
+
+static void	init_floor(t_plane *floor)
+{
+	floor->base_obj.material.fcolor.r = 0xFF;
+	floor->base_obj.material.fcolor.g = 0x00;
+	floor->base_obj.material.fcolor.b = 0x00;
+	floor->base_obj.material.ambient = 0;
+	floor->base_obj.material = material_silver_and_gold();
+	floor->base_obj.material.bump = bump_wave();
+}
+
 static void	init_world(t_world *world)
 {
-	t_light		light_1;
-	t_light		light_2;
-	t_sphere	sph1;
-	t_plane		floor;
-	const struct s_skew	skew = {.xy=0.03, .xz=0.41, .yx=0.67, .yz=0.123, \
-		.zx=0.31 ,.zy=0.13};
+	t_light				light_1;
+	t_light				light_2;
+	t_sphere			sph1;
+	t_plane				floor;
+	const struct s_skew	skew = {.xy = 0.03, .xz = 0.41, .yx = 0.67, \
+		.yz = 0.123, .zx = 0.31, .zy = 0.13};
 
 	light_1 = eng_point_light(new_fcolor(0, 0.3, 1, 1), new_point(1, 10, -1));
 	light_2 = eng_point_light(new_fcolor(1, 0.3, 0, 1), new_point(-20, 10, 30));
 	sph1 = eng_new_glass_sphere();
 	floor = eng_new_plane();
-	eng_set_transform((t_obj *)&sph1, mtx_scale(30, 30, 30));
-	sph1.base_obj.material.pattern = \
-		pat_square3d_pattern(new_fcolor(1, 0, 0, 1), new_fcolor(0, 0, 1, 1));
-	sph1.base_obj.material.reflective = 0;
-	sph1.base_obj.material.transparency = 0.9;
-	sph1.base_obj.material.ambient = 0;
-	eng_set_transform((t_obj_ptr) sph1.base_obj.material.pattern, \
-		mtx_scale(0.07, 0.07, 0.07));
-	eng_set_transform((t_obj_ptr) sph1.base_obj.material.pattern, \
-		mtx_skew(skew));
-	floor.base_obj.material.fcolor.r = 0xFF;
-	floor.base_obj.material.fcolor.g = 0x00;
-	floor.base_obj.material.fcolor.b = 0x00;
-	floor.base_obj.material.ambient = 0;
-	floor.base_obj.material = material_silver_and_gold();
-	floor.base_obj.material.bump = bump_wave();
-	eng_add_obj_to_world(world, (t_obj *) & light_1);
-	eng_add_obj_to_world(world, (t_obj *) & light_2);
-	eng_add_obj_to_world(world, (t_obj *) & sph1);
-	eng_add_obj_to_world(world, (t_obj *) & floor);
+	init_sphere1(&sph1, skew);
+	init_floor(&floor);
+	eng_add_obj_to_world(world, (t_obj_ptr) & light_1);
+	eng_add_obj_to_world(world, (t_obj_ptr) & light_2);
+	eng_add_obj_to_world(world, (t_obj_ptr) & sph1);
+	eng_add_obj_to_world(world, (t_obj_ptr) & floor);
 }
 
 static void	init_camera(t_main *m_data)
