@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_pattern.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frapp <frapp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:36:18 by frapp             #+#    #+#             */
-/*   Updated: 2024/10/09 22:36:19 by frapp            ###   ########.fr       */
+/*   Updated: 2024/10/10 15:30:25 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ t_pattern	*pat_checker2d_pattern(t_fcolor color1, t_fcolor color2)
 
 	pattern = pat_new_pattern();
 	pattern->type = PAT_CHECKER_2D;
-	gc_dyn_arr_add_save((void **)&pattern->colors, &color1, 0);
-	gc_dyn_arr_add_save((void **)&pattern->colors, &color2, 1);
+	gc_dyn_arr_add_save((void **) & pattern->colors, &color1, 0);
+	gc_dyn_arr_add_save((void **) & pattern->colors, &color2, 1);
 	pattern->color_count = 2;
 	return (pattern);
 }
@@ -43,8 +43,8 @@ t_pattern	*pat_checker3d_pattern(t_fcolor color1, t_fcolor color2)
 
 	pattern = pat_new_pattern();
 	pattern->type = PAT_CHECKER_3D;
-	gc_dyn_arr_add_save((void **)&pattern->colors, &color1, 0);
-	gc_dyn_arr_add_save((void **)&pattern->colors, &color2, 1);
+	gc_dyn_arr_add_save((void **) & pattern->colors, &color1, 0);
+	gc_dyn_arr_add_save((void **) & pattern->colors, &color2, 1);
 	pattern->color_count = 2;
 	return (pattern);
 }

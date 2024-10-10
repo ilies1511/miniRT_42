@@ -6,7 +6,7 @@
 /*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:35:36 by frapp             #+#    #+#             */
-/*   Updated: 2024/10/10 14:53:24 by iziane           ###   ########.fr       */
+/*   Updated: 2024/10/10 15:53:02 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,4 @@ t_sphere	eng_new_sphere(void)
 	sph.base_obj = eng_new_obj();
 	sph.base_obj.type = OBJ_SPHERE;
 	return (sph);
-}
-
-t_plane	eng_new_plane(void)
-{
-	t_plane	plane;
-
-	plane.base_obj = eng_new_obj();
-	plane.base_obj.type = OBJ_PLANE;
-	return (plane);
 }

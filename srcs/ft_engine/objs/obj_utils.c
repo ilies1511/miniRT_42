@@ -6,7 +6,7 @@
 /*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:36:33 by frapp             #+#    #+#             */
-/*   Updated: 2024/10/10 14:56:04 by iziane           ###   ########.fr       */
+/*   Updated: 2024/10/10 15:45:45 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,9 @@ bool	eng_is_shape(t_obj_type type)
 		|| type == OBJ_CYLINDER || type == OBJ_CONE);
 }
 
-t_obj_ptr	eng_alloc_shape(t_obj_type type)
+static t_obj_ptr	do_alloc(t_obj_ptr shape, t_obj_type type, \
+	char buf[ERROR_BUF_LEN])
 {
-	t_obj_ptr	shape;
-	char		buf[ERROR_BUF_LEN];
-
 	shape = NULL;
 	if (type == OBJ_SPHERE)
 		shape = ft_malloc(sizeof(t_sphere));
@@ -38,6 +36,16 @@ t_obj_ptr	eng_alloc_shape(t_obj_type type)
 		ft_fprintf(2, "invlid shape: %s\n", eng_type_to_str(type, buf));
 		ft_error("eng_alloc_shape: invalid shape type", __FILE__, __LINE__, 1);
 	}
+	return (shape);
+}
+
+t_obj_ptr	eng_alloc_shape(t_obj_type type)
+{
+	t_obj_ptr	shape;
+	char		buf[ERROR_BUF_LEN];
+
+	shape = NULL;
+	shape = do_alloc(shape, type, buf);
 	if (!shape)
 		ft_error("Error: malloc failed", __FILE__, __LINE__, 1);
 	if (type == OBJ_SPHERE)
