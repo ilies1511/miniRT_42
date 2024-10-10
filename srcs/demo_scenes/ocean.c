@@ -40,7 +40,6 @@ static void	ocean(t_world *world)
 	eng_add_obj_to_world(world, (t_obj_ptr) & water);
 	eng_add_obj_to_world(world, (t_obj_ptr) & sky);
 	eng_add_obj_to_world(world, (t_obj_ptr) & floor);
-
 }
 
 static void	init_world(t_world *world)
