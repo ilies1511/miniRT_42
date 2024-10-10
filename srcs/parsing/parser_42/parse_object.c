@@ -156,7 +156,6 @@ void	parse_plane(t_main *m_data, char *line,
 	line += 2;
 	plane = eng_new_plane();
 	str_to_tuple(line, &p, &line, 1.0);
-	print_t(1, p);
 	p = handle_point_collision(mem_points, p, PARSER_OFFSET_PLANE);
 	str_to_tuple(line, &normal, &line, 0.0);
 	normal = norm(normal);

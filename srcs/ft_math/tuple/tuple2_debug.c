@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <main.h>
 #include <ft_floats.h>
 #include <ft_tuple.h>
 #include <libft.h>
