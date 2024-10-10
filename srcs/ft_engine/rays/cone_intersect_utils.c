@@ -58,6 +58,7 @@ void	swap_double_co(t_cone_norm *n)
 	n->t0 = n->t1;
 	n->t1 = temp;
 }
+
 /*
 Optional(cap intersects) at very endeng_intersc_ray_cone_caps
 (intersecs, ray, cone);
