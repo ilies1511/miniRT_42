@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <main.h>
 #include <ft_matrix.h>
 #include <libft.h>
 #include <ft_floats.h>
@@ -79,7 +80,7 @@ double	mtx_det(t_matrix m)
 				* (double)m.m[1][0]);
 	else
 	{
-		ft_assert(m.type == MAT4X4 || m.type == MAT3X3, __FILE__, __LINE__,
+		rt_assert(m.type == MAT4X4 || m.type == MAT3X3, __FILE__, __LINE__,
 			"error: mtx_det: invalid matrix type");
 		while (++i < (int)m.type)
 			tmp[i] = m.m[0][i] * mtx_cofactor(m, 0, i);

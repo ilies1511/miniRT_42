@@ -49,7 +49,7 @@ void	eng_add_obj_to_world(t_world *world, t_obj_ptr obj)
 	else
 	{
 		printf("type: %u\n", obj->type);
-		ft_assert(0, __FILE__, __LINE__,
+		rt_assert(0, __FILE__, __LINE__,
 			"assert: add_obj_to_world: unsupported type");
 	}
 }

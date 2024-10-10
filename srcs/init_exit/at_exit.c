@@ -36,6 +36,13 @@ noreturn void	main_cleanup(t_main *m_data, uint8_t exit_stat)
 }
 //system("leaks miniRT");
 
+void	rt_assert(bool cond, char *file, int line, char *msg)
+{
+	if (cond)
+		return ;
+	ft_error(msg, file, line, 1);
+}
+
 noreturn void	ft_error(char *msg, char *file, int line, uint8_t exit_stat)
 {
 	t_main	*m_data;

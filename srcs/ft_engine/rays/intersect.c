@@ -121,7 +121,7 @@ void	eng_ray_intersc_world(t_ray ray, t_world world, t_intersc_arr *interscs)
 		else if (world.objs[i]->type == OBJ_CONE)
 			eng_intersc_ray_cone(interscs, ray, (t_cone *)world.objs[i]);
 		else
-			ft_assert(0, __FILE__, __LINE__, "eng_intersc_ray: invalid obj type");
+			rt_assert(0, __FILE__, __LINE__, "eng_intersc_ray: invalid obj type");
 		i++;
 	}
 	eng_sort_intersc(interscs);
@@ -145,7 +145,7 @@ void	eng_intersc_ray(t_intersc_arr *interscs, t_ray ray, t_obj_ptr obj)
 	else if (obj->type == OBJ_CONE)
 		eng_intersc_ray_cone(interscs, ray, (t_cone *)obj);
 	else
-		ft_assert(0, __FILE__, __LINE__, "eng_intersc_ray: invalid obj type");
+		rt_assert(0, __FILE__, __LINE__, "eng_intersc_ray: invalid obj type");
 }
 
 void	eng_ray_intersc_world(t_ray ray, t_world world, t_intersc_arr *interscs)

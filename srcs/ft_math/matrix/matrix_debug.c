@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <main.h>
 #include <ft_matrix.h>
 #include <libft.h>
 #include <ft_floats.h>
@@ -21,7 +22,7 @@ void	mtx_print(t_fd fd, t_matrix m)
 
 	printf("%dx%dMatrix:\n", (int)m.type, (int)m.type);
 	row = 0;
-	ft_assert(m.type >= MAT2X2 && m.type <= MAT4X4, __FILE__, __LINE__,
+	rt_assert(m.type >= MAT2X2 && m.type <= MAT4X4, __FILE__, __LINE__,
 		"Error: mtx_print: invalid matrix type");
 	while (row < (int)m.type)
 	{

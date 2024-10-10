@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <main.h>
 #include <ft_matrix.h>
 #include <ft_floats.h>
 #include <libft.h>
@@ -22,7 +23,7 @@ t_matrix	mtx_inverse(t_matrix m)
 	int			col;
 	double		det;
 
-	ft_assert(!eq_f(mtx_det(m), 0.0), __FILE__, __LINE__, "Error: matrix\
+	rt_assert(!eq_f(mtx_det(m), 0.0), __FILE__, __LINE__, "Error: matrix\
 			given to mtx_inverse() is not invertable (det == 0)");
 	det = mtx_det(m);
 	row = 0;

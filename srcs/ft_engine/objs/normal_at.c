@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <main.h>
 #include <ft_matrix.h>
 #include <ft_engine.h>
 #include <libft.h>
@@ -29,8 +30,7 @@ static t_vec	normal_at_iterate_types(t_obj_ptr object, \
 		return (compute_normal_cone((t_cone *)object, point_obj_space));
 	else
 	{
-		ft_assert(0, __FILE__, __LINE__, "eng_normal_at: Wrong Input");
-		__builtin_unreachable();
+		ft_error("eng_normal_at: Wrong Input", __FILE__, __LINE__, 1);
 	}
 }
 

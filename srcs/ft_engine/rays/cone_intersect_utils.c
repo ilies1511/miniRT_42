@@ -46,7 +46,7 @@ void	cal_intesects(t_cone_norm *n)
 		n->t1 = n->t0;
 	}
 	else
-		ft_assert(false, __FILE__, __LINE__, \
+		rt_assert(false, __FILE__, __LINE__, \
 			"Impossible Case for Cone Intersection");
 }
 

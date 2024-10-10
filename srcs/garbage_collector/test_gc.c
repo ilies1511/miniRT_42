@@ -16,7 +16,7 @@
 
 // 	digits_test = malloc(sizeof(int) * 10);
 // 	if (!digits_test)
-// 		ft_assert(0, __FILE__, __LINE__, "malloc fail in test");
+// 		rt_assert(0, __FILE__, __LINE__, "malloc fail in test");
 // 	i = -1;
 // 	while (++i < 10)
 // 		digits_test[i] = i;

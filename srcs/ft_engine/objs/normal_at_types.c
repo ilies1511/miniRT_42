@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <main.h>
 #include <ft_matrix.h>
 #include <ft_engine.h>
 #include <libft.h>
@@ -37,7 +38,7 @@ t_vec	compute_normal_cylinder(t_cylinder *cylinder, t_point object_point)
 {
 	double	distance;
 
-	ft_assert(cylinder->base_obj.type == OBJ_CYLINDER, \
+	rt_assert(cylinder->base_obj.type == OBJ_CYLINDER, \
 		__FILE__, __LINE__, "wtf");
 	distance = (object_point.x * object_point.x) + (object_point.z
 			* object_point.z);

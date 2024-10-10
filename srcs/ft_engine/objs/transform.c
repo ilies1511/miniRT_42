@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <main.h>
 #include <libft.h>
 #include <ft_matrix.h>
 #include <ft_engine.h>
@@ -39,5 +40,5 @@ void	eng_transform(t_obj_ptr in, t_obj_ptr ret)
 	else if (in->type == OBJ_SPHERE)
 		transform_sphere((t_sphere *)in, (t_sphere *)ret);
 	else
-		ft_assert(0, __FILE__, __LINE__, "Error: eng_transform: Invalid type");
+		rt_assert(0, __FILE__, __LINE__, "Error: eng_transform: Invalid type");
 }
