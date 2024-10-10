@@ -126,7 +126,6 @@ void	eng_render(t_camera camera, t_world world, t_canvas canvas)
 	size_t		y;
 	size_t		x;
 	t_ray		ray;
-	t_fcolor	color;
 	size_t		iter;
 	t_main		*m_data;
 
@@ -138,8 +137,8 @@ void	eng_render(t_camera camera, t_world world, t_canvas canvas)
 		while (x < camera.width)
 		{
 			ray = eng_ray_for_pixel(camera, x, y);
-			color = eng_color_at(world, ray, REFLECTION_COUNT);
-			iter = eng_put_pixel(canvas, x, y, color);
+			iter = eng_put_pixel(canvas, x, y,
+					eng_color_at(world, ray, REFLECTION_COUNT));
 			x++;
 		}
 		printf("iter %lu: %f%%\n", iter, ((double)y) / canvas.height * 100);
