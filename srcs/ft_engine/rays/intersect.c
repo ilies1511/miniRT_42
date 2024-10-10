@@ -39,10 +39,10 @@ static inline double	kahan_sum_inline(double *nbs, size_t count)
 
 static inline t_tuple	mtx_mult_mt_inline(t_matrix m, t_tuple tup)
 {
-	t_tuple	res;
-	double	tmp[4] __attribute((aligned(16)));
-	uint8_t	j;
-	uint8_t	i;
+	t_tuple									res;
+	uint8_t									j;
+	uint8_t									i;
+	double __attribute__	((aligned(16)))	tmp[4];
 
 	i = 0;
 	while (i < 4)
