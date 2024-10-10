@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frapp <frapp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:31:52 by frapp             #+#    #+#             */
-/*   Updated: 2024/10/09 22:31:53 by frapp            ###   ########.fr       */
+/*   Updated: 2024/10/10 15:08:55 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	main_init(t_main *m_data, int ac, char *av[])
 	m_data->mlx = mlx_init(WIDTH, HEIGHT, "miniRT", true);
 	if (!m_data->mlx)
 	{
-		printf("%s", mlx_strerror(mlx_errno));
 		ft_error("an mlx_init function call failed failed",
 			__FILE__, __LINE__, 1);
 	}
