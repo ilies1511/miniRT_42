@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   metal.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frapp <frapp@student.42.fr>                +#+  +:+       +#+        */
+/*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:31:45 by frapp             #+#    #+#             */
-/*   Updated: 2024/10/09 22:31:46 by frapp            ###   ########.fr       */
+/*   Updated: 2024/10/10 15:09:56 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ t_material	material_silver_and_gold(void)
 	mat.reflective = 0.9;
 	mat.transparency = 0.0;
 	mat.refractive_index = 1.52;
-
 	mat.bump = NULL;
 	return (mat);
 }

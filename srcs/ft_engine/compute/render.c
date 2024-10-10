@@ -6,7 +6,7 @@
 /*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:37:09 by iziane            #+#    #+#             */
-/*   Updated: 2024/10/09 22:37:11 by iziane           ###   ########.fr       */
+/*   Updated: 2024/10/10 15:11:48 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ void	eng_render(t_camera camera, t_world world, t_canvas canvas)
 	t_ray		ray;
 	t_fcolor	color;
 	size_t		iter;
+	t_main		*m_data;
 
 	y = 0;
 	iter = 0;
@@ -144,8 +145,7 @@ void	eng_render(t_camera camera, t_world world, t_canvas canvas)
 		printf("iter %lu: %f%%\n", iter, ((double)y) / canvas.height * 100);
 		y++;
 	}
-	t_main	*m_data = get_m_data();
-
+	m_data = get_m_data();
 	if (m_data->ac > 2)
 		store_as_plain_ppm(m_data, m_data->av[2]);
 }

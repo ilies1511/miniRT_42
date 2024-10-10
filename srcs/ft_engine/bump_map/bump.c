@@ -6,7 +6,7 @@
 /*   By: iziane <iziane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:36:39 by iziane            #+#    #+#             */
-/*   Updated: 2024/10/09 22:36:41 by iziane           ###   ########.fr       */
+/*   Updated: 2024/10/10 15:14:09 by iziane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ t_vec	bump_normal_at(t_obj obj, t_bump bump_map, \
 	obj_point = mtx_mult_mt(obj.inverse, world_point);
 	bump_point = mtx_mult_mt(bump_map.base_obj.inverse, obj_point);
 	if (bump_map.type == BUMP_DEFAULT)
-		return (rt_assert(0, __FILE__, __LINE__, "bump type not specified"), new_vec(0, 0, 0));
+		return (rt_assert(0, __FILE__, __LINE__, "bump type not specified"), \
+			new_vec(0, 0, 0));
 	if (bump_map.type == BUMP_WAVE)
 		return (bump_wave_normal_at(bump_map, bump_point, normal_base));
 	rt_assert(0, __FILE__, __LINE__, "pat_color_at: invalid pattern type");
