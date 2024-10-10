@@ -63,6 +63,7 @@ t_vec	bump_wave_normal_at(t_bump bump, t_point point, t_vec base_normal)
 	const int		num_waves = 5;
 	t_bump_norm		n;
 
+	(void)bump;
 	init_bumpwave_norm(&n, point);
 	n.i = -1;
 	while (++n.i < num_waves)

@@ -25,7 +25,7 @@ static void	parse_line2(t_main *m_data, char *line,
 	else if (*line == 'C')
 	{
 		m_data->camera_type = USER_INPUT;
-		parse_camera(m_data, line, mem_points);
+		parse_camera(m_data, line);
 	}
 	else if (*line == 'S' && line[1] == 'L')
 		parse_spot_light(m_data, line, mem_points);

@@ -60,8 +60,7 @@ typedef struct s_main	t_main;
 
 void			parser(t_main *m_data, char *path);
 
-void			parse_camera(t_main *m_data, char *line,
-					size_t mem_points[PARSER_MEM_SIZE]);
+void			parse_camera(t_main *m_data, char *line);
 void			parse_light(t_main *m_data, char *line,
 					size_t mem_points[PARSER_MEM_SIZE]);
 void			parse_plane(t_main *m_data, char *line,

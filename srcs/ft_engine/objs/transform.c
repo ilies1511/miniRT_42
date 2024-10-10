@@ -30,6 +30,7 @@ static void	transform_ray(t_ray *in, t_ray *ret)
 //ret->origin = mtx_mult_mt(in->base_obj.transform, in->origin);
 static void	transform_sphere(t_sphere *in, t_sphere *ret)
 {
+	(void)in;
 	*ret = eng_new_sphere();
 }
 

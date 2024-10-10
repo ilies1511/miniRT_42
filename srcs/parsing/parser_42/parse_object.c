@@ -31,8 +31,7 @@ void	parse_ambient(t_main *m_data, char *line)
 #ifndef CAMERA_GOOD
 
 //note: up not mentioned in subject so it's fixed to (0, 1, 0)
-void	parse_camera(t_main *m_data, char *line,
-			size_t mem_points[PARSER_MEM_SIZE])
+void	parse_camera(t_main *m_data, char *line)
 {
 	t_point	origin;
 	t_vec	direct;
@@ -63,8 +62,7 @@ void	parse_camera(t_main *m_data, char *line,
 #else
 
 //note: up not mentioned in subject so it's fixed to (0, 1, 0)
-void	parse_camera(t_main *m_data, char *line,
-			size_t mem_points[PARSER_MEM_SIZE])
+void	parse_camera(t_main *m_data, char *line)
 {
 	t_point	origin;
 	t_vec	direct;

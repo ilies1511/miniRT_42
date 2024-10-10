@@ -56,11 +56,9 @@ static void	init_camera(t_main *m_data)
 void	internal_reflection_demo(void *main_data)
 {
 	t_main		*m_data;
-	t_canvas	canvas;
 	t_world		*world;
 
 	m_data = (t_main *)main_data;
-	canvas = m_data->engine.canvas;
 	init_camera(m_data);
 	world = &m_data->engine.world;
 	init_world(world);
