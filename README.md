@@ -1,3 +1,3 @@
 # miniRT
 
-![Single Sphere](./path/to/image.png)
+![Single Sphere](images/converted_files/phong_lighting_onesource.png)
