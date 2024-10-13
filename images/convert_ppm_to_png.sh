@@ -1,36 +1,33 @@
-#!/bin/bash
-mkdir -p images/converted_files
-for file in *.ppm; do
-  convert "$file" "converted_files/${file%.ppm}.png"
-done
-
-
-# Alternative
 # #!/bin/bash
-
-# # Name des Zielordners
-# target_dir="converted_files"
-
-# # Überprüfen, ob der Zielordner existiert
-# if [ ! -d "$target_dir" ]; then
-#   # Ordner erstellen, falls er nicht existiert
-#   mkdir "$target_dir"
-#   echo "Ordner '$target_dir' wurde erstellt."
-# else
-#   echo "Ordner '$target_dir' existiert bereits."
-# fi
-
-# # Loop durch alle .ppm-Dateien und konvertiere sie
-# shopt -s nullglob  # Verhindert, dass die Schleife ausgeführt wird, wenn keine .ppm-Dateien gefunden werden
+# mkdir -p images/converted_files
 # for file in *.ppm; do
-#   # Überprüfen, ob die Datei existiert
-#   if [ -f "$file" ]; then
-#     convert "$file" "$target_dir/${file%.ppm}.png"
-#     echo "Konvertiere $file zu $target_dir/${file%.ppm}.png"
-#   fi
+#   magick "$file" "converted_files/${file%.ppm}.png"
 # done
 
-# # Überprüfen, ob keine .ppm-Dateien gefunden wurden
-# if [ "$(ls *.ppm 2>/dev/null | wc -l)" -eq 0 ]; then
-#   echo "Keine .ppm-Dateien gefunden."
-# fi
+source_dir="images"
+target_dir="converted_files"
+
+# Überprüfen, ob die .ppm-Dateien im aktuellen Verzeichnis vorhanden sind
+shopt -s nullglob
+ppm_files=($source_dir/*.ppm)
+
+# Wenn keine .ppm-Dateien gefunden werden, breche das Skript ab
+if [ ${#ppm_files[@]} -eq 0 ]; then
+  echo "Keine .ppm-Dateien im Ordner $source_dir gefunden."
+  exit 1
+fi
+
+# Zielordner erstellen, falls er nicht existiert
+mkdir -p "$source_dir/$target_dir"
+
+# Schleife zum Konvertieren jeder .ppm-Datei
+for file in $source_dir/*.ppm; do
+  if [ -f "$file" ]; then
+    filename=$(basename "$file")  # Extrahiere den Dateinamen
+    magick "$file" "$source_dir/$target_dir/${filename%.ppm}.png"
+    echo "Konvertiere $file nach $source_dir/$target_dir/${filename%.ppm}.png"
+  fi
+done
+
+echo "Konvertierung abgeschlossen."
+
